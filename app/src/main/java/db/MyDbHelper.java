@@ -11,7 +11,7 @@ public class MyDbHelper extends SQLiteOpenHelper {
     private static final String LOG_TAG = MyDbHelper.class.getSimpleName();
 
     public static final String DB_NAME = "pauli_rot_lite.db";
-    public static final int DB_VERSION = 63;
+    public static final int DB_VERSION = 66;
 
 
     public static final String TABLE_KOLLEGE = "kollege";

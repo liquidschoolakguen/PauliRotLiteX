@@ -91,8 +91,8 @@ public class Filler {
             //Log.i("click", i+" --- "+tempArray[i]);
             if (tempArray[i].replaceAll("[\u0000-\u001f]", "").equals("1")) {
 
-                String vor = tempArray[i + 1].substring(0, tempArray[i + 1].length() - 1);
-                String nach = tempArray[i + 3].substring(0, tempArray[i + 3].length() - 1);
+                String vor = tempArray[i + 1].substring(0, tempArray[i + 1].length());
+                String nach = tempArray[i + 3].substring(0, tempArray[i + 3].length());
                 String gesch = tempArray[i + 7];
                 String gebTa = tempArray[i + 5];
 
