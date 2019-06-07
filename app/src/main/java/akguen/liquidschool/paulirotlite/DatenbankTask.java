@@ -27,6 +27,7 @@ public class DatenbankTask extends AsyncTask<String, Void, String> {
     Statement statement;
     ResultSet resultSet = null;
     String sql;
+    String sqltest;
 
     String dbDaten = "";
     String dbId, dbName, dbpasswort;

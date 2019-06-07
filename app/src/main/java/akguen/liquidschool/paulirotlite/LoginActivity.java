@@ -156,7 +156,7 @@ public class LoginActivity extends AppCompatActivity {
 
     private void goDrawer() {
 
-        mDrawerLayout = findViewById(R.id.drawer_layout);
+        mDrawerLayout = findViewById(R.id.drawer_layout_);
 
         mDrawerLayout.addDrawerListener(
                 new DrawerLayout.DrawerListener() {
