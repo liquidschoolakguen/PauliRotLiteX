@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+xmlns:android="http://schemas.android.com/apk/res/android"
+android:orientation="vertical"
+android:layout_width="match_parent"
+android:layout_height="match_parent">
+
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:focusableInTouchMode="true">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Standort"
+            android:textSize="30dp" />
+
+
+    </LinearLayout>
+
+
+
+<LinearLayout
+    android:orientation="horizontal"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:focusableInTouchMode="true">
+
+    <EditText
+        android:layout_width="0px"
+        android:layout_height="wrap_content"
+        android:hint="@string/dialog_standort_1"
+        android:id="@+id/editText_standort_11"
+        android:layout_weight="1" />
+
+    <EditText
+        android:layout_width="0px"
+        android:layout_height="wrap_content"
+        android:hint="@string/dialog_standort_2"
+        android:id="@+id/editText_standort_22"
+        android:layout_weight="1" />
+
+
+
+
+</LinearLayout>
+
+
+<LinearLayout
+    android:orientation="horizontal"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:focusableInTouchMode="true">
+
+    <EditText
+        android:layout_width="0px"
+        android:layout_height="wrap_content"
+        android:hint="@string/dialog_standort_3"
+        android:id="@+id/editText_standort_33"
+        android:layout_weight="1" />
+
+    <EditText
+        android:layout_width="0px"
+        android:layout_height="wrap_content"
+        android:hint="@string/dialog_standort_4"
+        android:id="@+id/editText_standort_44"
+        android:layout_weight="1" />
+
+
+</LinearLayout>
+
+
+<LinearLayout
+    android:orientation="horizontal"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:focusableInTouchMode="true">
+
+    <EditText
+        android:layout_width="0px"
+        android:layout_height="wrap_content"
+        android:hint="@string/dialog_standort_5"
+        android:id="@+id/editText_standort_55"
+        android:layout_weight="1" />
+
+    <EditText
+        android:layout_width="0px"
+        android:layout_height="wrap_content"
+        android:hint="@string/dialog_standort_6"
+        android:id="@+id/editText_standort_66"
+        android:layout_weight="1" />
+
+
+</LinearLayout>
+
+<LinearLayout
+    android:orientation="horizontal"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:focusableInTouchMode="true">
+
+    <EditText
+        android:layout_width="0px"
+        android:layout_height="wrap_content"
+        android:hint="@string/dialog_standort_7"
+        android:id="@+id/editText_standort_77"
+        android:layout_weight="1" />
+
+
+
+
+</LinearLayout>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<LinearLayout
+    android:orientation="horizontal"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:focusableInTouchMode="true">
+
+    <Button
+        android:layout_width="0px"
+        android:layout_height="wrap_content"
+        android:text="speichern"
+        android:id="@+id/button_add_standort"
+        android:layout_weight="1"/>
+
+</LinearLayout>
+
+
+
+<LinearLayout
+    android:orientation="horizontal"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:focusableInTouchMode="true">
+
+
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="alle speichern"
+        android:id="@+id/button_add_standorts"
+        />
+
+</LinearLayout>
+
+<LinearLayout
+    android:orientation="horizontal"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:focusableInTouchMode="true">
+
+
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="finde Standort"
+        android:id="@+id/button_select_standort"
+        />
+
+</LinearLayout>
+
+
+
+
+<ListView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/listview_standorts"
+    android:layout_gravity="center_horizontal" />
+
+</LinearLayout>

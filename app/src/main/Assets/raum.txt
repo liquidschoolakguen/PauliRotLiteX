@@ -1,0 +1,18 @@
+KR 5a,Haus A--
+KR 5b,Haus A--
+KR 6a,Haus A--
+KR 6b,Haus A--
+KR 7a,Haus A--
+KR 7b,Haus A--
+KR 8a,Haus A--
+KR 8b,Haus A--
+KR 9a,Pavillion--
+KR 9b,Haus B--
+KR 10a,Haus B--
+KR 10b,Haus B--
+Peilungsraum,Haus B--
+Konferenzraum,Haus A--
+Chemieraum,Verwaltung--
+Physikraum,Verwaltung--
+Technikraum,Verwaltung--
+Kunstraum,Verwaltung--

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="akguen.liquidschool.paulirotlite">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/rot"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+
+        <!--
+          <activity android:name="akguen.liquidschool.paulirotlite.LoginActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        -->
+        <activity android:name=".Debug_Main">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".ReadWebpageAsyncTask2" />
+
+        <activity android:name=".LoginActivity" />
+        <activity android:name=".E_SchulerprofilActivity" />
+        <activity android:name="db.Speichern_Kollege" />
+        <activity android:name="db.Speichern_Schueler" />
+        <activity android:name="db.Speichern_Schulverbund" />
+        <activity android:name="db.Speichern_Standort" />
+        <activity android:name="db.Speichern_Adresse" />
+        <activity android:name="db.Speichern_Kontakt" />
+        <activity android:name="db.Speichern_Angehoeriger" />
+        <activity android:name="db.Speichern_Vorfall" />
+        <activity android:name="db.Speichern_Vergehen" />
+        <activity android:name="db.Speichern_SP_Fach" />
+        <activity android:name="db.Speichern_SP_Fragment" />
+        <activity android:name="db.Speichern_Gueltigkeitsbereich" />
+        <activity android:name="db.Speichern_Rhythmuszelle" />
+        <activity android:name="db.Speichern_Raum" />
+        <activity android:name="db.Speichern_Thema" />
+        <activity android:name="db.Speichern_Lerngruppe" />
+        <activity android:name="db.Speichern_Lernform" />
+        <activity android:name="db.Speichern_Schueler_Lerngruppe" />
+        <activity android:name="db.Speichern_Kollege_Standort"/>
+        <activity android:name="db.Speichern_Schueler_Angehoeriger"/>
+
+        <activity android:name=".VergehenActivity" />
+        <activity android:name=".KlasseActivity" />
+        <activity android:name=".KlasseActivityMitCBox" />
+        <activity android:name=".SchuelerVorfaelleTable" />
+        <activity
+            android:name=".PauseActivity"
+            android:label="Ruhe Modus"
+            android:noHistory="true"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme"></activity>
+    </application>
+
+</manifest>
