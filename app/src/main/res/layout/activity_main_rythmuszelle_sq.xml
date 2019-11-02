@@ -30,15 +30,15 @@
         <EditText
             android:layout_width="0px"
             android:layout_height="wrap_content"
-            android:hint="@string/dialog_rhythmuszelle_1"
-            android:id="@+id/editText_rhythmuszelle_11"
+            android:hint="@string/dialog_rythmuszelle_1"
+            android:id="@+id/editText_rythmuszelle_11"
             android:layout_weight="1" />
 
         <EditText
             android:layout_width="0px"
             android:layout_height="wrap_content"
-            android:hint="@string/dialog_rhythmuszelle_2"
-            android:id="@+id/editText_rhythmuszelle_22"
+            android:hint="@string/dialog_rythmuszelle_2"
+            android:id="@+id/editText_rythmuszelle_22"
             android:layout_weight="1" />
 
 
@@ -56,15 +56,15 @@
         <EditText
             android:layout_width="0px"
             android:layout_height="wrap_content"
-            android:hint="@string/dialog_rhythmuszelle_3"
-            android:id="@+id/editText_rhythmuszelle_33"
+            android:hint="@string/dialog_rythmuszelle_3"
+            android:id="@+id/editText_rythmuszelle_33"
             android:layout_weight="1" />
 
         <EditText
             android:layout_width="0px"
             android:layout_height="wrap_content"
-            android:hint="@string/dialog_rhythmuszelle_4"
-            android:id="@+id/editText_rhythmuszelle_44"
+            android:hint="@string/dialog_rythmuszelle_4"
+            android:id="@+id/editText_rythmuszelle_44"
             android:layout_weight="1" />
 
 
@@ -80,8 +80,8 @@
         <EditText
             android:layout_width="0px"
             android:layout_height="wrap_content"
-            android:hint="@string/dialog_rhythmuszelle_5"
-            android:id="@+id/editText_rhythmuszelle_55"
+            android:hint="@string/dialog_rythmuszelle_5"
+            android:id="@+id/editText_rythmuszelle_55"
             android:layout_weight="1" />
 
 
@@ -111,7 +111,7 @@
             android:layout_width="0px"
             android:layout_height="wrap_content"
             android:text="speichern"
-            android:id="@+id/button_add_rhythmuszelle"
+            android:id="@+id/button_add_rythmuszelle"
             android:layout_weight="1"/>
 
     </LinearLayout>
@@ -130,7 +130,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="alle speichern"
-            android:id="@+id/button_add_rhythmuszelles"
+            android:id="@+id/button_add_rythmuszelles"
             />
 
     </LinearLayout>
@@ -147,7 +147,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="finde Rhythmuszelle"
-            android:id="@+id/button_select_rhythmuszelle"
+            android:id="@+id/button_select_rythmuszelle"
             />
 
     </LinearLayout>
@@ -158,7 +158,7 @@
     <ListView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/listview_rhythmuszelles"
+        android:id="@+id/listview_rythmuszelles"
         android:layout_gravity="center_horizontal" />
 
 </LinearLayout>

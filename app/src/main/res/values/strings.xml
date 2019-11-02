@@ -25,10 +25,6 @@
     <string name="dialog_title">Listeneintrag ändern</string>
 
 
-
-
-
-
     <string name="dialog_kollege_1">Vorname</string>
     <string name="dialog_kollege_2">Nachname</string>
     <string name="dialog_kollege_3">Passwort</string>
@@ -94,18 +90,17 @@
     <string name="dialog_sp_fragment_1">Nummer</string>
 
 
-
     <string name="dialog_gueltigkeitsbereich_1">Schuljahr</string>
     <string name="dialog_gueltigkeitsbereich_2">Typ</string>
     <string name="dialog_gueltigkeitsbereich_3">Nummer</string>
     <string name="dialog_gueltigkeitsbereich_4">von (KW)</string>
     <string name="dialog_gueltigkeitsbereich_5">bis (KW)</string>
 
-    <string name="dialog_rhythmuszelle_1">Wochentag</string>
-    <string name="dialog_rhythmuszelle_2">Typ</string>
-    <string name="dialog_rhythmuszelle_3">Nummer</string>
-    <string name="dialog_rhythmuszelle_4">von</string>
-    <string name="dialog_rhythmuszelle_5">bis</string>
+    <string name="dialog_rythmuszelle_1">Wochentag</string>
+    <string name="dialog_rythmuszelle_2">Typ</string>
+    <string name="dialog_rythmuszelle_3">Nummer</string>
+    <string name="dialog_rythmuszelle_4">von</string>
+    <string name="dialog_rythmuszelle_5">bis</string>
 
     <string name="dialog_raum_1">Haus</string>
     <string name="dialog_raum_2">Raum</string>
@@ -117,12 +112,8 @@
     <string name="dialog_lerngruppe_1">Name</string>
 
 
-
     <string name="dialog_lernform_1">Name</string>
     <string name="dialog_lernform_2">Zyklus</string>
-
-
-
 
 
     <string name="dialog_button_positive">Ändern</string>
@@ -139,6 +130,12 @@
     <string name="dialog_sp_fach_3">Raum (id)</string>
     <string name="dialog_sp_fach_4">Gültigkeit (id)</string>
     <string name="dialog_sp_fach_5">Lerngruppe (id)</string>
+    <string name="title_activity_s1__waehle_schueler">S1_WaehleSchueler</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
 
 
 </resources>

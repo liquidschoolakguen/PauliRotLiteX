@@ -192,8 +192,8 @@ public class Debug_Main extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent speichernZeitfenster= new Intent(Debug_Main.this, Speichern_Rhythmuszelle.class);
-                startActivity(speichernZeitfenster);
+                //Intent speichernZeitfenster= new Intent(Debug_Main.this, Speichern_Rhythmuszelle.class);
+               // startActivity(speichernZeitfenster);
 
             }
         });

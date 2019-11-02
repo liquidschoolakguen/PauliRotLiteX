@@ -1,4 +1,5 @@
 package db;
+/*
 
 import android.content.DialogInterface;
 import android.os.Bundle;
@@ -25,15 +26,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 import akguen.liquidschool.paulirotlite.R;
-import model.Rhythmuszelle;
+import model.Rythmuszelle;
 
-public class Speichern_Rhythmuszelle extends AppCompatActivity {
+public class Speichern_Rythmuszelle extends AppCompatActivity {
 
-    public static final String LOG_TAG = Speichern_Rhythmuszelle.class.getSimpleName();
+    public static final String LOG_TAG = Speichern_Rythmuszelle.class.getSimpleName();
 
-    private DataSource_Rhythmuszelle dataSource;
+    private DataSource_Rythmuszelle dataSource;
 
-    private ListView mRhythmuszellesListView;
+    private ListView mRythmuszellesListView;
 
 
 
@@ -44,12 +45,12 @@ public class Speichern_Rhythmuszelle extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main_rhythmuszelle_sq);
+        setContentView(R.layout.activity_main_rythmuszelle_sq);
 
         Log.d(LOG_TAG, "Das Datenquellen-Objekt wird angelegt.");
-        dataSource = new DataSource_Rhythmuszelle(this);
+        dataSource = new DataSource_Rythmuszelle(this);
 
-        initializeRhythmuszellesListView();
+        initializeRythmuszellesListView();
 
         activateAddButton();
         activateFillButton();
@@ -76,13 +77,13 @@ public class Speichern_Rhythmuszelle extends AppCompatActivity {
         dataSource.close();
     }
 
-    private void initializeRhythmuszellesListView() {
-        List<Rhythmuszelle> emptyListForInitialization = new ArrayList<>();
+    private void initializeRythmuszellesListView() {
+        List<Rythmuszelle> emptyListForInitialization = new ArrayList<>();
 
-        mRhythmuszellesListView = (ListView) findViewById(R.id.listview_rhythmuszelles);
+        mRythmuszellesListView = (ListView) findViewById(R.id.listview_rythmuszelles);
 
         // Erstellen des ArrayAdapters für unseren ListView
-        ArrayAdapter<Rhythmuszelle> rhythmuszelleArrayAdapter = new ArrayAdapter<Rhythmuszelle>(
+        ArrayAdapter<Rythmuszelle> rythmuszelleArrayAdapter = new ArrayAdapter<Rythmuszelle>(
                 this,
                 android.R.layout.simple_list_item_multiple_choice,
                 emptyListForInitialization) {
@@ -94,7 +95,7 @@ public class Speichern_Rhythmuszelle extends AppCompatActivity {
                 View view = super.getView(position, convertView, parent);
                 TextView textView = (TextView) view;
 
-                Rhythmuszelle memo = (Rhythmuszelle) mRhythmuszellesListView.getItemAtPosition(position);
+                Rythmuszelle memo = (Rythmuszelle) mRythmuszellesListView.getItemAtPosition(position);
 
                 // Hier prüfen, ob Eintrag abgehakt ist. Falls ja, Text durchstreichen
 //                if (memo.isChecked()) {
@@ -110,43 +111,45 @@ public class Speichern_Rhythmuszelle extends AppCompatActivity {
             }
         };
 
-        mRhythmuszellesListView.setAdapter(rhythmuszelleArrayAdapter);
+        mRythmuszellesListView.setAdapter(rythmuszelleArrayAdapter);
 
-        mRhythmuszellesListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        mRythmuszellesListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
-                Rhythmuszelle rhythmuszelle = (Rhythmuszelle) adapterView.getItemAtPosition(position);
+                Rythmuszelle rythmuszelle = (Rythmuszelle) adapterView.getItemAtPosition(position);
 
                 // Hier den checked-Wert des Memo-Objekts umkehren, bspw. von true auf false
                 // Dann ListView neu zeichnen mit showAllListEntries()
-/*                Rhythmuszelle updatedRhythmuszelle = dataSource.updateRhythmuszelle(rhythmuszelle.getId(), rhythmuszelle.getVorname(), rhythmuszelle.getNachname(), rhythmuszelle.getPasswort(), rhythmuszelle.getKuerzel(), rhythmuszelle.getStatus());
-                Log.d(LOG_TAG, "Checked-Status von Eintrag: " + updatedRhythmuszelle.toString() + " ist: ");
-                showAllListEntries();*/
+*/
+/*                Rythmuszelle updatedRythmuszelle = dataSource.updateRythmuszelle(rythmuszelle.getId(), rythmuszelle.getVorname(), rythmuszelle.getNachname(), rythmuszelle.getPasswort(), rythmuszelle.getKuerzel(), rythmuszelle.getStatus());
+                Log.d(LOG_TAG, "Checked-Status von Eintrag: " + updatedRythmuszelle.toString() + " ist: ");
+                showAllListEntries();*//*
+
             }
         });
 
     }
 
     private void showAllListEntries() {
-        List<Rhythmuszelle> rhythmuszelleList = dataSource.getAllRhythmuszelles();
+        List<Rythmuszelle> rythmuszelleList = dataSource.getAllRythmuszelles();
 
-        ArrayAdapter<Rhythmuszelle> adapter = (ArrayAdapter<Rhythmuszelle>) mRhythmuszellesListView.getAdapter();
+        ArrayAdapter<Rythmuszelle> adapter = (ArrayAdapter<Rythmuszelle>) mRythmuszellesListView.getAdapter();
 
         adapter.clear();
-        adapter.addAll(rhythmuszelleList);
+        adapter.addAll(rythmuszelleList);
         adapter.notifyDataSetChanged();
     }
 
     private void activateAddButton() {
-        Button buttonAddRhythmuszelle = (Button) findViewById(R.id.button_add_rhythmuszelle);
-        final EditText editText1 = (EditText) findViewById(R.id.editText_rhythmuszelle_11);
-        final EditText editText2 = (EditText) findViewById(R.id.editText_rhythmuszelle_22);
-        final EditText editText3 = (EditText) findViewById(R.id.editText_rhythmuszelle_33);
-        final EditText editText4 = (EditText) findViewById(R.id.editText_rhythmuszelle_44);
-        final EditText editText5 = (EditText) findViewById(R.id.editText_rhythmuszelle_55);
+        Button buttonAddRythmuszelle = (Button) findViewById(R.id.button_add_rythmuszelle);
+        final EditText editText1 = (EditText) findViewById(R.id.editText_rythmuszelle_11);
+        final EditText editText2 = (EditText) findViewById(R.id.editText_rythmuszelle_22);
+        final EditText editText3 = (EditText) findViewById(R.id.editText_rythmuszelle_33);
+        final EditText editText4 = (EditText) findViewById(R.id.editText_rythmuszelle_44);
+        final EditText editText5 = (EditText) findViewById(R.id.editText_rythmuszelle_55);
 
 
-        buttonAddRhythmuszelle.setOnClickListener(new View.OnClickListener() {
+        buttonAddRythmuszelle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -157,14 +160,16 @@ public class Speichern_Rhythmuszelle extends AppCompatActivity {
                 String s5 = editText5.getText().toString();
 
 
-   /*             if (TextUtils.isEmpty(s2)) {
+   */
+/*             if (TextUtils.isEmpty(s2)) {
                     editText2.setError(getString(R.string.editText_errorMessage));
                     return;
                 }
                 if (TextUtils.isEmpty(s3)) {
                     editText3.setError(getString(R.string.editText_errorMessage));
                     return;
-                }*/
+                }*//*
+
 
 
                 editText1.setText("");
@@ -174,7 +179,7 @@ public class Speichern_Rhythmuszelle extends AppCompatActivity {
                 editText5.setText("");
 
 
-                dataSource.createRhythmuszelle(s1, s2, s3, s4, s5);
+                dataSource.createRythmuszelle(s1, s2, s3, s4, s5);
 
                 InputMethodManager inputMethodManager;
                 inputMethodManager = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
@@ -190,20 +195,21 @@ public class Speichern_Rhythmuszelle extends AppCompatActivity {
 
 
     private void activateFillButton() {
-        Button buttonFillRhythmuszelle = (Button) findViewById(R.id.button_add_rhythmuszelles);
+        Button buttonFillRythmuszelle = (Button) findViewById(R.id.button_add_rythmuszelles);
 
 
-        buttonFillRhythmuszelle.setOnClickListener(new View.OnClickListener() {
+        buttonFillRythmuszelle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-           /*     Filler f = new Filler();
+           */
+/*     Filler f = new Filler();
                 String[] tempArray;
 
 
                 String delimiter = "--";
 
-                tempArray = f.alleRhythmuszelleString.split(delimiter);
+                tempArray = f.alleRythmuszelleString.split(delimiter);
 
                 for (int i = 0; i < tempArray.length; i++) {
                     //Log.i("click", tempArray[i]);
@@ -252,7 +258,7 @@ public class Speichern_Rhythmuszelle extends AppCompatActivity {
 
 
 
-                    dataSource.createRhythmuszelle(s2, s1, s3, s4, s5);
+                    dataSource.createRythmuszelle(s2, s1, s3, s4, s5);
 
 
 
@@ -271,7 +277,8 @@ public class Speichern_Rhythmuszelle extends AppCompatActivity {
                 showAllListEntries();
 
 
-*/
+*//*
+
 
             }
         });
@@ -281,19 +288,19 @@ public class Speichern_Rhythmuszelle extends AppCompatActivity {
 
 
     private void activateFindButton() {
-        Button buttonFindRhythmuszelle = (Button) findViewById(R.id.button_select_rhythmuszelle);
+        Button buttonFindRythmuszelle = (Button) findViewById(R.id.button_select_rythmuszelle);
 
 
-        buttonFindRhythmuszelle.setOnClickListener(new View.OnClickListener() {
+        buttonFindRythmuszelle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                if( dataSource.getRhythmuszelleById(5)!= null){
+                if( dataSource.getRythmuszelleById(5)!= null){
 
-                    Log.i("click", "Gesuchter Rhythmuszelle: " + dataSource.getRhythmuszelleById(5).toString());
+                    Log.i("click", "Gesuchter Rythmuszelle: " + dataSource.getRythmuszelleById(5).toString());
                 }else{
 
-                    Log.i("click", "Gesuchter Rhythmuszelle mit der id 5 nicht gefunden" );
+                    Log.i("click", "Gesuchter Rythmuszelle mit der id 5 nicht gefunden" );
                 }
 
             }
@@ -305,10 +312,10 @@ public class Speichern_Rhythmuszelle extends AppCompatActivity {
 
 
     private void initializeContextualActionBar() {
-        final ListView rhythmuszellesListView = (ListView) findViewById(R.id.listview_rhythmuszelles);
-        rhythmuszellesListView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE_MODAL);
+        final ListView rythmuszellesListView = (ListView) findViewById(R.id.listview_rythmuszelles);
+        rythmuszellesListView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE_MODAL);
 
-        rhythmuszellesListView.setMultiChoiceModeListener(new AbsListView.MultiChoiceModeListener() {
+        rythmuszellesListView.setMultiChoiceModeListener(new AbsListView.MultiChoiceModeListener() {
 
             int selCount = 0;
 
@@ -352,17 +359,17 @@ public class Speichern_Rhythmuszelle extends AppCompatActivity {
             @Override
             public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
                 boolean returnValue = true;
-                SparseBooleanArray touchedRhythmuszellesPositions = rhythmuszellesListView.getCheckedItemPositions();
+                SparseBooleanArray touchedRythmuszellesPositions = rythmuszellesListView.getCheckedItemPositions();
 
                 switch (item.getItemId()) {
                     case R.id.cab_delete:
-                        for (int i = 0; i < touchedRhythmuszellesPositions.size(); i++) {
-                            boolean isChecked = touchedRhythmuszellesPositions.valueAt(i);
+                        for (int i = 0; i < touchedRythmuszellesPositions.size(); i++) {
+                            boolean isChecked = touchedRythmuszellesPositions.valueAt(i);
                             if (isChecked) {
-                                int postitionInListView = touchedRhythmuszellesPositions.keyAt(i);
-                                Rhythmuszelle rhythmuszelle = (Rhythmuszelle) rhythmuszellesListView.getItemAtPosition(postitionInListView);
-                                Log.d(LOG_TAG, "Position im ListView: " + postitionInListView + " Inhalt: " + rhythmuszelle.toString());
-                                dataSource.deleteRhythmuszelle(rhythmuszelle);
+                                int postitionInListView = touchedRythmuszellesPositions.keyAt(i);
+                                Rythmuszelle rythmuszelle = (Rythmuszelle) rythmuszellesListView.getItemAtPosition(postitionInListView);
+                                Log.d(LOG_TAG, "Position im ListView: " + postitionInListView + " Inhalt: " + rythmuszelle.toString());
+                                dataSource.deleteRythmuszelle(rythmuszelle);
                             }
                         }
                         showAllListEntries();
@@ -371,15 +378,15 @@ public class Speichern_Rhythmuszelle extends AppCompatActivity {
 
                     case R.id.cab_change:
                         Log.d(LOG_TAG, "Eintrag ändern");
-                        for (int i = 0; i < touchedRhythmuszellesPositions.size(); i++) {
-                            boolean isChecked = touchedRhythmuszellesPositions.valueAt(i);
+                        for (int i = 0; i < touchedRythmuszellesPositions.size(); i++) {
+                            boolean isChecked = touchedRythmuszellesPositions.valueAt(i);
                             if (isChecked) {
-                                int postitionInListView = touchedRhythmuszellesPositions.keyAt(i);
-                                Rhythmuszelle rhythmuszelle = (Rhythmuszelle) rhythmuszellesListView.getItemAtPosition(postitionInListView);
-                                Log.d(LOG_TAG, "Position im ListView: " + postitionInListView + " Inhalt: " + rhythmuszelle.toString());
+                                int postitionInListView = touchedRythmuszellesPositions.keyAt(i);
+                                Rythmuszelle rythmuszelle = (Rythmuszelle) rythmuszellesListView.getItemAtPosition(postitionInListView);
+                                Log.d(LOG_TAG, "Position im ListView: " + postitionInListView + " Inhalt: " + rythmuszelle.toString());
 
-                                AlertDialog editRhythmuszelleDialog = createEditRhythmuszelleDialog(rhythmuszelle);
-                                editRhythmuszelleDialog.show();
+                                AlertDialog editRythmuszelleDialog = createEditRythmuszelleDialog(rythmuszelle);
+                                editRythmuszelleDialog.show();
                             }
                         }
 
@@ -403,26 +410,26 @@ public class Speichern_Rhythmuszelle extends AppCompatActivity {
 
     }
 
-    private AlertDialog createEditRhythmuszelleDialog(final Rhythmuszelle rhythmuszelle) {
+    private AlertDialog createEditRythmuszelleDialog(final Rythmuszelle rythmuszelle) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         LayoutInflater inflater = getLayoutInflater();
 
-        View dialogsView = inflater.inflate(R.layout.dialog_edit_rhythmuszelle_sq, null);
+        View dialogsView = inflater.inflate(R.layout.dialog_edit_rythmuszelle_sq, null);
 
-        final EditText editText1 = (EditText) dialogsView.findViewById(R.id.editText_rhythmuszelle_1);
-        editText1.setText(rhythmuszelle.getWochentag());
+        final EditText editText1 = (EditText) dialogsView.findViewById(R.id.editText_rythmuszelle_1);
+        editText1.setText(rythmuszelle.getWochentag());
 
-        final EditText editText2 = (EditText) dialogsView.findViewById(R.id.editText_rhythmuszelle_2);
-        editText2.setText(rhythmuszelle.getTyp());
+        final EditText editText2 = (EditText) dialogsView.findViewById(R.id.editText_rythmuszelle_2);
+        editText2.setText(rythmuszelle.getTyp());
 
-        final EditText editText3 = (EditText) dialogsView.findViewById(R.id.editText_rhythmuszelle_3);
-        editText3.setText(String.valueOf(rhythmuszelle.getNummer()));
+        final EditText editText3 = (EditText) dialogsView.findViewById(R.id.editText_rythmuszelle_3);
+        editText3.setText(String.valueOf(rythmuszelle.getNummer()));
 
-        final EditText editText4 = (EditText) dialogsView.findViewById(R.id.editText_rhythmuszelle_4);
-        editText4.setText(rhythmuszelle.getVon());
+        final EditText editText4 = (EditText) dialogsView.findViewById(R.id.editText_rythmuszelle_4);
+        editText4.setText(rythmuszelle.getVon());
 
-        final EditText editText5 = (EditText) dialogsView.findViewById(R.id.editText_rhythmuszelle_5);
-        editText5.setText(rhythmuszelle.getBis());
+        final EditText editText5 = (EditText) dialogsView.findViewById(R.id.editText_rythmuszelle_5);
+        editText5.setText(rythmuszelle.getBis());
 
 
         builder.setView(dialogsView)
@@ -436,17 +443,19 @@ public class Speichern_Rhythmuszelle extends AppCompatActivity {
                         String s4 = editText4.getText().toString();
                         String s5 = editText5.getText().toString();
 
+*/
 /*                        if ((TextUtils.isEmpty(s1)) || (TextUtils.isEmpty(s2)) || (TextUtils.isEmpty(s3)) || (TextUtils.isEmpty(s4)) || (TextUtils.isEmpty(s5))) {
                             Log.d(LOG_TAG, "Ein Eintrag enthielt keinen Text. Daher Abbruch der Änderung.");
                             return;
-                        }*/
+                        }*//*
+
 
 
                         // An dieser Stelle schreiben wir die geänderten Daten in die SQLite Datenbank
-                        Rhythmuszelle updatedRhythmuszelle = dataSource.updateRhythmuszelle(rhythmuszelle.getId(), s1, s2, s3, s4, s5);
+                        Rythmuszelle updatedRythmuszelle = dataSource.updateRythmuszelle(rythmuszelle.getId(), s1, s2, s3, s4, s5);
 
-                        Log.d(LOG_TAG, "Alter Eintrag - ID: " + rhythmuszelle.getId() + " Inhalt: " + rhythmuszelle.toString());
-                        Log.d(LOG_TAG, "Neuer Eintrag - ID: " + updatedRhythmuszelle.getId() + " Inhalt: " + updatedRhythmuszelle.toString());
+                        Log.d(LOG_TAG, "Alter Eintrag - ID: " + rythmuszelle.getId() + " Inhalt: " + rythmuszelle.toString());
+                        Log.d(LOG_TAG, "Neuer Eintrag - ID: " + updatedRythmuszelle.getId() + " Inhalt: " + updatedRythmuszelle.toString());
 
                         showAllListEntries();
                         dialog.dismiss();
@@ -460,4 +469,4 @@ public class Speichern_Rhythmuszelle extends AppCompatActivity {
 
         return builder.create();
     }
-}
+}*/

@@ -340,25 +340,25 @@ public class MyDbHelper extends SQLiteOpenHelper {
 
     //------------------------------------------------------------------------------------------
 
-    public static final String TABLE_RHYTHMUSZELLE = "rhythmuszelle";
+    public static final String TABLE_RYTHMUSZELLE = "rhythmuszelle";
 
-    public static final String RHYTHMUSZELLE_COLUMN_ID = "_id";
-    public static final String RHYTHMUSZELLE_COLUMN_WOCHENTAG = "wochentag";
-    public static final String RHYTHMUSZELLE_COLUMN_TYP = "typ";
-    public static final String RHYTHMUSZELLE_COLUMN_NUMMER = "nummer";
-    public static final String RHYTHMUSZELLE_COLUMN_VON = "von";
-    public static final String RHYTHMUSZELLE_COLUMN_BIS = "bis";
+    public static final String RYTHMUSZELLE_COLUMN_ID = "_id";
+    public static final String RYTHMUSZELLE_COLUMN_WOCHENTAG = "wochentag";
+    public static final String RYTHMUSZELLE_COLUMN_TYP = "typ";
+    public static final String RYTHMUSZELLE_COLUMN_NUMMER = "nummer";
+    public static final String RYTHMUSZELLE_COLUMN_VON = "von";
+    public static final String RYTHMUSZELLE_COLUMN_BIS = "bis";
 
 
-    public static final String SQL_CREATE_RHYTHMUSZELLE =
-            "CREATE TABLE " + TABLE_RHYTHMUSZELLE +
-                    "(" + RHYTHMUSZELLE_COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+    public static final String SQL_CREATE_RYTHMUSZELLE =
+            "CREATE TABLE " + TABLE_RYTHMUSZELLE +
+                    "(" + RYTHMUSZELLE_COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
 
-                    RHYTHMUSZELLE_COLUMN_WOCHENTAG + " TEXT, " +
-                    RHYTHMUSZELLE_COLUMN_TYP + "  TEXT, " +
-                    RHYTHMUSZELLE_COLUMN_NUMMER + " TEXT, " +
-                    RHYTHMUSZELLE_COLUMN_VON + " TEXT, " +
-                    RHYTHMUSZELLE_COLUMN_BIS + " TEXT);";
+                    RYTHMUSZELLE_COLUMN_WOCHENTAG + " TEXT, " +
+                    RYTHMUSZELLE_COLUMN_TYP + "  TEXT, " +
+                    RYTHMUSZELLE_COLUMN_NUMMER + " TEXT, " +
+                    RYTHMUSZELLE_COLUMN_VON + " TEXT, " +
+                    RYTHMUSZELLE_COLUMN_BIS + " TEXT);";
 
 
 
@@ -470,7 +470,7 @@ public class MyDbHelper extends SQLiteOpenHelper {
     public static final String SQL_DROP_LERNGRUPPE = "DROP TABLE IF EXISTS " + TABLE_LERNGRUPPE;
     public static final String SQL_DROP_SP_FACH = "DROP TABLE IF EXISTS " + TABLE_SP_FACH;
     public static final String SQL_DROP_SP_FRAGMENT = "DROP TABLE IF EXISTS " + TABLE_SP_FRAGMENT;
-    public static final String SQL_DROP_RHYTHMUSZELLE = "DROP TABLE IF EXISTS " + TABLE_RHYTHMUSZELLE;
+    public static final String SQL_DROP_RYTHMUSZELLE = "DROP TABLE IF EXISTS " + TABLE_RYTHMUSZELLE;
 
     public static final String SQL_DROP_LERNFORM = "DROP TABLE IF EXISTS " + TABLE_LERNFORM;
 
@@ -539,8 +539,8 @@ public class MyDbHelper extends SQLiteOpenHelper {
             Log.d(LOG_TAG, "Die Tabelle wird mit SQL-Befehl: " + SQL_CREATE_SP_FRAGMENT + " angelegt.");
             db.execSQL(SQL_CREATE_SP_FRAGMENT);
 
-            Log.d(LOG_TAG, "Die Tabelle wird mit SQL-Befehl: " + SQL_CREATE_RHYTHMUSZELLE + " angelegt.");
-            db.execSQL(SQL_CREATE_RHYTHMUSZELLE);
+            Log.d(LOG_TAG, "Die Tabelle wird mit SQL-Befehl: " + SQL_CREATE_RYTHMUSZELLE + " angelegt.");
+            db.execSQL(SQL_CREATE_RYTHMUSZELLE);
 
             Log.d(LOG_TAG, "Die Tabelle wird mit SQL-Befehl: " + SQL_CREATE_LERNFORM + " angelegt.");
             db.execSQL(SQL_CREATE_LERNFORM);
@@ -576,7 +576,7 @@ public class MyDbHelper extends SQLiteOpenHelper {
         db.execSQL(SQL_DROP_SP_FACH);
         db.execSQL(SQL_DROP_SP_FRAGMENT);
         db.execSQL(SQL_DROP_GUELTIGKEITSBEREICH);
-        db.execSQL(SQL_DROP_RHYTHMUSZELLE);
+        db.execSQL(SQL_DROP_RYTHMUSZELLE);
         db.execSQL(SQL_DROP_RAUM);
         db.execSQL(SQL_DROP_THEMA);
         db.execSQL(SQL_DROP_LERNGRUPPE);

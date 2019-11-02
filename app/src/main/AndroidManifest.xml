@@ -13,7 +13,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
+        <activity
+            android:name=".S1_WaehleSchueler"
+            android:label="@string/title_activity_s1__waehle_schueler"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
         <!--
           <activity android:name="akguen.liquidschool.paulirotlite.LoginActivity">
             <intent-filter>
@@ -30,9 +33,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity android:name=".ReadWebpageAsyncTask2" />
-
         <activity android:name=".LoginActivity" />
         <activity android:name=".E_SchulerprofilActivity" />
         <activity android:name="db.Speichern_Kollege" />
@@ -53,9 +54,8 @@
         <activity android:name="db.Speichern_Lerngruppe" />
         <activity android:name="db.Speichern_Lernform" />
         <activity android:name="db.Speichern_Schueler_Lerngruppe" />
-        <activity android:name="db.Speichern_Kollege_Standort"/>
-        <activity android:name="db.Speichern_Schueler_Angehoeriger"/>
-
+        <activity android:name="db.Speichern_Kollege_Standort" />
+        <activity android:name="db.Speichern_Schueler_Angehoeriger" />
         <activity android:name=".VergehenActivity" />
         <activity android:name=".KlasseActivity" />
         <activity android:name=".KlasseActivityMitCBox" />
@@ -65,7 +65,7 @@
             android:label="Ruhe Modus"
             android:noHistory="true"
             android:parentActivityName=".MainActivity"
-            android:theme="@style/AppTheme"></activity>
+            android:theme="@style/AppTheme" />
     </application>
 
 </manifest>

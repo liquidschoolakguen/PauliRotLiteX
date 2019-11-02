@@ -3,7 +3,7 @@ package model;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class Rythmuszelle {
+/*public class Rythmuszelle {
 
     int id;
     private String name;
@@ -69,4 +69,4 @@ public class Rythmuszelle {
     }
 
 
-}
+}*/
