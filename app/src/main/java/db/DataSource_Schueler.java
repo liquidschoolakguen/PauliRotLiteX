@@ -121,6 +121,24 @@ public class DataSource_Schueler {
 
 
     }
+
+    public Schueler getSchuelerByVorname(String vorname){
+
+
+        Cursor cursor = database.query(MyDbHelper.TABLE_SCHUELER,
+                columns, MyDbHelper.SCHUELER_COLUMN_VORNAME + "='" + vorname + "'",
+                null, null, null, null);
+
+        cursor.moveToFirst();
+        Schueler schueler = cursorToSchueler(cursor);
+        cursor.close();
+
+        return schueler;
+
+
+    }
+
+
     private Schueler cursorToSchueler(Cursor cursor) {
 
 

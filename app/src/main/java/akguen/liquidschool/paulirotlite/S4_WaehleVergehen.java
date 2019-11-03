@@ -22,34 +22,38 @@ import android.widget.TextView;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
 
-import db.DataSource_Schueler_Lerngruppe;
-import db.Speichern_Schueler;
-import model.Schueler;
 
-public class S1_WaehleSchueler extends AppCompatActivity
+import db.DataSource_Vergehen;
+
+import model.Vergehen;
+
+public class S4_WaehleVergehen extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
 
-    private DataSource_Schueler_Lerngruppe dS_L_S;
-    private ListView mSchuelersListView;
-
-    SharedPreferences sharedpreferences;
-    public static final String MyPREFERENCES = "MyPrefs" ;
+    private DataSource_Vergehen dS_Vergehen;
+    private ListView mVergehensListView;
 
 
-    int idd;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.my_navigation);
+        setContentView(R.layout.my_navigation2);
+        dS_Vergehen = new DataSource_Vergehen(this);
+
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+
+
         setSupportActionBar(toolbar);
 
 
@@ -63,48 +67,8 @@ public class S1_WaehleSchueler extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
 
 
-        dS_L_S = new DataSource_Schueler_Lerngruppe(this);
 
-
-        SharedPreferences prefs = getPreferences(MODE_PRIVATE);
-        String lastDay = prefs.getString("lastDay", null);
-
-
-        if (lastDay != null) {
-
-
-        } else {
-
-            Date date = Calendar.getInstance().getTime();
-            DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd");
-            String strDate = dateFormat.format(date);
-            System.out.println(date);
-            System.out.println("Converted String: " + strDate);
-
-            try {
-                Date date2 = new SimpleDateFormat("yyyy-mm-dd").parse(strDate);
-                System.out.println(date2);
-            } catch (ParseException e) {
-                e.printStackTrace();
-            }
-
-        }
-
-        sharedpreferences = getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
-        String restoredText = sharedpreferences.getString("selectedLerngruppeId", null);
-        if (restoredText != null) {
-
-            initializeSchuelersListView();
-
-
-
-        } else {
-
-            Intent speichernS1 = new Intent(S1_WaehleSchueler.this, S3_ErstelleLerngruppe.class);
-            startActivity(speichernS1);
-            finish();
-
-        }
+        initializeVergehensListView();
 
 
     }
@@ -167,13 +131,13 @@ public class S1_WaehleSchueler extends AppCompatActivity
     }
 
 
-    private void initializeSchuelersListView() {
-        List<Schueler> emptyListForInitialization = new ArrayList<>();
+    private void initializeVergehensListView() {
+        List<Vergehen> emptyListForInitialization = new ArrayList<>();
 
-        mSchuelersListView = (ListView) findViewById(R.id.s1_listview_schuelers);
+        mVergehensListView = (ListView) findViewById(R.id.s4_listview_vergehens);
 
         // Erstellen des ArrayAdapters für unseren ListView
-        ArrayAdapter<Schueler> schuelerArrayAdapter = new ArrayAdapter<Schueler>(
+        ArrayAdapter<Vergehen> vergehenArrayAdapter = new ArrayAdapter<Vergehen>(
                 this,
                 android.R.layout.simple_list_item_multiple_choice,
                 emptyListForInitialization) {
@@ -185,7 +149,7 @@ public class S1_WaehleSchueler extends AppCompatActivity
                 View view = super.getView(position, convertView, parent);
                 TextView textView = (TextView) view;
 
-                Schueler memo = (Schueler) mSchuelersListView.getItemAtPosition(position);
+                Vergehen memo = (Vergehen) mVergehensListView.getItemAtPosition(position);
 
                 // Hier prüfen, ob Eintrag abgehakt ist. Falls ja, Text durchstreichen
 //                if (memo.isChecked()) {
@@ -201,19 +165,16 @@ public class S1_WaehleSchueler extends AppCompatActivity
             }
         };
 
-        mSchuelersListView.setAdapter(schuelerArrayAdapter);
+        mVergehensListView.setAdapter(vergehenArrayAdapter);
 
-        mSchuelersListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        mVergehensListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
-                Schueler schueler = (Schueler) adapterView.getItemAtPosition(position);
+                Vergehen schueler = (Vergehen) adapterView.getItemAtPosition(position);
 
-                Intent intent = new Intent(S1_WaehleSchueler.this, S4_WaehleVergehen.class);
-                intent.putExtra("id", schueler.getId());
-                intent.putExtra("vorname", schueler.getVorname());
-                intent.putExtra("nachname", schueler.getNachname());
-                intent.putExtra("geschlecht", schueler.getGeschlecht());
-                intent.putExtra("geburtstag", schueler.getGeburtstag());
+                Intent intent = new Intent(S4_WaehleVergehen.this, E_FullScreenActivity.class);
+                //intent.putExtra("id", schueler.getId());
+
 
 
                 startActivity(intent);
@@ -224,17 +185,21 @@ public class S1_WaehleSchueler extends AppCompatActivity
 
 
     private void showAllListEntries() {
-        sharedpreferences = getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
-        String restoredText = sharedpreferences.getString("selectedLerngruppeId", null);
 
-        idd = Integer.parseInt(restoredText);
+        List<Vergehen> vergehenList = dS_Vergehen.getAllVergehens();
+        Collections.sort(vergehenList, new Comparator() {
+            @Override
+            public int compare(Object o1, Object o2) {
+                Vergehen p1 = (Vergehen) o1;
+                Vergehen p2 = (Vergehen) o2;
+                return p1.getKategorie().compareToIgnoreCase(p2.getKategorie());
+            }
+        });
 
-        List<Schueler> schuelerList = dS_L_S.getSchuelersFromLerngruppeById(idd);
-
-        ArrayAdapter<Schueler> adapter = (ArrayAdapter<Schueler>) mSchuelersListView.getAdapter();
+        ArrayAdapter<Vergehen> adapter = (ArrayAdapter<Vergehen>) mVergehensListView.getAdapter();
 
         adapter.clear();
-        adapter.addAll(schuelerList);
+        adapter.addAll(vergehenList);
         adapter.notifyDataSetChanged();
     }
 
@@ -244,16 +209,16 @@ public class S1_WaehleSchueler extends AppCompatActivity
         super.onResume();
 
 
-        dS_L_S.open();
-
+        dS_Vergehen.open();
         showAllListEntries();
+
     }
 
     @Override
     protected void onPause() {
         super.onPause();
 
-        dS_L_S.close();
+        dS_Vergehen.close();
 
 
     }

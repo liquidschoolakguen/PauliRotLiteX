@@ -17,6 +17,14 @@
             android:name=".S1_WaehleSchueler"
             android:label="@string/title_activity_s1__waehle_schueler"
             android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".S2_WaehleFehlverhalten"
+            android:label="@string/title_activity_s1__waehle_fehlverhalten"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".S4_WaehleVergehen"
+            android:label="@string/title_activity_s1__waehle_fehlverhalten"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
         <!--
           <activity android:name="akguen.liquidschool.paulirotlite.LoginActivity">
             <intent-filter>
@@ -33,6 +41,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".S3_ErstelleLerngruppe" />
         <activity android:name=".ReadWebpageAsyncTask2" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".E_SchulerprofilActivity" />
@@ -48,7 +57,6 @@
         <activity android:name="db.Speichern_SP_Fach" />
         <activity android:name="db.Speichern_SP_Fragment" />
         <activity android:name="db.Speichern_Gueltigkeitsbereich" />
-        <activity android:name="db.Speichern_Rhythmuszelle" />
         <activity android:name="db.Speichern_Raum" />
         <activity android:name="db.Speichern_Thema" />
         <activity android:name="db.Speichern_Lerngruppe" />

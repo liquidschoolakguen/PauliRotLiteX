@@ -22,6 +22,8 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 import akguen.liquidschool.paulirotlite.R;
@@ -129,7 +131,14 @@ public class Speichern_Vergehen extends AppCompatActivity {
 
     private void showAllListEntries() {
         List<Vergehen> vergehenList = dataSource.getAllVergehens();
-
+        Collections.sort(vergehenList, new Comparator() {
+            @Override
+            public int compare(Object o1, Object o2) {
+                Vergehen p1 = (Vergehen) o1;
+                Vergehen p2 = (Vergehen) o2;
+                return p1.getKategorie().compareToIgnoreCase(p2.getKategorie());
+            }
+        });
         ArrayAdapter<Vergehen> adapter = (ArrayAdapter<Vergehen>) mVergehensListView.getAdapter();
 
         adapter.clear();
@@ -197,70 +206,11 @@ public class Speichern_Vergehen extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-           /*     Filler f = new Filler();
-                String[] tempArray;
+                Filler f = new Filler();
+
+                f.fillVergehen(getBaseContext());
 
 
-                String delimiter = "--";
-
-                tempArray = f.alleVergehenString.split(delimiter);
-
-                for (int i = 0; i < tempArray.length; i++) {
-                    //Log.i("click", tempArray[i]);
-
-                    String s1 = null;
-                    String s2 = null;
-                    String s3 = null;
-                    String s4 = null;
-                    String s5 = null;
-
-
-                    String[] tempTempArray;
-                    String deDelimiter = ",";
-
-                    tempTempArray = tempArray[i].split(deDelimiter);
-
-
-
-                    for (int ii = 0; ii < tempTempArray.length; ii++) {
-
-                        String newString = tempTempArray[ii].replaceAll("[\u0000-\u001f]", "");
-
-                        if (ii == 0) {
-                            Log.i("click", "s1: " + newString);
-                            s1 = newString;
-                        }
-                        if (ii == 1) {
-                            Log.i("click", "s2: " + newString);
-                            s2 = newString;
-                        }
-                        if (ii == 2) {
-                            Log.i("click", "s3: " + newString);
-                            s3 = newString;
-                        }
-                        if (ii == 4) {
-                            Log.i("click", "s4: " + newString);
-
-                            s4 = newString;
-                        }
-
-
-                    }
-
-                    Log.i("click", "----------------------------------");
-
-
-
-
-                    dataSource.createVergehen(s2, s1, s3, s4, s5);
-
-
-
-
-
-
-
-                }
 
                 InputMethodManager inputMethodManager;
                 inputMethodManager = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
@@ -269,10 +219,6 @@ public class Speichern_Vergehen extends AppCompatActivity {
                 }
 
                 showAllListEntries();
-
-
-*/
-
             }
         });
 

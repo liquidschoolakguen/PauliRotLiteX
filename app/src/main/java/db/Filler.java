@@ -368,4 +368,86 @@ public class Filler {
 
 
     }
+
+
+
+
+    public void fillVergehen(Context c) {
+        DataSource_Vergehen d = new DataSource_Vergehen(c);
+        d.open();
+
+        String nnn;
+        String[] tempArray;
+
+        InputStream is = null;
+        AssetManager am = c.getAssets();
+        try {
+            is = am.open("vergehen.txt");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        java.util.Scanner s = new java.util.Scanner(is).useDelimiter("\\A");
+
+        if (s.hasNext()) {
+            nnn = s.next();
+        } else {
+            nnn = "";
+        }
+
+
+        String delimiter = "--";
+
+        tempArray = nnn.split(delimiter);
+
+        for (int i = 0; i < tempArray.length; i++) {
+            //Log.i("click", tempArray[i]);
+
+            String s1 = null;
+            String s2 = null;
+            String s3 = null;
+            String s4 = null;
+            String s5 = null;
+
+
+            String[] tempTempArray;
+            String deDelimiter = ",";
+
+            tempTempArray = tempArray[i].split(deDelimiter);
+
+
+            for (int ii = 0; ii < tempTempArray.length; ii++) {
+
+                String newString = tempTempArray[ii].replaceAll("[\u0000-\u001f]", "");
+
+                if (ii == 0) {
+                    Log.i("click", "s1: " + newString);
+                    s1 = newString;
+                }
+                if (ii == 1) {
+                    Log.i("click", "s2: " + newString);
+                    s2 = newString;
+                }
+                if (ii == 2) {
+                    Log.i("click", "s3: " + newString);
+                    s3 = newString;
+                }
+
+
+
+            }
+
+            Log.i("click", "----------------------------------");
+
+
+            d.createVergehen(s1, null, s3, s2);
+
+
+        }
+
+        d.close();
+    }
+
+
+
 }

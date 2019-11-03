@@ -172,12 +172,7 @@
             android:focusableInTouchMode="true"
             android:orientation="horizontal">
 
-            <Button
-                android:id="@+id/bntN"
-                android:layout_width="0px"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="StuPlaZelle" android:textSize="10sp"/>
+
 
             <Button
                 android:id="@+id/bntO"
@@ -192,6 +187,14 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Thema" android:textSize="10sp"/>
+
+            <Button
+                android:id="@+id/bntQ"
+                android:layout_width="0px"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Lerngruppe" android:textSize="10sp"/>
+
         </LinearLayout>
 
         <LinearLayout
@@ -200,12 +203,7 @@
             android:focusableInTouchMode="true"
             android:orientation="horizontal">
 
-            <Button
-                android:id="@+id/bntQ"
-                android:layout_width="0px"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Lerngruppe" android:textSize="10sp"/>
+
 
             <Button
                 android:id="@+id/bntR"
@@ -220,13 +218,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Schüler_Lerng" android:textSize="10sp"/>
-        </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:focusableInTouchMode="true"
-            android:orientation="horizontal">
 
             <Button
                 android:id="@+id/bntT"
@@ -235,6 +227,17 @@
                 android:layout_weight="1"
                 android:textSize="10sp"
                 android:text="Koll_Stand" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:focusableInTouchMode="true"
+            android:orientation="horizontal">
+
+
 
             <Button
                 android:id="@+id/bntU"
@@ -250,9 +253,14 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:textSize="10sp"
-                android:text=""/>
+                android:text="S2 Fehlverhalten"/>
 
-
+            <Button
+                android:id="@+id/bntN"
+                android:layout_width="0px"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="S1 W Schüler" android:textSize="10sp"/>
         </LinearLayout>
 
 

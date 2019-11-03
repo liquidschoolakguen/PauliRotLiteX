@@ -115,13 +115,30 @@ public class DataSource_Lerngruppe {
 
 
     }
+
+    public Lerngruppe getLerngruppeByName(String name){
+
+        Log.d(LOG_TAG, "schrubbi: "+name);
+        Cursor cursor = database.query(MyDbHelper.TABLE_LERNGRUPPE,
+                columns, MyDbHelper.LERNGRUPPE_COLUMN_NAME+ "='" + name + "'",
+                null, null, null, null);
+
+        cursor.moveToFirst();
+        Lerngruppe lerngruppe = cursorToLerngruppe(cursor);
+        cursor.close();
+
+        return lerngruppe;
+
+
+    }
+
     private Lerngruppe cursorToLerngruppe(Cursor cursor) {
 
         if(cursor.getCount()==0){
-            //Log.d(LOG_TAG, "Keinen Kollegen mit der gewünschten Id gefunden");
+            Log.d(LOG_TAG, "cursorToLerngruppe");
             return null;
         }
-
+        Log.d(LOG_TAG, "cursorToLerngruppe33");
         int id0 = cursor.getColumnIndex(MyDbHelper.LERNGRUPPE_COLUMN_ID);
         int id1 = cursor.getColumnIndex(MyDbHelper.LERNGRUPPE_COLUMN_NAME);
 

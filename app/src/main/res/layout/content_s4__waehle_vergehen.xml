@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".S1_WaehleSchueler"
-    tools:showIn="@layout/app_bar_s1__waehle_schueler">
+    tools:showIn="@layout/app_bar_s4__waehle_vergehen">
 
 
     <LinearLayout
@@ -18,7 +18,7 @@
     <ListView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/s1_listview_schuelers"
+        android:id="@+id/s4_listview_vergehens"
         android:layout_gravity="center_horizontal" />
 
 

@@ -63,13 +63,15 @@ public class Vergehen {
         this.gewicht = gewicht;
     }
 
+
     @Override
     public String toString() {
-        String output = text;
+        String output = id + "] " +kategorie +" "+name + " (" + gewicht +")";
 
         return output;
 
     }
+
 
 
 }

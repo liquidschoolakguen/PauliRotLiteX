@@ -1,6 +1,8 @@
 package akguen.liquidschool.paulirotlite;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -11,7 +13,7 @@ import db.*;
 public class Debug_Main extends AppCompatActivity {
 
 
-    Button btnA, btnA_, btnB, btnC, btnD, btnE,btnF,btnG,btnH,btnI,btnJ,btnK,btnL,btnM,btnN,btnO,btnP,btnQ,btnR,btnS,btnT,btnU, btnV;
+    Button btnA, btnA_, btnB, btnC, btnD, btnE,btnF,btnG,btnH,btnI,btnJ,btnK,btnL,btnM,btnN,btnO,btnP,btnQ,btnR,btnS,btnT,btnU, btnV, btnW;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,11 +43,16 @@ public class Debug_Main extends AppCompatActivity {
         btnT = findViewById(R.id.bntT);
         btnU = findViewById(R.id.bntU);
         btnV = findViewById(R.id.bntV);
-
+        btnW = findViewById(R.id.bntV);
 
         btnA.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+
+                SharedPreferences preferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+                preferences.edit().remove("selectedLerngruppeId").commit();
+
 
                 Intent loginActivity = new Intent(Debug_Main.this, LoginActivity.class);
                 startActivity(loginActivity);
@@ -192,8 +199,8 @@ public class Debug_Main extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                //Intent speichernZeitfenster= new Intent(Debug_Main.this, Speichern_Rhythmuszelle.class);
-               // startActivity(speichernZeitfenster);
+                Intent speichernS1= new Intent(Debug_Main.this, S1_WaehleSchueler.class);
+                startActivity(speichernS1);
 
             }
         });
@@ -273,11 +280,31 @@ public class Debug_Main extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-              /*  Filler f = new Filler();
-
-                f.fillAll();*/
+                Intent speichernS2= new Intent(Debug_Main.this, S2_WaehleFehlverhalten.class);
+                startActivity(speichernS2);
 
             }
         });
+
+
+
+
+
+        btnW.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent speichernS3= new Intent(Debug_Main.this, S3_ErstelleLerngruppe.class);
+                startActivity(speichernS3);
+
+            }
+        });
+
+
+
+
+
+
+
     }
 }
