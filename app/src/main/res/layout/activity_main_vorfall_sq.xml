@@ -42,7 +42,19 @@
             android:layout_weight="1" />
 
 
+        <EditText
+            android:layout_width="0px"
+            android:layout_height="wrap_content"
+            android:hint="@string/dialog_vorfall_1"
+            android:id="@+id/editText_vorfall_33"
+            android:layout_weight="1" />
 
+        <EditText
+            android:layout_width="0px"
+            android:layout_height="wrap_content"
+            android:hint="@string/dialog_vorfall_2"
+            android:id="@+id/editText_vorfall_44"
+            android:layout_weight="1" />
 
     </LinearLayout>
 

@@ -46,6 +46,11 @@ public class DataSource_Schueler {
     }
 
     public Schueler createSchueler(String v1, String v2, String v3, String v4, String v5, String v6, String v7) {
+        if (v6==null){
+            v6 = "0";
+        }
+
+
         ContentValues values = new ContentValues();
         values.put(MyDbHelper.SCHUELER_COLUMN_VORNAME, v1);
         values.put(MyDbHelper.SCHUELER_COLUMN_NACHNAME, v2);
@@ -79,6 +84,14 @@ public class DataSource_Schueler {
     }
 
     public Schueler updateSchueler(int id, String v1, String v2, String v3, String v4, String v5, String v6, String v7) {
+
+        //private DataSource_Schueler dS_Schueler;
+
+          /*dS_Schueler = new DataSource_Schueler(context);
+
+        dS_Schueler.open();*/
+
+        //dS_Schueler.updateSchueler(g.getId(),g.getVorname(),g.getNachname(),g.getRufname(),g.getGeschlecht(),g.getStatus(),g.getGeburtstag(),g.getGeburtsort());
 
 
         ContentValues values = new ContentValues();
@@ -123,7 +136,7 @@ public class DataSource_Schueler {
     }
 
     public Schueler getSchuelerByVorname(String vorname){
-
+        System.out.println("---nnn---: "+vorname);
 
         Cursor cursor = database.query(MyDbHelper.TABLE_SCHUELER,
                 columns, MyDbHelper.SCHUELER_COLUMN_VORNAME + "='" + vorname + "'",
@@ -132,7 +145,9 @@ public class DataSource_Schueler {
         cursor.moveToFirst();
         Schueler schueler = cursorToSchueler(cursor);
         cursor.close();
-
+        if(schueler==null){
+            System.out.println("---NULL---: xxx");
+        }
         return schueler;
 
 

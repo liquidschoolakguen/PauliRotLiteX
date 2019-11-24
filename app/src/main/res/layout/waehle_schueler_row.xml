@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="62dp"
+    android:orientation="horizontal"
+    android:background="@drawable/custom_ripple">
+
+    <LinearLayout
+        android:id="@+id/layout_1"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+        <TextView
+            android:id="@+id/tv_item_schuelername"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Sila Alem"
+            android:textSize="14sp"
+            android:layout_marginLeft="10dp"/>
+
+        <TextView
+            android:id="@+id/tv_item_strafpunkt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounded_text_view"
+            android:gravity="center"
+            android:text="8"
+            android:textColor="@android:color/white"
+            android:textSize="14sp"
+            android:layout_marginRight="10dp"/>
+
+
+    </LinearLayout>
+
+
+</LinearLayout>

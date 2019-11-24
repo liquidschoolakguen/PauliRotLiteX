@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".MainActivity">
+
+
+
+<!--
+    <item
+        android:id="@+id/dynamic_add"
+        android:orderInCategory="300"
+        android:title="Lerngruppe hinzufügen"
+        android:icon="@android:drawable/ic_menu_add"
+        app:showAsAction="ifRoom"></item>
+
+    <item
+        android:id="@+id/dynamic_delete"
+        android:orderInCategory="300"
+        android:title="Lerngruppe löschen"
+        android:icon="@android:drawable/ic_menu_delete"
+        app:showAsAction="ifRoom"></item>-->
+
+    <item
+        android:id="@+id/dynamic_loeschen_aendern"
+        android:orderInCategory="300"
+        android:title="Lernggruppe bearbeiten"
+        android:icon="@android:drawable/ic_menu_edit"
+        app:showAsAction="never"></item>
+
+    <item
+        android:id="@+id/dynamic_debug"
+        android:orderInCategory="300"
+        android:title="Debug"
+        android:icon="@android:drawable/ic_menu_preferences"
+        app:showAsAction="never"></item>
+    <item
+        android:id="@+id/dynamic_statistik"
+        android:orderInCategory="300"
+        android:title="Statistik"
+        android:icon="@android:drawable/ic_menu_view"
+        app:showAsAction="never"></item>
+
+</menu>

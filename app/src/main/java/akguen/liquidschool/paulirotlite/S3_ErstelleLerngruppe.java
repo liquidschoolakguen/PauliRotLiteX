@@ -10,6 +10,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -54,11 +56,11 @@ public class S3_ErstelleLerngruppe extends AppCompatActivity {
     Button btnA;
     EditText eName;
     EditText e1, e2, e3, e4, e5, e6, e7, e8, e9, e10, e11, e12, e13, e14, e15, e16, e17, e18, e19, e20, e21, e22, e23, e24, e25, e26, e27, e28, e29, e30;
-
+    private RadioGroup g1,g2,g3,g4,g5,g6,g7,g8,g9,g10,g11,g12,g13,g14,g15,g16,g17,g18,g19,g20,g21,g22,g23,g24,g25,g26,g27,g28,g29,g30;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_s3_erstelle_lerngruppe);
+        setContentView(R.layout.erstelle_schuelergruppe_fragment);
 
         dataSourceSchueler = new DataSource_Schueler(this);
         dataSourceLerngruppe = new DataSource_Lerngruppe(this);
@@ -134,6 +136,70 @@ public class S3_ErstelleLerngruppe extends AppCompatActivity {
         list.add(e30);
 
 
+        g1 = findViewById(R.id.toggle1);
+        g2 = findViewById(R.id.toggle2);
+        g3 = findViewById(R.id.toggle3);
+        g4 = findViewById(R.id.toggle4);
+        g5 = findViewById(R.id.toggle5);
+        g6 = findViewById(R.id.toggle6);
+        g7 = findViewById(R.id.toggle7);
+        g8 = findViewById(R.id.toggle8);
+        g9 = findViewById(R.id.toggle9);
+        g10 = findViewById(R.id.toggle10);
+        g11 = findViewById(R.id.toggle11);
+        g12 = findViewById(R.id.toggle12);
+        g13 = findViewById(R.id.toggle13);
+        g14 = findViewById(R.id.toggle14);
+        g15 = findViewById(R.id.toggle15);
+        g16 = findViewById(R.id.toggle16);
+        g17 = findViewById(R.id.toggle17);
+        g18 = findViewById(R.id.toggle18);
+        g19 = findViewById(R.id.toggle19);
+        g20 = findViewById(R.id.toggle20);
+        g21 = findViewById(R.id.toggle21);
+        g22 = findViewById(R.id.toggle22);
+        g23 = findViewById(R.id.toggle23);
+        g24 = findViewById(R.id.toggle24);
+        g25 = findViewById(R.id.toggle25);
+        g26 = findViewById(R.id.toggle26);
+        g27 = findViewById(R.id.toggle27);
+        g28 = findViewById(R.id.toggle28);
+        g29 = findViewById(R.id.toggle29);
+        g30 = findViewById(R.id.toggle30);
+
+        List<RadioGroup> listS = new ArrayList<>();
+        listS.add(g1);
+        listS.add(g2);
+        listS.add(g3);
+        listS.add(g4);
+        listS.add(g5);
+        listS.add(g6);
+        listS.add(g7);
+        listS.add(g8);
+        listS.add(g9);
+        listS.add(g10);
+        listS.add(g11);
+        listS.add(g12);
+        listS.add(g13);
+        listS.add(g14);
+        listS.add(g15);
+        listS.add(g16);
+        listS.add(g17);
+        listS.add(g18);
+        listS.add(g19);
+        listS.add(g20);
+        listS.add(g21);
+        listS.add(g22);
+        listS.add(g23);
+        listS.add(g24);
+        listS.add(g25);
+        listS.add(g26);
+        listS.add(g27);
+        listS.add(g28);
+        listS.add(g29);
+        listS.add(g30);
+
+
         btnA.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -158,13 +224,21 @@ public class S3_ErstelleLerngruppe extends AppCompatActivity {
 
                         List<Schueler> sList = new ArrayList<>();
                         for (EditText s : list){
-
+                            int pos = list.indexOf(s);
                             String sX = s.getText().toString();
                             s.setText("");
+                            int selectedSex= listS.get(pos).getCheckedRadioButtonId();
+                            RadioButton radioSexButton = (RadioButton) findViewById(selectedSex);
 
                             if(sX.trim().length() != 0) {
                                 if (dataSourceSchueler.getSchuelerByVorname(sX) == null) {
-                                    dataSourceSchueler.createSchueler(sX, null, null, null, null, null, null);
+
+
+                                    System.out.println("Schüler mit dem Namen "+sX+ "wird erstellt.");
+                                    dataSourceSchueler.createSchueler(sX, null, null, radioSexButton.getText().toString(), null, null, null);
+                                }else{
+
+                                    System.out.println("Schüler mit dem Namen "+sX+ "wird NICHT erstellt.");
                                 }
 
                                 Schueler schue = dataSourceSchueler.getSchuelerByVorname(sX);

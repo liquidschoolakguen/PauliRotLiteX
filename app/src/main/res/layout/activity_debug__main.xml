@@ -172,7 +172,12 @@
             android:focusableInTouchMode="true"
             android:orientation="horizontal">
 
-
+            <Button
+                android:id="@+id/bntN"
+                android:layout_width="0px"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="S1 W Schüler" android:textSize="10sp"/>
 
             <Button
                 android:id="@+id/bntO"
@@ -188,12 +193,7 @@
                 android:layout_weight="1"
                 android:text="Thema" android:textSize="10sp"/>
 
-            <Button
-                android:id="@+id/bntQ"
-                android:layout_width="0px"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Lerngruppe" android:textSize="10sp"/>
+
 
         </LinearLayout>
 
@@ -203,7 +203,12 @@
             android:focusableInTouchMode="true"
             android:orientation="horizontal">
 
-
+            <Button
+                android:id="@+id/bntQ"
+                android:layout_width="0px"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Lerngruppe" android:textSize="10sp"/>
 
             <Button
                 android:id="@+id/bntR"
@@ -220,13 +225,7 @@
                 android:text="Schüler_Lerng" android:textSize="10sp"/>
 
 
-            <Button
-                android:id="@+id/bntT"
-                android:layout_width="0px"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:textSize="10sp"
-                android:text="Koll_Stand" />
+
 
 
         </LinearLayout>
@@ -237,7 +236,13 @@
             android:focusableInTouchMode="true"
             android:orientation="horizontal">
 
-
+            <Button
+                android:id="@+id/bntT"
+                android:layout_width="0px"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textSize="10sp"
+                android:text="Koll_Stand" />
 
             <Button
                 android:id="@+id/bntU"
@@ -253,14 +258,9 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:textSize="10sp"
-                android:text="S2 Fehlverhalten"/>
+                android:text="LerngruppeWechseln"/>
 
-            <Button
-                android:id="@+id/bntN"
-                android:layout_width="0px"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="S1 W Schüler" android:textSize="10sp"/>
+
         </LinearLayout>
 
 
@@ -279,7 +279,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:textSize="10sp"
-                    android:text="" />
+                    android:text="UpdateDynamicTabs" />
 
                 <Button
                     android:id="@+id/bntX"
@@ -287,10 +287,113 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:textSize="10sp"
-                    android:text=""/>
+                    android:text="WaehleSchuelerDynamicTabs"/>
 
                 <Button
                     android:id="@+id/bntY"
+                    android:layout_width="0px"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textSize="10sp"
+                    android:text=">Vergehengruppe"/>
+
+
+            </LinearLayout>
+
+
+
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:focusableInTouchMode="true"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/bntZ"
+                    android:layout_width="0px"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textSize="10sp"
+                    android:text="V_VGruppe" />
+
+                <Button
+                    android:id="@+id/bntA2"
+                    android:layout_width="0px"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textSize="10sp"
+                    android:text=""/>
+
+                <Button
+                    android:id="@+id/bntA_2"
+                    android:layout_width="0px"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textSize="10sp"
+                    android:text=""/>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:focusableInTouchMode="true"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/bntB2"
+                    android:layout_width="0px"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textSize="10sp"
+                    android:text="" />
+
+                <Button
+                    android:id="@+id/bntC2"
+                    android:layout_width="0px"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textSize="10sp"
+                    android:text=""/>
+
+                <Button
+                    android:id="@+id/bntD2"
+                    android:layout_width="0px"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textSize="10sp"
+                    android:text=""/>
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:focusableInTouchMode="true"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/bntE2"
+                    android:layout_width="0px"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textSize="10sp"
+                    android:text="" />
+
+                <Button
+                    android:id="@+id/bntF2"
+                    android:layout_width="0px"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textSize="10sp"
+                    android:text=""/>
+
+                <Button
+                    android:id="@+id/bntG2"
                     android:layout_width="0px"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -303,10 +406,238 @@
 
 
 
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:focusableInTouchMode="true"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/bntH2"
+                    android:layout_width="0px"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textSize="10sp"
+                    android:text="" />
+
+                <Button
+                    android:id="@+id/bntI2"
+                    android:layout_width="0px"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textSize="10sp"
+                    android:text=""/>
+
+                <Button
+                    android:id="@+id/bntJ2"
+                    android:layout_width="0px"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textSize="10sp"
+                    android:text=""/>
 
 
+            </LinearLayout>
 
 
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:focusableInTouchMode="true"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/bntK2"
+                    android:layout_width="0px"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textSize="10sp"
+                    android:text="" />
+
+                <Button
+                    android:id="@+id/bntL2"
+                    android:layout_width="0px"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textSize="10sp"
+                    android:text=""/>
+
+                <Button
+                    android:id="@+id/bntM2"
+                    android:layout_width="0px"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textSize="10sp"
+                    android:text=""/>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:focusableInTouchMode="true"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/bntN2"
+                    android:layout_width="0px"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textSize="10sp"
+                    android:text="" />
+
+                <Button
+                    android:id="@+id/bntO2"
+                    android:layout_width="0px"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textSize="10sp"
+                    android:text=""/>
+
+                <Button
+                    android:id="@+id/bntP2"
+                    android:layout_width="0px"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textSize="10sp"
+                    android:text=""/>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:focusableInTouchMode="true"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/bntQ2"
+                    android:layout_width="0px"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textSize="10sp"
+                    android:text="" />
+
+                <Button
+                    android:id="@+id/bntR2"
+                    android:layout_width="0px"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textSize="10sp"
+                    android:text=""/>
+
+                <Button
+                    android:id="@+id/bntS2"
+                    android:layout_width="0px"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textSize="10sp"
+                    android:text=""/>
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:focusableInTouchMode="true"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/bntT2"
+                    android:layout_width="0px"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textSize="10sp"
+                    android:text="" />
+
+                <Button
+                    android:id="@+id/bntU2"
+                    android:layout_width="0px"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textSize="10sp"
+                    android:text=""/>
+
+                <Button
+                    android:id="@+id/bntV2"
+                    android:layout_width="0px"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textSize="10sp"
+                    android:text=""/>
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:focusableInTouchMode="true"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/bntW2"
+                    android:layout_width="0px"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textSize="10sp"
+                    android:text="" />
+
+                <Button
+                    android:id="@+id/bntX2"
+                    android:layout_width="0px"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textSize="10sp"
+                    android:text=""/>
+
+                <Button
+                    android:id="@+id/bntY2"
+                    android:layout_width="0px"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textSize="10sp"
+                    android:text=""/>
+
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:focusableInTouchMode="true"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/bntZ2"
+                    android:layout_width="0px"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textSize="10sp"
+                    android:text="" />
+
+                <Button
+                    android:id="@+id/bntA3"
+                    android:layout_width="0px"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textSize="10sp"
+                    android:text=""/>
+
+                <Button
+                    android:id="@+id/bntA_3"
+                    android:layout_width="0px"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textSize="10sp"
+                    android:text=""/>
+
+
+            </LinearLayout>
 
 
         </LinearLayout>

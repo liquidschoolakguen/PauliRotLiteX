@@ -9,19 +9,42 @@
     tools:showIn="@layout/app_bar_s1__waehle_schueler">
 
 
+
+
     <LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-    <ListView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/s1_listview_schuelers"
-        android:layout_gravity="center_horizontal" />
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:focusableInTouchMode="true">
+
+            <TextView
+                android:id="@+id/s1_textView_lg_name"
+                android:layout_width="0px"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/colorPrimaryDisable"
+                android:text="Hallo"
+                android:paddingLeft="16dp"
+                android:textSize="40dp" />
 
 
+
+        </LinearLayout>
+
+
+
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/my_list_schueler"
+            android:layout_gravity="center_horizontal"
+            />
 
 
     </LinearLayout>

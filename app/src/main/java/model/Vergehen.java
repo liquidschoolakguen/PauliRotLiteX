@@ -66,7 +66,7 @@ public class Vergehen {
 
     @Override
     public String toString() {
-        String output = id + "] " +kategorie +" "+name + " (" + gewicht +")";
+        String output = id+"] "+name + " (" + gewicht +")";
 
         return output;
 

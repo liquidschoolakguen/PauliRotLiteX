@@ -9,7 +9,7 @@
         android:id="@+id/schuelerListView"
         android:layout_width="wrap_content"
         android:layout_height="455dp"
-        android:background="@color/colorAccent" />
+        android:background="@color/colorPrimary" />
 
     <Button
         android:id="@+id/nextnochmal"

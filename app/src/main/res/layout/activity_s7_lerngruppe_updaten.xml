@@ -1,0 +1,2707 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <FrameLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" >
+
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="50dp">
+
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp">
+
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:focusableInTouchMode="true"
+                android:orientation="horizontal">
+
+
+                <EditText
+                    android:id="@+id/editText_lg_name"
+                    android:layout_width="0px"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="Lerngruppe"
+                    android:textSize="23dp" />
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:focusableInTouchMode="true"
+                android:orientation="horizontal">
+
+                <RadioGroup
+                    android:checkedButton="@+id/b_m_1"
+                    android:id="@+id/toggle1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:background="@drawable/pink_out_line"
+                    android:orientation="horizontal"
+                    android:layout_weight="1.5"
+                    android:layout_marginTop="9dp">
+
+                    <RadioButton
+                        android:layout_marginTop="1dp"
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginLeft="1dp"
+                        android:id="@+id/b_m_1"
+                        android:background="@drawable/toggle_widget_background"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:text="M"
+                        android:textColor="@color/colorPrimaryWhite" />
+
+                    <RadioButton
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="1dp"
+                        android:layout_marginBottom="1dp"
+                        android:id="@+id/b_w_1"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/toggle_widget_background"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:text="W"
+                        android:textColor="@color/colorPrimaryWhite" />
+                </RadioGroup>
+
+
+                <EditText
+                    android:id="@+id/editText_lg_updaten_1"
+                    android:layout_width="0px"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="9"
+                    android:hint="@string/dialog_schueler_3"
+                    android:layout_marginTop="5dp"/>
+
+                <Button
+                    android:id="@+id/btn_strafpunkt_minus_1"
+                    android:layout_width="27dp"
+                    android:layout_height="27dp"
+                    android:background="@drawable/roundedbutton2"
+                    android:gravity="center"
+                    android:text="+"
+                    android:textColor="@android:color/white"
+                    android:textSize="15sp"
+                    />
+                <TextView
+                    android:id="@+id/tv_strafpunkt_1"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/roundedbutton"
+                    android:gravity="center"
+                    android:text="8"
+                    android:textColor="@android:color/white"
+                    android:textSize="18sp"
+                    />
+                <Button
+                    android:id="@+id/btn_strafpunkt_plus_1"
+                    android:layout_width="27dp"
+                    android:layout_height="27dp"
+                    android:background="@drawable/roundedbutton2"
+                    android:gravity="center"
+                    android:text="-"
+                    android:textColor="@android:color/white"
+                    android:textSize="15sp"
+                    />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:focusableInTouchMode="true"
+                android:orientation="horizontal">
+
+                <RadioGroup
+                    android:checkedButton="@+id/b_m_2"
+                    android:id="@+id/toggle2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:background="@drawable/pink_out_line"
+                    android:orientation="horizontal"
+                    android:layout_weight="1.5"
+                    android:layout_marginTop="9dp">
+
+                    <RadioButton
+                        android:layout_marginTop="1dp"
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginLeft="1dp"
+                        android:id="@+id/b_m_2"
+                        android:background="@drawable/toggle_widget_background"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:text="M"
+                        android:textColor="@color/colorPrimaryWhite" />
+
+                    <RadioButton
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="1dp"
+                        android:layout_marginBottom="1dp"
+                        android:id="@+id/b_w_2"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/toggle_widget_background"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:text="W"
+                        android:textColor="@color/colorPrimaryWhite" />
+                </RadioGroup>
+
+
+                <EditText
+                    android:id="@+id/editText_lg_updaten_2"
+                    android:layout_width="0px"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="9"
+                    android:hint="@string/dialog_schueler_3"
+                    android:layout_marginTop="5dp"/>
+
+                <Button
+                    android:id="@+id/btn_strafpunkt_minus_2"
+                    android:layout_width="27dp"
+                    android:layout_height="27dp"
+                    android:background="@drawable/roundedbutton2"
+                    android:gravity="center"
+                    android:text="+"
+                    android:textColor="@android:color/white"
+                    android:textSize="15sp"
+                    />
+                <TextView
+                    android:id="@+id/tv_strafpunkt_2"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/roundedbutton"
+                    android:gravity="center"
+                    android:text="8"
+                    android:textColor="@android:color/white"
+                    android:textSize="18sp"
+                    />
+                <Button
+                    android:id="@+id/btn_strafpunkt_plus_2"
+                    android:layout_width="27dp"
+                    android:layout_height="27dp"
+                    android:background="@drawable/roundedbutton2"
+                    android:gravity="center"
+                    android:text="-"
+                    android:textColor="@android:color/white"
+                    android:textSize="15sp"
+                    />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:focusableInTouchMode="true"
+                android:orientation="horizontal">
+
+                <RadioGroup
+                    android:checkedButton="@+id/b_m_3"
+                    android:id="@+id/toggle3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:background="@drawable/pink_out_line"
+                    android:orientation="horizontal"
+                    android:layout_weight="1.5"
+                    android:layout_marginTop="9dp">
+
+                    <RadioButton
+                        android:layout_marginTop="1dp"
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginLeft="1dp"
+                        android:id="@+id/b_m_3"
+                        android:background="@drawable/toggle_widget_background"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:text="M"
+                        android:textColor="@color/colorPrimaryWhite" />
+
+                    <RadioButton
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="1dp"
+                        android:layout_marginBottom="1dp"
+                        android:id="@+id/b_w_3"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/toggle_widget_background"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:text="W"
+                        android:textColor="@color/colorPrimaryWhite" />
+                </RadioGroup>
+
+
+                <EditText
+                    android:id="@+id/editText_lg_updaten_3"
+                    android:layout_width="0px"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="9"
+                    android:hint="@string/dialog_schueler_3"
+                    android:layout_marginTop="5dp"/>
+
+                <Button
+                    android:id="@+id/btn_strafpunkt_minus_3"
+                    android:layout_width="27dp"
+                    android:layout_height="27dp"
+                    android:background="@drawable/roundedbutton2"
+                    android:gravity="center"
+                    android:text="+"
+                    android:textColor="@android:color/white"
+                    android:textSize="15sp"
+                    />
+                <TextView
+                    android:id="@+id/tv_strafpunkt_3"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/roundedbutton"
+                    android:gravity="center"
+                    android:text="8"
+                    android:textColor="@android:color/white"
+                    android:textSize="18sp"
+                    />
+                <Button
+                    android:id="@+id/btn_strafpunkt_plus_3"
+                    android:layout_width="27dp"
+                    android:layout_height="27dp"
+                    android:background="@drawable/roundedbutton2"
+                    android:gravity="center"
+                    android:text="-"
+                    android:textColor="@android:color/white"
+                    android:textSize="15sp"
+                    />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:focusableInTouchMode="true"
+                android:orientation="horizontal">
+
+                <RadioGroup
+                    android:checkedButton="@+id/b_m_4"
+                    android:id="@+id/toggle4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:background="@drawable/pink_out_line"
+                    android:orientation="horizontal"
+                    android:layout_weight="1.5"
+                    android:layout_marginTop="9dp">
+
+                    <RadioButton
+                        android:layout_marginTop="1dp"
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginLeft="1dp"
+                        android:id="@+id/b_m_4"
+                        android:background="@drawable/toggle_widget_background"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:text="M"
+                        android:textColor="@color/colorPrimaryWhite" />
+
+                    <RadioButton
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="1dp"
+                        android:layout_marginBottom="1dp"
+                        android:id="@+id/b_w_4"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/toggle_widget_background"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:text="W"
+                        android:textColor="@color/colorPrimaryWhite" />
+                </RadioGroup>
+
+
+                <EditText
+                    android:id="@+id/editText_lg_updaten_4"
+                    android:layout_width="0px"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="9"
+                    android:hint="@string/dialog_schueler_3"
+                    android:layout_marginTop="5dp"/>
+
+                <Button
+                    android:id="@+id/btn_strafpunkt_minus_4"
+                    android:layout_width="27dp"
+                    android:layout_height="27dp"
+                    android:background="@drawable/roundedbutton2"
+                    android:gravity="center"
+                    android:text="+"
+                    android:textColor="@android:color/white"
+                    android:textSize="15sp"
+                    />
+                <TextView
+                    android:id="@+id/tv_strafpunkt_4"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/roundedbutton"
+                    android:gravity="center"
+                    android:text="8"
+                    android:textColor="@android:color/white"
+                    android:textSize="18sp"
+                    />
+                <Button
+                    android:id="@+id/btn_strafpunkt_plus_4"
+                    android:layout_width="27dp"
+                    android:layout_height="27dp"
+                    android:background="@drawable/roundedbutton2"
+                    android:gravity="center"
+                    android:text="-"
+                    android:textColor="@android:color/white"
+                    android:textSize="15sp"
+                    />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:focusableInTouchMode="true"
+                android:orientation="horizontal">
+
+                <RadioGroup
+                    android:checkedButton="@+id/b_m_5"
+                    android:id="@+id/toggle5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:background="@drawable/pink_out_line"
+                    android:orientation="horizontal"
+                    android:layout_weight="1.5"
+                    android:layout_marginTop="9dp">
+
+                    <RadioButton
+                        android:layout_marginTop="1dp"
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginLeft="1dp"
+                        android:id="@+id/b_m_5"
+                        android:background="@drawable/toggle_widget_background"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:text="M"
+                        android:textColor="@color/colorPrimaryWhite" />
+
+                    <RadioButton
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="1dp"
+                        android:layout_marginBottom="1dp"
+                        android:id="@+id/b_w_5"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/toggle_widget_background"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:text="W"
+                        android:textColor="@color/colorPrimaryWhite" />
+                </RadioGroup>
+
+
+                <EditText
+                    android:id="@+id/editText_lg_updaten_5"
+                    android:layout_width="0px"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="9"
+                    android:hint="@string/dialog_schueler_3"
+                    android:layout_marginTop="5dp"/>
+
+                <Button
+                    android:id="@+id/btn_strafpunkt_minus_5"
+                    android:layout_width="27dp"
+                    android:layout_height="27dp"
+                    android:background="@drawable/roundedbutton2"
+                    android:gravity="center"
+                    android:text="+"
+                    android:textColor="@android:color/white"
+                    android:textSize="15sp"
+                    />
+                <TextView
+                    android:id="@+id/tv_strafpunkt_5"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/roundedbutton"
+                    android:gravity="center"
+                    android:text="8"
+                    android:textColor="@android:color/white"
+                    android:textSize="18sp"
+                    />
+                <Button
+                    android:id="@+id/btn_strafpunkt_plus_5"
+                    android:layout_width="27dp"
+                    android:layout_height="27dp"
+                    android:background="@drawable/roundedbutton2"
+                    android:gravity="center"
+                    android:text="-"
+                    android:textColor="@android:color/white"
+                    android:textSize="15sp"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:focusableInTouchMode="true"
+                android:orientation="horizontal">
+
+                <RadioGroup
+                    android:checkedButton="@+id/b_m_6"
+                    android:id="@+id/toggle6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:background="@drawable/pink_out_line"
+                    android:orientation="horizontal"
+                    android:layout_weight="1.5"
+                    android:layout_marginTop="9dp">
+
+                    <RadioButton
+                        android:layout_marginTop="1dp"
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginLeft="1dp"
+                        android:id="@+id/b_m_6"
+                        android:background="@drawable/toggle_widget_background"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:text="M"
+                        android:textColor="@color/colorPrimaryWhite" />
+
+                    <RadioButton
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="1dp"
+                        android:layout_marginBottom="1dp"
+                        android:id="@+id/b_w_6"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/toggle_widget_background"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:text="W"
+                        android:textColor="@color/colorPrimaryWhite" />
+                </RadioGroup>
+
+
+                <EditText
+                    android:id="@+id/editText_lg_updaten_6"
+                    android:layout_width="0px"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="9"
+                    android:hint="@string/dialog_schueler_3"
+                    android:layout_marginTop="5dp"/>
+
+                <Button
+                    android:id="@+id/btn_strafpunkt_minus_6"
+                    android:layout_width="27dp"
+                    android:layout_height="27dp"
+                    android:background="@drawable/roundedbutton2"
+                    android:gravity="center"
+                    android:text="+"
+                    android:textColor="@android:color/white"
+                    android:textSize="15sp"
+                    />
+                <TextView
+                    android:id="@+id/tv_strafpunkt_6"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/roundedbutton"
+                    android:gravity="center"
+                    android:text="8"
+                    android:textColor="@android:color/white"
+                    android:textSize="18sp"
+                    />
+                <Button
+                    android:id="@+id/btn_strafpunkt_plus_6"
+                    android:layout_width="27dp"
+                    android:layout_height="27dp"
+                    android:background="@drawable/roundedbutton2"
+                    android:gravity="center"
+                    android:text="-"
+                    android:textColor="@android:color/white"
+                    android:textSize="15sp"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:focusableInTouchMode="true"
+                android:orientation="horizontal">
+
+                <RadioGroup
+                    android:checkedButton="@+id/b_m_7"
+                    android:id="@+id/toggle7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:background="@drawable/pink_out_line"
+                    android:orientation="horizontal"
+                    android:layout_weight="1.5"
+                    android:layout_marginTop="9dp">
+
+                    <RadioButton
+                        android:layout_marginTop="1dp"
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginLeft="1dp"
+                        android:id="@+id/b_m_7"
+                        android:background="@drawable/toggle_widget_background"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:text="M"
+                        android:textColor="@color/colorPrimaryWhite" />
+
+                    <RadioButton
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="1dp"
+                        android:layout_marginBottom="1dp"
+                        android:id="@+id/b_w_7"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/toggle_widget_background"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:text="W"
+                        android:textColor="@color/colorPrimaryWhite" />
+                </RadioGroup>
+
+
+                <EditText
+                    android:id="@+id/editText_lg_updaten_7"
+                    android:layout_width="0px"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="9"
+                    android:hint="@string/dialog_schueler_3"
+                    android:layout_marginTop="5dp"/>
+
+                <Button
+                    android:id="@+id/btn_strafpunkt_minus_7"
+                    android:layout_width="27dp"
+                    android:layout_height="27dp"
+                    android:background="@drawable/roundedbutton2"
+                    android:gravity="center"
+                    android:text="+"
+                    android:textColor="@android:color/white"
+                    android:textSize="15sp"
+                    />
+                <TextView
+                    android:id="@+id/tv_strafpunkt_7"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/roundedbutton"
+                    android:gravity="center"
+                    android:text="8"
+                    android:textColor="@android:color/white"
+                    android:textSize="18sp"
+                    />
+                <Button
+                    android:id="@+id/btn_strafpunkt_plus_7"
+                    android:layout_width="27dp"
+                    android:layout_height="27dp"
+                    android:background="@drawable/roundedbutton2"
+                    android:gravity="center"
+                    android:text="-"
+                    android:textColor="@android:color/white"
+                    android:textSize="15sp"
+                    />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:focusableInTouchMode="true"
+                android:orientation="horizontal">
+
+                <RadioGroup
+                    android:checkedButton="@+id/b_m_8"
+                    android:id="@+id/toggle8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:background="@drawable/pink_out_line"
+                    android:orientation="horizontal"
+                    android:layout_weight="1.5"
+                    android:layout_marginTop="9dp">
+
+                    <RadioButton
+                        android:layout_marginTop="1dp"
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginLeft="1dp"
+                        android:id="@+id/b_m_8"
+                        android:background="@drawable/toggle_widget_background"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:text="M"
+                        android:textColor="@color/colorPrimaryWhite" />
+
+                    <RadioButton
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="1dp"
+                        android:layout_marginBottom="1dp"
+                        android:id="@+id/b_w_8"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/toggle_widget_background"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:text="W"
+                        android:textColor="@color/colorPrimaryWhite" />
+                </RadioGroup>
+
+
+                <EditText
+                    android:id="@+id/editText_lg_updaten_8"
+                    android:layout_width="0px"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="9"
+                    android:hint="@string/dialog_schueler_3"
+                    android:layout_marginTop="5dp"/>
+
+                <Button
+                    android:id="@+id/btn_strafpunkt_minus_8"
+                    android:layout_width="27dp"
+                    android:layout_height="27dp"
+                    android:background="@drawable/roundedbutton2"
+                    android:gravity="center"
+                    android:text="+"
+                    android:textColor="@android:color/white"
+                    android:textSize="15sp"
+                    />
+                <TextView
+                    android:id="@+id/tv_strafpunkt_8"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/roundedbutton"
+                    android:gravity="center"
+                    android:text="8"
+                    android:textColor="@android:color/white"
+                    android:textSize="18sp"
+                    />
+                <Button
+                    android:id="@+id/btn_strafpunkt_plus_8"
+                    android:layout_width="27dp"
+                    android:layout_height="27dp"
+                    android:background="@drawable/roundedbutton2"
+                    android:gravity="center"
+                    android:text="-"
+                    android:textColor="@android:color/white"
+                    android:textSize="15sp"
+                    />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:focusableInTouchMode="true"
+                android:orientation="horizontal">
+
+                <RadioGroup
+                    android:checkedButton="@+id/b_m_9"
+                    android:id="@+id/toggle9"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:background="@drawable/pink_out_line"
+                    android:orientation="horizontal"
+                    android:layout_weight="1.5"
+                    android:layout_marginTop="9dp">
+
+                    <RadioButton
+                        android:layout_marginTop="1dp"
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginLeft="1dp"
+                        android:id="@+id/b_m_9"
+                        android:background="@drawable/toggle_widget_background"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:text="M"
+                        android:textColor="@color/colorPrimaryWhite" />
+
+                    <RadioButton
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="1dp"
+                        android:layout_marginBottom="1dp"
+                        android:id="@+id/b_w_9"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/toggle_widget_background"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:text="W"
+                        android:textColor="@color/colorPrimaryWhite" />
+                </RadioGroup>
+
+
+                <EditText
+                    android:id="@+id/editText_lg_updaten_9"
+                    android:layout_width="0px"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="9"
+                    android:hint="@string/dialog_schueler_3"
+                    android:layout_marginTop="5dp"/>
+
+                <Button
+                    android:id="@+id/btn_strafpunkt_minus_9"
+                    android:layout_width="27dp"
+                    android:layout_height="27dp"
+                    android:background="@drawable/roundedbutton2"
+                    android:gravity="center"
+                    android:text="+"
+                    android:textColor="@android:color/white"
+                    android:textSize="15sp"
+                    />
+                <TextView
+                    android:id="@+id/tv_strafpunkt_9"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/roundedbutton"
+                    android:gravity="center"
+                    android:text="8"
+                    android:textColor="@android:color/white"
+                    android:textSize="18sp"
+                    />
+                <Button
+                    android:id="@+id/btn_strafpunkt_plus_9"
+                    android:layout_width="27dp"
+                    android:layout_height="27dp"
+                    android:background="@drawable/roundedbutton2"
+                    android:gravity="center"
+                    android:text="-"
+                    android:textColor="@android:color/white"
+                    android:textSize="15sp"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:focusableInTouchMode="true"
+                android:orientation="horizontal">
+
+                <RadioGroup
+                    android:checkedButton="@+id/b_m_10"
+                    android:id="@+id/toggle10"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:background="@drawable/pink_out_line"
+                    android:orientation="horizontal"
+                    android:layout_weight="1.5"
+                    android:layout_marginTop="9dp">
+
+                    <RadioButton
+                        android:layout_marginTop="1dp"
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginLeft="1dp"
+                        android:id="@+id/b_m_10"
+                        android:background="@drawable/toggle_widget_background"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:text="M"
+                        android:textColor="@color/colorPrimaryWhite" />
+
+                    <RadioButton
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="1dp"
+                        android:layout_marginBottom="1dp"
+                        android:id="@+id/b_w_10"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/toggle_widget_background"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:text="W"
+                        android:textColor="@color/colorPrimaryWhite" />
+                </RadioGroup>
+
+
+                <EditText
+                    android:id="@+id/editText_lg_updaten_10"
+                    android:layout_width="0px"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="9"
+                    android:hint="@string/dialog_schueler_3"
+                    android:layout_marginTop="5dp"/>
+
+                <Button
+                    android:id="@+id/btn_strafpunkt_minus_10"
+                    android:layout_width="27dp"
+                    android:layout_height="27dp"
+                    android:background="@drawable/roundedbutton2"
+                    android:gravity="center"
+                    android:text="+"
+                    android:textColor="@android:color/white"
+                    android:textSize="15sp"
+                    />
+                <TextView
+                    android:id="@+id/tv_strafpunkt_10"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/roundedbutton"
+                    android:gravity="center"
+                    android:text="8"
+                    android:textColor="@android:color/white"
+                    android:textSize="18sp"
+                    />
+                <Button
+                    android:id="@+id/btn_strafpunkt_plus_10"
+                    android:layout_width="27dp"
+                    android:layout_height="27dp"
+                    android:background="@drawable/roundedbutton2"
+                    android:gravity="center"
+                    android:text="-"
+                    android:textColor="@android:color/white"
+                    android:textSize="15sp"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:focusableInTouchMode="true"
+                android:orientation="horizontal">
+
+                <RadioGroup
+                    android:checkedButton="@+id/b_m_11"
+                    android:id="@+id/toggle11"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:background="@drawable/pink_out_line"
+                    android:orientation="horizontal"
+                    android:layout_weight="1.5"
+                    android:layout_marginTop="9dp">
+
+                    <RadioButton
+                        android:layout_marginTop="1dp"
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginLeft="1dp"
+                        android:id="@+id/b_m_11"
+                        android:background="@drawable/toggle_widget_background"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:text="M"
+                        android:textColor="@color/colorPrimaryWhite" />
+
+                    <RadioButton
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="1dp"
+                        android:layout_marginBottom="1dp"
+                        android:id="@+id/b_w_11"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/toggle_widget_background"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:text="W"
+                        android:textColor="@color/colorPrimaryWhite" />
+                </RadioGroup>
+
+
+                <EditText
+                    android:id="@+id/editText_lg_updaten_11"
+                    android:layout_width="0px"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="9"
+                    android:hint="@string/dialog_schueler_3"
+                    android:layout_marginTop="5dp"/>
+
+                <Button
+                    android:id="@+id/btn_strafpunkt_minus_11"
+                    android:layout_width="27dp"
+                    android:layout_height="27dp"
+                    android:background="@drawable/roundedbutton2"
+                    android:gravity="center"
+                    android:text="+"
+                    android:textColor="@android:color/white"
+                    android:textSize="15sp"
+                    />
+                <TextView
+                    android:id="@+id/tv_strafpunkt_11"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/roundedbutton"
+                    android:gravity="center"
+                    android:text="8"
+                    android:textColor="@android:color/white"
+                    android:textSize="18sp"
+                    />
+                <Button
+                    android:id="@+id/btn_strafpunkt_plus_11"
+                    android:layout_width="27dp"
+                    android:layout_height="27dp"
+                    android:background="@drawable/roundedbutton2"
+                    android:gravity="center"
+                    android:text="-"
+                    android:textColor="@android:color/white"
+                    android:textSize="15sp"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:focusableInTouchMode="true"
+                android:orientation="horizontal">
+
+                <RadioGroup
+                    android:checkedButton="@+id/b_m_12"
+                    android:id="@+id/toggle12"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:background="@drawable/pink_out_line"
+                    android:orientation="horizontal"
+                    android:layout_weight="1.5"
+                    android:layout_marginTop="9dp">
+
+                    <RadioButton
+                        android:layout_marginTop="1dp"
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginLeft="1dp"
+                        android:id="@+id/b_m_12"
+                        android:background="@drawable/toggle_widget_background"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:text="M"
+                        android:textColor="@color/colorPrimaryWhite" />
+
+                    <RadioButton
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="1dp"
+                        android:layout_marginBottom="1dp"
+                        android:id="@+id/b_w_12"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/toggle_widget_background"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:text="W"
+                        android:textColor="@color/colorPrimaryWhite" />
+                </RadioGroup>
+
+
+                <EditText
+                    android:id="@+id/editText_lg_updaten_12"
+                    android:layout_width="0px"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="9"
+                    android:hint="@string/dialog_schueler_3"
+                    android:layout_marginTop="5dp"/>
+
+                <Button
+                    android:id="@+id/btn_strafpunkt_minus_12"
+                    android:layout_width="27dp"
+                    android:layout_height="27dp"
+                    android:background="@drawable/roundedbutton2"
+                    android:gravity="center"
+                    android:text="+"
+                    android:textColor="@android:color/white"
+                    android:textSize="15sp"
+                    />
+                <TextView
+                    android:id="@+id/tv_strafpunkt_12"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/roundedbutton"
+                    android:gravity="center"
+                    android:text="8"
+                    android:textColor="@android:color/white"
+                    android:textSize="18sp"
+                    />
+                <Button
+                    android:id="@+id/btn_strafpunkt_plus_12"
+                    android:layout_width="27dp"
+                    android:layout_height="27dp"
+                    android:background="@drawable/roundedbutton2"
+                    android:gravity="center"
+                    android:text="-"
+                    android:textColor="@android:color/white"
+                    android:textSize="15sp"
+                    />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:focusableInTouchMode="true"
+                android:orientation="horizontal">
+
+                <RadioGroup
+                    android:checkedButton="@+id/b_m_13"
+                    android:id="@+id/toggle13"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:background="@drawable/pink_out_line"
+                    android:orientation="horizontal"
+                    android:layout_weight="1.5"
+                    android:layout_marginTop="9dp">
+
+                    <RadioButton
+                        android:layout_marginTop="1dp"
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginLeft="1dp"
+                        android:id="@+id/b_m_13"
+                        android:background="@drawable/toggle_widget_background"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:text="M"
+                        android:textColor="@color/colorPrimaryWhite" />
+
+                    <RadioButton
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="1dp"
+                        android:layout_marginBottom="1dp"
+                        android:id="@+id/b_w_13"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/toggle_widget_background"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:text="W"
+                        android:textColor="@color/colorPrimaryWhite" />
+                </RadioGroup>
+
+
+                <EditText
+                    android:id="@+id/editText_lg_updaten_13"
+                    android:layout_width="0px"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="9"
+                    android:hint="@string/dialog_schueler_3"
+                    android:layout_marginTop="5dp"/>
+
+                <Button
+                    android:id="@+id/btn_strafpunkt_minus_13"
+                    android:layout_width="27dp"
+                    android:layout_height="27dp"
+                    android:background="@drawable/roundedbutton2"
+                    android:gravity="center"
+                    android:text="+"
+                    android:textColor="@android:color/white"
+                    android:textSize="15sp"
+                    />
+                <TextView
+                    android:id="@+id/tv_strafpunkt_13"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/roundedbutton"
+                    android:gravity="center"
+                    android:text="8"
+                    android:textColor="@android:color/white"
+                    android:textSize="18sp"
+                    />
+                <Button
+                    android:id="@+id/btn_strafpunkt_plus_13"
+                    android:layout_width="27dp"
+                    android:layout_height="27dp"
+                    android:background="@drawable/roundedbutton2"
+                    android:gravity="center"
+                    android:text="-"
+                    android:textColor="@android:color/white"
+                    android:textSize="15sp"
+                    />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:focusableInTouchMode="true"
+                android:orientation="horizontal">
+
+                <RadioGroup
+                    android:checkedButton="@+id/b_m_14"
+                    android:id="@+id/toggle14"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:background="@drawable/pink_out_line"
+                    android:orientation="horizontal"
+                    android:layout_weight="1.5"
+                    android:layout_marginTop="9dp">
+
+                    <RadioButton
+                        android:layout_marginTop="1dp"
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginLeft="1dp"
+                        android:id="@+id/b_m_14"
+                        android:background="@drawable/toggle_widget_background"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:text="M"
+                        android:textColor="@color/colorPrimaryWhite" />
+
+                    <RadioButton
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="1dp"
+                        android:layout_marginBottom="1dp"
+                        android:id="@+id/b_w_14"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/toggle_widget_background"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:text="W"
+                        android:textColor="@color/colorPrimaryWhite" />
+                </RadioGroup>
+
+
+                <EditText
+                    android:id="@+id/editText_lg_updaten_14"
+                    android:layout_width="0px"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="9"
+                    android:hint="@string/dialog_schueler_3"
+                    android:layout_marginTop="5dp"/>
+
+                <Button
+                    android:id="@+id/btn_strafpunkt_minus_14"
+                    android:layout_width="27dp"
+                    android:layout_height="27dp"
+                    android:background="@drawable/roundedbutton2"
+                    android:gravity="center"
+                    android:text="+"
+                    android:textColor="@android:color/white"
+                    android:textSize="15sp"
+                    />
+                <TextView
+                    android:id="@+id/tv_strafpunkt_14"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/roundedbutton"
+                    android:gravity="center"
+                    android:text="8"
+                    android:textColor="@android:color/white"
+                    android:textSize="18sp"
+                    />
+                <Button
+                    android:id="@+id/btn_strafpunkt_plus_14"
+                    android:layout_width="27dp"
+                    android:layout_height="27dp"
+                    android:background="@drawable/roundedbutton2"
+                    android:gravity="center"
+                    android:text="-"
+                    android:textColor="@android:color/white"
+                    android:textSize="15sp"
+                    />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:focusableInTouchMode="true"
+                android:orientation="horizontal">
+
+                <RadioGroup
+                    android:checkedButton="@+id/b_m_15"
+                    android:id="@+id/toggle15"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:background="@drawable/pink_out_line"
+                    android:orientation="horizontal"
+                    android:layout_weight="1.5"
+                    android:layout_marginTop="9dp">
+
+                    <RadioButton
+                        android:layout_marginTop="1dp"
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginLeft="1dp"
+                        android:id="@+id/b_m_15"
+                        android:background="@drawable/toggle_widget_background"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:text="M"
+                        android:textColor="@color/colorPrimaryWhite" />
+
+                    <RadioButton
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="1dp"
+                        android:layout_marginBottom="1dp"
+                        android:id="@+id/b_w_15"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/toggle_widget_background"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:text="W"
+                        android:textColor="@color/colorPrimaryWhite" />
+                </RadioGroup>
+
+
+                <EditText
+                    android:id="@+id/editText_lg_updaten_15"
+                    android:layout_width="0px"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="9"
+                    android:hint="@string/dialog_schueler_3"
+                    android:layout_marginTop="5dp"/>
+
+                <Button
+                    android:id="@+id/btn_strafpunkt_minus_15"
+                    android:layout_width="27dp"
+                    android:layout_height="27dp"
+                    android:background="@drawable/roundedbutton2"
+                    android:gravity="center"
+                    android:text="+"
+                    android:textColor="@android:color/white"
+                    android:textSize="15sp"
+                    />
+                <TextView
+                    android:id="@+id/tv_strafpunkt_15"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/roundedbutton"
+                    android:gravity="center"
+                    android:text="8"
+                    android:textColor="@android:color/white"
+                    android:textSize="18sp"
+                    />
+                <Button
+                    android:id="@+id/btn_strafpunkt_plus_15"
+                    android:layout_width="27dp"
+                    android:layout_height="27dp"
+                    android:background="@drawable/roundedbutton2"
+                    android:gravity="center"
+                    android:text="-"
+                    android:textColor="@android:color/white"
+                    android:textSize="15sp"
+                    />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:focusableInTouchMode="true"
+                android:orientation="horizontal">
+
+                <RadioGroup
+                    android:checkedButton="@+id/b_m_16"
+                    android:id="@+id/toggle16"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:background="@drawable/pink_out_line"
+                    android:orientation="horizontal"
+                    android:layout_weight="1.5"
+                    android:layout_marginTop="9dp">
+
+                    <RadioButton
+                        android:layout_marginTop="1dp"
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginLeft="1dp"
+                        android:id="@+id/b_m_16"
+                        android:background="@drawable/toggle_widget_background"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:text="M"
+                        android:textColor="@color/colorPrimaryWhite" />
+
+                    <RadioButton
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="1dp"
+                        android:layout_marginBottom="1dp"
+                        android:id="@+id/b_w_16"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/toggle_widget_background"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:text="W"
+                        android:textColor="@color/colorPrimaryWhite" />
+                </RadioGroup>
+
+
+                <EditText
+                    android:id="@+id/editText_lg_updaten_16"
+                    android:layout_width="0px"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="9"
+                    android:hint="@string/dialog_schueler_3"
+                    android:layout_marginTop="5dp"/>
+
+                <Button
+                    android:id="@+id/btn_strafpunkt_minus_16"
+                    android:layout_width="27dp"
+                    android:layout_height="27dp"
+                    android:background="@drawable/roundedbutton2"
+                    android:gravity="center"
+                    android:text="+"
+                    android:textColor="@android:color/white"
+                    android:textSize="15sp"
+                    />
+                <TextView
+                    android:id="@+id/tv_strafpunkt_16"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/roundedbutton"
+                    android:gravity="center"
+                    android:text="8"
+                    android:textColor="@android:color/white"
+                    android:textSize="18sp"
+                    />
+                <Button
+                    android:id="@+id/btn_strafpunkt_plus_16"
+                    android:layout_width="27dp"
+                    android:layout_height="27dp"
+                    android:background="@drawable/roundedbutton2"
+                    android:gravity="center"
+                    android:text="-"
+                    android:textColor="@android:color/white"
+                    android:textSize="15sp"
+                    />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:focusableInTouchMode="true"
+                android:orientation="horizontal">
+
+                <RadioGroup
+                    android:checkedButton="@+id/b_m_17"
+                    android:id="@+id/toggle17"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:background="@drawable/pink_out_line"
+                    android:orientation="horizontal"
+                    android:layout_weight="1.5"
+                    android:layout_marginTop="9dp">
+
+                    <RadioButton
+                        android:layout_marginTop="1dp"
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginLeft="1dp"
+                        android:id="@+id/b_m_17"
+                        android:background="@drawable/toggle_widget_background"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:text="M"
+                        android:textColor="@color/colorPrimaryWhite" />
+
+                    <RadioButton
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="1dp"
+                        android:layout_marginBottom="1dp"
+                        android:id="@+id/b_w_17"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/toggle_widget_background"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:text="W"
+                        android:textColor="@color/colorPrimaryWhite" />
+                </RadioGroup>
+
+
+                <EditText
+                    android:id="@+id/editText_lg_updaten_17"
+                    android:layout_width="0px"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="9"
+                    android:hint="@string/dialog_schueler_3"
+                    android:layout_marginTop="5dp"/>
+
+                <Button
+                    android:id="@+id/btn_strafpunkt_minus_17"
+                    android:layout_width="27dp"
+                    android:layout_height="27dp"
+                    android:background="@drawable/roundedbutton2"
+                    android:gravity="center"
+                    android:text="+"
+                    android:textColor="@android:color/white"
+                    android:textSize="15sp"
+                    />
+                <TextView
+                    android:id="@+id/tv_strafpunkt_17"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/roundedbutton"
+                    android:gravity="center"
+                    android:text="8"
+                    android:textColor="@android:color/white"
+                    android:textSize="18sp"
+                    />
+                <Button
+                    android:id="@+id/btn_strafpunkt_plus_17"
+                    android:layout_width="27dp"
+                    android:layout_height="27dp"
+                    android:background="@drawable/roundedbutton2"
+                    android:gravity="center"
+                    android:text="-"
+                    android:textColor="@android:color/white"
+                    android:textSize="15sp"
+                    />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:focusableInTouchMode="true"
+                android:orientation="horizontal">
+
+                <RadioGroup
+                    android:checkedButton="@+id/b_m_18"
+                    android:id="@+id/toggle18"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:background="@drawable/pink_out_line"
+                    android:orientation="horizontal"
+                    android:layout_weight="1.5"
+                    android:layout_marginTop="9dp">
+
+                    <RadioButton
+                        android:layout_marginTop="1dp"
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginLeft="1dp"
+                        android:id="@+id/b_m_18"
+                        android:background="@drawable/toggle_widget_background"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:text="M"
+                        android:textColor="@color/colorPrimaryWhite" />
+
+                    <RadioButton
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="1dp"
+                        android:layout_marginBottom="1dp"
+                        android:id="@+id/b_w_18"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/toggle_widget_background"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:text="W"
+                        android:textColor="@color/colorPrimaryWhite" />
+                </RadioGroup>
+
+
+                <EditText
+                    android:id="@+id/editText_lg_updaten_18"
+                    android:layout_width="0px"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="9"
+                    android:hint="@string/dialog_schueler_3"
+                    android:layout_marginTop="5dp"/>
+
+                <Button
+                    android:id="@+id/btn_strafpunkt_minus_18"
+                    android:layout_width="27dp"
+                    android:layout_height="27dp"
+                    android:background="@drawable/roundedbutton2"
+                    android:gravity="center"
+                    android:text="+"
+                    android:textColor="@android:color/white"
+                    android:textSize="15sp"
+                    />
+                <TextView
+                    android:id="@+id/tv_strafpunkt_18"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/roundedbutton"
+                    android:gravity="center"
+                    android:text="8"
+                    android:textColor="@android:color/white"
+                    android:textSize="18sp"
+                    />
+                <Button
+                    android:id="@+id/btn_strafpunkt_plus_18"
+                    android:layout_width="27dp"
+                    android:layout_height="27dp"
+                    android:background="@drawable/roundedbutton2"
+                    android:gravity="center"
+                    android:text="-"
+                    android:textColor="@android:color/white"
+                    android:textSize="15sp"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:focusableInTouchMode="true"
+                android:orientation="horizontal">
+
+                <RadioGroup
+                    android:checkedButton="@+id/b_m_19"
+                    android:id="@+id/toggle19"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:background="@drawable/pink_out_line"
+                    android:orientation="horizontal"
+                    android:layout_weight="1.5"
+                    android:layout_marginTop="9dp">
+
+                    <RadioButton
+                        android:layout_marginTop="1dp"
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginLeft="1dp"
+                        android:id="@+id/b_m_19"
+                        android:background="@drawable/toggle_widget_background"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:text="M"
+                        android:textColor="@color/colorPrimaryWhite" />
+
+                    <RadioButton
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="1dp"
+                        android:layout_marginBottom="1dp"
+                        android:id="@+id/b_w_19"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/toggle_widget_background"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:text="W"
+                        android:textColor="@color/colorPrimaryWhite" />
+                </RadioGroup>
+
+
+                <EditText
+                    android:id="@+id/editText_lg_updaten_19"
+                    android:layout_width="0px"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="9"
+                    android:hint="@string/dialog_schueler_3"
+                    android:layout_marginTop="5dp"/>
+
+                <Button
+                    android:id="@+id/btn_strafpunkt_minus_19"
+                    android:layout_width="27dp"
+                    android:layout_height="27dp"
+                    android:background="@drawable/roundedbutton2"
+                    android:gravity="center"
+                    android:text="+"
+                    android:textColor="@android:color/white"
+                    android:textSize="15sp"
+                    />
+                <TextView
+                    android:id="@+id/tv_strafpunkt_19"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/roundedbutton"
+                    android:gravity="center"
+                    android:text="8"
+                    android:textColor="@android:color/white"
+                    android:textSize="18sp"
+                    />
+                <Button
+                    android:id="@+id/btn_strafpunkt_plus_19"
+                    android:layout_width="27dp"
+                    android:layout_height="27dp"
+                    android:background="@drawable/roundedbutton2"
+                    android:gravity="center"
+                    android:text="-"
+                    android:textColor="@android:color/white"
+                    android:textSize="15sp"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:focusableInTouchMode="true"
+                android:orientation="horizontal">
+
+                <RadioGroup
+                    android:checkedButton="@+id/b_m_20"
+                    android:id="@+id/toggle20"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:background="@drawable/pink_out_line"
+                    android:orientation="horizontal"
+                    android:layout_weight="1.5"
+                    android:layout_marginTop="9dp">
+
+                    <RadioButton
+                        android:layout_marginTop="1dp"
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginLeft="1dp"
+                        android:id="@+id/b_m_20"
+                        android:background="@drawable/toggle_widget_background"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:text="M"
+                        android:textColor="@color/colorPrimaryWhite" />
+
+                    <RadioButton
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="1dp"
+                        android:layout_marginBottom="1dp"
+                        android:id="@+id/b_w_20"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/toggle_widget_background"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:text="W"
+                        android:textColor="@color/colorPrimaryWhite" />
+                </RadioGroup>
+
+
+                <EditText
+                    android:id="@+id/editText_lg_updaten_20"
+                    android:layout_width="0px"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="9"
+                    android:hint="@string/dialog_schueler_3"
+                    android:layout_marginTop="5dp"/>
+
+                <Button
+                    android:id="@+id/btn_strafpunkt_minus_20"
+                    android:layout_width="27dp"
+                    android:layout_height="27dp"
+                    android:background="@drawable/roundedbutton2"
+                    android:gravity="center"
+                    android:text="+"
+                    android:textColor="@android:color/white"
+                    android:textSize="15sp"
+                    />
+                <TextView
+                    android:id="@+id/tv_strafpunkt_20"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/roundedbutton"
+                    android:gravity="center"
+                    android:text="8"
+                    android:textColor="@android:color/white"
+                    android:textSize="18sp"
+                    />
+                <Button
+                    android:id="@+id/btn_strafpunkt_plus_20"
+                    android:layout_width="27dp"
+                    android:layout_height="27dp"
+                    android:background="@drawable/roundedbutton2"
+                    android:gravity="center"
+                    android:text="-"
+                    android:textColor="@android:color/white"
+                    android:textSize="15sp"
+                    />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:focusableInTouchMode="true"
+                android:orientation="horizontal">
+
+                <RadioGroup
+                    android:checkedButton="@+id/b_m_21"
+                    android:id="@+id/toggle21"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:background="@drawable/pink_out_line"
+                    android:orientation="horizontal"
+                    android:layout_weight="1.5"
+                    android:layout_marginTop="9dp">
+
+                    <RadioButton
+                        android:layout_marginTop="1dp"
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginLeft="1dp"
+                        android:id="@+id/b_m_21"
+                        android:background="@drawable/toggle_widget_background"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:text="M"
+                        android:textColor="@color/colorPrimaryWhite" />
+
+                    <RadioButton
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="1dp"
+                        android:layout_marginBottom="1dp"
+                        android:id="@+id/b_w_21"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/toggle_widget_background"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:text="W"
+                        android:textColor="@color/colorPrimaryWhite" />
+                </RadioGroup>
+
+
+                <EditText
+                    android:id="@+id/editText_lg_updaten_21"
+                    android:layout_width="0px"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="9"
+                    android:hint="@string/dialog_schueler_3"
+                    android:layout_marginTop="5dp"/>
+
+                <Button
+                    android:id="@+id/btn_strafpunkt_minus_21"
+                    android:layout_width="27dp"
+                    android:layout_height="27dp"
+                    android:background="@drawable/roundedbutton2"
+                    android:gravity="center"
+                    android:text="+"
+                    android:textColor="@android:color/white"
+                    android:textSize="15sp"
+                    />
+                <TextView
+                    android:id="@+id/tv_strafpunkt_21"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/roundedbutton"
+                    android:gravity="center"
+                    android:text="8"
+                    android:textColor="@android:color/white"
+                    android:textSize="18sp"
+                    />
+                <Button
+                    android:id="@+id/btn_strafpunkt_plus_21"
+                    android:layout_width="27dp"
+                    android:layout_height="27dp"
+                    android:background="@drawable/roundedbutton2"
+                    android:gravity="center"
+                    android:text="-"
+                    android:textColor="@android:color/white"
+                    android:textSize="15sp"
+                    />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:focusableInTouchMode="true"
+                android:orientation="horizontal">
+
+                <RadioGroup
+                    android:checkedButton="@+id/b_m_22"
+                    android:id="@+id/toggle22"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:background="@drawable/pink_out_line"
+                    android:orientation="horizontal"
+                    android:layout_weight="1.5"
+                    android:layout_marginTop="9dp">
+
+                    <RadioButton
+                        android:layout_marginTop="1dp"
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginLeft="1dp"
+                        android:id="@+id/b_m_22"
+                        android:background="@drawable/toggle_widget_background"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:text="M"
+                        android:textColor="@color/colorPrimaryWhite" />
+
+                    <RadioButton
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="1dp"
+                        android:layout_marginBottom="1dp"
+                        android:id="@+id/b_w_22"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/toggle_widget_background"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:text="W"
+                        android:textColor="@color/colorPrimaryWhite" />
+                </RadioGroup>
+
+
+                <EditText
+                    android:id="@+id/editText_lg_updaten_22"
+                    android:layout_width="0px"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="9"
+                    android:hint="@string/dialog_schueler_3"
+                    android:layout_marginTop="5dp"/>
+
+                <Button
+                    android:id="@+id/btn_strafpunkt_minus_22"
+                    android:layout_width="27dp"
+                    android:layout_height="27dp"
+                    android:background="@drawable/roundedbutton2"
+                    android:gravity="center"
+                    android:text="+"
+                    android:textColor="@android:color/white"
+                    android:textSize="15sp"
+                    />
+                <TextView
+                    android:id="@+id/tv_strafpunkt_22"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/roundedbutton"
+                    android:gravity="center"
+                    android:text="8"
+                    android:textColor="@android:color/white"
+                    android:textSize="18sp"
+                    />
+                <Button
+                    android:id="@+id/btn_strafpunkt_plus_22"
+                    android:layout_width="27dp"
+                    android:layout_height="27dp"
+                    android:background="@drawable/roundedbutton2"
+                    android:gravity="center"
+                    android:text="-"
+                    android:textColor="@android:color/white"
+                    android:textSize="15sp"
+                    />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:focusableInTouchMode="true"
+                android:orientation="horizontal">
+
+                <RadioGroup
+                    android:checkedButton="@+id/b_m_23"
+                    android:id="@+id/toggle23"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:background="@drawable/pink_out_line"
+                    android:orientation="horizontal"
+                    android:layout_weight="1.5"
+                    android:layout_marginTop="9dp">
+
+                    <RadioButton
+                        android:layout_marginTop="1dp"
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginLeft="1dp"
+                        android:id="@+id/b_m_23"
+                        android:background="@drawable/toggle_widget_background"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:text="M"
+                        android:textColor="@color/colorPrimaryWhite" />
+
+                    <RadioButton
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="1dp"
+                        android:layout_marginBottom="1dp"
+                        android:id="@+id/b_w_23"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/toggle_widget_background"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:text="W"
+                        android:textColor="@color/colorPrimaryWhite" />
+                </RadioGroup>
+
+
+                <EditText
+                    android:id="@+id/editText_lg_updaten_23"
+                    android:layout_width="0px"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="9"
+                    android:hint="@string/dialog_schueler_3"
+                    android:layout_marginTop="5dp"/>
+
+                <Button
+                    android:id="@+id/btn_strafpunkt_minus_23"
+                    android:layout_width="27dp"
+                    android:layout_height="27dp"
+                    android:background="@drawable/roundedbutton2"
+                    android:gravity="center"
+                    android:text="+"
+                    android:textColor="@android:color/white"
+                    android:textSize="15sp"
+                    />
+                <TextView
+                    android:id="@+id/tv_strafpunkt_23"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/roundedbutton"
+                    android:gravity="center"
+                    android:text="8"
+                    android:textColor="@android:color/white"
+                    android:textSize="18sp"
+                    />
+                <Button
+                    android:id="@+id/btn_strafpunkt_plus_23"
+                    android:layout_width="27dp"
+                    android:layout_height="27dp"
+                    android:background="@drawable/roundedbutton2"
+                    android:gravity="center"
+                    android:text="-"
+                    android:textColor="@android:color/white"
+                    android:textSize="15sp"
+                    />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:focusableInTouchMode="true"
+                android:orientation="horizontal">
+
+                <RadioGroup
+                    android:checkedButton="@+id/b_m_24"
+                    android:id="@+id/toggle24"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:background="@drawable/pink_out_line"
+                    android:orientation="horizontal"
+                    android:layout_weight="1.5"
+                    android:layout_marginTop="9dp">
+
+                    <RadioButton
+                        android:layout_marginTop="1dp"
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginLeft="1dp"
+                        android:id="@+id/b_m_24"
+                        android:background="@drawable/toggle_widget_background"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:text="M"
+                        android:textColor="@color/colorPrimaryWhite" />
+
+                    <RadioButton
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="1dp"
+                        android:layout_marginBottom="1dp"
+                        android:id="@+id/b_w_24"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/toggle_widget_background"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:text="W"
+                        android:textColor="@color/colorPrimaryWhite" />
+                </RadioGroup>
+
+
+                <EditText
+                    android:id="@+id/editText_lg_updaten_24"
+                    android:layout_width="0px"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="9"
+                    android:hint="@string/dialog_schueler_3"
+                    android:layout_marginTop="5dp"/>
+
+                <Button
+                    android:id="@+id/btn_strafpunkt_minus_24"
+                    android:layout_width="27dp"
+                    android:layout_height="27dp"
+                    android:background="@drawable/roundedbutton2"
+                    android:gravity="center"
+                    android:text="+"
+                    android:textColor="@android:color/white"
+                    android:textSize="15sp"
+                    />
+                <TextView
+                    android:id="@+id/tv_strafpunkt_24"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/roundedbutton"
+                    android:gravity="center"
+                    android:text="8"
+                    android:textColor="@android:color/white"
+                    android:textSize="18sp"
+                    />
+                <Button
+                    android:id="@+id/btn_strafpunkt_plus_24"
+                    android:layout_width="27dp"
+                    android:layout_height="27dp"
+                    android:background="@drawable/roundedbutton2"
+                    android:gravity="center"
+                    android:text="-"
+                    android:textColor="@android:color/white"
+                    android:textSize="15sp"
+                    />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:focusableInTouchMode="true"
+                android:orientation="horizontal">
+
+                <RadioGroup
+                    android:checkedButton="@+id/b_m_25"
+                    android:id="@+id/toggle25"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:background="@drawable/pink_out_line"
+                    android:orientation="horizontal"
+                    android:layout_weight="1.5"
+                    android:layout_marginTop="9dp">
+
+                    <RadioButton
+                        android:layout_marginTop="1dp"
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginLeft="1dp"
+                        android:id="@+id/b_m_25"
+                        android:background="@drawable/toggle_widget_background"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:text="M"
+                        android:textColor="@color/colorPrimaryWhite" />
+
+                    <RadioButton
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="1dp"
+                        android:layout_marginBottom="1dp"
+                        android:id="@+id/b_w_25"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/toggle_widget_background"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:text="W"
+                        android:textColor="@color/colorPrimaryWhite" />
+                </RadioGroup>
+
+
+                <EditText
+                    android:id="@+id/editText_lg_updaten_25"
+                    android:layout_width="0px"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="9"
+                    android:hint="@string/dialog_schueler_3"
+                    android:layout_marginTop="5dp"/>
+
+                <Button
+                    android:id="@+id/btn_strafpunkt_minus_25"
+                    android:layout_width="27dp"
+                    android:layout_height="27dp"
+                    android:background="@drawable/roundedbutton2"
+                    android:gravity="center"
+                    android:text="+"
+                    android:textColor="@android:color/white"
+                    android:textSize="15sp"
+                    />
+                <TextView
+                    android:id="@+id/tv_strafpunkt_25"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/roundedbutton"
+                    android:gravity="center"
+                    android:text="8"
+                    android:textColor="@android:color/white"
+                    android:textSize="18sp"
+                    />
+                <Button
+                    android:id="@+id/btn_strafpunkt_plus_25"
+                    android:layout_width="27dp"
+                    android:layout_height="27dp"
+                    android:background="@drawable/roundedbutton2"
+                    android:gravity="center"
+                    android:text="-"
+                    android:textColor="@android:color/white"
+                    android:textSize="15sp"
+                    />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:focusableInTouchMode="true"
+                android:orientation="horizontal">
+
+                <RadioGroup
+                    android:checkedButton="@+id/b_m_26"
+                    android:id="@+id/toggle26"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:background="@drawable/pink_out_line"
+                    android:orientation="horizontal"
+                    android:layout_weight="1.5"
+                    android:layout_marginTop="9dp">
+
+                    <RadioButton
+                        android:layout_marginTop="1dp"
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginLeft="1dp"
+                        android:id="@+id/b_m_26"
+                        android:background="@drawable/toggle_widget_background"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:text="M"
+                        android:textColor="@color/colorPrimaryWhite" />
+
+                    <RadioButton
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="1dp"
+                        android:layout_marginBottom="1dp"
+                        android:id="@+id/b_w_26"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/toggle_widget_background"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:text="W"
+                        android:textColor="@color/colorPrimaryWhite" />
+                </RadioGroup>
+
+
+                <EditText
+                    android:id="@+id/editText_lg_updaten_26"
+                    android:layout_width="0px"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="9"
+                    android:hint="@string/dialog_schueler_3"
+                    android:layout_marginTop="5dp"/>
+
+                <Button
+                    android:id="@+id/btn_strafpunkt_minus_26"
+                    android:layout_width="27dp"
+                    android:layout_height="27dp"
+                    android:background="@drawable/roundedbutton2"
+                    android:gravity="center"
+                    android:text="+"
+                    android:textColor="@android:color/white"
+                    android:textSize="15sp"
+                    />
+                <TextView
+                    android:id="@+id/tv_strafpunkt_26"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/roundedbutton"
+                    android:gravity="center"
+                    android:text="8"
+                    android:textColor="@android:color/white"
+                    android:textSize="18sp"
+                    />
+                <Button
+                    android:id="@+id/btn_strafpunkt_plus_26"
+                    android:layout_width="27dp"
+                    android:layout_height="27dp"
+                    android:background="@drawable/roundedbutton2"
+                    android:gravity="center"
+                    android:text="-"
+                    android:textColor="@android:color/white"
+                    android:textSize="15sp"
+                    />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:focusableInTouchMode="true"
+                android:orientation="horizontal">
+
+                <RadioGroup
+                    android:checkedButton="@+id/b_m_27"
+                    android:id="@+id/toggle27"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:background="@drawable/pink_out_line"
+                    android:orientation="horizontal"
+                    android:layout_weight="1.5"
+                    android:layout_marginTop="9dp">
+
+                    <RadioButton
+                        android:layout_marginTop="1dp"
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginLeft="1dp"
+                        android:id="@+id/b_m_27"
+                        android:background="@drawable/toggle_widget_background"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:text="M"
+                        android:textColor="@color/colorPrimaryWhite" />
+
+                    <RadioButton
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="1dp"
+                        android:layout_marginBottom="1dp"
+                        android:id="@+id/b_w_27"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/toggle_widget_background"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:text="W"
+                        android:textColor="@color/colorPrimaryWhite" />
+                </RadioGroup>
+
+
+                <EditText
+                    android:id="@+id/editText_lg_updaten_27"
+                    android:layout_width="0px"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="9"
+                    android:hint="@string/dialog_schueler_3"
+                    android:layout_marginTop="5dp"/>
+
+                <Button
+                    android:id="@+id/btn_strafpunkt_minus_27"
+                    android:layout_width="27dp"
+                    android:layout_height="27dp"
+                    android:background="@drawable/roundedbutton2"
+                    android:gravity="center"
+                    android:text="+"
+                    android:textColor="@android:color/white"
+                    android:textSize="15sp"
+                    />
+                <TextView
+                    android:id="@+id/tv_strafpunkt_27"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/roundedbutton"
+                    android:gravity="center"
+                    android:text="8"
+                    android:textColor="@android:color/white"
+                    android:textSize="18sp"
+                    />
+                <Button
+                    android:id="@+id/btn_strafpunkt_plus_27"
+                    android:layout_width="27dp"
+                    android:layout_height="27dp"
+                    android:background="@drawable/roundedbutton2"
+                    android:gravity="center"
+                    android:text="-"
+                    android:textColor="@android:color/white"
+                    android:textSize="15sp"
+                    />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:focusableInTouchMode="true"
+                android:orientation="horizontal">
+
+                <RadioGroup
+                    android:checkedButton="@+id/b_m_28"
+                    android:id="@+id/toggle28"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:background="@drawable/pink_out_line"
+                    android:orientation="horizontal"
+                    android:layout_weight="1.5"
+                    android:layout_marginTop="9dp">
+
+                    <RadioButton
+                        android:layout_marginTop="1dp"
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginLeft="1dp"
+                        android:id="@+id/b_m_28"
+                        android:background="@drawable/toggle_widget_background"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:text="M"
+                        android:textColor="@color/colorPrimaryWhite" />
+
+                    <RadioButton
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="1dp"
+                        android:layout_marginBottom="1dp"
+                        android:id="@+id/b_w_28"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/toggle_widget_background"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:text="W"
+                        android:textColor="@color/colorPrimaryWhite" />
+                </RadioGroup>
+
+
+                <EditText
+                    android:id="@+id/editText_lg_updaten_28"
+                    android:layout_width="0px"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="9"
+                    android:hint="@string/dialog_schueler_3"
+                    android:layout_marginTop="5dp"/>
+
+                <Button
+                    android:id="@+id/btn_strafpunkt_minus_28"
+                    android:layout_width="27dp"
+                    android:layout_height="27dp"
+                    android:background="@drawable/roundedbutton2"
+                    android:gravity="center"
+                    android:text="+"
+                    android:textColor="@android:color/white"
+                    android:textSize="15sp"
+                    />
+                <TextView
+                    android:id="@+id/tv_strafpunkt_28"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/roundedbutton"
+                    android:gravity="center"
+                    android:text="8"
+                    android:textColor="@android:color/white"
+                    android:textSize="18sp"
+                    />
+                <Button
+                    android:id="@+id/btn_strafpunkt_plus_28"
+                    android:layout_width="27dp"
+                    android:layout_height="27dp"
+                    android:background="@drawable/roundedbutton2"
+                    android:gravity="center"
+                    android:text="-"
+                    android:textColor="@android:color/white"
+                    android:textSize="15sp"
+                    />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:focusableInTouchMode="true"
+                android:orientation="horizontal">
+
+                <RadioGroup
+                    android:checkedButton="@+id/b_m_29"
+                    android:id="@+id/toggle29"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:background="@drawable/pink_out_line"
+                    android:orientation="horizontal"
+                    android:layout_weight="1.5"
+                    android:layout_marginTop="9dp">
+
+                    <RadioButton
+                        android:layout_marginTop="1dp"
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginLeft="1dp"
+                        android:id="@+id/b_m_29"
+                        android:background="@drawable/toggle_widget_background"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:text="M"
+                        android:textColor="@color/colorPrimaryWhite" />
+
+                    <RadioButton
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="1dp"
+                        android:layout_marginBottom="1dp"
+                        android:id="@+id/b_w_29"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/toggle_widget_background"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:text="W"
+                        android:textColor="@color/colorPrimaryWhite" />
+                </RadioGroup>
+
+
+                <EditText
+                    android:id="@+id/editText_lg_updaten_29"
+                    android:layout_width="0px"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="9"
+                    android:hint="@string/dialog_schueler_3"
+                    android:layout_marginTop="5dp"/>
+
+                <Button
+                    android:id="@+id/btn_strafpunkt_minus_29"
+                    android:layout_width="27dp"
+                    android:layout_height="27dp"
+                    android:background="@drawable/roundedbutton2"
+                    android:gravity="center"
+                    android:text="+"
+                    android:textColor="@android:color/white"
+                    android:textSize="15sp"
+                    />
+                <TextView
+                    android:id="@+id/tv_strafpunkt_29"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/roundedbutton"
+                    android:gravity="center"
+                    android:text="8"
+                    android:textColor="@android:color/white"
+                    android:textSize="18sp"
+                    />
+                <Button
+                    android:id="@+id/btn_strafpunkt_plus_29"
+                    android:layout_width="27dp"
+                    android:layout_height="27dp"
+                    android:background="@drawable/roundedbutton2"
+                    android:gravity="center"
+                    android:text="-"
+                    android:textColor="@android:color/white"
+                    android:textSize="15sp"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:focusableInTouchMode="true"
+                android:orientation="horizontal"
+                >
+
+                <RadioGroup
+                    android:checkedButton="@+id/b_m_30"
+                    android:id="@+id/toggle30"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:background="@drawable/pink_out_line"
+                    android:orientation="horizontal"
+                    android:layout_weight="1.5"
+                    android:layout_marginTop="9dp">
+
+                    <RadioButton
+                        android:layout_marginTop="1dp"
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginLeft="1dp"
+                        android:id="@+id/b_m_30"
+                        android:background="@drawable/toggle_widget_background"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:text="M"
+                        android:textColor="@color/colorPrimaryWhite" />
+
+                    <RadioButton
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="1dp"
+                        android:layout_marginBottom="1dp"
+                        android:id="@+id/b_w_30"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/toggle_widget_background"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:text="W"
+                        android:textColor="@color/colorPrimaryWhite" />
+                </RadioGroup>
+
+
+                <EditText
+                    android:id="@+id/editText_lg_updaten_30"
+                    android:layout_width="0px"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="9"
+                    android:hint="@string/dialog_schueler_3"
+                    android:layout_marginTop="5dp"/>
+
+                <Button
+                    android:id="@+id/btn_strafpunkt_minus_30"
+                    android:layout_width="27dp"
+                    android:layout_height="27dp"
+                    android:background="@drawable/roundedbutton2"
+                    android:gravity="center"
+                    android:text="+"
+                    android:textColor="@android:color/white"
+                    android:textSize="15sp"
+                    />
+                <TextView
+                    android:id="@+id/tv_strafpunkt_30"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/roundedbutton"
+                    android:gravity="center"
+                    android:text="8"
+                    android:textColor="@android:color/white"
+                    android:textSize="18sp"
+                    />
+                <Button
+                    android:id="@+id/btn_strafpunkt_plus_30"
+                    android:layout_width="27dp"
+                    android:layout_height="27dp"
+                    android:background="@drawable/roundedbutton2"
+                    android:gravity="center"
+                    android:text="-"
+                    android:textColor="@android:color/white"
+                    android:textSize="15sp"
+                    />
+
+            </LinearLayout>
+
+
+
+
+
+        </LinearLayout>
+    </ScrollView>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:focusableInTouchMode="true"
+            android:orientation="horizontal"
+            android:layout_gravity="bottom"
+            android:layout_alignParentBottom="true"
+            android:gravity="bottom">
+            <Button
+                android:id="@+id/bnt_lg_speichern"
+                android:layout_width="0px"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textSize="15sp"
+                android:text="Respekt!"
+                android:background="@color/colorPrimary"
+                android:textColor="@android:color/white"/>
+
+
+
+        </LinearLayout>
+
+
+    </FrameLayout>
+
+</LinearLayout>

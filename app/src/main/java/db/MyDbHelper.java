@@ -11,7 +11,7 @@ public class MyDbHelper extends SQLiteOpenHelper {
     private static final String LOG_TAG = MyDbHelper.class.getSimpleName();
 
     public static final String DB_NAME = "pauli_rot_lite.db";
-    public static final int DB_VERSION = 68;
+    public static final int DB_VERSION = 96;
 
 
     public static final String TABLE_KOLLEGE = "kollege";
@@ -184,21 +184,6 @@ public class MyDbHelper extends SQLiteOpenHelper {
 
     //------------------------------------------------------------------------------------------
 
-    public static final String TABLE_VORFALL = "vorfall";
-
-    public static final String VORFALL_COLUMN_ID = "_id";
-    public static final String VORFALL_COLUMN_ZEITPUNKT = "zeitpunkt";
-    public static final String VORFALL_COLUMN_INFO = "info";
-
-    public static final String SQL_CREATE_VORFALL =
-            "CREATE TABLE " + TABLE_VORFALL +
-                    "(" + VORFALL_COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
-
-                    VORFALL_COLUMN_ZEITPUNKT + " TEXT, " +
-                    VORFALL_COLUMN_INFO + "  TEXT);";
-
-
-    //------------------------------------------------------------------------------------------
 
     public static final String TABLE_VERGEHEN = "vergehen";
 
@@ -278,7 +263,7 @@ public class MyDbHelper extends SQLiteOpenHelper {
 
 
 
-    //------------------------------------------------------------------------------------------
+       //------------------------------------------------------------------------------------------
 
     public static final String TABLE_LERNGRUPPE = "lerngruppe";
 
@@ -294,6 +279,63 @@ public class MyDbHelper extends SQLiteOpenHelper {
 
 
     //------------------------------------------------------------------------------------------
+
+    public static final String TABLE_VERGEHENGRUPPE = "vergehengruppe";
+
+    public static final String VERGEHENGRUPPE_COLUMN_ID = "_id";
+    public static final String VERGEHENGRUPPE_COLUMN_NAME = "name";
+
+
+    public static final String SQL_CREATE_VERGEHENGRUPPE =
+            "CREATE TABLE " + TABLE_VERGEHENGRUPPE +
+                    "(" + VERGEHENGRUPPE_COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+
+                    VERGEHENGRUPPE_COLUMN_NAME + " TEXT);";
+
+
+
+
+    //------------------------------------------------------------------------------------------
+
+    public static final String TABLE_VORFALL = "vorfall";
+
+    public static final String VORFALL_COLUMN_ID = "_id";
+    public static final String VORFALL_COLUMN_ZEITPUNKT = "zeitpunkt";
+    public static final String VORFALL_COLUMN_INFO = "info";
+    public static final String VORFALL_COLUMN_SCHUELER_ID = "schueler_id";
+    public static final String VORFALL_COLUMN_VERGEHEN_ID = "vergehen_id";
+
+    public static final String SQL_CREATE_VORFALL =
+            "CREATE TABLE " + TABLE_VORFALL +
+                    "(" +
+
+                    VORFALL_COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                    VORFALL_COLUMN_ZEITPUNKT + " TEXT, " +
+                    VORFALL_COLUMN_INFO + "  TEXT, " +
+                    VORFALL_COLUMN_SCHUELER_ID + "  INTEGER, " +
+                    VORFALL_COLUMN_VERGEHEN_ID + "  INTEGER, " +
+
+                    " FOREIGN KEY " + "(" + VORFALL_COLUMN_SCHUELER_ID + ")" + " REFERENCES " + TABLE_SCHUELER + "(" + SCHUELER_COLUMN_ID + ") " + "ON DELETE CASCADE ON UPDATE CASCADE, " +
+                    " FOREIGN KEY " + "(" + VORFALL_COLUMN_VERGEHEN_ID + ")" + " REFERENCES " + TABLE_VERGEHEN + "(" + VERGEHEN_COLUMN_ID + ") " + "ON DELETE CASCADE ON UPDATE CASCADE " +
+
+                    ");";
+    //------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     public static final String TABLE_SP_FACH = "sp_fach";
 
@@ -400,6 +442,34 @@ public class MyDbHelper extends SQLiteOpenHelper {
                     ");";
 
 
+
+
+
+    //------------------------------------------------------------------------------------------
+
+    public static final String TABLE_VERGEHEN_VERGEHENGRUPPE = "vergehen_vergehengruppe";
+
+    public static final String SL_VERGEHEN_ID = "vergehen_id";
+    public static final String SL_VERGEHENGRUPPE_ID = "vergehengruppe_id";
+
+
+    public static final String SQL_CREATE_VERGEHEN_VERGEHENGRUPPE =
+            "CREATE TABLE " + TABLE_VERGEHEN_VERGEHENGRUPPE +
+                    "(" + SL_VERGEHEN_ID + " INTEGER NOT NULL, " +
+                    SL_VERGEHENGRUPPE_ID + " INTEGER NOT NULL," +
+                    " PRIMARY KEY(" + SL_VERGEHEN_ID + ", " + SL_VERGEHENGRUPPE_ID + ")," +
+                    " FOREIGN KEY " + "(" + SL_VERGEHEN_ID + ")" + " REFERENCES " + TABLE_VERGEHEN + "(" + VERGEHEN_COLUMN_ID + ") " + "ON DELETE CASCADE ON UPDATE CASCADE, " +
+                    " FOREIGN KEY " + "(" + SL_VERGEHENGRUPPE_ID + ")" + " REFERENCES " + TABLE_VERGEHENGRUPPE + "(" + VERGEHENGRUPPE_COLUMN_ID + ") " + "ON DELETE CASCADE ON UPDATE CASCADE " +
+                    ");";
+
+
+
+
+
+
+
+
+
     //------------------------------------------------------------------------------------------
 
     public static final String TABLE_KOLLEGE_SCHUELER = "kollege_schueler";
@@ -468,6 +538,8 @@ public class MyDbHelper extends SQLiteOpenHelper {
     public static final String SQL_DROP_RAUM = "DROP TABLE IF EXISTS " + TABLE_RAUM;
     public static final String SQL_DROP_THEMA = "DROP TABLE IF EXISTS " + TABLE_THEMA;
     public static final String SQL_DROP_LERNGRUPPE = "DROP TABLE IF EXISTS " + TABLE_LERNGRUPPE;
+
+    public static final String SQL_DROP_VERGEHENGRUPPE = "DROP TABLE IF EXISTS " + TABLE_VERGEHENGRUPPE;
     public static final String SQL_DROP_SP_FACH = "DROP TABLE IF EXISTS " + TABLE_SP_FACH;
     public static final String SQL_DROP_SP_FRAGMENT = "DROP TABLE IF EXISTS " + TABLE_SP_FRAGMENT;
     public static final String SQL_DROP_RYTHMUSZELLE = "DROP TABLE IF EXISTS " + TABLE_RYTHMUSZELLE;
@@ -475,6 +547,7 @@ public class MyDbHelper extends SQLiteOpenHelper {
     public static final String SQL_DROP_LERNFORM = "DROP TABLE IF EXISTS " + TABLE_LERNFORM;
 
     public static final String SQL_DROP_SCHUELER_LERNGRUPPE = "DROP TABLE IF EXISTS " + TABLE_SCHUELER_LERNGRUPPE;
+    public static final String SQL_DROP_VERGEHEN_VERGEHENGRUPPE = "DROP TABLE IF EXISTS " + TABLE_VERGEHEN_VERGEHENGRUPPE;
     public static final String SQL_DROP_KOLLEGE_SCHUELER = "DROP TABLE IF EXISTS " + TABLE_KOLLEGE_SCHUELER;
     public static final String SQL_DROP_KOLLEGE_STANDORT = "DROP TABLE IF EXISTS " + TABLE_KOLLEGE_STANDORT;
     public static final String SQL_DROP_SCHUELER_ANGEHOERIGER = "DROP TABLE IF EXISTS " + TABLE_SCHUELER_ANGEHOERIGER;
@@ -523,6 +596,9 @@ public class MyDbHelper extends SQLiteOpenHelper {
             Log.d(LOG_TAG, "Die Tabelle wird mit SQL-Befehl: " + SQL_CREATE_LERNGRUPPE + " angelegt.");
             db.execSQL(SQL_CREATE_LERNGRUPPE);
 
+            Log.d(LOG_TAG, "Die Tabelle wird mit SQL-Befehl: " + SQL_CREATE_VERGEHENGRUPPE + " angelegt.");
+            db.execSQL(SQL_CREATE_VERGEHENGRUPPE);
+
             Log.d(LOG_TAG, "Die Tabelle wird mit SQL-Befehl: " + SQL_CREATE_GUELTIGKEITSBEREICH + " angelegt.");
             db.execSQL(SQL_CREATE_GUELTIGKEITSBEREICH);
 
@@ -547,6 +623,9 @@ public class MyDbHelper extends SQLiteOpenHelper {
 
             Log.d(LOG_TAG, "Die Tabelle wird mit SQL-Befehl: " + SQL_CREATE_SCHUELER_LERNGRUPPE + " angelegt.");
             db.execSQL(SQL_CREATE_SCHUELER_LERNGRUPPE);
+
+            Log.d(LOG_TAG, "Die Tabelle wird mit SQL-Befehl: " + SQL_CREATE_VERGEHEN_VERGEHENGRUPPE + " angelegt.");
+            db.execSQL(SQL_CREATE_VERGEHEN_VERGEHENGRUPPE);
 
             Log.d(LOG_TAG, "Die Tabelle wird mit SQL-Befehl: " + SQL_CREATE_KOLLEGE_STANDORT + " angelegt.");
             db.execSQL(SQL_CREATE_KOLLEGE_STANDORT);
@@ -580,10 +659,12 @@ public class MyDbHelper extends SQLiteOpenHelper {
         db.execSQL(SQL_DROP_RAUM);
         db.execSQL(SQL_DROP_THEMA);
         db.execSQL(SQL_DROP_LERNGRUPPE);
+        db.execSQL(SQL_DROP_VERGEHENGRUPPE);
         db.execSQL(SQL_DROP_LERNFORM);
 
 
         db.execSQL(SQL_DROP_SCHUELER_LERNGRUPPE);
+        db.execSQL(SQL_DROP_VERGEHEN_VERGEHENGRUPPE);
         db.execSQL(SQL_DROP_KOLLEGE_SCHUELER);
         db.execSQL(SQL_DROP_KOLLEGE_STANDORT);
         db.execSQL(SQL_DROP_SCHUELER_ANGEHOERIGER);

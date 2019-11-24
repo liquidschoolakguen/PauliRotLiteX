@@ -98,7 +98,7 @@ public class Schueler {
 
     @Override
     public String toString() {
-        String output = id+". "+nachname+" "+ vorname;
+        String output = id+ " "+vorname+" ["+ geburtstag+"] "+geschlecht;
 
         return output;
 

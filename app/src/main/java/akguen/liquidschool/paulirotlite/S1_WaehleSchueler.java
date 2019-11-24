@@ -13,46 +13,72 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
+import db.DataSource_Lerngruppe;
+import db.DataSource_Schueler;
 import db.DataSource_Schueler_Lerngruppe;
-import db.Speichern_Schueler;
+import model.Lerngruppe;
 import model.Schueler;
+import tabs.WaehleSchuelerCustomAdapter;
 
 public class S1_WaehleSchueler extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
 
     private DataSource_Schueler_Lerngruppe dS_L_S;
-    private ListView mSchuelersListView;
+    private DataSource_Lerngruppe dS_L;
+    private DataSource_Schueler dS_Schueler;
 
+    private TextView tw;
     SharedPreferences sharedpreferences;
     public static final String MyPREFERENCES = "MyPrefs" ;
-
-
+    public static AppCompatActivity fa;
+    ListView listView;
+    private static WaehleSchuelerCustomAdapter adapter;
     int idd;
-
+    Lerngruppe selectedLG;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        fa = this;
+
+
         setContentView(R.layout.my_navigation);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        listView=(ListView)findViewById(R.id.my_list_schueler);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Schueler schueler = (Schueler) parent.getItemAtPosition(position);
+                //Schueler schu= ff.get(position);
+
+                // Snackbar.make(view, schu.getVorname()+"\n"+schu.getGeburtstag(), Snackbar.LENGTH_LONG)
+                //        .setAction("No action", null).show();
 
 
+                Intent intent = new Intent(S1_WaehleSchueler.this, S4_WaehleVergehen.class);
+                intent.putExtra("schueler_id", Integer.toString(schueler.getId()));
+                startActivity(intent);
+
+
+
+
+
+            }
+        });
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -64,7 +90,8 @@ public class S1_WaehleSchueler extends AppCompatActivity
 
 
         dS_L_S = new DataSource_Schueler_Lerngruppe(this);
-
+        dS_L = new DataSource_Lerngruppe(this);
+        dS_Schueler = new DataSource_Schueler(this);
 
         SharedPreferences prefs = getPreferences(MODE_PRIVATE);
         String lastDay = prefs.getString("lastDay", null);
@@ -91,6 +118,9 @@ public class S1_WaehleSchueler extends AppCompatActivity
         }
 
         sharedpreferences = getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
+        //
+        // sharedpreferences.edit().remove("selectedLerngruppeId").commit();
+
         String restoredText = sharedpreferences.getString("selectedLerngruppeId", null);
         if (restoredText != null) {
 
@@ -109,6 +139,9 @@ public class S1_WaehleSchueler extends AppCompatActivity
 
     }
 
+
+
+
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -117,6 +150,9 @@ public class S1_WaehleSchueler extends AppCompatActivity
         } else {
             super.onBackPressed();
         }
+        finish();
+        System.exit(0);
+
     }
 
     @Override
@@ -147,17 +183,61 @@ public class S1_WaehleSchueler extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
-            // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
+        if (id == R.id.nav_lg_wechseln) {
+            Intent speichernS1 = new Intent(S1_WaehleSchueler.this, S5_LerngruppeWechseln.class);
+            startActivity(speichernS1);
+            finish();
+        } else if (id == R.id.nav_lg_neu) {
+            Intent speichernS2 = new Intent(S1_WaehleSchueler.this, S3_ErstelleLerngruppe.class);
+            startActivity(speichernS2);
+            finish();
+        } else if (id == R.id.nav_lg_bearbeiten) {
+            Intent speichernS2 = new Intent(S1_WaehleSchueler.this, S6_LerngruppeBearbeitenLoeschen.class);
+            startActivity(speichernS2);
+            finish();
+        } else if (id == R.id.nav_max_st) {
+            sharedpreferences = getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
+            String restoredText = sharedpreferences.getString("selectedLerngruppeId", null);
 
-        } else if (id == R.id.nav_slideshow) {
+            idd = Integer.parseInt(restoredText);
+            List<Schueler> listZ = dS_L_S.getSchuelersFromLerngruppeById(idd);
 
-        } else if (id == R.id.nav_manage) {
+            for(Schueler s:listZ){
 
-        } else if (id == R.id.nav_share) {
+                String old = s.getGeburtstag();
+                if(old.equals("")){
+                    old="0";
+                }
+                int oldI = Integer.parseInt(old);
+                int newI;
+                if(oldI>0){
+                   newI = oldI-1;
 
-        } else if (id == R.id.nav_send) {
+                }else{
+                    newI = oldI;
+
+                }
+
+
+
+                s.setGeburtstag(Integer.toString(newI));
+
+                dS_Schueler.updateSchueler(s.getId(),s.getVorname(),null,null,null,null,s.getGeburtstag(),null);
+
+
+
+            }
+
+
+            Intent speichernS2 = new Intent(S1_WaehleSchueler.this, E_FullScreenActivity2.class);
+            speichernS2.putExtra("lerngruppe_name", dS_L.getLerngruppeById(idd).getName());
+
+            startActivity(speichernS2);
+            finish();
+        }else if (id == R.id.nav_max_st2) {
+            Intent speichernS2 = new Intent(S1_WaehleSchueler.this, Debug_Main.class);
+            startActivity(speichernS2);
+            finish();
 
         }
 
@@ -168,7 +248,22 @@ public class S1_WaehleSchueler extends AppCompatActivity
 
 
     private void initializeSchuelersListView() {
-        List<Schueler> emptyListForInitialization = new ArrayList<>();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+       /* List<Schueler> emptyListForInitialization = new ArrayList<>();
 
         mSchuelersListView = (ListView) findViewById(R.id.s1_listview_schuelers);
 
@@ -207,21 +302,19 @@ public class S1_WaehleSchueler extends AppCompatActivity
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
                 Schueler schueler = (Schueler) adapterView.getItemAtPosition(position);
-
+                Log.i("click","--- " + schueler.getId());
                 Intent intent = new Intent(S1_WaehleSchueler.this, S4_WaehleVergehen.class);
-                intent.putExtra("id", schueler.getId());
-                intent.putExtra("vorname", schueler.getVorname());
-                intent.putExtra("nachname", schueler.getNachname());
-                intent.putExtra("geschlecht", schueler.getGeschlecht());
-                intent.putExtra("geburtstag", schueler.getGeburtstag());
+
+                intent.putExtra("schueler_id", Integer.toString(schueler.getId()));
+
+
 
 
                 startActivity(intent);
             }
-        });
+        });*/
 
     }
-
 
     private void showAllListEntries() {
         sharedpreferences = getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
@@ -229,13 +322,19 @@ public class S1_WaehleSchueler extends AppCompatActivity
 
         idd = Integer.parseInt(restoredText);
 
+        tw = (TextView)findViewById(R.id.s1_textView_lg_name);
+
+        tw.setText(dS_L.getLerngruppeById(idd).getName());
+
+
         List<Schueler> schuelerList = dS_L_S.getSchuelersFromLerngruppeById(idd);
+        ArrayList<Schueler> ff= new ArrayList<Schueler>(schuelerList);
+        adapter= new WaehleSchuelerCustomAdapter(ff,getApplicationContext());
 
-        ArrayAdapter<Schueler> adapter = (ArrayAdapter<Schueler>) mSchuelersListView.getAdapter();
+        listView.setAdapter(adapter);
 
-        adapter.clear();
-        adapter.addAll(schuelerList);
-        adapter.notifyDataSetChanged();
+
+
     }
 
 
@@ -245,7 +344,8 @@ public class S1_WaehleSchueler extends AppCompatActivity
 
 
         dS_L_S.open();
-
+        dS_L.open();
+        dS_Schueler.open();
         showAllListEntries();
     }
 
@@ -254,8 +354,8 @@ public class S1_WaehleSchueler extends AppCompatActivity
         super.onPause();
 
         dS_L_S.close();
-
-
+        dS_L.close();
+        dS_Schueler.close();
     }
 
 

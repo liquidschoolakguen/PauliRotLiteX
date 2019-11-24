@@ -14,66 +14,87 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".S1_WaehleSchueler"
-            android:label="@string/title_activity_s1__waehle_schueler"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
-        <activity
-            android:name=".S2_WaehleFehlverhalten"
-            android:label="@string/title_activity_s1__waehle_fehlverhalten"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:name="tabs.WaehleSchuelerDynamicTabsActivity"
+            >
+
+         <!--   <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>-->
+
+        </activity>
         <activity
             android:name=".S4_WaehleVergehen"
             android:label="@string/title_activity_s1__waehle_fehlverhalten"
             android:theme="@style/AppTheme.NoActionBar"></activity>
-        <!--
-          <activity android:name="akguen.liquidschool.paulirotlite.LoginActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        -->
-        <activity android:name=".Debug_Main">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity android:name=".S3_ErstelleLerngruppe" />
-        <activity android:name=".ReadWebpageAsyncTask2" />
-        <activity android:name=".LoginActivity" />
-        <activity android:name=".E_SchulerprofilActivity" />
-        <activity android:name="db.Speichern_Kollege" />
-        <activity android:name="db.Speichern_Schueler" />
-        <activity android:name="db.Speichern_Schulverbund" />
-        <activity android:name="db.Speichern_Standort" />
-        <activity android:name="db.Speichern_Adresse" />
-        <activity android:name="db.Speichern_Kontakt" />
-        <activity android:name="db.Speichern_Angehoeriger" />
-        <activity android:name="db.Speichern_Vorfall" />
-        <activity android:name="db.Speichern_Vergehen" />
-        <activity android:name="db.Speichern_SP_Fach" />
-        <activity android:name="db.Speichern_SP_Fragment" />
-        <activity android:name="db.Speichern_Gueltigkeitsbereich" />
-        <activity android:name="db.Speichern_Raum" />
-        <activity android:name="db.Speichern_Thema" />
-        <activity android:name="db.Speichern_Lerngruppe" />
-        <activity android:name="db.Speichern_Lernform" />
-        <activity android:name="db.Speichern_Schueler_Lerngruppe" />
-        <activity android:name="db.Speichern_Kollege_Standort" />
-        <activity android:name="db.Speichern_Schueler_Angehoeriger" />
-        <activity android:name=".VergehenActivity" />
-        <activity android:name=".KlasseActivity" />
-        <activity android:name=".KlasseActivityMitCBox" />
-        <activity android:name=".SchuelerVorfaelleTable" />
+
         <activity
-            android:name=".PauseActivity"
-            android:label="Ruhe Modus"
-            android:noHistory="true"
-            android:parentActivityName=".MainActivity"
-            android:theme="@style/AppTheme" />
-    </application>
+            android:name="zz_test.MainActivity"
+            android:label="@string/app_name"
+            android:windowSoftInputMode="adjustPan">
 
-</manifest>
+        </activity>
+
+        <activity android:name=".Debug_Main">
+
+            <intent-filter>
+                   <action android:name="android.intent.action.MAIN" />
+
+                   <category android:name="android.intent.category.LAUNCHER" />
+               </intent-filter>
+           </activity>
+           <activity
+               android:name="tabs.UpdateDynamicTabsActivity"
+               android:label="@string/title_activity_update_lerngruppe"
+               android:windowSoftInputMode="adjustPan">
+
+           </activity>
+           <activity android:name="tabs.LerngruppeLöschenÄndern" android:label="@string/title_activity_update_lerngruppe"/>
+           <activity android:name=".TestMainActivity2" />
+           <activity android:name=".S7_LerngruppeUpdaten" />
+           <activity android:name=".S6_LerngruppeBearbeitenLoeschen" />
+           <activity android:name=".E_FullScreenActivity" />
+           <activity android:name=".E_FullScreenActivity2" />
+           <activity android:name=".E_FullScreenActivity3" />
+           <activity android:name=".S3_ErstelleLerngruppe" />
+           <activity android:name=".S5_LerngruppeWechseln" />
+           <activity android:name=".ReadWebpageAsyncTask2" />
+           <activity android:name=".LoginActivity" />
+           <activity android:name=".E_SchulerprofilActivity" />
+           <activity android:name="db.Speichern_Kollege" />
+           <activity android:name="db.Speichern_Schueler" />
+           <activity android:name="db.Speichern_Schulverbund" />
+           <activity android:name="db.Speichern_Standort" />
+           <activity android:name="db.Speichern_Adresse" />
+           <activity android:name="db.Speichern_Kontakt" />
+           <activity android:name="db.Speichern_Angehoeriger" />
+           <activity android:name="db.Speichern_Vorfall" />
+           <activity android:name="db.Speichern_Vergehen" />
+           <activity android:name="db.Speichern_SP_Fach" />
+           <activity android:name="db.Speichern_SP_Fragment" />
+           <activity android:name="db.Speichern_Gueltigkeitsbereich" />
+           <activity android:name="db.Speichern_Raum" />
+           <activity android:name="db.Speichern_Thema" />
+           <activity android:name="db.Speichern_Lerngruppe" />
+        <activity android:name="db.Speichern_Vergehengruppe" />
+           <activity android:name="db.Speichern_Lernform" />
+           <activity android:name="db.Speichern_Schueler_Lerngruppe" />
+        <activity android:name="db.Speichern_Vergehen_Vergehengruppe" />
+           <activity android:name="db.Speichern_Kollege_Standort" />
+           <activity android:name="db.Speichern_Schueler_Angehoeriger" />
+           <activity android:name=".VergehenActivity" />
+           <activity android:name=".KlasseActivity" />
+           <activity android:name=".KlasseActivityMitCBox" />
+           <activity android:name=".SchuelerVorfaelleTable" />
+           <activity
+               android:name=".PauseActivity"
+               android:label="Ruhe Modus"
+               android:noHistory="true"
+               android:parentActivityName=".MainActivity"
+               android:theme="@style/AppTheme" />
+       </application>
+
+   </manifest>

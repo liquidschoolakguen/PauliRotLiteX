@@ -1,30 +1,16 @@
-Arbeit verweigert,2,1--
-andere ablenkt,1,1--
+unaufmerksam/ abgelenkt,1,1--
 nicht gemeldet,1,1--
-fehlendes Material,1,1--
-ist unaufmerksam,1,1--
-unangebrachtes Thema,1,1--
-mangelnde Sorgfalt,1,1--
-Betrugsversuch,1,5--
-störender Streit,2,2--
-MitschülerIn beleidigt,2,2--
-MitschülerIn verspottet/ausgelacht,2,2--
-MitschülerIn mit socialMedia bloßgestellt,2,5--
-MitschülerIn bedroht,2,7--
-MitschülerIn genötigt,2,8--
-kneifen/spucken/Haare ziehen/etc,3,3--
+fehlendes/mangelhaftes Material,1,1--
+Arbeit verweigert,1,1--
+Lehrkraft geduzt,1,1--
+störender Streit,2,1--
+verspätet,1,1--
+Kaugummi/ Essen/ Mütze/ Jacke/ Kaputze/ Handy/ Kopfhörer,1,1--
+MitschülerIn beleidigt/verspottet/ausgelacht,2,2--
+kneifen/spucken/Haare ziehen/etc,2,2--
+Respektlosigkeit,2,2--
+Schulgelände verlassen,2,3--
+Eigentum mutwillig beschädigt/zerstört/bestohlen,2,3--
+Betrugsversuch,1,4--
+MitschülerIn bedroht/genötigt,3,5--
 Gewalt,2,10--
-Eigentum beschädigt/zerstört/verloren,2,3--
-MitschülerIn bestohlen,2,10--
-Verspätung,3,2--
-Lehrkraft geduzt,3,1--
-Lehrkraft ignoriert,3,1--
-unhöflich/pampig,3,3--
-Lehrkraft beleidigt,3,9--
-Unangemessene Körperhaltung,3,1--
-Kaugummi/Essen/falsches Getränk,3,1--
-Mütze/Jacke/Kaputze,3,2--
-Handy/Kopfhörer,3,1--
-Lügen,3,3--
-Zweckentfremdung der Schulräume,3,2--
-Schulgelände verlassen,3,3--

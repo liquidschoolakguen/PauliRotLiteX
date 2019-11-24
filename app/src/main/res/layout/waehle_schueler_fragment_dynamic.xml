@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/dynamic_list_schueler"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="45dp"
+       />
+
+
+
+
+
+
+        <LinearLayout
+            android:id="@+id/lin_respekt"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:focusableInTouchMode="true"
+            android:orientation="horizontal"
+            android:layout_gravity="bottom"
+            android:layout_alignParentBottom="true"
+            android:gravity="bottom">
+
+            <Button
+                android:id="@+id/bnt_nrespekt"
+                android:layout_width="0px"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textSize="15sp"
+                android:text="Respekt!"
+                android:background="@color/colorPrimary"
+                android:textColor="@android:color/white"/>
+
+
+
+        </LinearLayout>
+
+
+
+
+</RelativeLayout>

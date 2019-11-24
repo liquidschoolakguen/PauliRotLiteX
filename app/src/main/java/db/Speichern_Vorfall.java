@@ -141,7 +141,8 @@ public class Speichern_Vorfall extends AppCompatActivity {
         Button buttonAddVorfall = (Button) findViewById(R.id.button_add_vorfall);
         final EditText editText1 = (EditText) findViewById(R.id.editText_vorfall_11);
         final EditText editText2 = (EditText) findViewById(R.id.editText_vorfall_22);
-
+        final EditText editText3 = (EditText) findViewById(R.id.editText_vorfall_33);
+        final EditText editText4 = (EditText) findViewById(R.id.editText_vorfall_44);
 
 
 
@@ -151,7 +152,8 @@ public class Speichern_Vorfall extends AppCompatActivity {
 
                 String s1 = editText1.getText().toString();
                 String s2 = editText2.getText().toString();
-
+                String s3 = editText3.getText().toString();
+                String s4 = editText4.getText().toString();
 
    /*             if (TextUtils.isEmpty(s2)) {
                     editText2.setError(getString(R.string.editText_errorMessage));
@@ -165,10 +167,11 @@ public class Speichern_Vorfall extends AppCompatActivity {
 
                 editText1.setText("");
                 editText2.setText("");
+                editText3.setText("");
+                editText4.setText("");
 
 
-
-                dataSource.createVorfall(s1, s2);
+                dataSource.createVorfall(s1, s2, s3,s4);
 
                 InputMethodManager inputMethodManager;
                 inputMethodManager = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
@@ -282,13 +285,10 @@ public class Speichern_Vorfall extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                if( dataSource.getVorfallById(2)!= null){
+               for(Vorfall vc: dataSource.getAllVorfallsByVergehenId(14)){
 
-                    Log.i("click", "Gesuchter Vorfall: " + dataSource.getVorfallById(5).toString());
-                }else{
-
-                    Log.i("click", "Gesuchter Vorfall mit der id 5 nicht gefunden" );
-                }
+                   System.out.println("            "+ vc.getSchueler_id());
+               }
 
             }
 
@@ -409,7 +409,11 @@ public class Speichern_Vorfall extends AppCompatActivity {
         final EditText editText2 = (EditText) dialogsView.findViewById(R.id.editText_vorfall_2);
         editText2.setText(vorfall.getInfo());
 
+        final EditText editText3 = (EditText) dialogsView.findViewById(R.id.editText_vorfall_3);
+        editText1.setText(Integer.toString(vorfall.getSchueler_id()));
 
+        final EditText editText4 = (EditText) dialogsView.findViewById(R.id.editText_vorfall_4);
+        editText2.setText(Integer.toString(vorfall.getVergehen_id()));
 
 
 
@@ -421,7 +425,8 @@ public class Speichern_Vorfall extends AppCompatActivity {
                     public void onClick(DialogInterface dialog, int id) {
                         String s1 = editText1.getText().toString();
                         String s2 = editText2.getText().toString();
-
+                        String s3 = editText3.getText().toString();
+                        String s4 = editText4.getText().toString();
 
 
 
@@ -434,7 +439,7 @@ public class Speichern_Vorfall extends AppCompatActivity {
 
 
                         // An dieser Stelle schreiben wir die geänderten Daten in die SQLite Datenbank
-                        Vorfall updatedVorfall = dataSource.updateVorfall(vorfall.getId(), s1, s2);
+                        Vorfall updatedVorfall = dataSource.updateVorfall(vorfall.getId(), s1, s2, s3, s4);
 
                         Log.d(LOG_TAG, "Alter Eintrag - ID: " + vorfall.getId() + " Inhalt: " + vorfall.toString());
                         Log.d(LOG_TAG, "Neuer Eintrag - ID: " + updatedVorfall.getId() + " Inhalt: " + updatedVorfall.toString());

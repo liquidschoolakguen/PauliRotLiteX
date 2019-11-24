@@ -33,7 +33,7 @@
 
     <string name="dialog_schueler_1">Vorname</string>
     <string name="dialog_schueler_2">Nachname</string>
-    <string name="dialog_schueler_3">Schülername</string>
+    <string name="dialog_schueler_3">SchülerIn</string>
     <string name="dialog_schueler_4">Geschlecht</string>
     <string name="dialog_schueler_5">Status</string>
     <string name="dialog_schueler_6">Geburtstag</string>
@@ -78,7 +78,8 @@
 
     <string name="dialog_vorfall_1">Zeitpunkt</string>
     <string name="dialog_vorfall_2">Info</string>
-
+    <string name="dialog_vorfall_3">SchülerId</string>
+    <string name="dialog_vorfall_4">VergehenId</string>
 
     <string name="dialog_vergehen_1">Name</string>
     <string name="dialog_vergehen_2">Text</string>
@@ -130,12 +131,14 @@
     <string name="dialog_sp_fach_3">Raum (id)</string>
     <string name="dialog_sp_fach_4">Gültigkeit (id)</string>
     <string name="dialog_sp_fach_5">Lerngruppe (id)</string>
+    <string name="dialog_vergehen_vergehengruppe_1">Vergehen (id)</string>
+    <string name="dialog_vergehen_vergehengruppe_2">Vergehengruppe (id)</string>
 
 
   <string name="title_activity_s1__waehle_schueler">Wähle einen Schüler</string>
     <string name="title_activity_s1__waehle_fehlverhalten">Wähle ein Fehlverhalten</string>
     <string name="title_activity_s1__erstelle_lerngruppe">Wähle ein Fehlverhalten</string>
-
+    <string name="title_activity_update_lerngruppe">Lerngruppe bearbeiten</string>
 
 
     <string name="navigation_drawer_open">Open navigation drawer</string>

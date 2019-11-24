@@ -10,6 +10,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -30,8 +31,10 @@ import java.util.Date;
 import java.util.List;
 
 
+import db.DataSource_Schueler;
 import db.DataSource_Vergehen;
 
+import model.Schueler;
 import model.Vergehen;
 
 public class S4_WaehleVergehen extends AppCompatActivity
@@ -39,8 +42,9 @@ public class S4_WaehleVergehen extends AppCompatActivity
 
 
     private DataSource_Vergehen dS_Vergehen;
+    private DataSource_Schueler dS_Schueler;
     private ListView mVergehensListView;
-
+    public static AppCompatActivity fa;
 
 
 
@@ -48,9 +52,12 @@ public class S4_WaehleVergehen extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.my_navigation2);
+
+        fa = this;
+
+
         dS_Vergehen = new DataSource_Vergehen(this);
-
-
+        dS_Schueler = new DataSource_Schueler(this);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
 
 
@@ -111,17 +118,54 @@ public class S4_WaehleVergehen extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
-            // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
+        if (id == R.id.nav_lg_wechseln) {
+            Intent speichernS1 = new Intent(S4_WaehleVergehen.this, S5_LerngruppeWechseln.class);
+            startActivity(speichernS1);
+            finish();
+        } else if (id == R.id.nav_lg_neu) {
+            Intent speichernS1 = new Intent(S4_WaehleVergehen.this, S3_ErstelleLerngruppe.class);
+            startActivity(speichernS1);
+            finish();
+        } else if (id == R.id.nav_lg_bearbeiten) {
 
-        } else if (id == R.id.nav_slideshow) {
+        } else if (id == R.id.nav_max_st) {
 
-        } else if (id == R.id.nav_manage) {
 
-        } else if (id == R.id.nav_share) {
+            List<Schueler> listZ = dS_Schueler.getAllSchuelers();
 
-        } else if (id == R.id.nav_send) {
+            for(Schueler s:listZ){
+
+                String old = s.getGeburtstag();
+                int oldI = Integer.parseInt(old);
+                int newI;
+                if(oldI>0){
+                    newI = oldI-1;
+
+                }else{
+                    newI = oldI;
+
+                }
+
+
+
+                s.setGeburtstag(Integer.toString(newI));
+
+                dS_Schueler.updateSchueler(s.getId(),s.getVorname(),null,null,null,null,s.getGeburtstag(),null);
+
+
+
+            }
+
+
+            Intent speichernS2 = new Intent(S4_WaehleVergehen.this, E_FullScreenActivity2.class);
+            startActivity(speichernS2);
+            finish();
+
+
+        }else if (id == R.id.nav_max_st2) {
+            Intent speichernS2 = new Intent(S4_WaehleVergehen.this, Debug_Main.class);
+            startActivity(speichernS2);
+            finish();
 
         }
 
@@ -170,14 +214,55 @@ public class S4_WaehleVergehen extends AppCompatActivity
         mVergehensListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
-                Vergehen schueler = (Vergehen) adapterView.getItemAtPosition(position);
+                Vergehen vergehen = (Vergehen) adapterView.getItemAtPosition(position);
 
-                Intent intent = new Intent(S4_WaehleVergehen.this, E_FullScreenActivity.class);
+
                 //intent.putExtra("id", schueler.getId());
 
+               // Log.i("click","xxx " + getIntent().getExtras().getString("schueler_id"));
+                String gg =  getIntent().getExtras().getString("schueler_id");
+                Schueler s = dS_Schueler.getSchuelerById(Integer.parseInt(gg));
+
+                s.setGeburtstag(Integer.toString(Integer.parseInt(s.getGeburtstag())+Integer.parseInt(vergehen.getGewicht())));
+
+                if(Integer.parseInt(s.getGeburtstag())<10){
+                    dS_Schueler.updateSchueler(s.getId(),s.getVorname(),s.getNachname(),s.getRufname(),s.getGeschlecht(),s.getStatus(),s.getGeburtstag(),s.getGeburtsort());
+                    Intent intent = new Intent(S4_WaehleVergehen.this, E_FullScreenActivity.class);
+                    intent.putExtra("schueler_name",s.getVorname());
+                    intent.putExtra("strafpunkte", s.getGeburtstag());
+
+                    startActivity(intent);
 
 
-                startActivity(intent);
+                }else{
+
+                    s.setGeburtstag("0");
+
+                    dS_Schueler.updateSchueler(s.getId(),s.getVorname(),s.getNachname(),s.getRufname(),s.getGeschlecht(),s.getStatus(),s.getGeburtstag(),s.getGeburtsort());
+                    Intent intent = new Intent(S4_WaehleVergehen.this, E_FullScreenActivity3.class);
+                    intent.putExtra("schueler_name",s.getVorname());
+
+
+                    startActivity(intent);
+                }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             }
         });
 
@@ -210,6 +295,7 @@ public class S4_WaehleVergehen extends AppCompatActivity
 
 
         dS_Vergehen.open();
+        dS_Schueler.open();
         showAllListEntries();
 
     }
@@ -219,7 +305,7 @@ public class S4_WaehleVergehen extends AppCompatActivity
         super.onPause();
 
         dS_Vergehen.close();
-
+        dS_Schueler.close();
 
     }
 

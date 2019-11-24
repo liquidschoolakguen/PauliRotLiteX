@@ -235,7 +235,7 @@ public class DataSource_Schueler_Lerngruppe {
 
 
     public List<Schueler> getSchuelersFromLerngruppeById(int i) {
-
+        Log.d(LOG_TAG, "ID::::::::::::::::::: " + i);
         List<Schueler> schuelerList = new ArrayList<>();
 
         Cursor cursor = database.query(MyDbHelper.TABLE_SCHUELER+ " LEFT JOIN " + MyDbHelper.TABLE_SCHUELER_LERNGRUPPE + " ON " + MyDbHelper.TABLE_SCHUELER_LERNGRUPPE + "."

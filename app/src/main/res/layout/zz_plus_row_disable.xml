@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="11dp"
+    android:layout_marginBottom="45dp">
+
+
+
+
+
+        <Button
+            android:id="@+id/plus_button_disable"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@drawable/rounded_text_view_disable"
+            android:layout_centerHorizontal="true"
+            android:text="+"
+            android:textColor="@color/colorPrimaryDisable"
+            android:textSize="28sp"
+
+            android:clickable="false"
+            />
+
+
+    </RelativeLayout>
+
+
+

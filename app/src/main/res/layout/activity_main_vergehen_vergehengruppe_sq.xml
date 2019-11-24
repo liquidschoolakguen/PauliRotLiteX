@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:focusableInTouchMode="true">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Vergehen_Vergehengruppe"
+            android:textSize="30dp" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:focusableInTouchMode="true">
+
+        <EditText
+            android:layout_width="0px"
+            android:layout_height="wrap_content"
+            android:hint="@string/dialog_vergehen_vergehengruppe_1"
+            android:id="@+id/editText_vergehen_vergehengruppe_11"
+            android:layout_weight="1" />
+
+        <EditText
+            android:layout_width="0px"
+            android:layout_height="wrap_content"
+            android:hint="@string/dialog_vergehen_vergehengruppe_2"
+            android:id="@+id/editText_vergehen_vergehengruppe_22"
+            android:layout_weight="1" />
+
+
+
+
+    </LinearLayout>
+
+
+
+
+
+
+
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:focusableInTouchMode="true">
+
+        <Button
+            android:layout_width="0px"
+            android:layout_height="wrap_content"
+            android:text="speichern"
+            android:id="@+id/button_add_vergehen_vergehengruppe"
+            android:layout_weight="1"/>
+
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:focusableInTouchMode="true">
+
+
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="alle speichern"
+            android:id="@+id/button_add_vergehen_vergehengruppes"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:focusableInTouchMode="true">
+
+
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="finde Vergehengruppe"
+            android:id="@+id/button_select_vergehen_vergehengruppe_1"
+            android:layout_weight="1"/>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="finde Vergehen"
+            android:id="@+id/button_select_vergehen_vergehengruppe_2"
+            android:layout_weight="1"/>
+    </LinearLayout>
+
+
+
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/listview_vergehen_vergehengruppes"
+        android:layout_gravity="center_horizontal" />
+
+</LinearLayout>

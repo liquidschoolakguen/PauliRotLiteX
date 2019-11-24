@@ -6,7 +6,7 @@
     android:layout_height="match_parent">
 
 
-    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -37,7 +37,7 @@
                 <EditText
                     android:layout_width="0px"
                     android:layout_height="wrap_content"
-                    android:hint="Lerngruppenname"
+                    android:hint="Lerngruppe"
                     android:id="@+id/editText_lg_name"
                     android:layout_weight="1"
                     android:textSize="23dp"/>
@@ -69,7 +69,48 @@
                     android:layout_height="wrap_content"
                     android:hint="@string/dialog_schueler_3"
                     android:id="@+id/editText_lg_erstellen_1"
-                    android:layout_weight="11" />
+                    android:layout_weight="9" />
+
+                <RadioGroup
+                    android:checkedButton="@+id/b_m_1"
+                    android:id="@+id/toggle1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:background="@drawable/pink_out_line"
+                    android:orientation="horizontal"
+                    android:layout_weight="1.5"
+                    android:layout_marginTop="3dp">
+
+                    <RadioButton
+                        android:layout_marginTop="1dp"
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginLeft="1dp"
+                        android:id="@+id/b_m_1"
+                        android:background="@drawable/toggle_widget_background"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:text="M"
+                        android:textColor="@color/colorPrimaryWhite" />
+
+                    <RadioButton
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="1dp"
+                        android:layout_marginBottom="1dp"
+                        android:id="@+id/b_w_1"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/toggle_widget_background"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:text="W"
+                        android:textColor="@color/colorPrimaryWhite" />
+                </RadioGroup>
+
+
 
             </LinearLayout>
 
@@ -92,8 +133,48 @@
                     android:layout_height="wrap_content"
                     android:hint="@string/dialog_schueler_3"
                     android:id="@+id/editText_lg_erstellen_2"
-                    android:layout_weight="11" />
+                    android:layout_weight="9" />
 
+
+
+                <RadioGroup
+                    android:checkedButton="@+id/b_m_2"
+                    android:id="@+id/toggle2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:background="@drawable/pink_out_line"
+                    android:orientation="horizontal"
+                    android:layout_weight="1.5"
+                    android:layout_marginTop="3dp">
+
+                    <RadioButton
+                        android:layout_marginTop="1dp"
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginLeft="1dp"
+                        android:id="@+id/b_m_2"
+                        android:background="@drawable/toggle_widget_background"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:text="M"
+                        android:textColor="@color/colorPrimaryWhite" />
+
+                    <RadioButton
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="1dp"
+                        android:layout_marginBottom="1dp"
+                        android:id="@+id/b_w_2"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/toggle_widget_background"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:text="W"
+                        android:textColor="@color/colorPrimaryWhite" />
+                </RadioGroup>
             </LinearLayout>
 
 
@@ -115,7 +196,49 @@
                     android:layout_height="wrap_content"
                     android:hint="@string/dialog_schueler_3"
                     android:id="@+id/editText_lg_erstellen_3"
-                    android:layout_weight="11" />
+                    android:layout_weight="9" />
+
+
+                <RadioGroup
+                    android:checkedButton="@+id/b_m_3"
+                    android:id="@+id/toggle3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:background="@drawable/pink_out_line"
+                    android:orientation="horizontal"
+                    android:layout_weight="1.5"
+                    android:layout_marginTop="3dp">
+
+                    <RadioButton
+                        android:layout_marginTop="1dp"
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginLeft="1dp"
+                        android:id="@+id/b_m_3"
+                        android:background="@drawable/toggle_widget_background"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:text="M"
+                        android:textColor="@color/colorPrimaryWhite" />
+
+                    <RadioButton
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="1dp"
+                        android:layout_marginBottom="1dp"
+                        android:id="@+id/b_w_3"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/toggle_widget_background"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:text="W"
+                        android:textColor="@color/colorPrimaryWhite" />
+                </RadioGroup>
+
+
 
             </LinearLayout>
 
@@ -138,7 +261,48 @@
                     android:layout_height="wrap_content"
                     android:hint="@string/dialog_schueler_3"
                     android:id="@+id/editText_lg_erstellen_4"
-                    android:layout_weight="11" />
+                    android:layout_weight="9" />
+
+
+                <RadioGroup
+                    android:checkedButton="@+id/b_m_4"
+                    android:id="@+id/toggle4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:background="@drawable/pink_out_line"
+                    android:orientation="horizontal"
+                    android:layout_weight="1.5"
+                    android:layout_marginTop="3dp">
+
+                    <RadioButton
+                        android:layout_marginTop="1dp"
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginLeft="1dp"
+                        android:id="@+id/b_m_4"
+                        android:background="@drawable/toggle_widget_background"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:text="M"
+                        android:textColor="@color/colorPrimaryWhite" />
+
+                    <RadioButton
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="1dp"
+                        android:layout_marginBottom="1dp"
+                        android:id="@+id/b_w_4"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/toggle_widget_background"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:text="W"
+                        android:textColor="@color/colorPrimaryWhite" />
+                </RadioGroup>
+
 
             </LinearLayout>
 
@@ -161,8 +325,48 @@
                     android:layout_height="wrap_content"
                     android:hint="@string/dialog_schueler_3"
                     android:id="@+id/editText_lg_erstellen_5"
-                    android:layout_weight="11" />
+                    android:layout_weight="9" />
 
+
+
+                <RadioGroup
+                    android:checkedButton="@+id/b_m_5"
+                    android:id="@+id/toggle5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:background="@drawable/pink_out_line"
+                    android:orientation="horizontal"
+                    android:layout_weight="1.5"
+                    android:layout_marginTop="3dp">
+
+                    <RadioButton
+                        android:layout_marginTop="1dp"
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginLeft="1dp"
+                        android:id="@+id/b_m_5"
+                        android:background="@drawable/toggle_widget_background"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:text="M"
+                        android:textColor="@color/colorPrimaryWhite" />
+
+                    <RadioButton
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="1dp"
+                        android:layout_marginBottom="1dp"
+                        android:id="@+id/b_w_5"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/toggle_widget_background"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:text="W"
+                        android:textColor="@color/colorPrimaryWhite" />
+                </RadioGroup>
             </LinearLayout>
 
             <LinearLayout
@@ -183,7 +387,47 @@
                     android:layout_height="wrap_content"
                     android:hint="@string/dialog_schueler_3"
                     android:id="@+id/editText_lg_erstellen_6"
-                    android:layout_weight="11" />
+                    android:layout_weight="9" />
+
+
+                <RadioGroup
+                    android:checkedButton="@+id/b_m_6"
+                    android:id="@+id/toggle6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:background="@drawable/pink_out_line"
+                    android:orientation="horizontal"
+                    android:layout_weight="1.5"
+                    android:layout_marginTop="3dp">
+
+                    <RadioButton
+                        android:layout_marginTop="1dp"
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginLeft="1dp"
+                        android:id="@+id/b_m_6"
+                        android:background="@drawable/toggle_widget_background"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:text="M"
+                        android:textColor="@color/colorPrimaryWhite" />
+
+                    <RadioButton
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="1dp"
+                        android:layout_marginBottom="1dp"
+                        android:id="@+id/b_w_6"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/toggle_widget_background"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:text="W"
+                        android:textColor="@color/colorPrimaryWhite" />
+                </RadioGroup>
 
             </LinearLayout>
 
@@ -205,7 +449,48 @@
                     android:layout_height="wrap_content"
                     android:hint="@string/dialog_schueler_3"
                     android:id="@+id/editText_lg_erstellen_7"
-                    android:layout_weight="11" />
+                    android:layout_weight="9" />
+
+                <RadioGroup
+                    android:checkedButton="@+id/b_m_7"
+                    android:id="@+id/toggle7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:background="@drawable/pink_out_line"
+                    android:orientation="horizontal"
+                    android:layout_weight="1.5"
+                    android:layout_marginTop="3dp">
+
+                    <RadioButton
+                        android:layout_marginTop="1dp"
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginLeft="1dp"
+                        android:id="@+id/b_m_7"
+                        android:background="@drawable/toggle_widget_background"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:text="M"
+                        android:textColor="@color/colorPrimaryWhite" />
+
+                    <RadioButton
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="1dp"
+                        android:layout_marginBottom="1dp"
+                        android:id="@+id/b_w_7"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/toggle_widget_background"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:text="W"
+                        android:textColor="@color/colorPrimaryWhite" />
+                </RadioGroup>
+
+
 
             </LinearLayout>
 
@@ -227,7 +512,47 @@
                     android:layout_height="wrap_content"
                     android:hint="@string/dialog_schueler_3"
                     android:id="@+id/editText_lg_erstellen_8"
-                    android:layout_weight="11" />
+                    android:layout_weight="9" />
+
+                <RadioGroup
+                    android:checkedButton="@+id/b_m_8"
+                    android:id="@+id/toggle8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:background="@drawable/pink_out_line"
+                    android:orientation="horizontal"
+                    android:layout_weight="1.5"
+                    android:layout_marginTop="3dp">
+
+                    <RadioButton
+                        android:layout_marginTop="1dp"
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginLeft="1dp"
+                        android:id="@+id/b_m_8"
+                        android:background="@drawable/toggle_widget_background"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:text="M"
+                        android:textColor="@color/colorPrimaryWhite" />
+
+                    <RadioButton
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="1dp"
+                        android:layout_marginBottom="1dp"
+                        android:id="@+id/b_w_8"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/toggle_widget_background"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:text="W"
+                        android:textColor="@color/colorPrimaryWhite" />
+                </RadioGroup>
+
 
             </LinearLayout>
 
@@ -251,7 +576,48 @@
                     android:layout_height="wrap_content"
                     android:hint="@string/dialog_schueler_3"
                     android:id="@+id/editText_lg_erstellen_9"
-                    android:layout_weight="11" />
+                    android:layout_weight="9" />
+
+
+                <RadioGroup
+                    android:checkedButton="@+id/b_m_9"
+                    android:id="@+id/toggle9"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:background="@drawable/pink_out_line"
+                    android:orientation="horizontal"
+                    android:layout_weight="1.5"
+                    android:layout_marginTop="3dp">
+
+                    <RadioButton
+                        android:layout_marginTop="1dp"
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginLeft="1dp"
+                        android:id="@+id/b_m_9"
+                        android:background="@drawable/toggle_widget_background"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:text="M"
+                        android:textColor="@color/colorPrimaryWhite" />
+
+                    <RadioButton
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="1dp"
+                        android:layout_marginBottom="1dp"
+                        android:id="@+id/b_w_9"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/toggle_widget_background"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:text="W"
+                        android:textColor="@color/colorPrimaryWhite" />
+                </RadioGroup>
+
 
             </LinearLayout>
 
@@ -273,7 +639,48 @@
                     android:layout_height="wrap_content"
                     android:hint="@string/dialog_schueler_3"
                     android:id="@+id/editText_lg_erstellen_10"
-                    android:layout_weight="11" />
+                    android:layout_weight="9" />
+
+
+                <RadioGroup
+                    android:checkedButton="@+id/b_m_10"
+                    android:id="@+id/toggle10"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:background="@drawable/pink_out_line"
+                    android:orientation="horizontal"
+                    android:layout_weight="1.5"
+                    android:layout_marginTop="3dp">
+
+                    <RadioButton
+                        android:layout_marginTop="1dp"
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginLeft="1dp"
+                        android:id="@+id/b_m_10"
+                        android:background="@drawable/toggle_widget_background"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:text="M"
+                        android:textColor="@color/colorPrimaryWhite" />
+
+                    <RadioButton
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="1dp"
+                        android:layout_marginBottom="1dp"
+                        android:id="@+id/b_w_10"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/toggle_widget_background"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:text="W"
+                        android:textColor="@color/colorPrimaryWhite" />
+                </RadioGroup>
+
 
             </LinearLayout>
 
@@ -295,7 +702,47 @@
                     android:layout_height="wrap_content"
                     android:hint="@string/dialog_schueler_3"
                     android:id="@+id/editText_lg_erstellen_11"
-                    android:layout_weight="11" />
+                    android:layout_weight="9" />
+
+
+                <RadioGroup
+                    android:checkedButton="@+id/b_m_11"
+                    android:id="@+id/toggle11"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:background="@drawable/pink_out_line"
+                    android:orientation="horizontal"
+                    android:layout_weight="1.5"
+                    android:layout_marginTop="3dp">
+
+                    <RadioButton
+                        android:layout_marginTop="1dp"
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginLeft="1dp"
+                        android:id="@+id/b_m_11"
+                        android:background="@drawable/toggle_widget_background"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:text="M"
+                        android:textColor="@color/colorPrimaryWhite" />
+
+                    <RadioButton
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="1dp"
+                        android:layout_marginBottom="1dp"
+                        android:id="@+id/b_w_11"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/toggle_widget_background"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:text="W"
+                        android:textColor="@color/colorPrimaryWhite" />
+                </RadioGroup>
 
             </LinearLayout>
 
@@ -317,7 +764,47 @@
                     android:layout_height="wrap_content"
                     android:hint="@string/dialog_schueler_3"
                     android:id="@+id/editText_lg_erstellen_12"
-                    android:layout_weight="11" />
+                    android:layout_weight="9" />
+
+                <RadioGroup
+                    android:checkedButton="@+id/b_m_12"
+                    android:id="@+id/toggle12"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:background="@drawable/pink_out_line"
+                    android:orientation="horizontal"
+                    android:layout_weight="1.5"
+                    android:layout_marginTop="3dp">
+
+                    <RadioButton
+                        android:layout_marginTop="1dp"
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginLeft="1dp"
+                        android:id="@+id/b_m_12"
+                        android:background="@drawable/toggle_widget_background"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:text="M"
+                        android:textColor="@color/colorPrimaryWhite" />
+
+                    <RadioButton
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="1dp"
+                        android:layout_marginBottom="1dp"
+                        android:id="@+id/b_w_12"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/toggle_widget_background"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:text="W"
+                        android:textColor="@color/colorPrimaryWhite" />
+                </RadioGroup>
+
 
             </LinearLayout>
 
@@ -340,7 +827,47 @@
                     android:layout_height="wrap_content"
                     android:hint="@string/dialog_schueler_3"
                     android:id="@+id/editText_lg_erstellen_13"
-                    android:layout_weight="11" />
+                    android:layout_weight="9" />
+
+
+                <RadioGroup
+                    android:checkedButton="@+id/b_m_13"
+                    android:id="@+id/toggle13"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:background="@drawable/pink_out_line"
+                    android:orientation="horizontal"
+                    android:layout_weight="1.5"
+                    android:layout_marginTop="3dp">
+
+                    <RadioButton
+                        android:layout_marginTop="1dp"
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginLeft="1dp"
+                        android:id="@+id/b_m_13"
+                        android:background="@drawable/toggle_widget_background"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:text="M"
+                        android:textColor="@color/colorPrimaryWhite" />
+
+                    <RadioButton
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="1dp"
+                        android:layout_marginBottom="1dp"
+                        android:id="@+id/b_w_13"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/toggle_widget_background"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:text="W"
+                        android:textColor="@color/colorPrimaryWhite" />
+                </RadioGroup>
 
             </LinearLayout>
 
@@ -363,7 +890,47 @@
                     android:layout_height="wrap_content"
                     android:hint="@string/dialog_schueler_3"
                     android:id="@+id/editText_lg_erstellen_14"
-                    android:layout_weight="11" />
+                    android:layout_weight="9" />
+
+                <RadioGroup
+                    android:checkedButton="@+id/b_m_14"
+                    android:id="@+id/toggle14"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:background="@drawable/pink_out_line"
+                    android:orientation="horizontal"
+                    android:layout_weight="1.5"
+                    android:layout_marginTop="3dp">
+
+                    <RadioButton
+                        android:layout_marginTop="1dp"
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginLeft="1dp"
+                        android:id="@+id/b_m_14"
+                        android:background="@drawable/toggle_widget_background"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:text="M"
+                        android:textColor="@color/colorPrimaryWhite" />
+
+                    <RadioButton
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="1dp"
+                        android:layout_marginBottom="1dp"
+                        android:id="@+id/b_w_14"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/toggle_widget_background"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:text="W"
+                        android:textColor="@color/colorPrimaryWhite" />
+                </RadioGroup>
+
 
             </LinearLayout>
 
@@ -386,7 +953,46 @@
                     android:layout_height="wrap_content"
                     android:hint="@string/dialog_schueler_3"
                     android:id="@+id/editText_lg_erstellen_15"
-                    android:layout_weight="11" />
+                    android:layout_weight="9" />
+
+                <RadioGroup
+                    android:checkedButton="@+id/b_m_15"
+                    android:id="@+id/toggle15"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:background="@drawable/pink_out_line"
+                    android:orientation="horizontal"
+                    android:layout_weight="1.5"
+                    android:layout_marginTop="3dp">
+
+                    <RadioButton
+                        android:layout_marginTop="1dp"
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginLeft="1dp"
+                        android:id="@+id/b_m_15"
+                        android:background="@drawable/toggle_widget_background"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:text="M"
+                        android:textColor="@color/colorPrimaryWhite" />
+
+                    <RadioButton
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="1dp"
+                        android:layout_marginBottom="1dp"
+                        android:id="@+id/b_w_15"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/toggle_widget_background"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:text="W"
+                        android:textColor="@color/colorPrimaryWhite" />
+                </RadioGroup>
 
             </LinearLayout>
 
@@ -409,7 +1015,46 @@
                     android:layout_height="wrap_content"
                     android:hint="@string/dialog_schueler_3"
                     android:id="@+id/editText_lg_erstellen_16"
-                    android:layout_weight="11" />
+                    android:layout_weight="9" />
+
+                <RadioGroup
+                    android:checkedButton="@+id/b_m_16"
+                    android:id="@+id/toggle16"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:background="@drawable/pink_out_line"
+                    android:orientation="horizontal"
+                    android:layout_weight="1.5"
+                    android:layout_marginTop="3dp">
+
+                    <RadioButton
+                        android:layout_marginTop="1dp"
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginLeft="1dp"
+                        android:id="@+id/b_m_16"
+                        android:background="@drawable/toggle_widget_background"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:text="M"
+                        android:textColor="@color/colorPrimaryWhite" />
+
+                    <RadioButton
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="1dp"
+                        android:layout_marginBottom="1dp"
+                        android:id="@+id/b_w_16"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/toggle_widget_background"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:text="W"
+                        android:textColor="@color/colorPrimaryWhite" />
+                </RadioGroup>
 
             </LinearLayout>
 
@@ -432,7 +1077,47 @@
                     android:layout_height="wrap_content"
                     android:hint="@string/dialog_schueler_3"
                     android:id="@+id/editText_lg_erstellen_17"
-                    android:layout_weight="11" />
+                    android:layout_weight="9" />
+
+
+                <RadioGroup
+                    android:checkedButton="@+id/b_m_17"
+                    android:id="@+id/toggle17"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:background="@drawable/pink_out_line"
+                    android:orientation="horizontal"
+                    android:layout_weight="1.5"
+                    android:layout_marginTop="3dp">
+
+                    <RadioButton
+                        android:layout_marginTop="1dp"
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginLeft="1dp"
+                        android:id="@+id/b_m_17"
+                        android:background="@drawable/toggle_widget_background"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:text="M"
+                        android:textColor="@color/colorPrimaryWhite" />
+
+                    <RadioButton
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="1dp"
+                        android:layout_marginBottom="1dp"
+                        android:id="@+id/b_w_17"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/toggle_widget_background"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:text="W"
+                        android:textColor="@color/colorPrimaryWhite" />
+                </RadioGroup>
 
             </LinearLayout>
 
@@ -455,7 +1140,47 @@
                     android:layout_height="wrap_content"
                     android:hint="@string/dialog_schueler_3"
                     android:id="@+id/editText_lg_erstellen_18"
-                    android:layout_weight="11" />
+                    android:layout_weight="9" />
+
+                <RadioGroup
+                    android:checkedButton="@+id/b_m_18"
+                    android:id="@+id/toggle18"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:background="@drawable/pink_out_line"
+                    android:orientation="horizontal"
+                    android:layout_weight="1.5"
+                    android:layout_marginTop="3dp">
+
+                    <RadioButton
+                        android:layout_marginTop="1dp"
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginLeft="1dp"
+                        android:id="@+id/b_m_18"
+                        android:background="@drawable/toggle_widget_background"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:text="M"
+                        android:textColor="@color/colorPrimaryWhite" />
+
+                    <RadioButton
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="1dp"
+                        android:layout_marginBottom="1dp"
+                        android:id="@+id/b_w_18"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/toggle_widget_background"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:text="W"
+                        android:textColor="@color/colorPrimaryWhite" />
+                </RadioGroup>
+
 
             </LinearLayout>
 
@@ -477,7 +1202,46 @@
                     android:layout_height="wrap_content"
                     android:hint="@string/dialog_schueler_3"
                     android:id="@+id/editText_lg_erstellen_19"
-                    android:layout_weight="11" />
+                    android:layout_weight="9" />
+
+                <RadioGroup
+                    android:checkedButton="@+id/b_m_19"
+                    android:id="@+id/toggle19"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:background="@drawable/pink_out_line"
+                    android:orientation="horizontal"
+                    android:layout_weight="1.5"
+                    android:layout_marginTop="3dp">
+
+                    <RadioButton
+                        android:layout_marginTop="1dp"
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginLeft="1dp"
+                        android:id="@+id/b_m_19"
+                        android:background="@drawable/toggle_widget_background"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:text="M"
+                        android:textColor="@color/colorPrimaryWhite" />
+
+                    <RadioButton
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="1dp"
+                        android:layout_marginBottom="1dp"
+                        android:id="@+id/b_w_19"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/toggle_widget_background"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:text="W"
+                        android:textColor="@color/colorPrimaryWhite" />
+                </RadioGroup>
 
             </LinearLayout>
 
@@ -499,7 +1263,46 @@
                     android:layout_height="wrap_content"
                     android:hint="@string/dialog_schueler_3"
                     android:id="@+id/editText_lg_erstellen_20"
-                    android:layout_weight="11" />
+                    android:layout_weight="9" />
+
+                <RadioGroup
+                    android:checkedButton="@+id/b_m_20"
+                    android:id="@+id/toggle20"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:background="@drawable/pink_out_line"
+                    android:orientation="horizontal"
+                    android:layout_weight="1.5"
+                    android:layout_marginTop="3dp">
+
+                    <RadioButton
+                        android:layout_marginTop="1dp"
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginLeft="1dp"
+                        android:id="@+id/b_m_20"
+                        android:background="@drawable/toggle_widget_background"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:text="M"
+                        android:textColor="@color/colorPrimaryWhite" />
+
+                    <RadioButton
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="1dp"
+                        android:layout_marginBottom="1dp"
+                        android:id="@+id/b_w_20"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/toggle_widget_background"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:text="W"
+                        android:textColor="@color/colorPrimaryWhite" />
+                </RadioGroup>
 
             </LinearLayout>
 
@@ -522,7 +1325,46 @@
                     android:layout_height="wrap_content"
                     android:hint="@string/dialog_schueler_3"
                     android:id="@+id/editText_lg_erstellen_21"
-                    android:layout_weight="11" />
+                    android:layout_weight="9" />
+
+                <RadioGroup
+                    android:checkedButton="@+id/b_m_21"
+                    android:id="@+id/toggle21"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:background="@drawable/pink_out_line"
+                    android:orientation="horizontal"
+                    android:layout_weight="1.5"
+                    android:layout_marginTop="3dp">
+
+                    <RadioButton
+                        android:layout_marginTop="1dp"
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginLeft="1dp"
+                        android:id="@+id/b_m_21"
+                        android:background="@drawable/toggle_widget_background"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:text="M"
+                        android:textColor="@color/colorPrimaryWhite" />
+
+                    <RadioButton
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="1dp"
+                        android:layout_marginBottom="1dp"
+                        android:id="@+id/b_w_21"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/toggle_widget_background"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:text="W"
+                        android:textColor="@color/colorPrimaryWhite" />
+                </RadioGroup>
 
             </LinearLayout>
 
@@ -545,7 +1387,46 @@
                     android:layout_height="wrap_content"
                     android:hint="@string/dialog_schueler_3"
                     android:id="@+id/editText_lg_erstellen_22"
-                    android:layout_weight="11" />
+                    android:layout_weight="9" />
+
+                <RadioGroup
+                    android:checkedButton="@+id/b_m_22"
+                    android:id="@+id/toggle22"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:background="@drawable/pink_out_line"
+                    android:orientation="horizontal"
+                    android:layout_weight="1.5"
+                    android:layout_marginTop="3dp">
+
+                    <RadioButton
+                        android:layout_marginTop="1dp"
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginLeft="1dp"
+                        android:id="@+id/b_m_22"
+                        android:background="@drawable/toggle_widget_background"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:text="M"
+                        android:textColor="@color/colorPrimaryWhite" />
+
+                    <RadioButton
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="1dp"
+                        android:layout_marginBottom="1dp"
+                        android:id="@+id/b_w_22"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/toggle_widget_background"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:text="W"
+                        android:textColor="@color/colorPrimaryWhite" />
+                </RadioGroup>
 
             </LinearLayout>
 
@@ -568,7 +1449,46 @@
                     android:layout_height="wrap_content"
                     android:hint="@string/dialog_schueler_3"
                     android:id="@+id/editText_lg_erstellen_23"
-                    android:layout_weight="11" />
+                    android:layout_weight="9" />
+
+                <RadioGroup
+                    android:checkedButton="@+id/b_m_23"
+                    android:id="@+id/toggle23"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:background="@drawable/pink_out_line"
+                    android:orientation="horizontal"
+                    android:layout_weight="1.5"
+                    android:layout_marginTop="3dp">
+
+                    <RadioButton
+                        android:layout_marginTop="1dp"
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginLeft="1dp"
+                        android:id="@+id/b_m_23"
+                        android:background="@drawable/toggle_widget_background"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:text="M"
+                        android:textColor="@color/colorPrimaryWhite" />
+
+                    <RadioButton
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="1dp"
+                        android:layout_marginBottom="1dp"
+                        android:id="@+id/b_w_23"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/toggle_widget_background"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:text="W"
+                        android:textColor="@color/colorPrimaryWhite" />
+                </RadioGroup>
 
             </LinearLayout>
 
@@ -591,7 +1511,47 @@
                     android:layout_height="wrap_content"
                     android:hint="@string/dialog_schueler_3"
                     android:id="@+id/editText_lg_erstellen_24"
-                    android:layout_weight="11" />
+                    android:layout_weight="9" />
+
+                <RadioGroup
+                    android:checkedButton="@+id/b_m_24"
+                    android:id="@+id/toggle24"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:background="@drawable/pink_out_line"
+                    android:orientation="horizontal"
+                    android:layout_weight="1.5"
+                    android:layout_marginTop="3dp">
+
+                    <RadioButton
+                        android:layout_marginTop="1dp"
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginLeft="1dp"
+                        android:id="@+id/b_m_24"
+                        android:background="@drawable/toggle_widget_background"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:text="M"
+                        android:textColor="@color/colorPrimaryWhite" />
+
+                    <RadioButton
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="1dp"
+                        android:layout_marginBottom="1dp"
+                        android:id="@+id/b_w_24"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/toggle_widget_background"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:text="W"
+                        android:textColor="@color/colorPrimaryWhite" />
+                </RadioGroup>
+
 
             </LinearLayout>
 
@@ -615,7 +1575,47 @@
                     android:layout_height="wrap_content"
                     android:hint="@string/dialog_schueler_3"
                     android:id="@+id/editText_lg_erstellen_25"
-                    android:layout_weight="11" />
+                    android:layout_weight="9" />
+
+                <RadioGroup
+                    android:checkedButton="@+id/b_m_25"
+                    android:id="@+id/toggle25"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:background="@drawable/pink_out_line"
+                    android:orientation="horizontal"
+                    android:layout_weight="1.5"
+                    android:layout_marginTop="3dp">
+
+                    <RadioButton
+                        android:layout_marginTop="1dp"
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginLeft="1dp"
+                        android:id="@+id/b_m_25"
+                        android:background="@drawable/toggle_widget_background"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:text="M"
+                        android:textColor="@color/colorPrimaryWhite" />
+
+                    <RadioButton
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="1dp"
+                        android:layout_marginBottom="1dp"
+                        android:id="@+id/b_w_25"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/toggle_widget_background"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:text="W"
+                        android:textColor="@color/colorPrimaryWhite" />
+                </RadioGroup>
+
 
             </LinearLayout>
 
@@ -639,7 +1639,47 @@
                     android:layout_height="wrap_content"
                     android:hint="@string/dialog_schueler_3"
                     android:id="@+id/editText_lg_erstellen_26"
-                    android:layout_weight="11" />
+                    android:layout_weight="9" />
+
+                <RadioGroup
+                    android:checkedButton="@+id/b_m_26"
+                    android:id="@+id/toggle26"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:background="@drawable/pink_out_line"
+                    android:orientation="horizontal"
+                    android:layout_weight="1.5"
+                    android:layout_marginTop="3dp">
+
+                    <RadioButton
+                        android:layout_marginTop="1dp"
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginLeft="1dp"
+                        android:id="@+id/b_m_26"
+                        android:background="@drawable/toggle_widget_background"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:text="M"
+                        android:textColor="@color/colorPrimaryWhite" />
+
+                    <RadioButton
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="1dp"
+                        android:layout_marginBottom="1dp"
+                        android:id="@+id/b_w_26"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/toggle_widget_background"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:text="W"
+                        android:textColor="@color/colorPrimaryWhite" />
+                </RadioGroup>
+
 
             </LinearLayout>
 
@@ -663,7 +1703,47 @@
                     android:layout_height="wrap_content"
                     android:hint="@string/dialog_schueler_3"
                     android:id="@+id/editText_lg_erstellen_27"
-                    android:layout_weight="11" />
+                    android:layout_weight="9" />
+
+                <RadioGroup
+                    android:checkedButton="@+id/b_m_27"
+                    android:id="@+id/toggle27"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:background="@drawable/pink_out_line"
+                    android:orientation="horizontal"
+                    android:layout_weight="1.5"
+                    android:layout_marginTop="3dp">
+
+                    <RadioButton
+                        android:layout_marginTop="1dp"
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginLeft="1dp"
+                        android:id="@+id/b_m_27"
+                        android:background="@drawable/toggle_widget_background"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:text="M"
+                        android:textColor="@color/colorPrimaryWhite" />
+
+                    <RadioButton
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="1dp"
+                        android:layout_marginBottom="1dp"
+                        android:id="@+id/b_w_27"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/toggle_widget_background"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:text="W"
+                        android:textColor="@color/colorPrimaryWhite" />
+                </RadioGroup>
+
 
             </LinearLayout>
 
@@ -687,7 +1767,47 @@
                     android:layout_height="wrap_content"
                     android:hint="@string/dialog_schueler_3"
                     android:id="@+id/editText_lg_erstellen_28"
-                    android:layout_weight="11" />
+                    android:layout_weight="9" />
+
+                <RadioGroup
+                    android:checkedButton="@+id/b_m_28"
+                    android:id="@+id/toggle28"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:background="@drawable/pink_out_line"
+                    android:orientation="horizontal"
+                    android:layout_weight="1.5"
+                    android:layout_marginTop="3dp">
+
+                    <RadioButton
+                        android:layout_marginTop="1dp"
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginLeft="1dp"
+                        android:id="@+id/b_m_28"
+                        android:background="@drawable/toggle_widget_background"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:text="M"
+                        android:textColor="@color/colorPrimaryWhite" />
+
+                    <RadioButton
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="1dp"
+                        android:layout_marginBottom="1dp"
+                        android:id="@+id/b_w_28"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/toggle_widget_background"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:text="W"
+                        android:textColor="@color/colorPrimaryWhite" />
+                </RadioGroup>
+
 
             </LinearLayout>
 
@@ -711,7 +1831,46 @@
                     android:layout_height="wrap_content"
                     android:hint="@string/dialog_schueler_3"
                     android:id="@+id/editText_lg_erstellen_29"
-                    android:layout_weight="11" />
+                    android:layout_weight="9" />
+
+                <RadioGroup
+                    android:checkedButton="@+id/b_m_29"
+                    android:id="@+id/toggle29"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:background="@drawable/pink_out_line"
+                    android:orientation="horizontal"
+                    android:layout_weight="1.5"
+                    android:layout_marginTop="3dp">
+
+                    <RadioButton
+                        android:layout_marginTop="1dp"
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginLeft="1dp"
+                        android:id="@+id/b_m_29"
+                        android:background="@drawable/toggle_widget_background"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:text="M"
+                        android:textColor="@color/colorPrimaryWhite" />
+
+                    <RadioButton
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="1dp"
+                        android:layout_marginBottom="1dp"
+                        android:id="@+id/b_w_29"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/toggle_widget_background"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:text="W"
+                        android:textColor="@color/colorPrimaryWhite" />
+                </RadioGroup>
 
             </LinearLayout>
 
@@ -733,7 +1892,47 @@
                     android:layout_height="wrap_content"
                     android:hint="@string/dialog_schueler_3"
                     android:id="@+id/editText_lg_erstellen_30"
-                    android:layout_weight="11" />
+                    android:layout_weight="9" />
+
+                <RadioGroup
+                    android:checkedButton="@+id/b_m_30"
+                    android:id="@+id/toggle30"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:background="@drawable/pink_out_line"
+                    android:orientation="horizontal"
+                    android:layout_weight="1.5"
+                    android:layout_marginTop="3dp">
+
+                    <RadioButton
+                        android:layout_marginTop="1dp"
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginLeft="1dp"
+                        android:id="@+id/b_m_30"
+                        android:background="@drawable/toggle_widget_background"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:text="M"
+                        android:textColor="@color/colorPrimaryWhite" />
+
+                    <RadioButton
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="1dp"
+                        android:layout_marginBottom="1dp"
+                        android:id="@+id/b_w_30"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/toggle_widget_background"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:text="W"
+                        android:textColor="@color/colorPrimaryWhite" />
+                </RadioGroup>
+
 
             </LinearLayout>
 

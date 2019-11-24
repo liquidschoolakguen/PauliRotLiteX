@@ -1,12 +1,20 @@
 package akguen.liquidschool.paulirotlite;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.TextView;
+
+import tabs.WaehleSchuelerDynamicTabsActivity;
 
 public class E_FullScreenActivity extends Activity {
+    private TextView name;
+    private TextView points;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,5 +25,31 @@ public class E_FullScreenActivity extends Activity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_full_screen);
+
+        name = (TextView) findViewById(R.id.textView8);
+        points = (TextView) findViewById(R.id.textView9);
+
+        name.setText(getIntent().getExtras().getString("schueler_name"));
+        points.setText(getIntent().getExtras().getString("strafpunkte"));
+
+
+
+
+
+
+
+
     }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        WaehleSchuelerDynamicTabsActivity.fa.finish();
+        S4_WaehleVergehen.fa.finish();
+        Intent speichernS3= new Intent(E_FullScreenActivity.this, WaehleSchuelerDynamicTabsActivity.class);
+        startActivity(speichernS3);
+    }
+
+
+
 }
