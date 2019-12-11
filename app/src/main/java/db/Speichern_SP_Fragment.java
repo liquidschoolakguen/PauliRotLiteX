@@ -24,8 +24,9 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
+import akguen.liquidschool.db.db.DataSource_SP_Fragment;
 import akguen.liquidschool.paulirotlite.R;
-import model.SP_Fragment;
+import akguen.liquidschool.db.model.SP_Fragment;
 
 public class Speichern_SP_Fragment extends AppCompatActivity {
 
@@ -119,7 +120,7 @@ public class Speichern_SP_Fragment extends AppCompatActivity {
 
                 // Hier den checked-Wert des Memo-Objekts umkehren, bspw. von true auf false
                 // Dann ListView neu zeichnen mit showAllListEntries()
-/*                SP_Fragment updatedSP_Fragment = dataSource.updateSP_Fragment(sp_fragment.getId(), sp_fragment.getVorname(), sp_fragment.getNachname(), sp_fragment.getPasswort(), sp_fragment.getKuerzel(), sp_fragment.getStatus());
+/*                SP_Fragment updatedSP_Fragment = dataSource.updateSP_Fragment(sp_fragment.getId(), sp_fragment.getVorname(), sp_fragment.getItemType(), sp_fragment.getPasswort(), sp_fragment.getKuerzel(), sp_fragment.getStatus());
                 Log.d(LOG_TAG, "Checked-Status von Eintrag: " + updatedSP_Fragment.toString() + " ist: ");
                 showAllListEntries();*/
             }

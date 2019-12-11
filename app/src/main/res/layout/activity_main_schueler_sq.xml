@@ -34,12 +34,16 @@
             android:id="@+id/editText_schueler_11"
             android:layout_weight="1" />
 
+
         <EditText
             android:layout_width="0px"
             android:layout_height="wrap_content"
             android:hint="@string/dialog_schueler_2"
             android:id="@+id/editText_schueler_22"
             android:layout_weight="1" />
+
+
+
 
 
 
@@ -60,13 +64,15 @@
             android:id="@+id/editText_schueler_33"
             android:layout_weight="1" />
 
+
         <EditText
             android:layout_width="0px"
             android:layout_height="wrap_content"
-            android:inputType="number"
             android:hint="@string/dialog_schueler_4"
             android:id="@+id/editText_schueler_44"
             android:layout_weight="1" />
+
+
 
 
     </LinearLayout>
@@ -81,9 +87,11 @@
         <EditText
             android:layout_width="0px"
             android:layout_height="wrap_content"
+            android:inputType="number"
             android:hint="@string/dialog_schueler_5"
             android:id="@+id/editText_schueler_55"
             android:layout_weight="1" />
+
 
         <EditText
             android:layout_width="0px"
@@ -91,6 +99,8 @@
             android:hint="@string/dialog_schueler_6"
             android:id="@+id/editText_schueler_66"
             android:layout_weight="1" />
+
+
 
 
     </LinearLayout>
@@ -106,6 +116,13 @@
             android:layout_height="wrap_content"
             android:hint="@string/dialog_schueler_7"
             android:id="@+id/editText_schueler_77"
+            android:layout_weight="1" />
+
+        <EditText
+            android:layout_width="0px"
+            android:layout_height="wrap_content"
+            android:hint="@string/dialog_schueler_8"
+            android:id="@+id/editText_schueler_88"
             android:layout_weight="1" />
 
 

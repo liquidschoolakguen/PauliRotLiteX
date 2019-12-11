@@ -1,37 +1,42 @@
 package zz_test;
 
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
+import android.animation.ValueAnimator;
 import android.app.Activity;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
-import android.support.v4.app.Fragment;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.LinearSmoothScroller;
 import android.support.v7.widget.RecyclerView;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AccelerateInterpolator;
+import android.view.animation.Animation;
+import android.view.animation.DecelerateInterpolator;
+import android.view.animation.LinearInterpolator;
+import android.view.animation.RotateAnimation;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.ListView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.List;
 
 import akguen.liquidschool.paulirotlite.R;
 import akguen.liquidschool.paulirotlite.S4_WaehleVergehen;
-import db.DataSource_Schueler;
-import db.DataSource_Schueler_Lerngruppe;
-import db.MyDbHelper;
-import model.Schueler;
+import akguen.liquidschool.db.db.DataSource_Schueler;
+import akguen.liquidschool.db.db.DataSource_Schueler_Lerngruppe;
+import akguen.liquidschool.db.db.MyDbHelper;
+import akguen.liquidschool.db.model.Schueler;
 
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
@@ -78,6 +83,15 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
         dS_Schueler.open();
         dS_Schueler_Lerngruppe.open();
 
+
+
+
+
+
+
+
+
+
     }
 
 
@@ -98,21 +112,53 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
         // 5 : normalDisable
         Schueler selectedSchueler = dataSet.get(position);
 
-System.out.println("------------------ "+selectedSchueler.getNachname());
-        return Integer.parseInt(selectedSchueler.getNachname());
+System.out.println("------------------ "+selectedSchueler.getItemType());
+        return Integer.parseInt(selectedSchueler.getItemType());
     }
 
 
     LinearLayout mumu;
-    Button momo;
+    boolean neu = true;
+    ValueAnimator respektOff;
+    ValueAnimator respektOn;
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         //View layoutView = LayoutInflater.from(parent.getContext()).inflate(R.layout.update_row, parent,false);
         View layoutView;
-        View vv = (View) parent.getParent();
-        mumu = (LinearLayout) vv.findViewById(R.id.lin_respekt);
-        momo = (Button) vv.findViewById(R.id.bnt_nrespekt);
+
+        if(neu){
+            View vv = (View) parent.getParent();
+            mumu = (LinearLayout) vv.findViewById(R.id.lin_respekt);
+
+            // momo.setVisibility(View.GONE);
+
+            respektOff = ValueAnimator.ofInt(180, 0);
+            respektOff.setDuration(200);
+            respektOff.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+                @Override
+                public void onAnimationUpdate(ValueAnimator animation) {
+                    mumu.getLayoutParams().height = (Integer) animation.getAnimatedValue();
+                    mumu.requestLayout();
+                }
+            });
+
+
+            respektOn = ValueAnimator.ofInt(0, 180);
+            respektOn.setDuration(200);
+            respektOn.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+                @Override
+                public void onAnimationUpdate(ValueAnimator animation) {
+                    mumu.getLayoutParams().height = (Integer) animation.getAnimatedValue();
+                    mumu.requestLayout();
+                }
+            });
+
+            neu=false;
+
+        }
+
+
 
         switch (viewType) {
 
@@ -148,7 +194,9 @@ System.out.println("------------------ "+selectedSchueler.getNachname());
             case 9:
                 layoutView = LayoutInflater.from(parent.getContext()).inflate(R.layout.zz_end_row, parent, false);
                 return new ViewHolderEndRow(layoutView);
-
+            case 10:
+                layoutView = LayoutInflater.from(parent.getContext()).inflate(R.layout.schueler_options_row, parent, false);
+                return new ViewHolderSchuelerOption(layoutView);
         }
 
         return null;
@@ -204,15 +252,15 @@ System.out.println("------------------ "+selectedSchueler.getNachname());
                             viewHolderUpdate.strafpunktUpdate.setText(Integer.toString(strafpunkt + 1));
 
 
-                          /*
+
                             Schueler g = dataSet.get(holder.getAdapterPosition());
                             g.setGeburtstag(Integer.toString(Integer.parseInt(g.getGeburtstag()) + 1));
                             dataSet.set(holder.getAdapterPosition(), g);
                             //  Toast.makeText(v.getContext(), "+: "+dataSet.get(holder.getAdapterPosition()).getGeburtstag(), Toast.LENGTH_SHORT).show();
                             notifyItemChanged(holder.getAdapterPosition());
 
-                            //dS_Schueler.updateSchueler(g.getId(),g.getVorname(),g.getNachname(),g.getRufname(),g.getGeschlecht(),g.getStatus(),g.getGeburtstag(),g.getGeburtsort());
-*/
+                            //dS_Schueler.updateSchueler(g.getId(),g.getVorname(),g.getItemType(),g.getRufname(),g.getGeschlecht(),g.getStatus(),g.getGeburtstag(),g.getGeburtsort());
+
                             if (virtual == null) {
 
                                 virtual = new Schueler();
@@ -241,13 +289,7 @@ System.out.println("------------------ "+selectedSchueler.getNachname());
                             viewHolderUpdate.strafpunktUpdate.setText(Integer.toString(strafpunkt - 1));
 
 
-                          /*  Schueler g = dataSet.get(holder.getAdapterPosition());
-                            g.setGeburtstag(Integer.toString(Integer.parseInt(g.getGeburtstag()) - 1));
-                            dataSet.set(holder.getAdapterPosition(), g);
-                            //Toast.makeText(v.getContext(), "+: "+dataSet.get(holder.getAdapterPosition()).getGeburtstag(), Toast.LENGTH_SHORT).show();
-                            notifyItemChanged(holder.getAdapterPosition());
-                            // dS_Schueler.updateSchueler(g.getId(),g.getVorname(),g.getNachname(),g.getRufname(),g.getGeschlecht(),g.getStatus(),g.getGeburtstag(),g.getGeburtsort());
-*/
+
                             if (virtual == null) {
 
                                 virtual = new Schueler();
@@ -262,7 +304,7 @@ System.out.println("------------------ "+selectedSchueler.getNachname());
                 });
                 viewHolderUpdate.geschlecht.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
                     public void onCheckedChanged(RadioGroup group, int checkedId) {
-                       /* Schueler g = dataSet.get(holder.getAdapterPosition());
+                        Schueler g = dataSet.get(holder.getAdapterPosition());
                         if (g.getGeschlecht() != null) {
                             if (g.getGeschlecht().equals("M")) {
                                 g.setGeschlecht("W");
@@ -274,7 +316,7 @@ System.out.println("------------------ "+selectedSchueler.getNachname());
 
                         }else{
                             g.setGeschlecht("M");
-                        }*/
+                        }
 
                         if (virtual == null) {
 
@@ -316,9 +358,7 @@ System.out.println("------------------ "+selectedSchueler.getNachname());
                     public void afterTextChanged(Editable s) {
 
 
-                       /* /Schueler g = dataSet.get(holder.getAdapterPosition());
-                    g.setVorname(s.toString());
-                        System.out.println("          -           " + g.getVorname());*/
+
                         if (virtual == null) {
 
                             virtual = new Schueler();
@@ -383,16 +423,16 @@ System.out.println("------------------ "+selectedSchueler.getNachname());
                         if (operateSchueler == null) {
 
                             // Toast.makeText(v.getContext(), "LONG CLICK Position = " + getPosition(), Toast.LENGTH_SHORT).show();
-                            Schueler g = new Schueler();
+                     /*       Schueler g = new Schueler();
 
-                            g.setNachname("2");
+                            g.setItemType("2");
                             dataSet.add(dataSet.size() - 1, g);
                             //Toast.makeText(v.getContext(), "+: "+dataSet.get(holder.getAdapterPosition()).getGeburtstag(), Toast.LENGTH_SHORT).show();
-                            // notifyDataSetChanged();
-                            operateSchueler = g;
+                            // notifyDataSetChanged();*/
+                           // operateSchueler = g;
 
 
-                            gotoNightMode(selectedSchueler);
+                            gotoNightMode2(selectedSchueler);
 
                         }
 
@@ -495,6 +535,43 @@ System.out.println("------------------ "+selectedSchueler.getNachname());
 
                 break;
 
+
+            case 10: //lerngruppenNamen disable Item
+                ViewHolderSchuelerOption viewHolderSchuelerOption = (ViewHolderSchuelerOption) holder;
+
+                if (selectedSchueler.getGeburtstag().equals("0")) {
+
+                    viewHolderSchuelerOption.strafpunkt.setVisibility(View.INVISIBLE);
+                } else {
+
+                    viewHolderSchuelerOption.strafpunkt.setVisibility(View.VISIBLE);
+                }
+                if (newLG && selectedSchueler.getVorname().equals("")) {
+                    viewHolderSchuelerOption.schuelername.setText("MusterschülerIn " + (position));
+
+                } else {
+                    viewHolderSchuelerOption.schuelername.setText(selectedSchueler.getVorname());
+
+                }
+
+                if (selectedSchueler.getGeschlecht().equals("W")) {
+
+                    viewHolderSchuelerOption.layout.setBackgroundColor(Color.parseColor("#0FFF1E39"));
+                } else {
+
+                    viewHolderSchuelerOption.layout.setBackgroundColor(Color.parseColor("#00000000"));
+                }
+                viewHolderSchuelerOption.strafpunkt.setText(selectedSchueler.getGeburtstag());
+                viewHolderSchuelerOption.opener();
+
+
+
+
+
+
+                break;
+
+
         }
 
 
@@ -509,11 +586,13 @@ System.out.println("------------------ "+selectedSchueler.getNachname());
         void onItemClick(int position);
     }
 
+ public ViewHolderSchuelerOption selectedHolder =null;
 
     public class ViewHolderNormal extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener {
-        LinearLayout layout;
+        RelativeLayout layout;
         TextView schuelername;
         TextView strafpunkt;
+
 
         public ViewHolderNormal(View itemView) {
             super(itemView);
@@ -521,7 +600,9 @@ System.out.println("------------------ "+selectedSchueler.getNachname());
             itemView.setOnLongClickListener(this);
             schuelername = (TextView) itemView.findViewById(R.id.tv_item_schuelername);
             strafpunkt = (TextView) itemView.findViewById(R.id.tv_item_strafpunkt);
-            layout = (LinearLayout) itemView.findViewById(R.id.layout_1);
+            layout = (RelativeLayout) itemView.findViewById(R.id.layout_1);
+
+
         }
 
         @Override
@@ -541,13 +622,19 @@ System.out.println("------------------ "+selectedSchueler.getNachname());
 
         }
 
+
+
+
         @Override
         public boolean onLongClick(View v) {
 
             if (operateSchueler == null) {
 
 
-                gotoNightMode(dataSet.get(getPosition()));
+
+
+                gotoNightMode2(dataSet.get(getPosition()));
+
                 return true;
 
             }
@@ -557,14 +644,11 @@ System.out.println("------------------ "+selectedSchueler.getNachname());
 
 
     public class ViewHolderUpdate extends RecyclerView.ViewHolder {
-
         LinearLayout layout;
         RadioGroup geschlecht;
-        EditText title;
-
-
-        RadioButton männlich;
+        RadioButton männlich ;
         RadioButton weiblich;
+        EditText title;
         TextView strafpunktUpdate;
         Button pluss;
         Button minus;
@@ -599,13 +683,13 @@ System.out.println("------------------ "+selectedSchueler.getNachname());
 
     public class ViewHolderPlus extends RecyclerView.ViewHolder {
 
-        TextView plusButton;
+        ImageView plusButton;
 
 
         public ViewHolderPlus(View itemView) {
             super(itemView);
 
-            plusButton = (TextView) itemView.findViewById(R.id.plus_button);
+            plusButton = (ImageView) itemView.findViewById(R.id.plus_image);
 
         }
 
@@ -614,20 +698,20 @@ System.out.println("------------------ "+selectedSchueler.getNachname());
 
     public class ViewHolderPlusDisable extends RecyclerView.ViewHolder implements View.OnClickListener {
 
-        TextView plusButton;
+        ImageView plusButton;
 
 
         public ViewHolderPlusDisable(View itemView) {
             super(itemView);
             itemView.setOnClickListener(this);
-            plusButton = (TextView) itemView.findViewById(R.id.plus_button_disable);
+            plusButton = (ImageView) itemView.findViewById(R.id.plus_image_disable);
 
         }
 
         @Override
         public void onClick(View view) {
 
-            gotoDayMode(view);
+            gotoDayMode2();
 
         }
 
@@ -636,7 +720,7 @@ System.out.println("------------------ "+selectedSchueler.getNachname());
 
 
     public class ViewHolderNormalDisable extends RecyclerView.ViewHolder implements View.OnClickListener {
-        LinearLayout layout;
+        RelativeLayout layout;
         TextView schuelernameDis;
         TextView strafpunktDis;
 
@@ -645,14 +729,14 @@ System.out.println("------------------ "+selectedSchueler.getNachname());
             itemView.setOnClickListener(this);
             schuelernameDis = (TextView) itemView.findViewById(R.id.tv_item_schuelername);
             strafpunktDis = (TextView) itemView.findViewById(R.id.tv_item_strafpunkt);
-            layout = (LinearLayout) itemView.findViewById(R.id.layout_5);
+            layout = (RelativeLayout) itemView.findViewById(R.id.layout_1);
         }
 
         @Override
         public void onClick(View view) {
             // Toast.makeText(view.getContext(), "Clicked Country Position = " + getPosition(), Toast.LENGTH_SHORT).show();
 
-            gotoDayMode(view);
+            selectedHolder.animationOff.start();
 
 
         }
@@ -679,7 +763,7 @@ System.out.println("------------------ "+selectedSchueler.getNachname());
 
             if (operateSchueler == null) {
 
-                gotoNightMode(dataSet.get(getPosition()));
+                gotoNightMode2(dataSet.get(getPosition()));
 
 
                 return true;
@@ -723,7 +807,9 @@ System.out.println("------------------ "+selectedSchueler.getNachname());
         public void onClick(View view) {
             // Toast.makeText(view.getContext(), "Clicked Country Position = " + getPosition(), Toast.LENGTH_SHORT).show();
 
-            gotoDayMode(view);
+           // gotoDayMode(view);
+
+            //selectedHolder.closer();
 
 
         }
@@ -749,21 +835,157 @@ System.out.println("------------------ "+selectedSchueler.getNachname());
 
 
 
+    public class ViewHolderSchuelerOption extends RecyclerView.ViewHolder {
+        RelativeLayout layout;
+        TextView schuelername;
+        TextView strafpunkt;
+        ValueAnimator animationOn;
+        ValueAnimator animationOff;
+
+        ImageView okButton;
+        ImageView pluszeichen;
+        ImageView minuszeichen;
+
+        public ViewHolderSchuelerOption(View itemView) {
+            super(itemView);
+
+            schuelername = (TextView) itemView.findViewById(R.id.tv_item_schuelername);
+            strafpunkt = (TextView) itemView.findViewById(R.id.tv_item_strafpunkt);
+            layout = (RelativeLayout) itemView.findViewById(R.id.layout_1);
+            okButton = (ImageView) itemView.findViewById(R.id.imageView7);
+            pluszeichen = (ImageView) itemView.findViewById(R.id.imageView0b);
+            minuszeichen = (ImageView) itemView.findViewById(R.id.imageView0a);
+
+            animationOn = ValueAnimator.ofInt(180, 275);
+            animationOn.setDuration(200);
+            animationOn.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+                @Override
+                public void onAnimationUpdate(ValueAnimator animation) {
+                    layout.getLayoutParams().height = (Integer) animation.getAnimatedValue();
+                    layout.requestLayout();
+                }
+            });
+            animationOn.addListener(new AnimatorListenerAdapter() {
+                public void onAnimationEnd(Animator animation) {
+                    //gotoNightMode2(dataSet.get(getPosition()));
+                }
+            });
+
+
+            animationOff = ValueAnimator.ofInt(275, 180);
+            animationOff.setDuration(200);
+            animationOff.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+                @Override
+                public void onAnimationUpdate(ValueAnimator animation) {
+                    layout.getLayoutParams().height = (Integer) animation.getAnimatedValue();
+                    layout.requestLayout();
+                }
+            });
+            animationOff.addListener(new AnimatorListenerAdapter() {
+                public void onAnimationEnd(Animator animation) {
+                    gotoDayMode2();
+                }
+            });
+
+            okButton.setOnClickListener(new View.OnClickListener(){
+                public void onClick(View v) {
+
+                    closer();
+                }
+            });
+
+
+           // opener();
+
+        }
 
 
 
-    private void gotoNightMode(Schueler selected) {
+        public void opener(){
 
-        mumu.setVisibility(View.GONE);
-        momo.setVisibility(View.GONE);
+            animationOn.start();
+
+            selectedHolder= this;
+
+            RotateAnimation rotate = new RotateAnimation(0, 360, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
+            rotate.setDuration(200);
+            rotate.setInterpolator(new LinearInterpolator());
+
+
+
+            strafpunkt.startAnimation(rotate);
+
+
+
+            pluszeichen.setVisibility(View.VISIBLE);
+            pluszeichen.animate().alpha(0).setDuration(0).setInterpolator(new DecelerateInterpolator()).withEndAction(new Runnable() {
+                @Override
+                public void run() {
+                    pluszeichen.animate().alpha(1).setDuration(200).setInterpolator(new AccelerateInterpolator()).start();
+                }
+            }).start();
+
+            minuszeichen.setVisibility(View.VISIBLE);
+            minuszeichen.animate().alpha(0).setDuration(0).setInterpolator(new DecelerateInterpolator()).withEndAction(new Runnable() {
+                @Override
+                public void run() {
+                    minuszeichen.animate().alpha(1).setDuration(200).setInterpolator(new AccelerateInterpolator()).start();
+                }
+            }).start();
+
+
+        }
+
+        public void closer(){
+
+           // Log.v("hallo", " click");
+
+
+
+
+
+
+            pluszeichen.animate().alpha(1).setDuration(0).setInterpolator(new DecelerateInterpolator()).withEndAction(new Runnable() {
+                @Override
+                public void run() {
+                    pluszeichen.animate().alpha(0).setDuration(150).setInterpolator(new AccelerateInterpolator()).start();
+                    //pluszeichen.setVisibility(View.INVISIBLE);
+                }
+            }).start();
+
+
+            minuszeichen.animate().alpha(1).setDuration(0).setInterpolator(new DecelerateInterpolator()).withEndAction(new Runnable() {
+                @Override
+                public void run() {
+                    minuszeichen.animate().alpha(0).setDuration(150).setInterpolator(new AccelerateInterpolator()).start();
+                    //minuszeichen.setVisibility(View.INVISIBLE);
+                }
+            }).start();
+            animationOff.start();
+            selectedHolder= null;
+
+        }
+
+
+
+    }
+
+
+
+    private void gotoNightMode2(Schueler selected) {
+
+        //mumu.setVisibility(View.GONE);
+
+
+        respektOff.start();
 
 
         for (Schueler gg : dataSet) {
 
 
             if (gg.equals(selected)) {
-                if (gg.getNachname().equals("1")) {
-                    gg.setNachname("2");
+                if (gg.getItemType().equals("1")) {
+                    gg.setItemType("10");
                     //dataSet.set(dataSet.indexOf(gg), gg);
 
                     if(gg.getId()<1){
@@ -786,7 +1008,7 @@ System.out.println("------------------ "+selectedSchueler.getNachname());
 
                     }
                     operateSchueler = gg;
-                } else if (gg.getNachname().equals("6")) {
+                } else if (gg.getItemType().equals("6")) {
 
                     InputMethodManager imm = (InputMethodManager) activity.getSystemService(Activity.INPUT_METHOD_SERVICE);
                     //Find the currently focused view, so we can grab the correct window token from it.
@@ -801,13 +1023,13 @@ System.out.println("------------------ "+selectedSchueler.getNachname());
                     }
                     //imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
                     imm.showSoftInput(view,0);
-                    gg.setNachname("7");
+                    gg.setItemType("7");
 
                     operateSchueler = gg;
-                } else if (gg.getNachname().equals("3")) {
+                } else if (gg.getItemType().equals("3")) {
 
                    /* Schueler g = new Schueler();
-                    g.setNachname("2");
+                    g.setItemType("2");
                     g.setGeburtstag("0");
                     dataSet.add(dataSet.size() - 1, g);*/
 
@@ -829,7 +1051,7 @@ System.out.println("------------------ "+selectedSchueler.getNachname());
                    //operateSchueler = g;
 
 
-                    gg.setNachname("4");
+                    gg.setItemType("4");
 
                 } else {
 
@@ -837,14 +1059,14 @@ System.out.println("------------------ "+selectedSchueler.getNachname());
                 }
 
             } else {
-                if (gg.getNachname().equals("1")) {
-                    gg.setNachname("5");
-                } else if (gg.getNachname().equals("6")) {
-                    gg.setNachname("8");
-                } else if (gg.getNachname().equals("3")) {
+                if (gg.getItemType().equals("1")) {
+                    gg.setItemType("5");
+                } else if (gg.getItemType().equals("6")) {
+                    gg.setItemType("8");
+                } else if (gg.getItemType().equals("3")) {
 
 
-                    gg.setNachname("4");
+                    gg.setItemType("4");
 
                 } else {
 
@@ -862,14 +1084,14 @@ System.out.println("------------------ "+selectedSchueler.getNachname());
     }
 
 
-    private void gotoDayMode(View view) {
-        mumu.setVisibility(View.VISIBLE);
-        momo.setVisibility(View.VISIBLE);
+    private void gotoDayMode2() {
+        respektOn.start();
 
 
+/*
         InputMethodManager imm = (InputMethodManager) view.getContext()
                 .getSystemService(Context.INPUT_METHOD_SERVICE);
-        imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+        imm.hideSoftInputFromWindow(view.getWindowToken(), 0);*/
 
 
         if (operateSchueler == null) {
@@ -880,25 +1102,25 @@ System.out.println("------------------ "+selectedSchueler.getNachname());
             Schueler g = operateSchueler;
 
             for (Schueler k : dataSet) {
-                if (k.getNachname().equals("4")) {
-                    k.setNachname("3");
+                if (k.getItemType().equals("4")) {
+                    k.setItemType("3");
 
-                } else if (k.getNachname().equals("8")) {
-                    k.setNachname("6");
+                } else if (k.getItemType().equals("8")) {
+                    k.setItemType("6");
 
-                } else if (k.getNachname().equals("7")) {
-                    k.setNachname("6");
+                } else if (k.getItemType().equals("7")) {
+                    k.setItemType("6");
 
-                } else if (k.getNachname().equals("9")) {
+                } else if (k.getItemType().equals("9")) {
 
 
                 }else {
-                    k.setNachname("1");
+                    k.setItemType("1");
 
                 }
 
             }
-            //dataSet.get(dataSet.size() - 1).setNachname("3");
+            //dataSet.get(dataSet.size() - 1).setItemType("3");
             //notifyDataSetChanged();
 
         }
@@ -915,7 +1137,7 @@ System.out.println("------------------ "+selectedSchueler.getNachname());
         }
 
 
-        if (operateSchueler.getId() > 0) {
+/*        if (operateSchueler.getId() > 0) {
             if (operateSchueler.getVorname().trim().length() == 0) {
 
                 dS_Schueler.deleteSchueler(operateSchueler);
@@ -960,7 +1182,7 @@ System.out.println("------------------ "+selectedSchueler.getNachname());
                         virtual = null;
                         //Toast.makeText(view.getContext(), operateSchueler.getId() + "))Es wurde was verändert " + operateSchueler.getVorname() + " (" + operateSchueler.getGeschlecht() + ") " + operateSchueler.getGeburtstag(), Toast.LENGTH_LONG).show();
 
-                        dS_Schueler.updateSchueler(operateSchueler.getId(), operateSchueler.getVorname(), operateSchueler.getNachname(), operateSchueler.getRufname(), operateSchueler.getGeschlecht(), operateSchueler.getStatus(), operateSchueler.getGeburtstag(), operateSchueler.getGeburtsort());
+                        dS_Schueler.updateSchueler(operateSchueler.getId(), operateSchueler.getVorname(),operateSchueler.getSurname(), operateSchueler.getItemType(), operateSchueler.getRufname(), operateSchueler.getGeschlecht(), operateSchueler.getStatus(), operateSchueler.getGeburtstag(), operateSchueler.getGeburtsort());
                     }
                     //update
                 }
@@ -999,7 +1221,7 @@ System.out.println("------------------ "+selectedSchueler.getNachname());
 
                     if (!newLG) {
                         //Toast.makeText(view.getContext(), operateSchueler.getId() + "))Der Schüler mit diesem Namen existiert NICHT und wird gespeichert/verknüpft" + operateSchueler.getVorname() + " (" + operateSchueler.getGeschlecht() + ") " + operateSchueler.getGeburtstag(), Toast.LENGTH_LONG).show();
-                        dS_Schueler.createSchueler(operateSchueler.getVorname(), operateSchueler.getNachname(), operateSchueler.getRufname(), operateSchueler.getGeschlecht(), operateSchueler.getStatus(), operateSchueler.getGeburtstag(), operateSchueler.getGeburtsort());
+                        dS_Schueler.createSchueler(operateSchueler.getVorname(),operateSchueler.getSurname(), operateSchueler.getItemType(), operateSchueler.getRufname(), operateSchueler.getGeschlecht(), operateSchueler.getStatus(), operateSchueler.getGeburtstag(), operateSchueler.getGeburtsort());
 
                         int z = dataSet.indexOf(operateSchueler);
 
@@ -1010,8 +1232,11 @@ System.out.println("------------------ "+selectedSchueler.getNachname());
 
                 } else {
                     if (!newLG) {
+
+
+*//*
                         Toast.makeText(view.getContext(), "Der Schüler " + operateSchueler.getVorname() +" ist bereits in der Gruppe.", Toast.LENGTH_LONG).show();
-                        dataSet.remove(operateSchueler);
+                        dataSet.remove(operateSchueler);*//*
                     }
                 }
 
@@ -1031,7 +1256,7 @@ System.out.println("------------------ "+selectedSchueler.getNachname());
                 //create
             }
 
-        }
+        }*/
 
 
         notifyDataSetChanged();

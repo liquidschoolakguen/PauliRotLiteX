@@ -25,9 +25,11 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
+import akguen.liquidschool.db.db.DataSource_Vergehen_Vergehengruppe;
+import akguen.liquidschool.db.db.MyDbHelper;
 import akguen.liquidschool.paulirotlite.R;
-import model.Vergehengruppe;
-import model.Vergehen;
+import akguen.liquidschool.db.model.Vergehengruppe;
+import akguen.liquidschool.db.model.Vergehen;
 
 
 public class Speichern_Vergehen_Vergehengruppe extends AppCompatActivity {
@@ -79,7 +81,19 @@ public class Speichern_Vergehen_Vergehengruppe extends AppCompatActivity {
         Log.d(LOG_TAG, "Die Datenquelle wird geschlossen.");
         dataSource.close();
     }
+    public String annikaComesBack(){
+    boolean sheMakesMeHappy = true;
+    int herCrazyLevel = 3;
 
+    if(sheMakesMeHappy==true && herCrazyLevel<=10){
+
+        return "Komm bald zurück, ich brauche dich.";
+    }else{
+
+        return "Komm trotzdem bald.";
+    }
+
+    }
     private void initializeVergehen_VergehengruppesListView() {
        /* ContentValues values = new ContentValues();
         values.put(MyDbHelper.VERGEHENGRUPPE_COLUMN_NAME, v1);*/
@@ -94,6 +108,7 @@ public class Speichern_Vergehen_Vergehengruppe extends AppCompatActivity {
                 this,
                 android.R.layout.simple_list_item_multiple_choice,
                 emptyListForInitialization) {
+
 
             // Wird immer dann aufgerufen, wenn der übergeordnete ListView die Zeile neu zeichnen muss
             @Override
@@ -127,7 +142,7 @@ public class Speichern_Vergehen_Vergehengruppe extends AppCompatActivity {
 
                 // Hier den checked-Wert des Memo-Objekts umkehren, bspw. von true auf false
                 // Dann ListView neu zeichnen mit showAllListEntries()
-/*                Vergehen_Vergehengruppe updatedVergehen_Vergehengruppe = dataSource.updateVergehen_Vergehengruppe(vergehen_vergehengruppe.getId(), vergehen_vergehengruppe.getVorname(), vergehen_vergehengruppe.getNachname(), vergehen_vergehengruppe.getPasswort(), vergehen_vergehengruppe.getKuerzel(), vergehen_vergehengruppe.getStatus());
+/*                Vergehen_Vergehengruppe updatedVergehen_Vergehengruppe = dataSource.updateVergehen_Vergehengruppe(vergehen_vergehengruppe.getId(), vergehen_vergehengruppe.getVorname(), vergehen_vergehengruppe.getItemType(), vergehen_vergehengruppe.getPasswort(), vergehen_vergehengruppe.getKuerzel(), vergehen_vergehengruppe.getStatus());
                 Log.d(LOG_TAG, "Checked-Status von Eintrag: " + updatedVergehen_Vergehengruppe.toString() + " ist: ");
                 showAllListEntries();*/
             }
@@ -139,7 +154,7 @@ public class Speichern_Vergehen_Vergehengruppe extends AppCompatActivity {
         List<ContentValues> vergehen_vergehengruppeList = dataSource.getAllVergehen_Vergehengruppes();
 
         ArrayAdapter<ContentValues> adapter = (ArrayAdapter<ContentValues>) mVergehen_VergehengruppesListView.getAdapter();
-
+        annikaComesBack();
         adapter.clear();
         adapter.addAll(vergehen_vergehengruppeList);
         adapter.notifyDataSetChanged();

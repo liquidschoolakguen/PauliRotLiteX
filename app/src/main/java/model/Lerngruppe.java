@@ -1,15 +1,17 @@
 package model;
+/*
 
 public class Lerngruppe {
     int id;
     private String name;
+    private int lernform_id;
 
 
-
-    public Lerngruppe (int id, String name){
+    public Lerngruppe (int id, String name, int lernform_id){
 
         this.id = id;
         this.name = name;
+        this.lernform_id = lernform_id;
 
 
     }
@@ -19,6 +21,13 @@ public class Lerngruppe {
 
     }
 
+    public int getLernform_id() {
+        return lernform_id;
+    }
+
+    public void setLernform_id(int lernform_id) {
+        this.lernform_id = lernform_id;
+    }
 
     public int getId() {
         return id;
@@ -42,7 +51,7 @@ public class Lerngruppe {
     public String toString() {
 
 
-        return id + "] "+name;
+        return id + "] "+name+" ("+lernform_id+")";
 
     }
 
@@ -50,3 +59,4 @@ public class Lerngruppe {
 
 
 }
+*/

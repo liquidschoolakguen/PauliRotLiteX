@@ -24,8 +24,10 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
+import akguen.liquidschool.db.db.DataSource_Lernform;
 import akguen.liquidschool.paulirotlite.R;
-import model.Lernform;
+import akguen.liquidschool.db.model.Lernform;
+import akguen.liquidschool.db.model.Lerngruppe;
 
 public class Speichern_Lernform extends AppCompatActivity {
 
@@ -119,7 +121,7 @@ public class Speichern_Lernform extends AppCompatActivity {
 
                 // Hier den checked-Wert des Memo-Objekts umkehren, bspw. von true auf false
                 // Dann ListView neu zeichnen mit showAllListEntries()
-/*                Lernform updatedLernform = dataSource.updateLernform(lernform.getId(), lernform.getVorname(), lernform.getNachname(), lernform.getPasswort(), lernform.getKuerzel(), lernform.getStatus());
+/*                Lernform updatedLernform = dataSource.updateLernform(lernform.getId(), lernform.getVorname(), lernform.getItemType(), lernform.getPasswort(), lernform.getKuerzel(), lernform.getStatus());
                 Log.d(LOG_TAG, "Checked-Status von Eintrag: " + updatedLernform.toString() + " ist: ");
                 showAllListEntries();*/
             }
@@ -282,13 +284,11 @@ public class Speichern_Lernform extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                if( dataSource.getLernformById(2)!= null){
+               for (Lerngruppe l : dataSource.getLerngruppesFromLernformById(2)){
 
-                    Log.i("click", "Gesuchter Lernform: " + dataSource.getLernformById(5).toString());
-                }else{
+                   Log.d("list: ", "LerngruppenName: " + l );
 
-                    Log.i("click", "Gesuchter Lernform mit der id 5 nicht gefunden" );
-                }
+               }
 
             }
 

@@ -4,7 +4,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /*public class Rythmuszelle {
-
+ t
     int id;
     private String name;
     private String typ;

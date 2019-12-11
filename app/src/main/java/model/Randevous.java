@@ -1,4 +1,5 @@
 package model;
+/*
 
 public class Randevous {
 
@@ -11,3 +12,4 @@ public class Randevous {
     private Thema fach;
 
 }
+*/

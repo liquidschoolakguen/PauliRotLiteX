@@ -17,32 +17,14 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
-import db.DataSource_Lerngruppe;
-import db.DataSource_Schueler;
-import db.DataSource_Schueler_Lerngruppe;
-import db.Filler;
-import db.MyDbHelper;
-import db.Speichern_Adresse;
-import db.Speichern_Angehoeriger;
-import db.Speichern_Gueltigkeitsbereich;
-import db.Speichern_Kollege;
-import db.Speichern_Kollege_Standort;
-import db.Speichern_Kontakt;
-import db.Speichern_Lernform;
-import db.Speichern_Lerngruppe;
-import db.Speichern_Raum;
-import db.Speichern_SP_Fach;
-import db.Speichern_SP_Fragment;
-import db.Speichern_Schueler;
-import db.Speichern_Schueler_Angehoeriger;
-import db.Speichern_Schueler_Lerngruppe;
-import db.Speichern_Schulverbund;
-import db.Speichern_Standort;
-import db.Speichern_Thema;
-import db.Speichern_Vergehen;
-import db.Speichern_Vorfall;
-import model.Lerngruppe;
-import model.Schueler;
+import akguen.liquidschool.db.db.DataSource_Lerngruppe;
+import akguen.liquidschool.db.db.DataSource_Schueler;
+import akguen.liquidschool.db.db.DataSource_Schueler_Lerngruppe;
+
+import akguen.liquidschool.db.db.MyDbHelper;
+
+import akguen.liquidschool.db.model.Lerngruppe;
+import akguen.liquidschool.db.model.Schueler;
 
 public class S3_ErstelleLerngruppe extends AppCompatActivity {
     private static final String LOG_TAG = S3_ErstelleLerngruppe.class.getSimpleName();
@@ -219,7 +201,7 @@ public class S3_ErstelleLerngruppe extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(),"Dieser Lerngruppenname existiert bereits. Wähle einen anderen Namen.",Toast.LENGTH_LONG);
 
                     }else{
-                        dataSourceLerngruppe.createLerngruppe(s1);
+                        dataSourceLerngruppe.createLerngruppe(s1,"0");
                         Lerngruppe lg = dataSourceLerngruppe.getLerngruppeByName(s1);
 
                         List<Schueler> sList = new ArrayList<>();
@@ -235,7 +217,7 @@ public class S3_ErstelleLerngruppe extends AppCompatActivity {
 
 
                                     System.out.println("Schüler mit dem Namen "+sX+ "wird erstellt.");
-                                    dataSourceSchueler.createSchueler(sX, null, null, radioSexButton.getText().toString(), null, null, null);
+                                    dataSourceSchueler.createSchueler(sX, null,null, null, radioSexButton.getText().toString(), null, null, null);
                                 }else{
 
                                     System.out.println("Schüler mit dem Namen "+sX+ "wird NICHT erstellt.");

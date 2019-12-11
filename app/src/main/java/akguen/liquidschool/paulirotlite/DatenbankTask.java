@@ -1,4 +1,5 @@
 package akguen.liquidschool.paulirotlite;
+/*
 
 import android.os.AsyncTask;
 import android.util.Log;
@@ -19,7 +20,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import model.Kollege;
+import akguen.liquidschool.db.model.Kollege;
 
 public class DatenbankTask extends AsyncTask<String, Void, String> {
 
@@ -145,7 +146,8 @@ public class DatenbankTask extends AsyncTask<String, Void, String> {
     }
 
     private void case_speichernSchule() throws SQLException {
-        /*
+        */
+/*
         linkHref: http://www.schulliste.eu/schule/21243-grundschule-ellerstadt/
         linkHref: http://www.schulliste.eu/schule/36947-robert-schuman-mittelschule-kempten-allgau-sankt-mang/
         linkHref: http://www.schulliste.eu/schule/4287-ernst-reuter-schule-ii/
@@ -155,7 +157,8 @@ public class DatenbankTask extends AsyncTask<String, Void, String> {
         linkHref: http://www.schulliste.eu/schule/36264-grundschule-feuchtwangen-stadt/
         linkHref: http://www.schulliste.eu/schule/939-gartenschule-grundschule/
         mailKlau: http://application_v2.just4web.cz/templates/box_email.php?email=352@bildung.bremen.de&amp;id_lang=10&amp;hide_email=0
-        */
+        *//*
+
 
         int xxxx =0;                            // Eine Zählvariable x
 
@@ -340,7 +343,8 @@ public class DatenbankTask extends AsyncTask<String, Void, String> {
                     //I/ReadWebpageAsyncTa:: jsoup: http://www.schulliste.eu/type/?bundesland=&t=offentliche-schule&start=14420
 
 
-                    /*Log.i("ReadWebpageAsyncTa: ", "value_schulname: " + value_schulname);
+                    */
+/*Log.i("ReadWebpageAsyncTa: ", "value_schulname: " + value_schulname);
                     Log.i("ReadWebpageAsyncTa: ", "value_bundesland: " + value_bundesland);
                     Log.i("ReadWebpageAsyncTa: ", "value_schultyp: " + value_schultyp);
                     Log.i("ReadWebpageAsyncTa: ", "value_kategorien: " + value_kategorien);
@@ -352,7 +356,8 @@ public class DatenbankTask extends AsyncTask<String, Void, String> {
                     Log.i("ReadWebpageAsyncTa: ", "value_direktorin: " + value_direktorin);
                     Log.i("ReadWebpageAsyncTa: ", "value_ansprechpartner: " + value_ansprechpartner);
                     Log.i("ReadWebpageAsyncTa: ", "value_an_tel: " + value_an_tel);
-                    Log.i("ReadWebpageAsyncTa: ", "-------------------------------------------");*/
+                    Log.i("ReadWebpageAsyncTa: ", "-------------------------------------------");*//*
+
 
 
                 }
@@ -450,3 +455,4 @@ public class DatenbankTask extends AsyncTask<String, Void, String> {
 
 
 }
+*/

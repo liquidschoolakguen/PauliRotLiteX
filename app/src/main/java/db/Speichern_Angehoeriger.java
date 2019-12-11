@@ -24,8 +24,9 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
+import akguen.liquidschool.db.db.DataSource_Angehoeriger;
 import akguen.liquidschool.paulirotlite.R;
-import model.Angehoeriger;
+import akguen.liquidschool.db.model.Angehoeriger;
 
 public class Speichern_Angehoeriger extends AppCompatActivity {
 
@@ -119,7 +120,7 @@ public class Speichern_Angehoeriger extends AppCompatActivity {
 
                 // Hier den checked-Wert des Memo-Objekts umkehren, bspw. von true auf false
                 // Dann ListView neu zeichnen mit showAllListEntries()
-/*                Angehoeriger updatedAngehoeriger = dataSource.updateAngehoeriger(angehoeriger.getId(), angehoeriger.getVorname(), angehoeriger.getNachname(), angehoeriger.getPasswort(), angehoeriger.getKuerzel(), angehoeriger.getStatus());
+/*                Angehoeriger updatedAngehoeriger = dataSource.updateAngehoeriger(angehoeriger.getId(), angehoeriger.getVorname(), angehoeriger.getItemType(), angehoeriger.getPasswort(), angehoeriger.getKuerzel(), angehoeriger.getStatus());
                 Log.d(LOG_TAG, "Checked-Status von Eintrag: " + updatedAngehoeriger.toString() + " ist: ");
                 showAllListEntries();*/
             }

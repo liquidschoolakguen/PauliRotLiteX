@@ -1,6 +1,6 @@
 package model;
 
-public class Angehoeriger {
+/*public class Angehoeriger {
 
     private int id;
     private String vorname;
@@ -92,4 +92,4 @@ public class Angehoeriger {
 
     }
 
-}
+}*/

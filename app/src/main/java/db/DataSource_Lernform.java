@@ -1,4 +1,5 @@
 package db;
+/*
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -10,6 +11,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import model.Lernform;
+import model.Lerngruppe;
+import model.Lerngruppe;
 
 public class DataSource_Lernform {
 
@@ -23,6 +26,15 @@ public class DataSource_Lernform {
             MyDbHelper.LERNFORM_COLUMN_NAME,
             MyDbHelper.LERNFORM_COLUMN_ZYKLUS
     };
+
+
+    private String[] lerngruppeColumns = {
+            MyDbHelper.TABLE_LERNGRUPPE + "." + MyDbHelper.LERNGRUPPE_COLUMN_ID,
+            MyDbHelper.LERNGRUPPE_COLUMN_NAME,
+            MyDbHelper.LERNGRUPPE_COLUMN_LERNFORM_COLUMN_ID
+    };
+
+
 
     public DataSource_Lernform(Context context) {
         Log.d(LOG_TAG, "Unsere DataSource erzeugt jetzt den dbHelper.");
@@ -107,6 +119,67 @@ public class DataSource_Lernform {
 
 
     }
+
+
+
+
+
+    //Child     //Parent
+    public List<Lerngruppe> getLerngruppesFromLernformById(int i) {
+
+        List<Lerngruppe> lerngruppeList = new ArrayList<>();
+
+        Cursor cursor = database.query(MyDbHelper.TABLE_LERNGRUPPE+ " LEFT JOIN " + MyDbHelper.TABLE_LERNFORM + " ON " + MyDbHelper.TABLE_LERNFORM + "."
+                        + MyDbHelper.LERNFORM_COLUMN_ID + " = " + MyDbHelper.LERNGRUPPE_COLUMN_LERNFORM_COLUMN_ID,
+                lerngruppeColumns,
+                MyDbHelper.TABLE_LERNGRUPPE + "." + MyDbHelper.LERNGRUPPE_COLUMN_LERNFORM_COLUMN_ID+ " = " +i,
+                null, null, null, null);
+
+        cursor.moveToFirst();
+        Lerngruppe lerngruppe;
+
+        while (!cursor.isAfterLast()) {
+            lerngruppe = cursorToLerngruppe(cursor);
+            lerngruppeList.add(lerngruppe);
+            //Log.d(LOG_TAG, "ID: " + angehoeriger);
+            cursor.moveToNext();
+        }
+
+
+        cursor.close();
+
+
+        return lerngruppeList;
+    }
+
+
+    private Lerngruppe cursorToLerngruppe(Cursor cursor) {
+
+        if(cursor.getCount()==0){
+            Log.d(LOG_TAG, "cursorToLerngruppe");
+            return null;
+        }
+        Log.d(LOG_TAG, "cursorToLerngruppe33");
+        int id0 = cursor.getColumnIndex(MyDbHelper.LERNGRUPPE_COLUMN_ID);
+        int id1 = cursor.getColumnIndex(MyDbHelper.LERNGRUPPE_COLUMN_NAME);
+        int id2 = cursor.getColumnIndex(MyDbHelper.LERNGRUPPE_COLUMN_LERNFORM_COLUMN_ID);
+
+
+        int id = cursor.getInt(id0);
+        String q1 = cursor.getString(id1);
+        int q2 =cursor.getInt(id2);
+
+
+
+
+        // Lerngruppe lerngruppe = new Lerngruppe(id,vorname,nachname,passwort,kuerzel,status);
+
+        return new Lerngruppe(id,q1,q2);
+    }
+
+
+
+
     private Lernform cursorToLernform(Cursor cursor) {
 
         if(cursor.getCount()==0){
@@ -151,4 +224,4 @@ public class DataSource_Lernform {
         return lernformList;
     }
 
-}
+}*/

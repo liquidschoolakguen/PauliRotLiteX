@@ -1,4 +1,5 @@
 package db;
+/*
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -39,7 +40,7 @@ public class DataSource_Schueler_Angehoeriger {
     private String[] schuelerColumns = {
             MyDbHelper.SCHUELER_COLUMN_ID,
             MyDbHelper.SCHUELER_COLUMN_VORNAME,
-            MyDbHelper.SCHUELER_COLUMN_NACHNAME,
+            MyDbHelper.SCHUELER_COLUMN_ITEMTYPE,
             MyDbHelper.SCHUELER_COLUMN_GESCHLECHT,
             MyDbHelper.SCHUELER_COLUMN_GEBURTSTAG
     };
@@ -193,9 +194,10 @@ public class DataSource_Schueler_Angehoeriger {
 
         int id0 = cursor.getColumnIndex(MyDbHelper.SCHUELER_COLUMN_ID);
         int id1 = cursor.getColumnIndex(MyDbHelper.SCHUELER_COLUMN_VORNAME);
-        int id2 = cursor.getColumnIndex(MyDbHelper.SCHUELER_COLUMN_NACHNAME);
-        int id3 = cursor.getColumnIndex(MyDbHelper.SCHUELER_COLUMN_GESCHLECHT);
-        int id4 = cursor.getColumnIndex(MyDbHelper.SCHUELER_COLUMN_GEBURTSTAG);
+        int id2 = cursor.getColumnIndex(MyDbHelper.SCHUELER_COLUMN_SURNAME);
+        int id3 = cursor.getColumnIndex(MyDbHelper.SCHUELER_COLUMN_ITEMTYPE);
+        int id4 = cursor.getColumnIndex(MyDbHelper.SCHUELER_COLUMN_GESCHLECHT);
+        int id5 = cursor.getColumnIndex(MyDbHelper.SCHUELER_COLUMN_GEBURTSTAG);
 
 
         int id = cursor.getInt(id0);
@@ -203,11 +205,11 @@ public class DataSource_Schueler_Angehoeriger {
         String q2 = cursor.getString(id2);
         String q3 = cursor.getString(id3);
         String q4 = cursor.getString(id4);
-
+        String q5 = cursor.getString(id5);
 
         // Angehoeriger angehoeriger = new Angehoeriger(id,vorname,nachname,passwort,kuerzel,status);
       //  int id, String vorname, String nachname, String rufname, String geschlecht, String status, String geburtstag, String geburtsort
-        return new Schueler(id,q1,q2,null,q3,"1",q4,null);
+        return new Schueler(id,q1,q2,q3,null,q4,"1",q5,null);
     }
 
 
@@ -278,4 +280,4 @@ public class DataSource_Schueler_Angehoeriger {
 
 
 
-}
+}*/

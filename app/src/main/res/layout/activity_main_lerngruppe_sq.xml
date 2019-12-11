@@ -19,6 +19,7 @@
             android:textSize="30dp" />
 
 
+
     </LinearLayout>
 
     <LinearLayout
@@ -28,12 +29,18 @@
         android:focusableInTouchMode="true">
 
         <EditText
-            android:layout_width="0px"
+            android:id="@+id/editText_lerngruppe_11"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/dialog_lerngruppe_1"
-            android:id="@+id/editText_lerngruppe_11"
             android:layout_weight="1" />
 
+        <EditText
+            android:id="@+id/editText_lerngruppe_11_lf_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Lernform_id"
+            android:layout_weight="1"/>
 
 
 

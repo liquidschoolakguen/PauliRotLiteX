@@ -1,4 +1,5 @@
 package model;
+/*
 
 public class Raum {
 
@@ -58,3 +59,4 @@ private int id;
 
 
 }
+*/

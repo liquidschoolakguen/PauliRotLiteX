@@ -1,4 +1,5 @@
 package model;
+/*
 
 public class Kollege {
 
@@ -83,3 +84,4 @@ public class Kollege {
     }
 
 }
+*/

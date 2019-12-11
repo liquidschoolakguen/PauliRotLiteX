@@ -11,11 +11,11 @@ import android.widget.ListView;
 
 import java.util.ArrayList;
 
-import model.Schueler;
+import akguen.liquidschool.db.model.Schueler;
 import tabs.WaehleSchuelerCustomAdapter;
 
 public class TestMainActivity2 extends AppCompatActivity {
-
+/*
     ArrayList<Schueler> dataModels;
     ListView listView;
     private static WaehleSchuelerCustomAdapter adapter;
@@ -75,5 +75,5 @@ public class TestMainActivity2 extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
-    }
+    }*/
 }

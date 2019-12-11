@@ -24,10 +24,10 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
+import akguen.liquidschool.db.db.DataSource_Vergehengruppe;
 import akguen.liquidschool.paulirotlite.R;
-import model.Vergehengruppe;
-import model.SP_Fach;
-import model.Vergehengruppe;
+import akguen.liquidschool.db.model.Vergehengruppe;
+
 
 public class Speichern_Vergehengruppe extends AppCompatActivity {
 
@@ -116,7 +116,7 @@ public class Speichern_Vergehengruppe extends AppCompatActivity {
 
                 // Hier den checked-Wert des Memo-Objekts umkehren, bspw. von true auf false
                 // Dann ListView neu zeichnen mit showAllListEntries()
-/*                Vergehengruppe updatedVergehengruppe = dataSource.updateVergehengruppe(vergehengruppe.getId(), vergehengruppe.getVorname(), vergehengruppe.getNachname(), vergehengruppe.getPasswort(), vergehengruppe.getKuerzel(), vergehengruppe.getStatus());
+/*                Vergehengruppe updatedVergehengruppe = dataSource.updateVergehengruppe(vergehengruppe.getId(), vergehengruppe.getVorname(), vergehengruppe.getItemType(), vergehengruppe.getPasswort(), vergehengruppe.getKuerzel(), vergehengruppe.getStatus());
                 Log.d(LOG_TAG, "Checked-Status von Eintrag: " + updatedVergehengruppe.toString() + " ist: ");
                 showAllListEntries();*/
             }

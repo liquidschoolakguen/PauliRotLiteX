@@ -1,4 +1,5 @@
 package model;
+/*
 
 public class Lernform {
 
@@ -50,7 +51,7 @@ public class Lernform {
     public String toString() {
 
 
-        return name;
+        return id+ "] "+name;
 
     }
 
@@ -61,3 +62,4 @@ public class Lernform {
 
 
 }
+*/

@@ -4,14 +4,13 @@ import android.content.Context;
 import android.support.design.widget.Snackbar;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -21,7 +20,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import akguen.liquidschool.paulirotlite.R;
-import model.Schueler;
+import akguen.liquidschool.db.model.Schueler;
 
 public class UpdateCustomAdapter2 extends ArrayAdapter<Schueler> implements View.OnClickListener, View.OnLongClickListener {
     private static final String LOG_TAG = UpdateCustomAdapter2.class.getSimpleName();
@@ -151,7 +150,7 @@ public class UpdateCustomAdapter2 extends ArrayAdapter<Schueler> implements View
 
 public void gogo(View view, Schueler g){
   /*  Schueler s = new Schueler();
-    s.setNachname("1");
+    s.setItemType("1");
     s.setGeburtstag("0");
     s.setVorname("");
     s.setGeschlecht("M");
@@ -187,8 +186,8 @@ public void gogo(View view, Schueler g){
 
     for (Integer number : myCoords) {
         Schueler s = new Schueler();
-        s.setNachname("1");
-        s.setGeburtstag(dataSet.get(number).getNachname());
+        s.setItemType("1");
+        s.setGeburtstag(dataSet.get(number).getItemType());
         s.setVorname(dataSet.get(number).getVorname());
         s.setGeschlecht(dataSet.get(number).getGeschlecht());
         replaceItem2(s,number);
@@ -205,11 +204,11 @@ public void gogo(View view, Schueler g){
         if(getItem(position)==null){
 
             System.out.println("8888888888888getItem(position)8888888888888888888888888888");
-        }else if(getItem(position).getNachname()==null){
+        }else if(getItem(position).getItemType()==null){
 
-            System.out.println("88888888888888888getItem(position).getNachname()888888888888888888888888");
+            System.out.println("88888888888888888getItem(position).getItemType()888888888888888888888888");
         }
-        return Integer.parseInt(getItem(position).getNachname());
+        return Integer.parseInt(getItem(position).getItemType());
     }
 
     // Total number of types is the number of enum values
@@ -245,7 +244,7 @@ public void gogo(View view, Schueler g){
 
             } else if (getItemViewType(position) == 3) {
 
-                vholder = prepareThree(convertView, vholder, position);
+                //vholder = prepareThree(convertView, vholder, position);
 
 
             }
@@ -278,7 +277,7 @@ public void gogo(View view, Schueler g){
 
 
                     Schueler s = new Schueler();
-                    s.setNachname("1");
+                    s.setItemType("1");
                     s.setGeburtstag("0");
                     s.setVorname("");
                     s.setGeschlecht("M");
@@ -310,7 +309,7 @@ public void gogo(View view, Schueler g){
 
 
                 Schueler s = new Schueler();
-                s.setNachname("2");
+                s.setItemType("2");
                 s.setGeburtstag("0");
                 s.setVorname("");
                 s.setGeschlecht("M");
@@ -444,12 +443,7 @@ public void gogo(View view, Schueler g){
         return vholder;
     }
 
-    private ViewHolder prepareThree(View v, ViewHolder vholder, int position) {
 
-        vholder.plusButton = (TextView) v.findViewById(R.id.plus_button);
-
-        return vholder;
-    }
 
     private ViewHolder prepareTwo(View v, ViewHolder vholder, int position) {
 

@@ -24,9 +24,10 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
+import akguen.liquidschool.db.db.DataSource_Raum;
 import akguen.liquidschool.paulirotlite.R;
-import model.Raum;
-import model.SP_Fach;
+import akguen.liquidschool.db.model.Raum;
+import akguen.liquidschool.db.model.SP_Fach;
 
 public class Speichern_Raum extends AppCompatActivity {
 
@@ -120,7 +121,7 @@ public class Speichern_Raum extends AppCompatActivity {
 
                 // Hier den checked-Wert des Memo-Objekts umkehren, bspw. von true auf false
                 // Dann ListView neu zeichnen mit showAllListEntries()
-/*                Raum updatedRaum = dataSource.updateRaum(raum.getId(), raum.getVorname(), raum.getNachname(), raum.getPasswort(), raum.getKuerzel(), raum.getStatus());
+/*                Raum updatedRaum = dataSource.updateRaum(raum.getId(), raum.getVorname(), raum.getItemType(), raum.getPasswort(), raum.getKuerzel(), raum.getStatus());
                 Log.d(LOG_TAG, "Checked-Status von Eintrag: " + updatedRaum.toString() + " ist: ");
                 showAllListEntries();*/
             }

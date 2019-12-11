@@ -1,8 +1,6 @@
 package akguen.liquidschool.paulirotlite;
 
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -10,7 +8,6 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -20,22 +17,17 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Collections;
 import java.util.Comparator;
-import java.util.Date;
 import java.util.List;
 
 
-import db.DataSource_Schueler;
-import db.DataSource_Vergehen;
+import akguen.liquidschool.db.db.DataSource_Schueler;
+import akguen.liquidschool.db.db.DataSource_Vergehen;
 
-import model.Schueler;
-import model.Vergehen;
+import akguen.liquidschool.db.model.Schueler;
+import akguen.liquidschool.db.model.Vergehen;
 
 public class S4_WaehleVergehen extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -150,7 +142,7 @@ public class S4_WaehleVergehen extends AppCompatActivity
 
                 s.setGeburtstag(Integer.toString(newI));
 
-                dS_Schueler.updateSchueler(s.getId(),s.getVorname(),null,null,null,null,s.getGeburtstag(),null);
+                dS_Schueler.updateSchueler(s.getId(),s.getVorname(),s.getSurname(),null,null,null,null,s.getGeburtstag(),null);
 
 
 
@@ -226,7 +218,7 @@ public class S4_WaehleVergehen extends AppCompatActivity
                 s.setGeburtstag(Integer.toString(Integer.parseInt(s.getGeburtstag())+Integer.parseInt(vergehen.getGewicht())));
 
                 if(Integer.parseInt(s.getGeburtstag())<10){
-                    dS_Schueler.updateSchueler(s.getId(),s.getVorname(),s.getNachname(),s.getRufname(),s.getGeschlecht(),s.getStatus(),s.getGeburtstag(),s.getGeburtsort());
+                    dS_Schueler.updateSchueler(s.getId(),s.getVorname(),s.getSurname(),s.getItemType(),s.getRufname(),s.getGeschlecht(),s.getStatus(),s.getGeburtstag(),s.getGeburtsort());
                     Intent intent = new Intent(S4_WaehleVergehen.this, E_FullScreenActivity.class);
                     intent.putExtra("schueler_name",s.getVorname());
                     intent.putExtra("strafpunkte", s.getGeburtstag());
@@ -238,7 +230,7 @@ public class S4_WaehleVergehen extends AppCompatActivity
 
                     s.setGeburtstag("0");
 
-                    dS_Schueler.updateSchueler(s.getId(),s.getVorname(),s.getNachname(),s.getRufname(),s.getGeschlecht(),s.getStatus(),s.getGeburtstag(),s.getGeburtsort());
+                    dS_Schueler.updateSchueler(s.getId(),s.getVorname(),s.getSurname(),s.getItemType(),s.getRufname(),s.getGeschlecht(),s.getStatus(),s.getGeburtstag(),s.getGeburtsort());
                     Intent intent = new Intent(S4_WaehleVergehen.this, E_FullScreenActivity3.class);
                     intent.putExtra("schueler_name",s.getVorname());
 

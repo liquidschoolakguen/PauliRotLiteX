@@ -1,44 +1,33 @@
 package tabs;
 
 import android.content.ContentValues;
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.RadioButton;
 import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import akguen.liquidschool.paulirotlite.R;
-import akguen.liquidschool.paulirotlite.S1_WaehleSchueler;
-import akguen.liquidschool.paulirotlite.S3_ErstelleLerngruppe;
-import akguen.liquidschool.paulirotlite.S4_WaehleVergehen;
-import db.DataSource_Lerngruppe;
-import db.DataSource_Schueler;
-import db.DataSource_Schueler_Lerngruppe;
-import db.MyDbHelper;
-import model.Lerngruppe;
-import model.Schueler;
+import akguen.liquidschool.db.db.DataSource_Lerngruppe;
+import akguen.liquidschool.db.db.DataSource_Schueler;
+import akguen.liquidschool.db.db.DataSource_Schueler_Lerngruppe;
+import akguen.liquidschool.db.db.MyDbHelper;
+import akguen.liquidschool.db.model.Lerngruppe;
+import akguen.liquidschool.db.model.Schueler;
 import zz_test.MyDividerItemDecorator;
 import zz_test.RecyclerViewAdapter;
 import zz_test.SpeedyLinearLayoutManager;
@@ -119,7 +108,7 @@ public class WaehleSchuelerDynamicFragment extends Fragment implements RecyclerV
 
 
             Schueler mmmm = new Schueler();
-            mmmm.setNachname("6");
+            mmmm.setItemType("6");
             mmmm.setGeschlecht("M");
             mmmm.setGeburtstag("0");
             mmmm.setVorname("");
@@ -127,7 +116,7 @@ public class WaehleSchuelerDynamicFragment extends Fragment implements RecyclerV
 
             for (int i = 0; i < 30; i++) {
                 Schueler kenni = new Schueler();
-                kenni.setNachname("1");
+                kenni.setItemType("1");
                 kenni.setGeschlecht("M");
                 kenni.setGeburtstag("0");
                 kenni.setVorname("");
@@ -135,7 +124,7 @@ public class WaehleSchuelerDynamicFragment extends Fragment implements RecyclerV
             }
 
           Schueler endRow = new Schueler();
-            endRow.setNachname("9");
+            endRow.setItemType("9");
             endRow.setVorname("");
             ff.add(endRow);
 
@@ -159,7 +148,7 @@ public class WaehleSchuelerDynamicFragment extends Fragment implements RecyclerV
                             Snackbar.make(view, "Dieser Lerngruppenname existiert bereits. Wähle einen anderen", Snackbar.LENGTH_LONG)
                                     .setAction("No action", null).show();
                         } else {
-                            dS_L.createLerngruppe(lg_name);
+                            dS_L.createLerngruppe(lg_name,"0");
                             Lerngruppe lg = dS_L.getLerngruppeByName(lg_name);
 
                             adapter.getDataSet().remove(0);
@@ -171,7 +160,7 @@ public class WaehleSchuelerDynamicFragment extends Fragment implements RecyclerV
 
 
                                         System.out.println("Schüler mit dem Namen " + s.getVorname() + "wird erstellt.");
-                                        dS_Schueler.createSchueler(s.getVorname(), null, null, s.getGeschlecht(), null, "0", null);
+                                        dS_Schueler.createSchueler(s.getVorname(),s.getSurname(), null, null, s.getGeschlecht(), null, "0", null);
                                     } else {
 
                                         System.out.println("Schüler mit dem Namen " + s.getVorname() + "wird NICHT erstellt.");
@@ -216,13 +205,13 @@ public class WaehleSchuelerDynamicFragment extends Fragment implements RecyclerV
             respet_lgSpeichern.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.colorPrimary));
             for (Schueler b : ff) {
 
-                b.setNachname("1");
+                b.setItemType("1");
 
             }
 
 
             Schueler h = new Schueler();
-            h.setNachname("3");
+            h.setItemType("3");
             ff.add(h);
 
         }

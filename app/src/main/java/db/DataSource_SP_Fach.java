@@ -1,4 +1,5 @@
 package db;
+/*
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -193,4 +194,4 @@ public class DataSource_SP_Fach {
         return sp_FachList;
     }
 
-}
+}*/

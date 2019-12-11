@@ -1,5 +1,5 @@
 package model;
-
+/*
 public class Adresse {
 
     int id;
@@ -90,4 +90,4 @@ public Adresse(int id, String straße, String plz, String ort, String tel, Strin
     }
 
 
-}
+}*/

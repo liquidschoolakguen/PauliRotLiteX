@@ -25,9 +25,11 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
+import akguen.liquidschool.db.db.DataSource_Schueler_Lerngruppe;
+import akguen.liquidschool.db.db.MyDbHelper;
 import akguen.liquidschool.paulirotlite.R;
-import model.Lerngruppe;
-import model.Schueler;
+import akguen.liquidschool.db.model.Lerngruppe;
+import akguen.liquidschool.db.model.Schueler;
 
 
 public class Speichern_Schueler_Lerngruppe extends AppCompatActivity {
@@ -127,7 +129,7 @@ public class Speichern_Schueler_Lerngruppe extends AppCompatActivity {
 
                 // Hier den checked-Wert des Memo-Objekts umkehren, bspw. von true auf false
                 // Dann ListView neu zeichnen mit showAllListEntries()
-/*                Schueler_Lerngruppe updatedSchueler_Lerngruppe = dataSource.updateSchueler_Lerngruppe(schueler_lerngruppe.getId(), schueler_lerngruppe.getVorname(), schueler_lerngruppe.getNachname(), schueler_lerngruppe.getPasswort(), schueler_lerngruppe.getKuerzel(), schueler_lerngruppe.getStatus());
+/*                Schueler_Lerngruppe updatedSchueler_Lerngruppe = dataSource.updateSchueler_Lerngruppe(schueler_lerngruppe.getId(), schueler_lerngruppe.getVorname(), schueler_lerngruppe.getItemType(), schueler_lerngruppe.getPasswort(), schueler_lerngruppe.getKuerzel(), schueler_lerngruppe.getStatus());
                 Log.d(LOG_TAG, "Checked-Status von Eintrag: " + updatedSchueler_Lerngruppe.toString() + " ist: ");
                 showAllListEntries();*/
             }
@@ -330,7 +332,7 @@ public class Speichern_Schueler_Lerngruppe extends AppCompatActivity {
 
                     for(int i=0; i<s.size(); i++)
                     {
-                        Log.i("click", "Gesuchter Schueler: " + s.get(i).getVorname()+ " " +s.get(i).getNachname());
+                        Log.i("click", "Gesuchter Schueler: " + s.get(i).getVorname()+ " " +s.get(i).getItemType());
                     }
 
                 }else{

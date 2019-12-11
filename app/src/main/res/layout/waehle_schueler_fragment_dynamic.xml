@@ -9,8 +9,8 @@
         android:id="@+id/dynamic_list_schueler"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="45dp"
-       />
+        android:layout_marginTop="48dp"
+        />
 
 
 
@@ -20,7 +20,7 @@
         <LinearLayout
             android:id="@+id/lin_respekt"
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="62dp"
             android:focusableInTouchMode="true"
             android:orientation="horizontal"
             android:layout_gravity="bottom"
@@ -29,8 +29,8 @@
 
             <Button
                 android:id="@+id/bnt_nrespekt"
-                android:layout_width="0px"
-                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:textSize="15sp"
                 android:text="Respekt!"

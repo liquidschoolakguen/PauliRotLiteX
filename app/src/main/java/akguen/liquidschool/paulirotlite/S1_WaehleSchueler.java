@@ -25,11 +25,11 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
-import db.DataSource_Lerngruppe;
-import db.DataSource_Schueler;
-import db.DataSource_Schueler_Lerngruppe;
-import model.Lerngruppe;
-import model.Schueler;
+import akguen.liquidschool.db.db.DataSource_Lerngruppe;
+import akguen.liquidschool.db.db.DataSource_Schueler;
+import akguen.liquidschool.db.db.DataSource_Schueler_Lerngruppe;
+import akguen.liquidschool.db.model.Lerngruppe;
+import akguen.liquidschool.db.model.Schueler;
 import tabs.WaehleSchuelerCustomAdapter;
 
 public class S1_WaehleSchueler extends AppCompatActivity
@@ -222,7 +222,7 @@ public class S1_WaehleSchueler extends AppCompatActivity
 
                 s.setGeburtstag(Integer.toString(newI));
 
-                dS_Schueler.updateSchueler(s.getId(),s.getVorname(),null,null,null,null,s.getGeburtstag(),null);
+                dS_Schueler.updateSchueler(s.getId(),s.getVorname(),s.getSurname(),null,null,null,null,s.getGeburtstag(),null);
 
 
 

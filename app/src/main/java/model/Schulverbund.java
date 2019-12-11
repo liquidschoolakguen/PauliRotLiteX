@@ -1,4 +1,5 @@
 package model;
+/*
 
 public class Schulverbund {
 
@@ -147,3 +148,4 @@ public class Schulverbund {
 
 
 }
+*/

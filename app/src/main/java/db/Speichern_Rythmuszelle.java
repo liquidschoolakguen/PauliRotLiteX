@@ -121,7 +121,7 @@ public class Speichern_Rythmuszelle extends AppCompatActivity {
                 // Hier den checked-Wert des Memo-Objekts umkehren, bspw. von true auf false
                 // Dann ListView neu zeichnen mit showAllListEntries()
 */
-/*                Rythmuszelle updatedRythmuszelle = dataSource.updateRythmuszelle(rythmuszelle.getId(), rythmuszelle.getVorname(), rythmuszelle.getNachname(), rythmuszelle.getPasswort(), rythmuszelle.getKuerzel(), rythmuszelle.getStatus());
+/*                Rythmuszelle updatedRythmuszelle = dataSource.updateRythmuszelle(rythmuszelle.getId(), rythmuszelle.getVorname(), rythmuszelle.getItemType(), rythmuszelle.getPasswort(), rythmuszelle.getKuerzel(), rythmuszelle.getStatus());
                 Log.d(LOG_TAG, "Checked-Status von Eintrag: " + updatedRythmuszelle.toString() + " ist: ");
                 showAllListEntries();*//*
 

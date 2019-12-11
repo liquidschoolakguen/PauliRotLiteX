@@ -29,7 +29,7 @@ public class ReadWebpageAsyncTask2 extends Activity {
 
             @Override
             public void onClick(View view) {
-
+/*
                 DatenbankTask datenbankTask = new DatenbankTask();
                 try {
                     datenbankTask.execute("speichernSchule").get();
@@ -38,7 +38,7 @@ public class ReadWebpageAsyncTask2 extends Activity {
                     e.printStackTrace();
                 } catch (InterruptedException e) {
                     e.printStackTrace();
-                }
+                }*/
 
 //1343//"http://www.schulliste.eu/type/?bundesland=&t=offentliche-schule&start=4500"
 

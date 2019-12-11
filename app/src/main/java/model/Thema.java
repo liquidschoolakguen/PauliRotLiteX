@@ -1,4 +1,5 @@
 package model;
+/*
 
 public class Thema {
 
@@ -43,3 +44,4 @@ public Thema(int id, String name){
     }
 
 }
+*/

@@ -15,7 +15,7 @@ public class ViewHolderPlusX extends RecyclerView.ViewHolder implements View.OnC
     public ViewHolderPlusX(View itemView) {
         super(itemView);
         itemView.setOnClickListener(this);
-        plusButton = (TextView) itemView.findViewById(R.id.plus_button);
+       // plusButton = (TextView) itemView.findViewById(R.id.plus_button);
 
     }
 

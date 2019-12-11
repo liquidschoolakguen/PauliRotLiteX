@@ -1,4 +1,5 @@
 package model;
+/*
 
 public class Kontakt {
 
@@ -56,3 +57,4 @@ public class Kontakt {
     }
 
 }
+*/

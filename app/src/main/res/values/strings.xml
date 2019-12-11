@@ -33,11 +33,13 @@
 
     <string name="dialog_schueler_1">Vorname</string>
     <string name="dialog_schueler_2">Nachname</string>
-    <string name="dialog_schueler_3">SchülerIn</string>
-    <string name="dialog_schueler_4">Geschlecht</string>
-    <string name="dialog_schueler_5">Status</string>
-    <string name="dialog_schueler_6">Geburtstag</string>
-    <string name="dialog_schueler_7">Geburtsort</string>
+    <string name="dialog_schueler_3">ItemType</string>
+    <string name="dialog_schueler_4">Rufname</string>
+    <string name="dialog_schueler_5">Geschlecht</string>
+    <string name="dialog_schueler_6">Status</string>
+    <string name="dialog_schueler_7">Geburtstag</string>
+    <string name="dialog_schueler_8">Geburtsort</string>
+
 
     <string name="dialog_schulverbund_1">Name</string>
     <string name="dialog_schulverbund_2">Träger</string>

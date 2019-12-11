@@ -1,6 +1,7 @@
 package model;
 
 import java.util.Date;
+/*
 
 class Unterrichtsstunde {
 
@@ -32,3 +33,4 @@ class Unterrichtsstunde {
         this.bis = bis;
     }
 }
+*/

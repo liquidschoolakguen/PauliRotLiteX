@@ -9,9 +9,7 @@ import android.view.View;
 import android.widget.Button;
 
 import db.*;
-import tabs.UpdateDynamicTabsActivity;
 import tabs.WaehleSchuelerDynamicTabsActivity;
-import zz_test.MainActivity;
 
 public class Debug_Main extends AppCompatActivity {
 
@@ -341,8 +339,7 @@ public class Debug_Main extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent speichernS3= new Intent(Debug_Main.this, UpdateDynamicTabsActivity.class);
-                startActivity(speichernS3);
+
 
             }
         });

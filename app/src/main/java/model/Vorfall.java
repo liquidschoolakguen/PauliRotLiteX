@@ -1,4 +1,5 @@
 package model;
+/*
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -11,13 +12,15 @@ public class Vorfall {
     private int schueler_id;
     private int vergehen_id;
 
-    /*StringBuilder query=new StringBuilder();
+    */
+/*StringBuilder query=new StringBuilder();
 query.append("CREATE TABLE "+TABLE_NAME+ " (");
 query.append(COLUMN_ID+"int primary key autoincrement,");
 query.append(COLUMN_DATETIME+" int)");
 
 //And inserting the data includes this:
-values.put(COLUMN_DATETIME, System.currentTimeMillis());*/
+values.put(COLUMN_DATETIME, System.currentTimeMillis());*//*
+
 
     public Vorfall(int id, String zeitpunkt, String info, int schueler_id, int vergehen_id) {
 
@@ -29,13 +32,15 @@ values.put(COLUMN_DATETIME, System.currentTimeMillis());*/
 
     }
 
-    /*  public Vorfall (int id, String zeitpunkt, String info){
+    */
+/*  public Vorfall (int id, String zeitpunkt, String info){
 
           this.id = id;
           this.zeitpunkt = zeitpunkt;
           this.info = info;
 
-      }*/
+      }*//*
+
     public Vorfall() {
 
 
@@ -98,3 +103,4 @@ values.put(COLUMN_DATETIME, System.currentTimeMillis());*/
 
 
 }
+*/

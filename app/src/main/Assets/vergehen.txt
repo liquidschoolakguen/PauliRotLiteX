@@ -10,7 +10,7 @@ MitschülerIn beleidigt/verspottet/ausgelacht,2,2--
 kneifen/spucken/Haare ziehen/etc,2,2--
 Respektlosigkeit,2,2--
 Schulgelände verlassen,2,3--
-Eigentum mutwillig beschädigt/zerstört/bestohlen,2,3--
-Betrugsversuch,1,4--
-MitschülerIn bedroht/genötigt,3,5--
+Eigentum beschädigt/zerstört/ Diebstahl,2,3--
+Betrug,1,4--
+Bedrohung/Nötigung,3,5--
 Gewalt,2,10--

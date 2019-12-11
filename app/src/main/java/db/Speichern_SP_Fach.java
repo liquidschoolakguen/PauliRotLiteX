@@ -30,13 +30,18 @@ import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
+import akguen.liquidschool.db.db.DataSource_Gueltigkeitsbereich;
+import akguen.liquidschool.db.db.DataSource_Lerngruppe;
+import akguen.liquidschool.db.db.DataSource_Raum;
+import akguen.liquidschool.db.db.DataSource_SP_Fach;
+import akguen.liquidschool.db.db.DataSource_Thema;
 import akguen.liquidschool.paulirotlite.CustomExpandableListAdapter;
 import akguen.liquidschool.paulirotlite.R;
-import model.Gueltigkeitsbereich;
-import model.Lerngruppe;
-import model.Raum;
-import model.SP_Fach;
-import model.Thema;
+import akguen.liquidschool.db.model.Gueltigkeitsbereich;
+import akguen.liquidschool.db.model.Lerngruppe;
+import akguen.liquidschool.db.model.Raum;
+import akguen.liquidschool.db.model.SP_Fach;
+import akguen.liquidschool.db.model.Thema;
 
 public class Speichern_SP_Fach extends AppCompatActivity {
 
@@ -299,7 +304,7 @@ public class Speichern_SP_Fach extends AppCompatActivity {
 
                 // Hier den checked-Wert des Memo-Objekts umkehren, bspw. von true auf false
                 // Dann ListView neu zeichnen mit showAllListEntries()
-/*                SP_Fach updatedSP_Fach = dataSource.updateSP_Fach(sp_fach.getId(), sp_fach.getVorname(), sp_fach.getNachname(), sp_fach.getPasswort(), sp_fach.getKuerzel(), sp_fach.getStatus());
+/*                SP_Fach updatedSP_Fach = dataSource.updateSP_Fach(sp_fach.getId(), sp_fach.getVorname(), sp_fach.getItemType(), sp_fach.getPasswort(), sp_fach.getKuerzel(), sp_fach.getStatus());
                 Log.d(LOG_TAG, "Checked-Status von Eintrag: " + updatedSP_Fach.toString() + " ist: ");
                 showAllListEntries();*/
             }

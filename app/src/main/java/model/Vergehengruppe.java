@@ -1,4 +1,5 @@
 package model;
+/*
 
 public class Vergehengruppe {
     int id;
@@ -50,3 +51,4 @@ public class Vergehengruppe {
 
 
 }
+*/

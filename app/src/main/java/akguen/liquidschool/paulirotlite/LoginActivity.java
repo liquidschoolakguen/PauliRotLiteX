@@ -55,7 +55,7 @@ public class LoginActivity extends AppCompatActivity {
         actionbar.setDisplayHomeAsUpEnabled(true);
         actionbar.setHomeAsUpIndicator(R.drawable.hamburger);
 
-       // goDrawer();
+        // goDrawer();
 
 
         prefManager = new PrefManager(this);
@@ -67,14 +67,14 @@ public class LoginActivity extends AppCompatActivity {
 
         }*/
 
-       // startStammgruppenwahlActivity();
+        // startStammgruppenwahlActivity();
 
         etname = findViewById(R.id.etLoginnamepauli);
         etpasswort = findViewById(R.id.etLoginpasswortpauli);
 
 
         btnLogin = findViewById(R.id.bntLogin);
-       // btnLogin.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDisable));
+        // btnLogin.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDisable));
         btnLogin.setEnabled(false);
 
 
@@ -83,7 +83,7 @@ public class LoginActivity extends AppCompatActivity {
             }
 
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                 Log.d("LoginActivity", "" + String.valueOf(s.length()));
+                Log.d("LoginActivity", "" + String.valueOf(s.length()));
                 nameLaenge = s.length();
                 changeButton();
             }
@@ -189,18 +189,13 @@ public class LoginActivity extends AppCompatActivity {
 
                     @Override
                     public boolean onNavigationItemSelected(MenuItem menuItem) {
-                        Log.i("item", "on: "+menuItem.getItemId());
+                        Log.i("item", "on: " + menuItem.getItemId());
 
                         switch (menuItem.getItemId()) {
                             case android.R.id.home:
                                 mDrawerLayout.openDrawer(GravityCompat.START);
                                 return true;
 
-                            case R.id.nav_schuelerVorfaelle:
-                                Intent schuelerVorfaelleTable = new Intent(LoginActivity.this, SchuelerVorfaelleTable.class);
-                                schuelerVorfaelleTable.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                                startActivity(schuelerVorfaelleTable);
-                                return true;
 
                             case R.id.nav_start:
                                 Intent vergehenActivity = new Intent(LoginActivity.this, VergehenActivity.class);
@@ -253,7 +248,7 @@ public class LoginActivity extends AppCompatActivity {
             btnLogin.setEnabled(true);
         } else {
 
-           // btnLogin.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDisable));
+            // btnLogin.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDisable));
             btnLogin.setEnabled(false);
 
 
@@ -262,6 +257,7 @@ public class LoginActivity extends AppCompatActivity {
 
     public boolean isKollegeInDatebaseVorhanden(String name, String passwort) {
 
+/*
 
         DatenbankTask datenbankTask = new DatenbankTask();
         String result = "";
@@ -285,15 +281,15 @@ public class LoginActivity extends AppCompatActivity {
             Log.i("LoginActivity: ", " Kollege nicht gefunden ");
             return false;
         }
+*/
 
-
+        return true;
     }
 
     private void startStammgruppenwahlActivity() {
         Intent stammgruppenwahl = new Intent(getApplicationContext(), E_StammgruppenwahlActivity.class);
         startActivity(stammgruppenwahl);
     }
-
 
 
 }

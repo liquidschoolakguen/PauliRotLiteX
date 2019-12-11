@@ -26,8 +26,9 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
+import akguen.liquidschool.db.db.DataSource_Vergehen;
 import akguen.liquidschool.paulirotlite.R;
-import model.Vergehen;
+import akguen.liquidschool.db.model.Vergehen;
 
 public class Speichern_Vergehen extends AppCompatActivity {
 
@@ -121,7 +122,7 @@ public class Speichern_Vergehen extends AppCompatActivity {
 
                 // Hier den checked-Wert des Memo-Objekts umkehren, bspw. von true auf false
                 // Dann ListView neu zeichnen mit showAllListEntries()
-/*                Vergehen updatedVergehen = dataSource.updateVergehen(vergehen.getId(), vergehen.getVorname(), vergehen.getNachname(), vergehen.getPasswort(), vergehen.getKuerzel(), vergehen.getStatus());
+/*                Vergehen updatedVergehen = dataSource.updateVergehen(vergehen.getId(), vergehen.getVorname(), vergehen.getItemType(), vergehen.getPasswort(), vergehen.getKuerzel(), vergehen.getStatus());
                 Log.d(LOG_TAG, "Checked-Status von Eintrag: " + updatedVergehen.toString() + " ist: ");
                 showAllListEntries();*/
             }

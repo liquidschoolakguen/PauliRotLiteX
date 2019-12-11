@@ -24,8 +24,9 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
+import akguen.liquidschool.db.db.DataSource_Standort;
 import akguen.liquidschool.paulirotlite.R;
-import model.Standort;
+import akguen.liquidschool.db.model.Standort;
 
 public class Speichern_Standort extends AppCompatActivity {
 
@@ -119,7 +120,7 @@ public class Speichern_Standort extends AppCompatActivity {
 
                 // Hier den checked-Wert des Memo-Objekts umkehren, bspw. von true auf false
                 // Dann ListView neu zeichnen mit showAllListEntries()
-/*                Standort updatedStandort = dataSource.updateStandort(standort.getId(), standort.getVorname(), standort.getNachname(), standort.getPasswort(), standort.getKuerzel(), standort.getStatus());
+/*                Standort updatedStandort = dataSource.updateStandort(standort.getId(), standort.getVorname(), standort.getItemType(), standort.getPasswort(), standort.getKuerzel(), standort.getStatus());
                 Log.d(LOG_TAG, "Checked-Status von Eintrag: " + updatedStandort.toString() + " ist: ");
                 showAllListEntries();*/
             }

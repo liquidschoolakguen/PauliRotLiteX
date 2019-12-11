@@ -26,11 +26,11 @@ import java.util.List;
 import akguen.liquidschool.paulirotlite.E_FullScreenActivity;
 import akguen.liquidschool.paulirotlite.R;
 import akguen.liquidschool.paulirotlite.S4_WaehleVergehen;
-import db.DataSource_Lerngruppe;
-import db.DataSource_Schueler;
-import db.DataSource_Schueler_Lerngruppe;
-import model.Lerngruppe;
-import model.Schueler;
+import akguen.liquidschool.db.db.DataSource_Lerngruppe;
+import akguen.liquidschool.db.db.DataSource_Schueler;
+import akguen.liquidschool.db.db.DataSource_Schueler_Lerngruppe;
+import akguen.liquidschool.db.model.Lerngruppe;
+import akguen.liquidschool.db.model.Schueler;
 
 public class LerngruppeLöschenÄndern extends AppCompatActivity {
 
@@ -123,7 +123,7 @@ public class LerngruppeLöschenÄndern extends AppCompatActivity {
 
                 // Hier den checked-Wert des Memo-Objekts umkehren, bspw. von true auf false
                 // Dann ListView neu zeichnen mit showAllListEntries()
-/*                Lerngruppe updatedLerngruppe = dS_lg.updateLerngruppe(lerngruppe.getId(), lerngruppe.getVorname(), lerngruppe.getNachname(), lerngruppe.getPasswort(), lerngruppe.getKuerzel(), lerngruppe.getStatus());
+/*                Lerngruppe updatedLerngruppe = dS_lg.updateLerngruppe(lerngruppe.getId(), lerngruppe.getVorname(), lerngruppe.getItemType(), lerngruppe.getPasswort(), lerngruppe.getKuerzel(), lerngruppe.getStatus());
                 Log.d(LOG_TAG, "Checked-Status von Eintrag: " + updatedLerngruppe.toString() + " ist: ");
                 showAllListEntries();*/
             }

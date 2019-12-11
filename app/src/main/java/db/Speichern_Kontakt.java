@@ -24,8 +24,9 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
+import akguen.liquidschool.db.db.DataSource_Kontakt;
 import akguen.liquidschool.paulirotlite.R;
-import model.Kontakt;
+import akguen.liquidschool.db.model.Kontakt;
 
 public class Speichern_Kontakt extends AppCompatActivity {
 
@@ -119,7 +120,7 @@ public class Speichern_Kontakt extends AppCompatActivity {
 
                 // Hier den checked-Wert des Memo-Objekts umkehren, bspw. von true auf false
                 // Dann ListView neu zeichnen mit showAllListEntries()
-/*                Kontakt updatedKontakt = dataSource.updateKontakt(kontakt.getId(), kontakt.getVorname(), kontakt.getNachname(), kontakt.getPasswort(), kontakt.getKuerzel(), kontakt.getStatus());
+/*                Kontakt updatedKontakt = dataSource.updateKontakt(kontakt.getId(), kontakt.getVorname(), kontakt.getItemType(), kontakt.getPasswort(), kontakt.getKuerzel(), kontakt.getStatus());
                 Log.d(LOG_TAG, "Checked-Status von Eintrag: " + updatedKontakt.toString() + " ist: ");
                 showAllListEntries();*/
             }

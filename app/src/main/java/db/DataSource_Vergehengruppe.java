@@ -1,4 +1,5 @@
 package db;
+/*
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -182,4 +183,4 @@ public class DataSource_Vergehengruppe {
 
 
 
-}
+}*/

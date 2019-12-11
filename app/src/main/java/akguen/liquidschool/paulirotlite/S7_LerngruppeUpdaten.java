@@ -17,12 +17,12 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
-import db.DataSource_Lerngruppe;
-import db.DataSource_Schueler;
-import db.DataSource_Schueler_Lerngruppe;
-import db.MyDbHelper;
-import model.Lerngruppe;
-import model.Schueler;
+import akguen.liquidschool.db.db.DataSource_Lerngruppe;
+import akguen.liquidschool.db.db.DataSource_Schueler;
+import akguen.liquidschool.db.db.DataSource_Schueler_Lerngruppe;
+import akguen.liquidschool.db.db.MyDbHelper;
+import akguen.liquidschool.db.model.Lerngruppe;
+import akguen.liquidschool.db.model.Schueler;
 
 public class S7_LerngruppeUpdaten extends AppCompatActivity {
     private static final String LOG_TAG = S7_LerngruppeUpdaten.class.getSimpleName();
@@ -135,7 +135,7 @@ public class S7_LerngruppeUpdaten extends AppCompatActivity {
                                 list_editText_Name.get(i).setText("");
                                 listZ.get(i).setText("");
 
-                                dataSourceSchueler.updateSchueler(d.getId(), d.getVorname(), null, null, null, null, d.getGeburtstag(), null);
+                                dataSourceSchueler.updateSchueler(d.getId(), d.getVorname(), null,null, null, null, null, d.getGeburtstag(), null);
                             } else {
 
                                 String g = listZ.get(i).getText().toString();
@@ -151,7 +151,7 @@ public class S7_LerngruppeUpdaten extends AppCompatActivity {
                                 String sss = list_editText_Name.get(i).getText().toString();
                                 if (dataSourceSchueler.getSchuelerByVorname(sss) == null) {
                                     System.out.println("XXXSchüler mit dem Namen " + sss + "wird erstellt.");
-                                    dataSourceSchueler.createSchueler(sss, null, null, null, null, g, null);
+                                    dataSourceSchueler.createSchueler(sss, null,null, null, null, null, g, null);
                                 } else {
 
                                     System.out.println("XXXSchüler mit dem Namen " + sss + " wird NICHT erstellt.");

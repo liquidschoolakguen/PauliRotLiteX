@@ -80,11 +80,7 @@ public class MainActivity extends AppCompatActivity {
                                 mDrawerLayout.openDrawer(GravityCompat.START);
                                 return true;
 
-                            case R.id.nav_schuelerVorfaelle:
-                                Intent schuelerVorfaelleTable = new Intent(MainActivity.this, SchuelerVorfaelleTable.class);
-                                schuelerVorfaelleTable.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                                startActivity(schuelerVorfaelleTable);
-                                return true;
+
 
                             case R.id.nav_start:
                                 Intent vergehenActivity = new Intent(MainActivity.this, VergehenActivity.class);

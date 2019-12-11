@@ -1,4 +1,5 @@
 package model;
+/*
 
 public class SP_Fach {
     private int id;
@@ -82,3 +83,4 @@ public class SP_Fach {
     
     
 }
+*/

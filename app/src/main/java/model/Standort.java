@@ -1,4 +1,5 @@
 package model;
+/*
 
 public class Standort {
 
@@ -122,3 +123,4 @@ public class Standort {
 
 
 }
+*/

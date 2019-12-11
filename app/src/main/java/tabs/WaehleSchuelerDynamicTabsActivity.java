@@ -11,7 +11,9 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.TabHost;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -22,7 +24,7 @@ import akguen.liquidschool.paulirotlite.R;
 import akguen.liquidschool.paulirotlite.S1_WaehleSchueler;
 import akguen.liquidschool.paulirotlite.S3_ErstelleLerngruppe;
 import db.DataSource_Lerngruppe;
-import db.DataSource_Schueler;
+import akguen.liquidschool.db.db.DataSource_Schueler;
 import db.DataSource_Schueler_Lerngruppe;
 import model.Lerngruppe;
 
@@ -110,12 +112,12 @@ public class WaehleSchuelerDynamicTabsActivity extends AppCompatActivity {
                 System.out.println("kkkkkkkkkkkkkkkkkkkkkkkkkk" + i);
 
 
-                    if (i - 1 == position) {
-                        tabLayout.getTabAt(i - 1).setIcon(tabIconActive);
-                    } else {
+                if (i - 1 == position) {
+                    tabLayout.getTabAt(i - 1).setIcon(tabIconActive);
+                } else {
 
-                        tabLayout.getTabAt(i - 1).setIcon(tabIcon);
-                    }
+                    tabLayout.getTabAt(i - 1).setIcon(tabIcon);
+                }
 
                 //System.out.println("nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn" + position);
 
@@ -144,6 +146,7 @@ public class WaehleSchuelerDynamicTabsActivity extends AppCompatActivity {
         tabLayout.setupWithViewPager(viewPager);
         //tabLayout.getTabAt(i-1).setIcon(tabIcon);
 
+
         if (i != 1) {
             if (i - 1 == sessionId) {
                 tabLayout.getTabAt(i - 1).setIcon(tabIconActive);
@@ -152,6 +155,30 @@ public class WaehleSchuelerDynamicTabsActivity extends AppCompatActivity {
                 tabLayout.getTabAt(i - 1).setIcon(tabIcon);
             }
         }
+
+        LinearLayout tabStrip = (LinearLayout) tabLayout.getChildAt(0);
+
+        for (int ff = 0; ff < tabStrip.getChildCount(); ff++) {
+
+            // Set LongClick listener to each Tab
+            List h = dS_L.getAllLerngruppes();
+            int finalFf = ff;
+            tabStrip.getChildAt(ff).setOnLongClickListener(new View.OnLongClickListener() {
+                @Override
+                public boolean onLongClick(View v) {
+
+
+                    if (finalFf <= h.size() - 1) {
+
+                        Toast.makeText(getApplicationContext(), "Tab clicked " + ((Lerngruppe) h.get(finalFf)).getName(), Toast.LENGTH_SHORT).show();
+                    }
+
+
+                    return true;
+                }
+            });
+        }
+
 
     }
 

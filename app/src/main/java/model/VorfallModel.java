@@ -1,4 +1,5 @@
 package model;
+/*
 
 public class VorfallModel {
 
@@ -44,3 +45,4 @@ public class VorfallModel {
 
 
 }
+*/

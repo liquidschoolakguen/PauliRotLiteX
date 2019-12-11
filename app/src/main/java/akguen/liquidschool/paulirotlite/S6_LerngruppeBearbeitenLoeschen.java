@@ -22,8 +22,8 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
-import db.DataSource_Lerngruppe;
-import model.Lerngruppe;
+import akguen.liquidschool.db.db.DataSource_Lerngruppe;
+import akguen.liquidschool.db.model.Lerngruppe;
 
 public class S6_LerngruppeBearbeitenLoeschen extends AppCompatActivity {
 

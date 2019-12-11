@@ -1,10 +1,14 @@
 package model;
 
+/*
+
+
 public class Schueler {
 
     private int id;
     private String vorname;
-    private String nachname;
+    private String surname;
+    private String itemType;
     private String rufname;
     private String geschlecht;
     private String status;
@@ -12,11 +16,12 @@ public class Schueler {
     private String geburtsort;
 
 
-    public Schueler(int id, String vorname, String nachname, String rufname, String geschlecht, String status, String geburtstag, String geburtsort) {
+    public Schueler(int id, String vorname, String surname, String itemType, String rufname, String geschlecht, String status, String geburtstag, String geburtsort) {
 
     this.id = id;
     this.vorname = vorname;
-    this.nachname = nachname;
+    this.surname = surname;
+    this.itemType = itemType;
     this.rufname = rufname;
     this.geschlecht = geschlecht;
     this.status = status;
@@ -31,6 +36,13 @@ public class Schueler {
 
     }
 
+    public String getSurname() {
+        return surname;
+    }
+
+    public void setSurname(String surname) {
+        this.surname = surname;
+    }
 
     public int getId() {
         return id;
@@ -48,12 +60,12 @@ public class Schueler {
         this.vorname = vorname;
     }
 
-    public String getNachname() {
-        return nachname;
+    public String getItemType() {
+        return itemType;
     }
 
-    public void setNachname(String nachname) {
-        this.nachname = nachname;
+    public void setItemType(String itemType) {
+        this.itemType = itemType;
     }
 
     public String getRufname() {
@@ -98,11 +110,12 @@ public class Schueler {
 
     @Override
     public String toString() {
-        String output = id+ " "+vorname+" ["+ geburtstag+"] "+geschlecht;
-
+        String output = id+ " "+vorname+" "+surname+" ["+ geburtstag+"] "+geschlecht+ " Itype: "+ itemType;
+        //String output = RssFeedProvider.greet(vorname).toString();
         return output;
 
     }
 
 
 }
+*/

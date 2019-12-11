@@ -46,13 +46,7 @@
                    <category android:name="android.intent.category.LAUNCHER" />
                </intent-filter>
            </activity>
-           <activity
-               android:name="tabs.UpdateDynamicTabsActivity"
-               android:label="@string/title_activity_update_lerngruppe"
-               android:windowSoftInputMode="adjustPan">
-
-           </activity>
-           <activity android:name="tabs.LerngruppeLöschenÄndern" android:label="@string/title_activity_update_lerngruppe"/>
+        <activity android:name="tabs.LerngruppeLöschenÄndern" android:label="@string/title_activity_update_lerngruppe"/>
            <activity android:name=".TestMainActivity2" />
            <activity android:name=".S7_LerngruppeUpdaten" />
            <activity android:name=".S6_LerngruppeBearbeitenLoeschen" />
@@ -88,8 +82,7 @@
            <activity android:name=".VergehenActivity" />
            <activity android:name=".KlasseActivity" />
            <activity android:name=".KlasseActivityMitCBox" />
-           <activity android:name=".SchuelerVorfaelleTable" />
-           <activity
+        <activity
                android:name=".PauseActivity"
                android:label="Ruhe Modus"
                android:noHistory="true"

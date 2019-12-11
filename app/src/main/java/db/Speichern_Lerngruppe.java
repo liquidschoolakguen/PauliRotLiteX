@@ -23,17 +23,14 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import org.apache.commons.io.IOUtils;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.StringWriter;
 import java.util.ArrayList;
 import java.util.List;
 
+import akguen.liquidschool.db.db.DataSource_Lerngruppe;
 import akguen.liquidschool.paulirotlite.R;
-import model.Lerngruppe;
-import model.SP_Fach;
+import akguen.liquidschool.db.model.Lerngruppe;
+import akguen.liquidschool.db.model.SP_Fach;
 
 public class Speichern_Lerngruppe extends AppCompatActivity {
 
@@ -122,7 +119,7 @@ public class Speichern_Lerngruppe extends AppCompatActivity {
 
                 // Hier den checked-Wert des Memo-Objekts umkehren, bspw. von true auf false
                 // Dann ListView neu zeichnen mit showAllListEntries()
-/*                Lerngruppe updatedLerngruppe = dataSource.updateLerngruppe(lerngruppe.getId(), lerngruppe.getVorname(), lerngruppe.getNachname(), lerngruppe.getPasswort(), lerngruppe.getKuerzel(), lerngruppe.getStatus());
+/*                Lerngruppe updatedLerngruppe = dataSource.updateLerngruppe(lerngruppe.getId(), lerngruppe.getVorname(), lerngruppe.getItemType(), lerngruppe.getPasswort(), lerngruppe.getKuerzel(), lerngruppe.getStatus());
                 Log.d(LOG_TAG, "Checked-Status von Eintrag: " + updatedLerngruppe.toString() + " ist: ");
                 showAllListEntries();*/
             }
@@ -143,14 +140,14 @@ public class Speichern_Lerngruppe extends AppCompatActivity {
     private void activateAddButton() {
         Button buttonAddLerngruppe = (Button) findViewById(R.id.button_add_lerngruppe);
         final EditText editText1 = (EditText) findViewById(R.id.editText_lerngruppe_11);
-
+        final EditText editText2 = (EditText) findViewById(R.id.editText_lerngruppe_11_lf_id);
 
         buttonAddLerngruppe.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 String s1 = editText1.getText().toString();
-
+                String s2 = editText2.getText().toString();
 
 
    /*             if (TextUtils.isEmpty(s2)) {
@@ -164,9 +161,9 @@ public class Speichern_Lerngruppe extends AppCompatActivity {
 
 
                 editText1.setText("");
+                editText2.setText("");
 
-
-                dataSource.createLerngruppe(s1);
+                dataSource.createLerngruppe(s1,s2);
 
                 InputMethodManager inputMethodManager;
                 inputMethodManager = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);

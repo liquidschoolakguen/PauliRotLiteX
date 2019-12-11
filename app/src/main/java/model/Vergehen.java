@@ -1,4 +1,5 @@
 package model;
+/*
 
 public class Vergehen {
 
@@ -66,7 +67,7 @@ public class Vergehen {
 
     @Override
     public String toString() {
-        String output = id+"] "+name + " (" + gewicht +")";
+        String output = name;
 
         return output;
 
@@ -75,3 +76,4 @@ public class Vergehen {
 
 
 }
+*/

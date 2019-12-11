@@ -36,6 +36,7 @@ dependencies {
     implementation project(':mysql-connector-java-5.1.47')
     implementation 'com.squareup.okhttp3:okhttp:3.13.1'
     implementation 'org.jsoup:jsoup:1.10.3'
+    implementation project(':db')
 }
 dependencies {
     implementation "commons-io:commons-io:+"

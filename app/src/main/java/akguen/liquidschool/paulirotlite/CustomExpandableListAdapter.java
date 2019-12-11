@@ -9,14 +9,14 @@ import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
 import android.widget.TextView;
 
-import java.util.HashMap;
+
 import java.util.List;
 import java.util.Map;
 
-import model.Gueltigkeitsbereich;
-import model.Lerngruppe;
-import model.Raum;
-import model.Thema;
+import akguen.liquidschool.db.model.Gueltigkeitsbereich;
+import akguen.liquidschool.db.model.Lerngruppe;
+import akguen.liquidschool.db.model.Raum;
+import akguen.liquidschool.db.model.Thema;
 
 public class CustomExpandableListAdapter extends BaseExpandableListAdapter {
 

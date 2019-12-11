@@ -11,18 +11,14 @@
 
 
 
-        <Button
-            android:id="@+id/plus_button_disable"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:background="@drawable/rounded_text_view_disable"
-            android:layout_centerHorizontal="true"
-            android:text="+"
-            android:textColor="@color/colorPrimaryDisable"
-            android:textSize="28sp"
-
-            android:clickable="false"
-            />
+    <ImageView
+        android:id="@+id/plus_image_disable"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/pluszeichen"
+        android:tint="@color/colorPrimaryDisable"/>
 
 
     </RelativeLayout>

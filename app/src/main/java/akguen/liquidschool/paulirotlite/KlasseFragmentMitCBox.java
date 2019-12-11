@@ -1,5 +1,5 @@
 package akguen.liquidschool.paulirotlite;
-
+/*
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -13,7 +13,6 @@ import android.widget.ListView;
 import java.util.ArrayList;
 
 import model.CustomAdapter;
-import model.SchuelerMitCheck;
 
 public class KlasseFragmentMitCBox extends Fragment {
 
@@ -119,4 +118,4 @@ public class KlasseFragmentMitCBox extends Fragment {
         }
 
 
-}
+}*/

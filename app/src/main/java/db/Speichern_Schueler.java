@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.text.TextUtils;
 import android.util.Log;
 import android.util.SparseBooleanArray;
 import android.view.ActionMode;
@@ -26,9 +25,10 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
+import akguen.liquidschool.db.db.DataSource_Schueler;
 import akguen.liquidschool.paulirotlite.E_SchulerprofilActivity;
 import akguen.liquidschool.paulirotlite.R;
-import model.Schueler;
+import akguen.liquidschool.db.model.Schueler;
 
 public class Speichern_Schueler extends AppCompatActivity {
 
@@ -123,7 +123,8 @@ public class Speichern_Schueler extends AppCompatActivity {
                 Intent intent= new Intent(Speichern_Schueler.this, E_SchulerprofilActivity.class);
                 intent.putExtra("id", schueler.getId());
                 intent.putExtra("vorname", schueler.getVorname());
-                intent.putExtra("nachname", schueler.getNachname());
+                intent.putExtra("surname", schueler.getSurname());
+                intent.putExtra("nachname", schueler.getItemType());
                 intent.putExtra("geschlecht", schueler.getGeschlecht());
                 intent.putExtra("geburtstag", schueler.getGeburtstag());
 
@@ -153,7 +154,7 @@ public class Speichern_Schueler extends AppCompatActivity {
         final EditText editText5 = (EditText) findViewById(R.id.editText_schueler_55);
         final EditText editText6 = (EditText) findViewById(R.id.editText_schueler_66);
         final EditText editText7 = (EditText) findViewById(R.id.editText_schueler_77);
-
+        final EditText editText8 = (EditText) findViewById(R.id.editText_schueler_88);
         buttonAddSchueler.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -165,7 +166,7 @@ public class Speichern_Schueler extends AppCompatActivity {
                 String s5 = editText5.getText().toString();
                 String s6 = editText6.getText().toString();
                 String s7 = editText7.getText().toString();
-
+                String s8 = editText8.getText().toString();
    /*             if (TextUtils.isEmpty(s2)) {
                     editText2.setError(getString(R.string.editText_errorMessage));
                     return;
@@ -183,8 +184,9 @@ public class Speichern_Schueler extends AppCompatActivity {
                 editText5.setText("");
                 editText6.setText("");
                 editText7.setText("");
+                editText8.setText("");
 
-                dataSource.createSchueler(s1, s2, s3, s4, s5, s6, s7);
+                dataSource.createSchueler(s1, s2, s3, s4, s5, s6, s7, s8);
 
                 InputMethodManager inputMethodManager;
                 inputMethodManager = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
@@ -370,23 +372,26 @@ public class Speichern_Schueler extends AppCompatActivity {
         editText1.setText(schueler.getVorname());
 
         final EditText editText2 = (EditText) dialogsView.findViewById(R.id.editText_schueler_2);
-        editText2.setText(schueler.getNachname());
+        editText2.setText(schueler.getSurname());
 
         final EditText editText3 = (EditText) dialogsView.findViewById(R.id.editText_schueler_3);
-        editText3.setText(schueler.getRufname());
+        editText3.setText(schueler.getItemType());
 
         final EditText editText4 = (EditText) dialogsView.findViewById(R.id.editText_schueler_4);
-        editText4.setText(schueler.getGeschlecht());
+        editText4.setText(schueler.getRufname());
 
         final EditText editText5 = (EditText) dialogsView.findViewById(R.id.editText_schueler_5);
-        editText5.setText(schueler.getStatus());
-
+        editText5.setText(schueler.getGeschlecht());
 
         final EditText editText6 = (EditText) dialogsView.findViewById(R.id.editText_schueler_6);
-        editText6.setText(schueler.getGeburtstag());
+        editText6.setText(schueler.getStatus());
+
 
         final EditText editText7 = (EditText) dialogsView.findViewById(R.id.editText_schueler_7);
-        editText7.setText(schueler.getGeburtsort());
+        editText7.setText(schueler.getGeburtstag());
+
+        final EditText editText8 = (EditText) dialogsView.findViewById(R.id.editText_schueler_8);
+        editText8.setText(schueler.getGeburtsort());
 
 
 
@@ -403,7 +408,7 @@ public class Speichern_Schueler extends AppCompatActivity {
                         String s5 = editText5.getText().toString();
                         String s6 = editText6.getText().toString();
                         String s7 = editText7.getText().toString();
-
+                        String s8 = editText8.getText().toString();
 
 
                        /* if ((TextUtils.isEmpty(s1)) || (TextUtils.isEmpty(s2)) || (TextUtils.isEmpty(s3)) || (TextUtils.isEmpty(s4)) || (TextUtils.isEmpty(s5))) {
@@ -413,7 +418,7 @@ public class Speichern_Schueler extends AppCompatActivity {
 
 
                         // An dieser Stelle schreiben wir die geänderten Daten in die SQLite Datenbank
-                        Schueler updatedSchueler = dataSource.updateSchueler(schueler.getId(), s1, s2, s3, s4, s5, s6, s7);
+                        Schueler updatedSchueler = dataSource.updateSchueler(schueler.getId(), s1, s2, s3, s4, s5, s6, s7, s8);
 
                         Log.d(LOG_TAG, "Alter Eintrag - ID: " + schueler.getId() + " Inhalt: " + schueler.toString());
                         Log.d(LOG_TAG, "Neuer Eintrag - ID: " + updatedSchueler.getId() + " Inhalt: " + updatedSchueler.toString());

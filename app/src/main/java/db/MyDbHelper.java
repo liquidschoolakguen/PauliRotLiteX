@@ -1,5 +1,6 @@
 package db;
 
+/*
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
@@ -11,7 +12,7 @@ public class MyDbHelper extends SQLiteOpenHelper {
     private static final String LOG_TAG = MyDbHelper.class.getSimpleName();
 
     public static final String DB_NAME = "pauli_rot_lite.db";
-    public static final int DB_VERSION = 96;
+    public static final int DB_VERSION = 101;
 
 
     public static final String TABLE_KOLLEGE = "kollege";
@@ -123,7 +124,8 @@ public class MyDbHelper extends SQLiteOpenHelper {
 
     public static final String SCHUELER_COLUMN_ID = "_id";
     public static final String SCHUELER_COLUMN_VORNAME = "vorname";
-    public static final String SCHUELER_COLUMN_NACHNAME = "nachname";
+    public static final String SCHUELER_COLUMN_SURNAME = "surname";
+    public static final String SCHUELER_COLUMN_ITEMTYPE = "itemtype";
     public static final String SCHUELER_COLUMN_RUFNAME = "rufname";
     public static final String SCHUELER_COLUMN_GESCHLECHT = "geschlecht";
     public static final String SCHUELER_COLUMN_STATUS = "status";
@@ -136,7 +138,8 @@ public class MyDbHelper extends SQLiteOpenHelper {
                     "(" + SCHUELER_COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
 
                     SCHUELER_COLUMN_VORNAME + " TEXT, " +
-                    SCHUELER_COLUMN_NACHNAME + "  TEXT, " +
+                    SCHUELER_COLUMN_SURNAME + " TEXT, " +
+                    SCHUELER_COLUMN_ITEMTYPE + "  TEXT, " +
                     SCHUELER_COLUMN_RUFNAME + " TEXT, " +
                     SCHUELER_COLUMN_GESCHLECHT + " TEXT, " +
                     SCHUELER_COLUMN_STATUS + " TEXT, " +
@@ -260,22 +263,45 @@ public class MyDbHelper extends SQLiteOpenHelper {
                     GUELTIGKEITSBEREICH_COLUMN_BIS + " BIGINT);";
 
 
+//------------------------------------------------------------------------------------------
+
+    public static final String TABLE_LERNFORM = "lernform";
+
+    public static final String LERNFORM_COLUMN_ID = "_id";
+    public static final String LERNFORM_COLUMN_NAME = "lernform_name";
+    public static final String LERNFORM_COLUMN_ZYKLUS = "zyklus";
+
+    public static final String SQL_CREATE_LERNFORM =
+            "CREATE TABLE " + TABLE_LERNFORM +
+                    "(" + LERNFORM_COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+
+                    LERNFORM_COLUMN_NAME + " TEXT, " +
+                    LERNFORM_COLUMN_ZYKLUS + "  TEXT);";
 
 
 
-       //------------------------------------------------------------------------------------------
+
+    //------------------------------------------------------------------------------------------
 
     public static final String TABLE_LERNGRUPPE = "lerngruppe";
 
     public static final String LERNGRUPPE_COLUMN_ID = "_id";
-    public static final String LERNGRUPPE_COLUMN_NAME = "name";
-
+    public static final String LERNGRUPPE_COLUMN_NAME = "lerngruppe_name";
+    public static final String LERNGRUPPE_COLUMN_LERNFORM_COLUMN_ID = "lernform_id";
 
     public static final String SQL_CREATE_LERNGRUPPE =
             "CREATE TABLE " + TABLE_LERNGRUPPE +
                     "(" + LERNGRUPPE_COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
 
-                    LERNGRUPPE_COLUMN_NAME + " TEXT);";
+                    LERNGRUPPE_COLUMN_NAME + " TEXT, " +
+                    LERNGRUPPE_COLUMN_LERNFORM_COLUMN_ID + "  INTEGER, " +
+
+                    " FOREIGN KEY " + "(" + LERNGRUPPE_COLUMN_LERNFORM_COLUMN_ID + ")" + " REFERENCES " + TABLE_LERNFORM + "(" + LERNFORM_COLUMN_ID + ") " + "ON DELETE CASCADE ON UPDATE CASCADE " +
+
+                    ");";
+
+
+
 
 
     //------------------------------------------------------------------------------------------
@@ -407,21 +433,6 @@ public class MyDbHelper extends SQLiteOpenHelper {
 
 
 
-
-    //------------------------------------------------------------------------------------------
-
-    public static final String TABLE_LERNFORM = "lernform";
-
-    public static final String LERNFORM_COLUMN_ID = "_id";
-    public static final String LERNFORM_COLUMN_NAME = "name";
-    public static final String LERNFORM_COLUMN_ZYKLUS = "zyklus";
-
-    public static final String SQL_CREATE_LERNFORM =
-            "CREATE TABLE " + TABLE_LERNFORM +
-                    "(" + LERNFORM_COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
-
-                    LERNFORM_COLUMN_NAME + " TEXT, " +
-                    LERNFORM_COLUMN_ZYKLUS + "  TEXT);";
 
 
     //------------------------------------------------------------------------------------------
@@ -679,4 +690,4 @@ public class MyDbHelper extends SQLiteOpenHelper {
 
         db.execSQL("PRAGMA foreign_keys=ON");
     }
-}
+}*/

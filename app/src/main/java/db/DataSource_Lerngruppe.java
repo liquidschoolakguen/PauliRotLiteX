@@ -1,4 +1,5 @@
 package db;
+/*
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -22,6 +23,7 @@ public class DataSource_Lerngruppe {
     private String[] columns = {
             MyDbHelper.LERNGRUPPE_COLUMN_ID,
             MyDbHelper.LERNGRUPPE_COLUMN_NAME,
+            MyDbHelper.LERNGRUPPE_COLUMN_LERNFORM_COLUMN_ID
     };
 
     private String[] sp_fachColumns = {
@@ -49,10 +51,10 @@ public class DataSource_Lerngruppe {
         Log.d(LOG_TAG, "Datenbank mit Hilfe des DbHelpers geschlossen.");
     }
 
-    public Lerngruppe createLerngruppe(String v1) {
+    public Lerngruppe createLerngruppe(String v1, String v2) {
         ContentValues values = new ContentValues();
         values.put(MyDbHelper.LERNGRUPPE_COLUMN_NAME, v1);
-
+        values.put(MyDbHelper.LERNGRUPPE_COLUMN_LERNFORM_COLUMN_ID, v2);
 
 
         long insertId = database.insert(MyDbHelper.TABLE_LERNGRUPPE, null, values);
@@ -141,18 +143,19 @@ public class DataSource_Lerngruppe {
         Log.d(LOG_TAG, "cursorToLerngruppe33");
         int id0 = cursor.getColumnIndex(MyDbHelper.LERNGRUPPE_COLUMN_ID);
         int id1 = cursor.getColumnIndex(MyDbHelper.LERNGRUPPE_COLUMN_NAME);
-
+        int id2 = cursor.getColumnIndex(MyDbHelper.LERNGRUPPE_COLUMN_LERNFORM_COLUMN_ID);
 
 
         int id = cursor.getInt(id0);
         String q1 = cursor.getString(id1);
+        int q2 =cursor.getInt(id2);
 
 
 
 
         // Lerngruppe lerngruppe = new Lerngruppe(id,vorname,nachname,passwort,kuerzel,status);
 
-        return new Lerngruppe(id,q1);
+        return new Lerngruppe(id,q1,q2);
     }
 
     public List<Lerngruppe> getAllLerngruppes() {
@@ -248,4 +251,4 @@ public class DataSource_Lerngruppe {
 
 
 
-}
+}*/

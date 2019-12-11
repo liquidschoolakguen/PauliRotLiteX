@@ -1,5 +1,6 @@
 package db;
 
+/*
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -21,7 +22,8 @@ public class DataSource_Schueler {
     private String[] columns = {
             MyDbHelper.SCHUELER_COLUMN_ID,
             MyDbHelper.SCHUELER_COLUMN_VORNAME,
-            MyDbHelper.SCHUELER_COLUMN_NACHNAME,
+            MyDbHelper.SCHUELER_COLUMN_SURNAME,
+            MyDbHelper.SCHUELER_COLUMN_ITEMTYPE,
             MyDbHelper.SCHUELER_COLUMN_RUFNAME,
             MyDbHelper.SCHUELER_COLUMN_GESCHLECHT,
             MyDbHelper.SCHUELER_COLUMN_STATUS,
@@ -45,7 +47,7 @@ public class DataSource_Schueler {
         Log.d(LOG_TAG, "Datenbank mit Hilfe des DbHelpers geschlossen.");
     }
 
-    public Schueler createSchueler(String v1, String v2, String v3, String v4, String v5, String v6, String v7) {
+    public Schueler createSchueler(String v1, String v2, String v3, String v4, String v5, String v6, String v7, String v8) {
         if (v6==null){
             v6 = "0";
         }
@@ -53,12 +55,13 @@ public class DataSource_Schueler {
 
         ContentValues values = new ContentValues();
         values.put(MyDbHelper.SCHUELER_COLUMN_VORNAME, v1);
-        values.put(MyDbHelper.SCHUELER_COLUMN_NACHNAME, v2);
-        values.put(MyDbHelper.SCHUELER_COLUMN_RUFNAME, v3);
-        values.put(MyDbHelper.SCHUELER_COLUMN_GESCHLECHT, v4);
-        values.put(MyDbHelper.SCHUELER_COLUMN_STATUS, v5);
-        values.put(MyDbHelper.SCHUELER_COLUMN_GEBURTSTAG, v6);
-        values.put(MyDbHelper.SCHUELER_COLUMN_GEBURTSORT, v7);
+        values.put(MyDbHelper.SCHUELER_COLUMN_SURNAME, v2);
+        values.put(MyDbHelper.SCHUELER_COLUMN_ITEMTYPE, v3);
+        values.put(MyDbHelper.SCHUELER_COLUMN_RUFNAME, v4);
+        values.put(MyDbHelper.SCHUELER_COLUMN_GESCHLECHT, v5);
+        values.put(MyDbHelper.SCHUELER_COLUMN_STATUS, v6);
+        values.put(MyDbHelper.SCHUELER_COLUMN_GEBURTSTAG, v7);
+        values.put(MyDbHelper.SCHUELER_COLUMN_GEBURTSORT, v8);
 
         long insertId = database.insert(MyDbHelper.TABLE_SCHUELER, null, values);
 
@@ -83,25 +86,28 @@ public class DataSource_Schueler {
         Log.d(LOG_TAG, "Eintrag gelöscht! ID: " + id + " Inhalt: " + schueler.toString());
     }
 
-    public Schueler updateSchueler(int id, String v1, String v2, String v3, String v4, String v5, String v6, String v7) {
+    public Schueler updateSchueler(int id, String v1, String v2, String v3, String v4, String v5, String v6, String v7, String v8) {
 
         //private DataSource_Schueler dS_Schueler;
 
-          /*dS_Schueler = new DataSource_Schueler(context);
+          */
+/*dS_Schueler = new DataSource_Schueler(context);
 
-        dS_Schueler.open();*/
+        dS_Schueler.open();*//*
 
-        //dS_Schueler.updateSchueler(g.getId(),g.getVorname(),g.getNachname(),g.getRufname(),g.getGeschlecht(),g.getStatus(),g.getGeburtstag(),g.getGeburtsort());
+
+        //dS_Schueler.updateSchueler(g.getId(),g.getVorname(),g.getItemType(),g.getRufname(),g.getGeschlecht(),g.getStatus(),g.getGeburtstag(),g.getGeburtsort());
 
 
         ContentValues values = new ContentValues();
         values.put(MyDbHelper.SCHUELER_COLUMN_VORNAME, v1);
-        values.put(MyDbHelper.SCHUELER_COLUMN_NACHNAME, v2);
-        values.put(MyDbHelper.SCHUELER_COLUMN_RUFNAME, v3);
-        values.put(MyDbHelper.SCHUELER_COLUMN_GESCHLECHT, v4);
-        values.put(MyDbHelper.SCHUELER_COLUMN_STATUS, v5);
-        values.put(MyDbHelper.SCHUELER_COLUMN_GEBURTSTAG, v6);
-        values.put(MyDbHelper.SCHUELER_COLUMN_GEBURTSORT, v7);
+        values.put(MyDbHelper.SCHUELER_COLUMN_SURNAME, v2);
+        values.put(MyDbHelper.SCHUELER_COLUMN_ITEMTYPE, v3);
+        values.put(MyDbHelper.SCHUELER_COLUMN_RUFNAME, v4);
+        values.put(MyDbHelper.SCHUELER_COLUMN_GESCHLECHT, v5);
+        values.put(MyDbHelper.SCHUELER_COLUMN_STATUS, v6);
+        values.put(MyDbHelper.SCHUELER_COLUMN_GEBURTSTAG, v7);
+        values.put(MyDbHelper.SCHUELER_COLUMN_GEBURTSORT, v8);
 
 
         database.update(MyDbHelper.TABLE_SCHUELER,
@@ -152,7 +158,23 @@ public class DataSource_Schueler {
 
 
     }
+    public Schueler getSchuelerByVornameSurname(String vorname, String surname){
+        System.out.println("---nnn---: "+vorname);
 
+        Cursor cursor = database.query(MyDbHelper.TABLE_SCHUELER,
+                columns, MyDbHelper.SCHUELER_COLUMN_VORNAME + "='" + vorname + "'"+ " AND " + MyDbHelper.SCHUELER_COLUMN_SURNAME + "='" + surname + "'",
+                null, null, null, null);
+
+        cursor.moveToFirst();
+        Schueler schueler = cursorToSchueler(cursor);
+        cursor.close();
+        if(schueler==null){
+            System.out.println("---NULL---: xxx");
+        }
+        return schueler;
+
+
+    }
 
     private Schueler cursorToSchueler(Cursor cursor) {
 
@@ -165,12 +187,13 @@ public class DataSource_Schueler {
 
         int id0 = cursor.getColumnIndex(MyDbHelper.SCHUELER_COLUMN_ID);
         int id1 = cursor.getColumnIndex(MyDbHelper.SCHUELER_COLUMN_VORNAME);
-        int id2 = cursor.getColumnIndex(MyDbHelper.SCHUELER_COLUMN_NACHNAME);
-        int id3 = cursor.getColumnIndex(MyDbHelper.SCHUELER_COLUMN_RUFNAME);
-        int id4 = cursor.getColumnIndex(MyDbHelper.SCHUELER_COLUMN_GESCHLECHT);
-        int id5 = cursor.getColumnIndex(MyDbHelper.SCHUELER_COLUMN_STATUS);
-        int id6 = cursor.getColumnIndex(MyDbHelper.SCHUELER_COLUMN_GEBURTSTAG);
-        int id7 = cursor.getColumnIndex(MyDbHelper.SCHUELER_COLUMN_GEBURTSORT);
+        int id2 = cursor.getColumnIndex(MyDbHelper.SCHUELER_COLUMN_SURNAME);
+        int id3 = cursor.getColumnIndex(MyDbHelper.SCHUELER_COLUMN_ITEMTYPE);
+        int id4 = cursor.getColumnIndex(MyDbHelper.SCHUELER_COLUMN_RUFNAME);
+        int id5 = cursor.getColumnIndex(MyDbHelper.SCHUELER_COLUMN_GESCHLECHT);
+        int id6 = cursor.getColumnIndex(MyDbHelper.SCHUELER_COLUMN_STATUS);
+        int id7 = cursor.getColumnIndex(MyDbHelper.SCHUELER_COLUMN_GEBURTSTAG);
+        int id8 = cursor.getColumnIndex(MyDbHelper.SCHUELER_COLUMN_GEBURTSORT);
 
         int id = cursor.getInt(id0);
         String q1 = cursor.getString(id1);
@@ -181,10 +204,10 @@ public class DataSource_Schueler {
         String q5 = cursor.getString(id5);
         String q6 = cursor.getString(id6);
         String q7 = cursor.getString(id7);
+        String q8 = cursor.getString(id8);
 
 
-
-        return new Schueler(id,q1,q2,q3,q4,q5,q6,q7);
+        return new Schueler(id,q1,q2,q3,q4,q5,q6,q7,q8);
     }
 
     public List<Schueler> getAllSchuelers() {
@@ -208,4 +231,4 @@ public class DataSource_Schueler {
         return schuelerList;
     }
 
-}
+}*/

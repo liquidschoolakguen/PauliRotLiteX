@@ -9,7 +9,13 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
-import model.Schueler;
+import akguen.liquidschool.db.db.DataSource_Kollege;
+import akguen.liquidschool.db.db.DataSource_Lerngruppe;
+import akguen.liquidschool.db.db.DataSource_Raum;
+import akguen.liquidschool.db.db.DataSource_Schueler;
+import akguen.liquidschool.db.db.DataSource_Thema;
+import akguen.liquidschool.db.db.DataSource_Vergehen;
+import akguen.liquidschool.db.model.Schueler;
 
 public class Filler {
 
@@ -106,8 +112,8 @@ public class Filler {
                 }
 */
                 //Log.i("click", " ---."+tempArray[i+1]+ "."+tempArray[i+3]+ "."+tempArray[i+5]+ "."+tempArray[i+7]+".");
-                Schueler u = d.createSchueler(vor, nach, null, gesch, "1", gebTa, null);
-                // Log.i("click", " ---."+u.getVorname()+ "."+u.getNachname()+ "."+u.getGeburtstag()+ "."+u.getGeschlecht()+".");
+                Schueler u = d.createSchueler(vor, nach,null, null, gesch, "1", gebTa, null);
+                // Log.i("click", " ---."+u.getVorname()+ "."+u.getItemType()+ "."+u.getGeburtstag()+ "."+u.getGeschlecht()+".");
 
             }
 
@@ -239,7 +245,7 @@ public class Filler {
 
 
             ;
-            d.createLerngruppe(s1);
+            d.createLerngruppe(s1,"0");
 
 
         }
