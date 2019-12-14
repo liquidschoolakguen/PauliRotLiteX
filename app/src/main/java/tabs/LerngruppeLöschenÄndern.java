@@ -23,14 +23,12 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
-import akguen.liquidschool.paulirotlite.E_FullScreenActivity;
 import akguen.liquidschool.paulirotlite.R;
-import akguen.liquidschool.paulirotlite.S4_WaehleVergehen;
-import akguen.liquidschool.db.db.DataSource_Lerngruppe;
-import akguen.liquidschool.db.db.DataSource_Schueler;
-import akguen.liquidschool.db.db.DataSource_Schueler_Lerngruppe;
-import akguen.liquidschool.db.model.Lerngruppe;
-import akguen.liquidschool.db.model.Schueler;
+import akguen.liquidschool.mylib2.db.DataSource_Lerngruppe;
+import akguen.liquidschool.mylib2.db.DataSource_Schueler;
+import akguen.liquidschool.mylib2.db.DataSource_Schueler_Lerngruppe;
+import akguen.liquidschool.mylib2.model.Lerngruppe;
+import akguen.liquidschool.mylib2.model.Schueler;
 
 public class LerngruppeLöschenÄndern extends AppCompatActivity {
 

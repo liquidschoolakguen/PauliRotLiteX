@@ -12,7 +12,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import akguen.liquidschool.paulirotlite.R;
-import akguen.liquidschool.db.model.Schueler;
+import akguen.liquidschool.mylib2.model.Schueler;
 
 public class ViewHolderUpdateX extends RecyclerView.ViewHolder  {
 

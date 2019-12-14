@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Debug_Main">
+    tools:context=".activities.debug_activities.Debug_Main">
 
 
     <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
@@ -279,7 +279,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:textSize="10sp"
-                    android:text="" />
+                    android:text="Esin" />
 
                 <Button
                     android:id="@+id/bntX"

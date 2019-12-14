@@ -10,25 +10,21 @@
         android:allowBackup="true"
         android:icon="@drawable/rot"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity
-            android:name="tabs.WaehleSchuelerDynamicTabsActivity"
-            >
+        <activity android:name="tabs.WaehleSchuelerDynamicTabsActivity">
 
-         <!--   <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+            <!--   <intent-filter>
+                   <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>-->
+                   <category android:name="android.intent.category.LAUNCHER" />
+               </intent-filter>-->
 
         </activity>
         <activity
-            android:name=".S4_WaehleVergehen"
+            android:name=".activities.in_use.S4_WaehleVergehen"
             android:label="@string/title_activity_s1__waehle_fehlverhalten"
             android:theme="@style/AppTheme.NoActionBar"></activity>
-
 
 
         <activity
@@ -38,56 +34,52 @@
 
         </activity>
 
-        <activity android:name=".Debug_Main">
+        <activity android:name=".activities.debug_activities.Debug_Main">
 
             <intent-filter>
-                   <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.MAIN" />
 
-                   <category android:name="android.intent.category.LAUNCHER" />
-               </intent-filter>
-           </activity>
-        <activity android:name="tabs.LerngruppeLöschenÄndern" android:label="@string/title_activity_update_lerngruppe"/>
-           <activity android:name=".TestMainActivity2" />
-           <activity android:name=".S7_LerngruppeUpdaten" />
-           <activity android:name=".S6_LerngruppeBearbeitenLoeschen" />
-           <activity android:name=".E_FullScreenActivity" />
-           <activity android:name=".E_FullScreenActivity2" />
-           <activity android:name=".E_FullScreenActivity3" />
-           <activity android:name=".S3_ErstelleLerngruppe" />
-           <activity android:name=".S5_LerngruppeWechseln" />
-           <activity android:name=".ReadWebpageAsyncTask2" />
-           <activity android:name=".LoginActivity" />
-           <activity android:name=".E_SchulerprofilActivity" />
-           <activity android:name="db.Speichern_Kollege" />
-           <activity android:name="db.Speichern_Schueler" />
-           <activity android:name="db.Speichern_Schulverbund" />
-           <activity android:name="db.Speichern_Standort" />
-           <activity android:name="db.Speichern_Adresse" />
-           <activity android:name="db.Speichern_Kontakt" />
-           <activity android:name="db.Speichern_Angehoeriger" />
-           <activity android:name="db.Speichern_Vorfall" />
-           <activity android:name="db.Speichern_Vergehen" />
-           <activity android:name="db.Speichern_SP_Fach" />
-           <activity android:name="db.Speichern_SP_Fragment" />
-           <activity android:name="db.Speichern_Gueltigkeitsbereich" />
-           <activity android:name="db.Speichern_Raum" />
-           <activity android:name="db.Speichern_Thema" />
-           <activity android:name="db.Speichern_Lerngruppe" />
-        <activity android:name="db.Speichern_Vergehengruppe" />
-           <activity android:name="db.Speichern_Lernform" />
-           <activity android:name="db.Speichern_Schueler_Lerngruppe" />
-        <activity android:name="db.Speichern_Vergehen_Vergehengruppe" />
-           <activity android:name="db.Speichern_Kollege_Standort" />
-           <activity android:name="db.Speichern_Schueler_Angehoeriger" />
-           <activity android:name=".VergehenActivity" />
-           <activity android:name=".KlasseActivity" />
-           <activity android:name=".KlasseActivityMitCBox" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
-               android:name=".PauseActivity"
-               android:label="Ruhe Modus"
-               android:noHistory="true"
-               android:parentActivityName=".MainActivity"
-               android:theme="@style/AppTheme" />
-       </application>
+            android:name="tabs.LerngruppeLöschenÄndern"
+            android:label="@string/title_activity_update_lerngruppe" />
+        <activity android:name=".activities.in_use.UnterrichtplanActivity" />
+        <activity android:name=".activities.old_activities.TestMainActivity2" />
+        <activity android:name=".activities.old_activities.S7_LerngruppeUpdaten" />
+        <activity android:name=".activities.old_activities.S6_LerngruppeBearbeitenLoeschen" />
+        <activity android:name=".activities.old_activities.E_FullScreenActivity" />
+        <activity android:name=".activities.old_activities.E_FullScreenActivity2" />
+        <activity android:name=".activities.old_activities.E_FullScreenActivity3" />
+        <activity android:name=".activities.old_activities.S3_ErstelleLerngruppe" />
+        <activity android:name=".activities.old_activities.S5_LerngruppeWechseln" />
+        <activity android:name=".rest.ReadWebpageAsyncTask2" />
+        <activity android:name=".activities.old_activities.E_SchulerprofilActivity" />
+        <activity android:name=".activities.debug_activities.Speichern_Kollege" />
+        <activity android:name=".activities.debug_activities.Speichern_Schueler" />
+        <activity android:name=".activities.debug_activities.Speichern_Schulverbund" />
+        <activity android:name=".activities.debug_activities.Speichern_Standort" />
+        <activity android:name=".activities.debug_activities.Speichern_Adresse" />
+        <activity android:name=".activities.debug_activities.Speichern_Kontakt" />
+        <activity android:name=".activities.debug_activities.Speichern_Angehoeriger" />
+        <activity android:name=".activities.debug_activities.Speichern_Vorfall" />
+        <activity android:name=".activities.debug_activities.Speichern_Vergehen" />
+        <activity android:name=".activities.debug_activities.Speichern_SP_Fach" />
+        <activity android:name=".activities.debug_activities.Speichern_SP_Fragment" />
+        <activity android:name=".activities.debug_activities.Speichern_Gueltigkeitsbereich" />
+        <activity android:name=".activities.debug_activities.Speichern_Raum" />
+        <activity android:name=".activities.debug_activities.Speichern_Thema" />
+        <activity android:name=".activities.debug_activities.Speichern_Lerngruppe" />
+        <activity android:name=".activities.debug_activities.Speichern_Vergehengruppe" />
+        <activity android:name=".activities.debug_activities.Speichern_Lernform" />
+        <activity android:name=".activities.debug_activities.Speichern_Schueler_Lerngruppe" />
+        <activity android:name=".activities.debug_activities.Speichern_Vergehen_Vergehengruppe" />
+        <activity android:name=".activities.debug_activities.Speichern_Kollege_Standort" />
+        <activity android:name=".activities.debug_activities.Speichern_Schueler_Angehoeriger" />
+        <activity android:name=".activities.old_activities.KlasseActivity" />
+        <activity android:name=".activities.old_activities.KlasseActivityMitCBox" />
 
-   </manifest>
+    </application>
+
+</manifest>

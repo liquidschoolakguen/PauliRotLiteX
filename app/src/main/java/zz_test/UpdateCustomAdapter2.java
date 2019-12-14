@@ -20,7 +20,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import akguen.liquidschool.paulirotlite.R;
-import akguen.liquidschool.db.model.Schueler;
+import akguen.liquidschool.mylib2.model.Schueler;
 
 public class UpdateCustomAdapter2 extends ArrayAdapter<Schueler> implements View.OnClickListener, View.OnLongClickListener {
     private static final String LOG_TAG = UpdateCustomAdapter2.class.getSimpleName();

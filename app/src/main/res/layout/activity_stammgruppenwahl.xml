@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".E_StammgruppenwahlActivity">
+    tools:context=".activities.old_activities.E_StammgruppenwahlActivity">
 
 
     <LinearLayout

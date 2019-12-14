@@ -13,20 +13,17 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.ListView;
-import android.widget.TabHost;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.List;
 
-import akguen.liquidschool.paulirotlite.Debug_Main;
+import akguen.liquidschool.paulirotlite.activities.debug_activities.Debug_Main;
 import akguen.liquidschool.paulirotlite.R;
-import akguen.liquidschool.paulirotlite.S1_WaehleSchueler;
-import akguen.liquidschool.paulirotlite.S3_ErstelleLerngruppe;
-import db.DataSource_Lerngruppe;
-import akguen.liquidschool.db.db.DataSource_Schueler;
-import db.DataSource_Schueler_Lerngruppe;
-import model.Lerngruppe;
+import akguen.liquidschool.mylib2.db.DataSource_Lerngruppe;
+import akguen.liquidschool.mylib2.db.DataSource_Schueler;
+import akguen.liquidschool.mylib2.db.DataSource_Schueler_Lerngruppe;
+import akguen.liquidschool.mylib2.model.Lerngruppe;
 
 public class WaehleSchuelerDynamicTabsActivity extends AppCompatActivity {
     private TabLayout tabLayout;

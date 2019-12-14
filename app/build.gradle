@@ -33,10 +33,9 @@ dependencies {
     implementation 'com.android.support:design:28.0.0'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
-    implementation project(':mysql-connector-java-5.1.47')
     implementation 'com.squareup.okhttp3:okhttp:3.13.1'
     implementation 'org.jsoup:jsoup:1.10.3'
-    implementation project(':db')
+    implementation project(':mylib2')
 }
 dependencies {
     implementation "commons-io:commons-io:+"
