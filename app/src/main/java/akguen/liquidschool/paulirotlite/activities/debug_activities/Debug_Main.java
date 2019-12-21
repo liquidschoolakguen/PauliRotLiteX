@@ -15,10 +15,10 @@ import tabs.WaehleSchuelerDynamicTabsActivity;
 
 public class Debug_Main extends AppCompatActivity {
 
-
+//Test
     Button btnA, btnA_, btnB, btnC, btnD, btnE,btnF,btnG,btnH,btnI,btnJ,btnK,btnL,btnM,btnN,btnO,btnP,btnQ,btnR,btnS,btnT,btnU, btnV, btnW, btnX, btnY, btnZ;
     Button btnA2, btnA_2, btnB2, btnC2, btnD2, btnE2,btnF2,btnG2,btnH2,btnI2,btnJ2,btnK2,btnL2,btnM2,btnN2,btnO2,btnP2,btnQ2,btnR2,btnS2,btnT2,btnU2, btnV2, btnW2, btnX2, btnY2, btnZ2;
-
+    Button test;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
