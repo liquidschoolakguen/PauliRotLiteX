@@ -26,6 +26,7 @@ public class Debug_Main extends AppCompatActivity {
         setContentView(R.layout.activity_debug__main);
 
             Bing b = new Bing();
+            b.setFax("www");
         btnA = findViewById(R.id.bntA);
         btnA_ = findViewById(R.id.bntA_);
         btnB = findViewById(R.id.bntB);
