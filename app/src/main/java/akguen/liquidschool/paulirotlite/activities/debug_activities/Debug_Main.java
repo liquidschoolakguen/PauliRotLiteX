@@ -10,6 +10,7 @@ import akguen.liquidschool.paulirotlite.R;
 import akguen.liquidschool.paulirotlite.activities.in_use.UnterrichtplanActivity;
 import akguen.liquidschool.paulirotlite.activities.old_activities.S1_WaehleSchueler;
 import akguen.liquidschool.paulirotlite.activities.old_activities.S5_LerngruppeWechseln;
+import akguen.liquidschool.testlib.Bing;
 import test_activities.*;
 import tabs.WaehleSchuelerDynamicTabsActivity;
 
@@ -24,7 +25,7 @@ public class Debug_Main extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_debug__main);
 
-
+            Bing b = new Bing();
         btnA = findViewById(R.id.bntA);
         btnA_ = findViewById(R.id.bntA_);
         btnB = findViewById(R.id.bntB);

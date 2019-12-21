@@ -1,4 +1,4 @@
-package com.example.android.rssfeedlibary;
+package akguen.liquidschool.testlib;
 
 import org.junit.Test;
 
