@@ -1,3 +1,1 @@
-include ':app', ':mylib2', ':library'
-project(':mylib2').projectDir = new File(settingsDir, '../MyLib2/mylib2')
-project(':library').projectDir = new File(settingsDir, '../CompactCalendarView-master/library')
+include ':app'
