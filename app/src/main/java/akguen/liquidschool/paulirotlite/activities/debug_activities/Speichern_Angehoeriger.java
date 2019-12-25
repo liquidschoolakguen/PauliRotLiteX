@@ -24,9 +24,11 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
-import akguen.liquidschool.mylib2.db.DataSource_Angehoeriger;
+import akguen.liquidschool.coredata.db.*;
+import akguen.liquidschool.coredata.model.*;
+
 import akguen.liquidschool.paulirotlite.R;
-import akguen.liquidschool.mylib2.model.Angehoeriger;
+
 
 public class Speichern_Angehoeriger extends AppCompatActivity {
 

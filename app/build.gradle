@@ -42,7 +42,7 @@ dependencies {
     implementation 'org.jsoup:jsoup:1.10.3'
     implementation files('libs/mm/testlib.jar')
     implementation files('libs/mm/mylib2.jar')
-    implementation project(':library')
+    implementation project(':coredata')
 }
 dependencies {
     implementation "commons-io:commons-io:+"
