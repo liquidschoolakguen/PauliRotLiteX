@@ -1,0 +1,153 @@
+<resources>
+    <string name="app_name">PauliRot</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Croissant</string>
+
+    <string name="hello_world">Croissant</string>
+    <string name="action_settings">Croissant</string>
+
+    <string name="editText_hint_vorname">Croissant</string>
+    <string name="editText_hint_nachname">Croissant</string>
+    <string name="editText_hint_passwort">Passwort</string>
+    <string name="editText_hint_kuerzel">Kürzel</string>
+    <string name="editText_hint_status">Status</string>
+
+    <string name="button_add_kollege">+</string>
+
+    <string name="editText_errorMessage">Das Feld darf nicht leer sein.</string>
+
+    <string name="cab_delete">Einträge löschen</string>
+
+    <string name="cab_change">Eintrag ändern</string>
+    <string name="cab_checked_string">ausgewählt</string>
+
+    <string name="dialog_title">Listeneintrag ändern</string>
+
+
+    <string name="dialog_kollege_1">Vorname</string>
+    <string name="dialog_kollege_2">Nachname</string>
+    <string name="dialog_kollege_3">Passwort</string>
+    <string name="dialog_kollege_4">Kürzel</string>
+    <string name="dialog_kollege_5">Status</string>
+
+    <string name="dialog_schueler_1">Vorname</string>
+    <string name="dialog_schueler_2">Nachname</string>
+    <string name="dialog_schueler_3">ItemType</string>
+    <string name="dialog_schueler_4">Rufname</string>
+    <string name="dialog_schueler_5">Geschlecht</string>
+    <string name="dialog_schueler_6">Status</string>
+    <string name="dialog_schueler_7">Geburtstag</string>
+    <string name="dialog_schueler_8">Geburtsort</string>
+
+
+    <string name="dialog_schulverbund_1">Name</string>
+    <string name="dialog_schulverbund_2">Träger</string>
+    <string name="dialog_schulverbund_3">Bundesland</string>
+    <string name="dialog_schulverbund_4">Bezirk</string>
+    <string name="dialog_schulverbund_5">Typ</string>
+    <string name="dialog_schulverbund_6">Email</string>
+    <string name="dialog_schulverbund_7">WWW</string>
+    <string name="dialog_schulverbund_8">Schülerzahl</string>
+    <string name="dialog_schulverbund_9">Leitung</string>
+    <string name="dialog_schulverbund_10">Status</string>
+    <string name="dialog_schulverbund_11">Serveradresse</string>
+
+    <string name="dialog_standort_1">Name</string>
+    <string name="dialog_standort_2">Kontaktperson</string>
+    <string name="dialog_standort_3">email</string>
+    <string name="dialog_standort_4">Hauptstandort</string>
+    <string name="dialog_standort_5">Stadtteil</string>
+    <string name="dialog_standort_6">Status</string>
+    <string name="dialog_standort_7">Serveradresse</string>
+
+
+    <string name="dialog_adresse_1">Straße</string>
+    <string name="dialog_adresse_2">PLZ</string>
+    <string name="dialog_adresse_3">Ort</string>
+    <string name="dialog_adresse_4">Festnetz</string>
+    <string name="dialog_adresse_5">Fax</string>
+
+    <string name="dialog_kontakt_1">Mobil</string>
+    <string name="dialog_kontakt_2">Mail</string>
+
+
+    <string name="dialog_angehoeriger_1">Nachname</string>
+    <string name="dialog_angehoeriger_2">Vorname</string>
+    <string name="dialog_angehoeriger_3">Institution</string>
+    <string name="dialog_angehoeriger_4">Beziehung</string>
+    <string name="dialog_angehoeriger_5">Geschlecht</string>
+
+    <string name="dialog_vorfall_1">Zeitpunkt</string>
+    <string name="dialog_vorfall_2">Info</string>
+    <string name="dialog_vorfall_3">SchülerId</string>
+    <string name="dialog_vorfall_4">VergehenId</string>
+
+    <string name="dialog_vergehen_1">Name</string>
+    <string name="dialog_vergehen_2">Text</string>
+    <string name="dialog_vergehen_3">Gewicht</string>
+    <string name="dialog_vergehen_4">Kategorie</string>
+
+    <string name="dialog_sp_fach_1">TestString</string>
+
+    <string name="dialog_sp_fragment_1">Nummer</string>
+
+
+    <string name="dialog_gueltigkeitsbereich_1">Schuljahr</string>
+    <string name="dialog_gueltigkeitsbereich_2">Typ</string>
+    <string name="dialog_gueltigkeitsbereich_3">Nummer</string>
+    <string name="dialog_gueltigkeitsbereich_4">von (KW)</string>
+    <string name="dialog_gueltigkeitsbereich_5">bis (KW)</string>
+
+    <string name="dialog_rythmuszelle_1">Wochentag</string>
+    <string name="dialog_rythmuszelle_2">Typ</string>
+    <string name="dialog_rythmuszelle_3">Nummer</string>
+    <string name="dialog_rythmuszelle_4">von</string>
+    <string name="dialog_rythmuszelle_5">bis</string>
+
+    <string name="dialog_raum_1">Haus</string>
+    <string name="dialog_raum_2">Raum</string>
+
+
+    <string name="dialog_thema_1">Unterrichtsfach</string>
+
+
+    <string name="dialog_lerngruppe_1">Name</string>
+
+
+    <string name="dialog_lernform_1">Name</string>
+    <string name="dialog_lernform_2">Zyklus</string>
+
+
+    <string name="dialog_button_positive">Ändern</string>
+    <string name="dialog_button_negative">Abbrechen</string>
+
+    <string name="aktuelleLerngruppe">Wähle deine aktuelle Lerngruppe</string>
+    <string name="dialog_schueler_lerngruppe_1">Schüler (id)</string>
+    <string name="dialog_schueler_lerngruppe_2">Lerngruppe (id)</string>
+    <string name="dialog_kollege_standort_1">Kollege (id)</string>
+    <string name="dialog_kollege_standort_2">Standort (id)</string>
+    <string name="dialog_schueler_angehoeriger_1">Schüler (id)</string>
+    <string name="dialog_schueler_angehoeriger_2">Angehöriger (id)</string>
+    <string name="dialog_sp_fach_2">Thema (id)</string>
+    <string name="dialog_sp_fach_3">Raum (id)</string>
+    <string name="dialog_sp_fach_4">Gültigkeit (id)</string>
+    <string name="dialog_sp_fach_5">Lerngruppe (id)</string>
+    <string name="dialog_vergehen_vergehengruppe_1">Vergehen (id)</string>
+    <string name="dialog_vergehen_vergehengruppe_2">Vergehengruppe (id)</string>
+
+
+  <string name="title_activity_s1__waehle_schueler">Wähle einen Schüler</string>
+    <string name="title_activity_s1__waehle_fehlverhalten">Wähle ein Fehlverhalten</string>
+    <string name="title_activity_s1__erstelle_lerngruppe">Wähle ein Fehlverhalten</string>
+    <string name="title_activity_update_lerngruppe">Lerngruppe bearbeiten</string>
+
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">PauliRot</string>
+    <string name="nav_header_subtitle">1.0.2</string>
+    <string name="nav_header_desc">Navigation header</string>
+
+
+</resources>

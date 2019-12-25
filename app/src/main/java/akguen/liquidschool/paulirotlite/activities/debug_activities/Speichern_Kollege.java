@@ -21,12 +21,15 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.github.sundeepk.compactcalendarview.mylib2.db.DataSource_Kollege;
+
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
-import akguen.liquidschool.mylib2.db.DataSource_Kollege;
+
 import akguen.liquidschool.paulirotlite.R;
-import akguen.liquidschool.mylib2.model.Kollege;
+
 import test_activities.Filler;
 
 public class Speichern_Kollege extends AppCompatActivity {
@@ -57,6 +60,7 @@ public class Speichern_Kollege extends AppCompatActivity {
         activateFillButton();
         activateFindButton();
         initializeContextualActionBar();
+        doLocale();
     }
 
     @Override
@@ -246,7 +250,19 @@ public class Speichern_Kollege extends AppCompatActivity {
 
     }
 
+private void doLocale(){
+    Locale[] locales = Locale.getAvailableLocales();
+    ArrayList<String> localcountries=new ArrayList<String>();
+    for(Locale l:locales)
+    {
+        localcountries.add(l.getDisplayLanguage().toString());
 
+        Log.d(LOG_TAG, "LOCALE: ("+l.getLanguage().toString()+ ") "+l.getDisplayLanguage());
+
+    }
+
+
+}
     private void initializeContextualActionBar() {
         final ListView kollegesListView = (ListView) findViewById(R.id.listview_kolleges);
         kollegesListView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE_MODAL);
@@ -345,6 +361,10 @@ public class Speichern_Kollege extends AppCompatActivity {
         });
 
     }
+
+
+
+
 
     private AlertDialog createEditKollegeDialog(final Kollege kollege) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);

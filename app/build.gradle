@@ -15,6 +15,11 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+        debug {
+            pseudoLocalesEnabled true
+        }
+
+
     }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
@@ -37,6 +42,7 @@ dependencies {
     implementation 'org.jsoup:jsoup:1.10.3'
     implementation files('libs/mm/testlib.jar')
     implementation files('libs/mm/mylib2.jar')
+    implementation project(':library')
 }
 dependencies {
     implementation "commons-io:commons-io:+"
