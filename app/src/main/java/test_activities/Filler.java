@@ -118,15 +118,7 @@ public class Filler {
                 String gesch = tempArray[i + 7];
                 String gebTa = tempArray[i + 5];
 
-                /*if(Character.isWhitespace(vor.length()-1)){
-                    Log.i("click", " ---. JAA");
-                    vor=vor.substring(0,vor.length()-1);
-                }
-                if(Character.isWhitespace(nach.length()-1)){
-                    Log.i("click", " ---. JAAAA");
-                    nach=nach.substring(0,nach.length()-1);
-                }
-*/
+
                 //Log.i("click", " ---."+tempArray[i+1]+ "."+tempArray[i+3]+ "."+tempArray[i+5]+ "."+tempArray[i+7]+".");
                 Schueler u = d.createSchueler(vor, nach,null, null, gesch, "1", gebTa, null);
                 // Log.i("click", " ---."+u.getVorname()+ "."+u.getItemType()+ "."+u.getGeburtstag()+ "."+u.getGeschlecht()+".");
@@ -138,6 +130,84 @@ public class Filler {
 
         d.close();
     }
+
+
+    public void convertSchueler(Context context){
+
+
+
+
+        String nnn;
+        String[] tempArray;
+        Log.i("click", " ---0");
+        InputStream is = null;
+        AssetManager am = context.getAssets();
+        try {
+            is = am.open("schueler.txt");
+            //Log.i("click", " ---1");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        //Log.i("click", " ---2");
+        java.util.Scanner s = new java.util.Scanner(is).useDelimiter("\\A");
+        //Log.i("click", " ---3");
+        if (s.hasNext()) {
+            nnn = s.next();
+            //Log.i("click", " ---4");
+        } else {
+            nnn = "";
+            //Log.i("click", " ---5");
+        }
+
+        //Log.i("click", " ---555 "+ nnn);
+
+
+        String delimiter = "\n";
+
+        tempArray = nnn.split(delimiter);
+
+
+        for (int i = 0; i < tempArray.length; i++) {
+
+
+            if (Character.isWhitespace(tempArray[i].length() - 1)) {
+
+                tempArray[i] = tempArray[i].substring(0, tempArray[i].length() - 1);
+            }
+
+
+        }
+
+
+        for (int i = 0; i < tempArray.length; i++) {
+            //Log.i("click", tempArray[i]);
+
+            //Log.i("click", i+" --- "+tempArray[i]);
+            if (tempArray[i].replaceAll("[\u0000-\u001f]", "").equals("1")) {
+
+                String vor = tempArray[i + 1].substring(0, tempArray[i + 1].length());
+                String nach = tempArray[i + 3].substring(0, tempArray[i + 3].length());
+                String gesch = tempArray[i + 7];
+                String gebTa = tempArray[i + 5];
+
+
+                //Log.i("click", " ---."+tempArray[i+1]+ "."+tempArray[i+3]+ "."+tempArray[i+5]+ "."+tempArray[i+7]+".");
+          //      Schueler u = d.createSchueler(vor, nach,null, null, gesch, "1", gebTa, null);
+                // Log.i("click", " ---."+u.getVorname()+ "."+u.getItemType()+ "."+u.getGeburtstag()+ "."+u.getGeschlecht()+".");
+
+            }
+
+
+        }
+
+
+
+
+
+
+
+    }
+
 
 
 
@@ -268,7 +338,6 @@ public class Filler {
     }
 
 
-
     public void fillKollege2(Context context) {
         String fileName = "hallo-mein-benno.xls";
         InputStream is = null;
@@ -320,6 +389,7 @@ public class Filler {
 
 
     }
+
 
     public void convertKollege(Context context) {
 
@@ -576,7 +646,6 @@ public class Filler {
     }
 
 
-
     public static boolean saveExcelFile(Context context, String fileName) {
 
         // check if available and not read only
@@ -639,8 +708,6 @@ public class Filler {
         }
         return success;
     }
-
-
 
 
     public void fillLerngruppe(Context c) {
@@ -741,6 +808,7 @@ public class Filler {
         d.close();
     }
 
+
     public void fillRaum(Context c) {
         DataSource_Raum d = new DataSource_Raum(c);
         d.open();
@@ -812,8 +880,6 @@ public class Filler {
 
 
     }
-
-
 
 
     public void fillVergehen(Context c) {
