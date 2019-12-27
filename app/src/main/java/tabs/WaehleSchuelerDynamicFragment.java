@@ -22,12 +22,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import akguen.liquidschool.paulirotlite.R;
-import akguen.liquidschool.mylib2.db.DataSource_Lerngruppe;
-import akguen.liquidschool.mylib2.db.DataSource_Schueler;
-import akguen.liquidschool.mylib2.db.DataSource_Schueler_Lerngruppe;
-import akguen.liquidschool.mylib2.db.MyDbHelper;
-import akguen.liquidschool.mylib2.model.Lerngruppe;
-import akguen.liquidschool.mylib2.model.Schueler;
+import akguen.liquidschool.coredata.db.*;
+import akguen.liquidschool.coredata.model.*;
 import zz_test.MyDividerItemDecorator;
 import zz_test.RecyclerViewAdapter;
 import zz_test.SpeedyLinearLayoutManager;

@@ -25,10 +25,11 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
-import akguen.liquidschool.mylib2.db.DataSource_Schueler;
+import akguen.liquidschool.coredata.db.*;
+import akguen.liquidschool.coredata.model.*;
 import akguen.liquidschool.paulirotlite.activities.old_activities.E_SchulerprofilActivity;
 import akguen.liquidschool.paulirotlite.R;
-import akguen.liquidschool.mylib2.model.Schueler;
+
 import test_activities.Filler;
 
 public class Speichern_Schueler extends AppCompatActivity {

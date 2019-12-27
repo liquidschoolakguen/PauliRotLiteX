@@ -395,7 +395,7 @@ public class DatenbankTask extends AsyncTask<String, Void, String> {
                 Kollege kollege = new Kollege();
                 kollege.setId(Integer.parseInt(id_));
               //  kollege.setName(name_);
-                kollege.setPasswort(passwort_);
+                kollege.setPersonaltyp(passwort_);
 
                 kollegeList.add(kollege);
             }

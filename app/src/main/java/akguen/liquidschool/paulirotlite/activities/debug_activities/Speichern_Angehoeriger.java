@@ -122,7 +122,7 @@ public class Speichern_Angehoeriger extends AppCompatActivity {
 
                 // Hier den checked-Wert des Memo-Objekts umkehren, bspw. von true auf false
                 // Dann ListView neu zeichnen mit showAllListEntries()
-/*                Angehoeriger updatedAngehoeriger = dataSource.updateAngehoeriger(angehoeriger.getId(), angehoeriger.getVorname(), angehoeriger.getItemType(), angehoeriger.getPasswort(), angehoeriger.getKuerzel(), angehoeriger.getStatus());
+/*                Angehoeriger updatedAngehoeriger = dataSource.updateAngehoeriger(angehoeriger.getId(), angehoeriger.getVorname(), angehoeriger.getItemType(), angehoeriger.getPersonaltyp(), angehoeriger.getGeburtstag(), angehoeriger.getStrasse());
                 Log.d(LOG_TAG, "Checked-Status von Eintrag: " + updatedAngehoeriger.toString() + " ist: ");
                 showAllListEntries();*/
             }

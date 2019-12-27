@@ -40,9 +40,8 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
     implementation 'com.squareup.okhttp3:okhttp:3.13.1'
     implementation 'org.jsoup:jsoup:1.10.3'
-    implementation files('libs/mm/testlib.jar')
-    implementation files('libs/mm/mylib2.jar')
     implementation project(':coredata')
+    implementation files('libs/poi-3.7.jar')
 }
 dependencies {
     implementation "commons-io:commons-io:+"

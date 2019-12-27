@@ -22,12 +22,8 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-
-import akguen.liquidschool.mylib2.db.DataSource_Schueler;
-import akguen.liquidschool.mylib2.db.DataSource_Vergehen;
-
-import akguen.liquidschool.mylib2.model.Schueler;
-import akguen.liquidschool.mylib2.model.Vergehen;
+import akguen.liquidschool.coredata.db.*;
+import akguen.liquidschool.coredata.model.*;
 import akguen.liquidschool.paulirotlite.activities.old_activities.E_FullScreenActivity;
 import akguen.liquidschool.paulirotlite.activities.old_activities.E_FullScreenActivity2;
 import akguen.liquidschool.paulirotlite.activities.old_activities.E_FullScreenActivity3;
@@ -104,9 +100,9 @@ public class S4_WaehleVergehen extends AppCompatActivity
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
+       // if (id == R.id.action_settings) {
+        //    return true;
+       // }
 
         return super.onOptionsItemSelected(item);
     }

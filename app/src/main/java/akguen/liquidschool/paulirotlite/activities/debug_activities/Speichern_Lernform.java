@@ -24,10 +24,10 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
-import akguen.liquidschool.mylib2.db.DataSource_Lernform;
+
 import akguen.liquidschool.paulirotlite.R;
-import akguen.liquidschool.mylib2.model.Lernform;
-import akguen.liquidschool.mylib2.model.Lerngruppe;
+import akguen.liquidschool.coredata.db.*;
+import akguen.liquidschool.coredata.model.*;
 
 public class Speichern_Lernform extends AppCompatActivity {
 
@@ -121,7 +121,7 @@ public class Speichern_Lernform extends AppCompatActivity {
 
                 // Hier den checked-Wert des Memo-Objekts umkehren, bspw. von true auf false
                 // Dann ListView neu zeichnen mit showAllListEntries()
-/*                Lernform updatedLernform = dataSource.updateLernform(lernform.getId(), lernform.getVorname(), lernform.getItemType(), lernform.getPasswort(), lernform.getKuerzel(), lernform.getStatus());
+/*                Lernform updatedLernform = dataSource.updateLernform(lernform.getId(), lernform.getVorname(), lernform.getItemType(), lernform.getPersonaltyp(), lernform.getGeburtstag(), lernform.getStrasse());
                 Log.d(LOG_TAG, "Checked-Status von Eintrag: " + updatedLernform.toString() + " ist: ");
                 showAllListEntries();*/
             }

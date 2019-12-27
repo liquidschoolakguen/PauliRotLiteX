@@ -1,18 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/schuelerListViewId"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
     <ListView
-        android:id="@+id/schuelerListView"
         android:layout_width="wrap_content"
         android:layout_height="455dp"
         android:background="@color/colorPrimary" />
 
     <Button
-        android:id="@+id/nextnochmal"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:text="Ok" />

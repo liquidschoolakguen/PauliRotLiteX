@@ -24,9 +24,10 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
-import akguen.liquidschool.mylib2.db.DataSource_Vorfall;
+
 import akguen.liquidschool.paulirotlite.R;
-import akguen.liquidschool.mylib2.model.Vorfall;
+import akguen.liquidschool.coredata.db.*;
+import akguen.liquidschool.coredata.model.*;
 
 public class Speichern_Vorfall extends AppCompatActivity {
 
@@ -120,7 +121,7 @@ public class Speichern_Vorfall extends AppCompatActivity {
 
                 // Hier den checked-Wert des Memo-Objekts umkehren, bspw. von true auf false
                 // Dann ListView neu zeichnen mit showAllListEntries()
-/*                Vorfall updatedVorfall = dataSource.updateVorfall(vorfall.getId(), vorfall.getVorname(), vorfall.getItemType(), vorfall.getPasswort(), vorfall.getKuerzel(), vorfall.getStatus());
+/*                Vorfall updatedVorfall = dataSource.updateVorfall(vorfall.getId(), vorfall.getVorname(), vorfall.getItemType(), vorfall.getPersonaltyp(), vorfall.getGeburtstag(), vorfall.getStrasse());
                 Log.d(LOG_TAG, "Checked-Status von Eintrag: " + updatedVorfall.toString() + " ist: ");
                 showAllListEntries();*/
             }

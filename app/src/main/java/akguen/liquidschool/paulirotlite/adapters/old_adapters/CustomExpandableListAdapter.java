@@ -13,10 +13,8 @@ import android.widget.TextView;
 import java.util.List;
 import java.util.Map;
 
-import akguen.liquidschool.mylib2.model.Gueltigkeitsbereich;
-import akguen.liquidschool.mylib2.model.Lerngruppe;
-import akguen.liquidschool.mylib2.model.Raum;
-import akguen.liquidschool.mylib2.model.Thema;
+import akguen.liquidschool.coredata.db.*;
+import akguen.liquidschool.coredata.model.*;
 import akguen.liquidschool.paulirotlite.R;
 
 public class CustomExpandableListAdapter extends BaseExpandableListAdapter {

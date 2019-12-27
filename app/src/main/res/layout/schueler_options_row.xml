@@ -33,7 +33,6 @@
                 android:textSize="14sp" />
         </RelativeLayout>
         <RelativeLayout
-            android:id="@+id/rl_btn0"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true">
@@ -113,14 +112,12 @@
                 android:layout_toRightOf="@+id/imageView4"
                 android:src="@drawable/statistik" />
             <ImageView
-                android:id="@+id/imageView6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_toRightOf="@+id/imageView5"
                 android:src="@drawable/chart" />
         </RelativeLayout>
         <RelativeLayout
-            android:id="@+id/rl_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true">

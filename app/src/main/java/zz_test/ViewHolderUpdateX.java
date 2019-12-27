@@ -12,7 +12,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import akguen.liquidschool.paulirotlite.R;
-import akguen.liquidschool.mylib2.model.Schueler;
+import akguen.liquidschool.coredata.db.*;
+import akguen.liquidschool.coredata.model.*;
 
 public class ViewHolderUpdateX extends RecyclerView.ViewHolder  {
 

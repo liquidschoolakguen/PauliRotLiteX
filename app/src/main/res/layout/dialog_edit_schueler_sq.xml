@@ -211,7 +211,6 @@
                 android:text="@string/dialog_schueler_8" />
 
             <EditText
-                android:id="@+id/editText_schueler_9"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="3"
@@ -232,7 +231,6 @@
                     android:text="@string/dialog_schueler_8" />
 
                 <EditText
-                    android:id="@+id/editText_schueler_10"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="3"

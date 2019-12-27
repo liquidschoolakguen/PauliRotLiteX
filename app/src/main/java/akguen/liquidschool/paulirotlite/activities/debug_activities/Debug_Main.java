@@ -1,22 +1,34 @@
 package akguen.liquidschool.paulirotlite.activities.debug_activities;
 
+import android.app.Activity;
 import android.content.Intent;
+import android.net.Uri;
+import android.os.Build;
+import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
+
+import java.io.IOException;
+import java.security.GeneralSecurityException;
 
 import akguen.liquidschool.paulirotlite.R;
 import akguen.liquidschool.paulirotlite.activities.in_use.UnterrichtplanActivity;
 import akguen.liquidschool.paulirotlite.activities.old_activities.S1_WaehleSchueler;
 import akguen.liquidschool.paulirotlite.activities.old_activities.S5_LerngruppeWechseln;
-import akguen.liquidschool.testlib.Bing;
+
+
 import test_activities.*;
 import tabs.WaehleSchuelerDynamicTabsActivity;
 
 public class Debug_Main extends AppCompatActivity {
 
 //Test
+
+    public final int OPEN_DIRECTORY_REQUEST_CODE =1111;
     Button btnA, btnA_, btnB, btnC, btnD, btnE,btnF,btnG,btnH,btnI,btnJ,btnK,btnL,btnM,btnN,btnO,btnP,btnQ,btnR,btnS,btnT,btnU, btnV, btnW, btnX, btnY, btnZ;
     Button btnA2, btnA_2, btnB2, btnC2, btnD2, btnE2,btnF2,btnG2,btnH2,btnI2,btnJ2,btnK2,btnL2,btnM2,btnN2,btnO2,btnP2,btnQ2,btnR2,btnS2,btnT2,btnU2, btnV2, btnW2, btnX2, btnY2, btnZ2;
     Button test4;
@@ -25,8 +37,7 @@ public class Debug_Main extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_debug__main);
 
-            Bing b = new Bing();
-            b.setFax("www");
+
         btnA = findViewById(R.id.bntA);
         btnA_ = findViewById(R.id.bntA_);
         btnB = findViewById(R.id.bntB);
@@ -105,12 +116,19 @@ public class Debug_Main extends AppCompatActivity {
         });
 
         btnA_.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onClick(View v) {
 
                 Filler f = new Filler();
 
-                f.fillAll(getBaseContext());
+                try {
+                    f.fillAll(getBaseContext());
+                } catch (GeneralSecurityException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
 
             }
         });
@@ -396,7 +414,42 @@ public class Debug_Main extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                // ACTION_OPEN_DOCUMENT is the intent to choose a file via the system's file
+                // browser.
+               // Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
+                // Filter to only show results that can be "opened", such as a
+                // file (as opposed to a list of contacts or timezones)
+                //intent.addCategory(Intent.CATEGORY_OPENABLE);
 
+                // Filter to show only images, using the image MIME data type.
+                // If one wanted to search for ogg vorbis files, the type would be "audio/ogg".
+                // To search for all documents available via installed storage providers,
+                // it would be "*/*".
+                // intent.setType("image/*");
+                //intent.setDataAndType(Uri.fromFile(file), "application/vnd.ms-excel");
+                //startActivityForResult(intent, OPEN_DIRECTORY_REQUEST_CODE);
+
+
+
+              /*  Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
+                intent.setType("application/vnd.ms-excel");
+                intent.addCategory(Intent.CATEGORY_OPENABLE);
+                try {
+                    startActivityForResult(
+                            Intent.createChooser(intent, "Select a File to Upload"),
+                            OPEN_DIRECTORY_REQUEST_CODE);
+                } catch (android.content.ActivityNotFoundException ex) {
+                    // Potentially direct the user to the Market with a Dialog
+                    Toast.makeText(getApplicationContext(), "Please install a File Manager.",
+                            Toast.LENGTH_SHORT).show();
+                }*/
+
+
+                Intent intent2 = new Intent(Intent.ACTION_GET_CONTENT)
+                        .addCategory(Intent.CATEGORY_OPENABLE)
+                        .setType("application/vnd.ms-excel");
+
+                startActivityForResult(Intent.createChooser(intent2, "Select file via"), OPEN_DIRECTORY_REQUEST_CODE);
 
 
             }
@@ -661,4 +714,29 @@ public class Debug_Main extends AppCompatActivity {
 
 
     }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, final Intent resultData) {
+
+        if (requestCode == OPEN_DIRECTORY_REQUEST_CODE && resultCode == Activity.RESULT_OK) {
+            // The document selected by the user won't be returned in the intent.
+            // Instead, a URI to that document will be contained in the return intent
+            // provided to this method as a parameter.
+            // Pull that URI using resultData.getData().
+            Uri uri = null;
+            if (resultData != null) {
+                uri = resultData.getData();
+                Log.i("hiii", "Uri: " + uri.toString());
+                //showImage(uri);
+               // path = uri.toString();//my edit
+                //img = loadImage(path);// this is what I want.
+            }
+        }
+
+
+    }
+
+
+
+
 }

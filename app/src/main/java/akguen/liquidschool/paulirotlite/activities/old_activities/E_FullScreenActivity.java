@@ -7,7 +7,8 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.TextView;
 
-import akguen.liquidschool.mylib2.Adressse;
+import akguen.liquidschool.coredata.db.*;
+import akguen.liquidschool.coredata.model.*;
 import akguen.liquidschool.paulirotlite.R;
 import akguen.liquidschool.paulirotlite.activities.in_use.S4_WaehleVergehen;
 import tabs.WaehleSchuelerDynamicTabsActivity;
@@ -23,7 +24,7 @@ public class E_FullScreenActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Adressse z;
+
         // remove title
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,

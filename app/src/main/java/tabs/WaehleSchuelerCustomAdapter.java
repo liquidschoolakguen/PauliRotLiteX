@@ -12,8 +12,8 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 import akguen.liquidschool.paulirotlite.R;
-import akguen.liquidschool.mylib2.db.DataSource_Adresse;
-import akguen.liquidschool.mylib2.model.Schueler;
+import akguen.liquidschool.coredata.db.*;
+import akguen.liquidschool.coredata.model.*;
 
 public class WaehleSchuelerCustomAdapter extends ArrayAdapter<Schueler> implements View.OnClickListener{
     private static final String LOG_TAG = WaehleSchuelerCustomAdapter.class.getSimpleName();

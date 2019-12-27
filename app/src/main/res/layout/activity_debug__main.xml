@@ -323,7 +323,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:textSize="10sp"
-                    android:text=""/>
+                    android:text="such"/>
 
                 <Button
                     android:id="@+id/bntA_2"
@@ -621,7 +621,6 @@
                     android:text="" />
 
                 <Button
-                    android:id="@+id/bntA3"
                     android:layout_width="0px"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -629,7 +628,6 @@
                     android:text=""/>
 
                 <Button
-                    android:id="@+id/bntA_3"
                     android:layout_width="0px"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"

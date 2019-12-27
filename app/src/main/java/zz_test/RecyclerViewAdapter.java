@@ -32,9 +32,8 @@ import java.util.List;
 
 import akguen.liquidschool.paulirotlite.R;
 import akguen.liquidschool.paulirotlite.activities.in_use.S4_WaehleVergehen;
-import akguen.liquidschool.mylib2.db.DataSource_Schueler;
-import akguen.liquidschool.mylib2.db.DataSource_Schueler_Lerngruppe;
-import akguen.liquidschool.mylib2.model.Schueler;
+import akguen.liquidschool.coredata.db.*;
+import akguen.liquidschool.coredata.model.*;
 
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
@@ -257,7 +256,7 @@ System.out.println("------------------ "+selectedSchueler.getItemType());
                             //  Toast.makeText(v.getContext(), "+: "+dataSet.get(holder.getAdapterPosition()).getGeburtstag(), Toast.LENGTH_SHORT).show();
                             notifyItemChanged(holder.getAdapterPosition());
 
-                            //dS_Schueler.updateSchueler(g.getId(),g.getVorname(),g.getItemType(),g.getRufname(),g.getGeschlecht(),g.getStatus(),g.getGeburtstag(),g.getGeburtsort());
+                            //dS_Schueler.updateSchueler(g.getId(),g.getVorname(),g.getItemType(),g.getRufname(),g.getGeschlecht(),g.getStrasse(),g.getGeburtstag(),g.getGeburtsort());
 
                             if (virtual == null) {
 
@@ -1180,7 +1179,7 @@ System.out.println("------------------ "+selectedSchueler.getItemType());
                         virtual = null;
                         //Toast.makeText(view.getContext(), operateSchueler.getId() + "))Es wurde was verändert " + operateSchueler.getVorname() + " (" + operateSchueler.getGeschlecht() + ") " + operateSchueler.getGeburtstag(), Toast.LENGTH_LONG).show();
 
-                        dS_Schueler.updateSchueler(operateSchueler.getId(), operateSchueler.getVorname(),operateSchueler.getSurname(), operateSchueler.getItemType(), operateSchueler.getRufname(), operateSchueler.getGeschlecht(), operateSchueler.getStatus(), operateSchueler.getGeburtstag(), operateSchueler.getGeburtsort());
+                        dS_Schueler.updateSchueler(operateSchueler.getId(), operateSchueler.getVorname(),operateSchueler.getSurname(), operateSchueler.getItemType(), operateSchueler.getRufname(), operateSchueler.getGeschlecht(), operateSchueler.getStrasse(), operateSchueler.getGeburtstag(), operateSchueler.getGeburtsort());
                     }
                     //update
                 }
@@ -1219,7 +1218,7 @@ System.out.println("------------------ "+selectedSchueler.getItemType());
 
                     if (!newLG) {
                         //Toast.makeText(view.getContext(), operateSchueler.getId() + "))Der Schüler mit diesem Namen existiert NICHT und wird gespeichert/verknüpft" + operateSchueler.getVorname() + " (" + operateSchueler.getGeschlecht() + ") " + operateSchueler.getGeburtstag(), Toast.LENGTH_LONG).show();
-                        dS_Schueler.createSchueler(operateSchueler.getVorname(),operateSchueler.getSurname(), operateSchueler.getItemType(), operateSchueler.getRufname(), operateSchueler.getGeschlecht(), operateSchueler.getStatus(), operateSchueler.getGeburtstag(), operateSchueler.getGeburtsort());
+                        dS_Schueler.createSchueler(operateSchueler.getVorname(),operateSchueler.getSurname(), operateSchueler.getItemType(), operateSchueler.getRufname(), operateSchueler.getGeschlecht(), operateSchueler.getStrasse(), operateSchueler.getGeburtstag(), operateSchueler.getGeburtsort());
 
                         int z = dataSet.indexOf(operateSchueler);
 

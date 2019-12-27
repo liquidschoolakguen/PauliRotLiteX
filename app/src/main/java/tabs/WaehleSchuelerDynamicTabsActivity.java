@@ -20,10 +20,8 @@ import java.util.List;
 
 import akguen.liquidschool.paulirotlite.activities.debug_activities.Debug_Main;
 import akguen.liquidschool.paulirotlite.R;
-import akguen.liquidschool.mylib2.db.DataSource_Lerngruppe;
-import akguen.liquidschool.mylib2.db.DataSource_Schueler;
-import akguen.liquidschool.mylib2.db.DataSource_Schueler_Lerngruppe;
-import akguen.liquidschool.mylib2.model.Lerngruppe;
+import akguen.liquidschool.coredata.db.*;
+import akguen.liquidschool.coredata.model.*;
 
 public class WaehleSchuelerDynamicTabsActivity extends AppCompatActivity {
     private TabLayout tabLayout;

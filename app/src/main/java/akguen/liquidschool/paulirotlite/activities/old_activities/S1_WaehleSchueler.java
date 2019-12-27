@@ -25,11 +25,8 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
-import akguen.liquidschool.mylib2.db.DataSource_Lerngruppe;
-import akguen.liquidschool.mylib2.db.DataSource_Schueler;
-import akguen.liquidschool.mylib2.db.DataSource_Schueler_Lerngruppe;
-import akguen.liquidschool.mylib2.model.Lerngruppe;
-import akguen.liquidschool.mylib2.model.Schueler;
+import akguen.liquidschool.coredata.db.*;
+import akguen.liquidschool.coredata.model.*;
 import akguen.liquidschool.paulirotlite.R;
 import akguen.liquidschool.paulirotlite.activities.debug_activities.Debug_Main;
 import akguen.liquidschool.paulirotlite.activities.in_use.S4_WaehleVergehen;
@@ -173,9 +170,9 @@ public class S1_WaehleSchueler extends AppCompatActivity
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+       /* if (id == R.id.action_settings) {
             return true;
-        }
+        }*/
 
         return super.onOptionsItemSelected(item);
     }

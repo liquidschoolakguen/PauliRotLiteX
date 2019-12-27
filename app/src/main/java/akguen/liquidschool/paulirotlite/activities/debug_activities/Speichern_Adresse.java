@@ -122,7 +122,7 @@ public class Speichern_Adresse extends AppCompatActivity {
 
                 // Hier den checked-Wert des Memo-Objekts umkehren, bspw. von true auf false
                 // Dann ListView neu zeichnen mit showAllListEntries()
-/*                Adresse updatedAdresse = dataSource.updateAdresse(adresse.getId(), adresse.getVorname(), adresse.getItemType(), adresse.getPasswort(), adresse.getKuerzel(), adresse.getStatus());
+/*                Adresse updatedAdresse = dataSource.updateAdresse(adresse.getId(), adresse.getVorname(), adresse.getItemType(), adresse.getPersonaltyp(), adresse.getGeburtstag(), adresse.getStrasse());
                 Log.d(LOG_TAG, "Checked-Status von Eintrag: " + updatedAdresse.toString() + " ist: ");
                 showAllListEntries();*/
             }

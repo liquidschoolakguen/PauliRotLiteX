@@ -29,14 +29,14 @@
         <EditText
             android:layout_width="0px"
             android:layout_height="wrap_content"
-            android:hint="@string/editText_hint_vorname"
+            android:hint="Vorname"
             android:id="@+id/editText_kollege_11"
             android:layout_weight="1" />
 
         <EditText
             android:layout_width="0px"
             android:layout_height="wrap_content"
-            android:hint="@string/editText_hint_nachname"
+            android:hint="Nachname"
             android:id="@+id/editText_kollege_22"
             android:layout_weight="1" />
 
@@ -56,14 +56,14 @@
         <EditText
             android:layout_width="0px"
             android:layout_height="wrap_content"
-            android:hint="@string/editText_hint_passwort"
+            android:hint="Personaltyp"
             android:id="@+id/editText_kollege_33"
             android:layout_weight="1" />
 
         <EditText
             android:layout_width="0px"
             android:layout_height="wrap_content"
-            android:hint="@string/editText_hint_kuerzel"
+            android:hint="Geburtstag"
             android:id="@+id/editText_kollege_44"
             android:layout_weight="1" />
 
@@ -82,9 +82,81 @@
         <EditText
             android:layout_width="0px"
             android:layout_height="wrap_content"
-            android:hint="@string/editText_hint_status"
+            android:hint="Straße"
             android:id="@+id/editText_kollege_55"
             android:layout_weight="1" />
+
+        <EditText
+            android:layout_width="0px"
+            android:layout_height="wrap_content"
+            android:hint="PLZ"
+            android:id="@+id/editText_kollege_66"
+            android:layout_weight="1" />
+
+
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:focusableInTouchMode="true">
+
+        <EditText
+            android:layout_width="0px"
+            android:layout_height="wrap_content"
+            android:hint="Telefon"
+            android:id="@+id/editText_kollege_77"
+            android:layout_weight="1" />
+
+        <EditText
+            android:layout_width="0px"
+            android:layout_height="wrap_content"
+            android:hint="Email"
+            android:id="@+id/editText_kollege_88"
+            android:layout_weight="1" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:focusableInTouchMode="true">
+
+
+        <EditText
+            android:layout_width="0px"
+            android:layout_height="wrap_content"
+            android:hint="Standort"
+            android:id="@+id/editText_kollege_99"
+            android:layout_weight="1" />
+
+        <EditText
+            android:layout_width="0px"
+            android:layout_height="wrap_content"
+            android:hint="Passwort"
+            android:id="@+id/editText_kollege_1010"
+            android:layout_weight="1" />
+
+
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:focusableInTouchMode="true">
+
+
+
+
+
 
         <Button
             android:layout_width="0px"
@@ -93,7 +165,9 @@
             android:id="@+id/button_add_kollege"
             android:layout_weight="1"/>
 
+
     </LinearLayout>
+
 
 
 
@@ -111,8 +185,12 @@
             android:text="alle speichern"
             android:id="@+id/button_add_kolleges"
             />
-
     </LinearLayout>
+
+
+
+
+
 
     <LinearLayout
         android:orientation="horizontal"

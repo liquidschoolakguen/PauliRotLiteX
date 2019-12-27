@@ -1,7 +1,9 @@
 package akguen.liquidschool.paulirotlite.activities.debug_activities;
 
 import android.content.DialogInterface;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.RequiresApi;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -21,8 +23,11 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.github.sundeepk.compactcalendarview.mylib2.db.DataSource_Kollege;
+import akguen.liquidschool.coredata.db.*;
+import akguen.liquidschool.coredata.model.*;
 
+import java.io.IOException;
+import java.security.GeneralSecurityException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
@@ -39,11 +44,6 @@ public class Speichern_Kollege extends AppCompatActivity {
     private DataSource_Kollege dataSource;
 
     private ListView mKollegesListView;
-
-
-
-
-
 
 
     @Override
@@ -125,7 +125,7 @@ public class Speichern_Kollege extends AppCompatActivity {
 
                 // Hier den checked-Wert des Memo-Objekts umkehren, bspw. von true auf false
                 // Dann ListView neu zeichnen mit showAllListEntries()
-/*                Kollege updatedKollege = dataSource.updateKollege(kollege.getId(), kollege.getVorname(), kollege.getItemType(), kollege.getPasswort(), kollege.getKuerzel(), kollege.getStatus());
+/*                Kollege updatedKollege = dataSource.updateKollege(kollege.getId(), kollege.getVorname(), kollege.getItemType(), kollege.getPersonaltyp(), kollege.getGeburtstag(), kollege.getStrasse());
                 Log.d(LOG_TAG, "Checked-Status von Eintrag: " + updatedKollege.toString() + " ist: ");
                 showAllListEntries();*/
             }
@@ -150,9 +150,13 @@ public class Speichern_Kollege extends AppCompatActivity {
         final EditText editText3 = (EditText) findViewById(R.id.editText_kollege_33);
         final EditText editText4 = (EditText) findViewById(R.id.editText_kollege_44);
         final EditText editText5 = (EditText) findViewById(R.id.editText_kollege_55);
-
-
+        final EditText editText6 = (EditText) findViewById(R.id.editText_kollege_66);
+        final EditText editText7 = (EditText) findViewById(R.id.editText_kollege_77);
+        final EditText editText8 = (EditText) findViewById(R.id.editText_kollege_88);
+        final EditText editText9 = (EditText) findViewById(R.id.editText_kollege_99);
+        final EditText editText10 = (EditText) findViewById(R.id.editText_kollege_1010);
         buttonAddKollege.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onClick(View v) {
 
@@ -161,8 +165,11 @@ public class Speichern_Kollege extends AppCompatActivity {
                 String s3 = editText3.getText().toString();
                 String s4 = editText4.getText().toString();
                 String s5 = editText5.getText().toString();
-
-
+                String s6 = editText6.getText().toString();
+                String s7 = editText7.getText().toString();
+                String s8 = editText8.getText().toString();
+                String s9 = editText9.getText().toString();
+                String s10 = editText10.getText().toString();
    /*             if (TextUtils.isEmpty(s2)) {
                     editText2.setError(getString(R.string.editText_errorMessage));
                     return;
@@ -178,9 +185,19 @@ public class Speichern_Kollege extends AppCompatActivity {
                 editText3.setText("");
                 editText4.setText("");
                 editText5.setText("");
+                editText6.setText("");
+                editText7.setText("");
+                editText8.setText("");
+                editText9.setText("");
+                editText10.setText("");
 
-
-                dataSource.createKollege(s1, s2, s3, s4, s5);
+                try {
+                    dataSource.createKollege(s1, s2, s3, s4, s5, s6, s7, s8, s9, s10);
+                } catch (GeneralSecurityException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
 
                 InputMethodManager inputMethodManager;
                 inputMethodManager = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
@@ -200,12 +217,17 @@ public class Speichern_Kollege extends AppCompatActivity {
 
 
         buttonFillKollege.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onClick(View v) {
 
                 Filler f = new Filler();
 
-                f.fillKollege(getBaseContext());
+                //f.saveExcelFile(getBaseContext(), "hallo-mein-benno.xls");
+
+                //f.fillKollege2(getBaseContext());
+
+                f.convertKollege(getBaseContext());
 
 
 
@@ -216,8 +238,6 @@ public class Speichern_Kollege extends AppCompatActivity {
                 }
 
                 showAllListEntries();
-
-
 
 
             }
@@ -235,12 +255,12 @@ public class Speichern_Kollege extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                if( dataSource.getKollegeById(5)!= null){
+                if (dataSource.getKollegeById(5) != null) {
 
                     Log.i("click", "Gesuchter Kollege: " + dataSource.getKollegeById(5).toString());
-                }else{
+                } else {
 
-                    Log.i("click", "Gesuchter Kollege mit der id 5 nicht gefunden" );
+                    Log.i("click", "Gesuchter Kollege mit der id 5 nicht gefunden");
                 }
 
             }
@@ -250,19 +270,19 @@ public class Speichern_Kollege extends AppCompatActivity {
 
     }
 
-private void doLocale(){
-    Locale[] locales = Locale.getAvailableLocales();
-    ArrayList<String> localcountries=new ArrayList<String>();
-    for(Locale l:locales)
-    {
-        localcountries.add(l.getDisplayLanguage().toString());
+    private void doLocale() {
+        Locale[] locales = Locale.getAvailableLocales();
+        ArrayList<String> localcountries = new ArrayList<String>();
+        for (Locale l : locales) {
+            localcountries.add(l.getDisplayLanguage().toString());
 
-        Log.d(LOG_TAG, "LOCALE: ("+l.getLanguage().toString()+ ") "+l.getDisplayLanguage());
+            Log.d(LOG_TAG, "LOCALE: (" + l.getLanguage().toString() + ") " + l.getDisplayLanguage());
+
+        }
+
 
     }
 
-
-}
     private void initializeContextualActionBar() {
         final ListView kollegesListView = (ListView) findViewById(R.id.listview_kolleges);
         kollegesListView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE_MODAL);
@@ -363,9 +383,6 @@ private void doLocale(){
     }
 
 
-
-
-
     private AlertDialog createEditKollegeDialog(final Kollege kollege) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         LayoutInflater inflater = getLayoutInflater();
@@ -379,14 +396,28 @@ private void doLocale(){
         editText2.setText(kollege.getNachname());
 
         final EditText editText3 = (EditText) dialogsView.findViewById(R.id.editText_kollege_3);
-        editText3.setText(kollege.getPasswort());
+        editText3.setText(kollege.getPersonaltyp());
 
         final EditText editText4 = (EditText) dialogsView.findViewById(R.id.editText_kollege_4);
-        editText4.setText(kollege.getKuerzel());
+        editText4.setText(kollege.getGeburtstag());
 
         final EditText editText5 = (EditText) dialogsView.findViewById(R.id.editText_kollege_5);
-        editText5.setText(kollege.getStatus());
+        editText5.setText(kollege.getStrasse());
 
+        final EditText editText6 = (EditText) dialogsView.findViewById(R.id.editText_kollege_6);
+        editText6.setText(kollege.getPlz());
+
+        final EditText editText7 = (EditText) dialogsView.findViewById(R.id.editText_kollege_7);
+        editText7.setText(kollege.getTelefon());
+
+        final EditText editText8 = (EditText) dialogsView.findViewById(R.id.editText_kollege_8);
+        editText8.setText(kollege.getEmail());
+
+        final EditText editText9 = (EditText) dialogsView.findViewById(R.id.editText_kollege_9);
+        editText9.setText(kollege.getStandort());
+
+        final EditText editText10 = (EditText) dialogsView.findViewById(R.id.editText_kollege_10);
+        editText10.setText(kollege.getPasswort());
 
         builder.setView(dialogsView)
                 .setTitle(R.string.dialog_title)
@@ -398,7 +429,11 @@ private void doLocale(){
                         String s3 = editText3.getText().toString();
                         String s4 = editText4.getText().toString();
                         String s5 = editText5.getText().toString();
-
+                        String s6 = editText6.getText().toString();
+                        String s7 = editText7.getText().toString();
+                        String s8 = editText8.getText().toString();
+                        String s9 = editText9.getText().toString();
+                        String s10 = editText10.getText().toString();
 /*                        if ((TextUtils.isEmpty(s1)) || (TextUtils.isEmpty(s2)) || (TextUtils.isEmpty(s3)) || (TextUtils.isEmpty(s4)) || (TextUtils.isEmpty(s5))) {
                             Log.d(LOG_TAG, "Ein Eintrag enthielt keinen Text. Daher Abbruch der Änderung.");
                             return;
@@ -406,7 +441,7 @@ private void doLocale(){
 
 
                         // An dieser Stelle schreiben wir die geänderten Daten in die SQLite Datenbank
-                        Kollege updatedKollege = dataSource.updateKollege(kollege.getId(), s1, s2, s3, s4, s5);
+                        Kollege updatedKollege = dataSource.updateKollege(kollege.getId(), s1, s2, s3, s4, s5, s6, s7, s8, s9, s10);
 
                         Log.d(LOG_TAG, "Alter Eintrag - ID: " + kollege.getId() + " Inhalt: " + kollege.toString());
                         Log.d(LOG_TAG, "Neuer Eintrag - ID: " + updatedKollege.getId() + " Inhalt: " + updatedKollege.toString());

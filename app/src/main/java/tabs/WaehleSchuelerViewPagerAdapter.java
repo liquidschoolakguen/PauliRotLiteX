@@ -7,8 +7,8 @@ import android.support.v4.app.FragmentStatePagerAdapter;
 
 import java.util.List;
 
-import akguen.liquidschool.mylib2.db.DataSource_Lerngruppe;
-import akguen.liquidschool.mylib2.model.Lerngruppe;
+import akguen.liquidschool.coredata.db.*;
+import akguen.liquidschool.coredata.model.*;
 
 public class WaehleSchuelerViewPagerAdapter extends FragmentStatePagerAdapter {
     private int noOfItems;

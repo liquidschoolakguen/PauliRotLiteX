@@ -11,7 +11,8 @@ import android.widget.ListView;
 
 import java.util.ArrayList;
 
-import akguen.liquidschool.mylib2.model.Schueler;
+import akguen.liquidschool.coredata.db.*;
+import akguen.liquidschool.coredata.model.*;
 import tabs.WaehleSchuelerCustomAdapter;
 
 public class TestMainActivity2 extends AppCompatActivity {

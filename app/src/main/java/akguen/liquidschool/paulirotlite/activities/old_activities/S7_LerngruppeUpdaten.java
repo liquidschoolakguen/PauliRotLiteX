@@ -17,12 +17,8 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
-import akguen.liquidschool.mylib2.db.DataSource_Lerngruppe;
-import akguen.liquidschool.mylib2.db.DataSource_Schueler;
-import akguen.liquidschool.mylib2.db.DataSource_Schueler_Lerngruppe;
-import akguen.liquidschool.mylib2.db.MyDbHelper;
-import akguen.liquidschool.mylib2.model.Lerngruppe;
-import akguen.liquidschool.mylib2.model.Schueler;
+import akguen.liquidschool.coredata.db.*;
+import akguen.liquidschool.coredata.model.*;
 import akguen.liquidschool.paulirotlite.R;
 
 public class S7_LerngruppeUpdaten extends AppCompatActivity {

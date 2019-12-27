@@ -25,11 +25,10 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
-import akguen.liquidschool.mylib2.db.DataSource_Schueler_Lerngruppe;
-import akguen.liquidschool.mylib2.db.MyDbHelper;
+import akguen.liquidschool.coredata.db.*;
+import akguen.liquidschool.coredata.model.*;
 import akguen.liquidschool.paulirotlite.R;
-import akguen.liquidschool.mylib2.model.Lerngruppe;
-import akguen.liquidschool.mylib2.model.Schueler;
+
 
 
 public class Speichern_Schueler_Lerngruppe extends AppCompatActivity {
@@ -129,7 +128,7 @@ public class Speichern_Schueler_Lerngruppe extends AppCompatActivity {
 
                 // Hier den checked-Wert des Memo-Objekts umkehren, bspw. von true auf false
                 // Dann ListView neu zeichnen mit showAllListEntries()
-/*                Schueler_Lerngruppe updatedSchueler_Lerngruppe = dataSource.updateSchueler_Lerngruppe(schueler_lerngruppe.getId(), schueler_lerngruppe.getVorname(), schueler_lerngruppe.getItemType(), schueler_lerngruppe.getPasswort(), schueler_lerngruppe.getKuerzel(), schueler_lerngruppe.getStatus());
+/*                Schueler_Lerngruppe updatedSchueler_Lerngruppe = dataSource.updateSchueler_Lerngruppe(schueler_lerngruppe.getId(), schueler_lerngruppe.getVorname(), schueler_lerngruppe.getItemType(), schueler_lerngruppe.getPersonaltyp(), schueler_lerngruppe.getGeburtstag(), schueler_lerngruppe.getStrasse());
                 Log.d(LOG_TAG, "Checked-Status von Eintrag: " + updatedSchueler_Lerngruppe.toString() + " ist: ");
                 showAllListEntries();*/
             }

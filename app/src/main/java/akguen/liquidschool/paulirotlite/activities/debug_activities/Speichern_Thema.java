@@ -24,11 +24,11 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
-import akguen.liquidschool.mylib2.db.DataSource_Thema;
+
 import akguen.liquidschool.paulirotlite.R;
 
-import akguen.liquidschool.mylib2.model.SP_Fach;
-import akguen.liquidschool.mylib2.model.Thema;
+import akguen.liquidschool.coredata.db.*;
+import akguen.liquidschool.coredata.model.*;
 import test_activities.Filler;
 
 public class Speichern_Thema extends AppCompatActivity {
@@ -123,7 +123,7 @@ public class Speichern_Thema extends AppCompatActivity {
 
                 // Hier den checked-Wert des Memo-Objekts umkehren, bspw. von true auf false
                 // Dann ListView neu zeichnen mit showAllListEntries()
-/*                Thema updatedThema = dataSource.updateThema(thema.getId(), thema.getVorname(), thema.getItemType(), thema.getPasswort(), thema.getKuerzel(), thema.getStatus());
+/*                Thema updatedThema = dataSource.updateThema(thema.getId(), thema.getVorname(), thema.getItemType(), thema.getPersonaltyp(), thema.getGeburtstag(), thema.getStrasse());
                 Log.d(LOG_TAG, "Checked-Status von Eintrag: " + updatedThema.toString() + " ist: ");
                 showAllListEntries();*/
             }

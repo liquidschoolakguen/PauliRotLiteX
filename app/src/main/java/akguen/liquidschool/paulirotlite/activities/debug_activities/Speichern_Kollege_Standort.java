@@ -25,11 +25,10 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
-import akguen.liquidschool.mylib2.db.DataSource_Kollege_Standort;
-import akguen.liquidschool.mylib2.db.MyDbHelper;
+import akguen.liquidschool.coredata.db.*;
+import akguen.liquidschool.coredata.model.*;
 import akguen.liquidschool.paulirotlite.R;
-import akguen.liquidschool.mylib2.model.Kollege;
-import akguen.liquidschool.mylib2.model.Standort;
+
 
 
 public class Speichern_Kollege_Standort extends AppCompatActivity {
@@ -129,7 +128,7 @@ public class Speichern_Kollege_Standort extends AppCompatActivity {
 
                 // Hier den checked-Wert des Memo-Objekts umkehren, bspw. von true auf false
                 // Dann ListView neu zeichnen mit showAllListEntries()
-/*                Kollege_Standort updatedKollege_Standort = dataSource.updateKollege_Standort(kollege_standort.getId(), kollege_standort.getVorname(), kollege_standort.getItemType(), kollege_standort.getPasswort(), kollege_standort.getKuerzel(), kollege_standort.getStatus());
+/*                Kollege_Standort updatedKollege_Standort = dataSource.updateKollege_Standort(kollege_standort.getId(), kollege_standort.getVorname(), kollege_standort.getItemType(), kollege_standort.getPersonaltyp(), kollege_standort.getGeburtstag(), kollege_standort.getStrasse());
                 Log.d(LOG_TAG, "Checked-Status von Eintrag: " + updatedKollege_Standort.toString() + " ist: ");
                 showAllListEntries();*/
             }

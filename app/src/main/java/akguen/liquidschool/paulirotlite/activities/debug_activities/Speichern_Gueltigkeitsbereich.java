@@ -31,10 +31,10 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
-import akguen.liquidschool.mylib2.db.DataSource_Gueltigkeitsbereich;
+
 import akguen.liquidschool.paulirotlite.R;
-import akguen.liquidschool.mylib2.model.Gueltigkeitsbereich;
-import akguen.liquidschool.mylib2.model.SP_Fach;
+import akguen.liquidschool.coredata.db.*;
+import akguen.liquidschool.coredata.model.*;
 
 
 public class Speichern_Gueltigkeitsbereich extends AppCompatActivity {
@@ -143,7 +143,7 @@ public class Speichern_Gueltigkeitsbereich extends AppCompatActivity {
 
                 // Hier den checked-Wert des Memo-Objekts umkehren, bspw. von true auf false
                 // Dann ListView neu zeichnen mit showAllListEntries()
-/*                Gueltigkeitsbereich updatedGueltigkeitsbereich = dataSource.updateGueltigkeitsbereich(gueltigkeitsbereich.getId(), gueltigkeitsbereich.getVorname(), gueltigkeitsbereich.getItemType(), gueltigkeitsbereich.getPasswort(), gueltigkeitsbereich.getKuerzel(), gueltigkeitsbereich.getStatus());
+/*                Gueltigkeitsbereich updatedGueltigkeitsbereich = dataSource.updateGueltigkeitsbereich(gueltigkeitsbereich.getId(), gueltigkeitsbereich.getVorname(), gueltigkeitsbereich.getItemType(), gueltigkeitsbereich.getPersonaltyp(), gueltigkeitsbereich.getGeburtstag(), gueltigkeitsbereich.getStrasse());
                 Log.d(LOG_TAG, "Checked-Status von Eintrag: " + updatedGueltigkeitsbereich.toString() + " ist: ");
                 showAllListEntries();*/
             }

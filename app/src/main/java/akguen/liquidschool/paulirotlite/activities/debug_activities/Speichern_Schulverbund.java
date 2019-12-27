@@ -24,9 +24,10 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
-import akguen.liquidschool.mylib2.db.DataSource_Schulverbund;
+
 import akguen.liquidschool.paulirotlite.R;
-import akguen.liquidschool.mylib2.model.Schulverbund;
+import akguen.liquidschool.coredata.db.*;
+import akguen.liquidschool.coredata.model.*;
 
 public class Speichern_Schulverbund extends AppCompatActivity {
 
@@ -120,7 +121,7 @@ public class Speichern_Schulverbund extends AppCompatActivity {
 
                 // Hier den checked-Wert des Memo-Objekts umkehren, bspw. von true auf false
                 // Dann ListView neu zeichnen mit showAllListEntries()
-/*                Schulverbund updatedSchulverbund = dataSource.updateSchulverbund(schulverbund.getId(), schulverbund.getVorname(), schulverbund.getItemType(), schulverbund.getPasswort(), schulverbund.getKuerzel(), schulverbund.getStatus());
+/*                Schulverbund updatedSchulverbund = dataSource.updateSchulverbund(schulverbund.getId(), schulverbund.getVorname(), schulverbund.getItemType(), schulverbund.getPersonaltyp(), schulverbund.getGeburtstag(), schulverbund.getStrasse());
                 Log.d(LOG_TAG, "Checked-Status von Eintrag: " + updatedSchulverbund.toString() + " ist: ");
                 showAllListEntries();*/
             }

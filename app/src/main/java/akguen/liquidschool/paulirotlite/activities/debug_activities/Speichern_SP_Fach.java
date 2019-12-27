@@ -29,18 +29,12 @@ import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
-import akguen.liquidschool.mylib2.db.DataSource_Gueltigkeitsbereich;
-import akguen.liquidschool.mylib2.db.DataSource_Lerngruppe;
-import akguen.liquidschool.mylib2.db.DataSource_Raum;
-import akguen.liquidschool.mylib2.db.DataSource_SP_Fach;
-import akguen.liquidschool.mylib2.db.DataSource_Thema;
+import akguen.liquidschool.coredata.db.*;
+import akguen.liquidschool.coredata.model.*;
 import akguen.liquidschool.paulirotlite.adapters.old_adapters.CustomExpandableListAdapter;
 import akguen.liquidschool.paulirotlite.R;
-import akguen.liquidschool.mylib2.model.Gueltigkeitsbereich;
-import akguen.liquidschool.mylib2.model.Lerngruppe;
-import akguen.liquidschool.mylib2.model.Raum;
-import akguen.liquidschool.mylib2.model.SP_Fach;
-import akguen.liquidschool.mylib2.model.Thema;
+import akguen.liquidschool.coredata.db.*;
+import akguen.liquidschool.coredata.model.*;
 
 public class Speichern_SP_Fach extends AppCompatActivity {
 
@@ -303,7 +297,7 @@ public class Speichern_SP_Fach extends AppCompatActivity {
 
                 // Hier den checked-Wert des Memo-Objekts umkehren, bspw. von true auf false
                 // Dann ListView neu zeichnen mit showAllListEntries()
-/*                SP_Fach updatedSP_Fach = dataSource.updateSP_Fach(sp_fach.getId(), sp_fach.getVorname(), sp_fach.getItemType(), sp_fach.getPasswort(), sp_fach.getKuerzel(), sp_fach.getStatus());
+/*                SP_Fach updatedSP_Fach = dataSource.updateSP_Fach(sp_fach.getId(), sp_fach.getVorname(), sp_fach.getItemType(), sp_fach.getPersonaltyp(), sp_fach.getGeburtstag(), sp_fach.getStrasse());
                 Log.d(LOG_TAG, "Checked-Status von Eintrag: " + updatedSP_Fach.toString() + " ist: ");
                 showAllListEntries();*/
             }

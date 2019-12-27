@@ -10,7 +10,6 @@
 
 
     <ScrollView
-        android:id="@+id/layout"
         android:layout_height="match_parent"
         android:scrollbars="horizontal|vertical"
         android:layout_width="match_parent"
@@ -19,7 +18,6 @@
         android:fillViewport="true">
 
     <HorizontalScrollView
-        android:id="@+id/horizontalView"
         android:layout_height="wrap_content"
         android:scrollbars="horizontal|vertical"
         android:layout_width="wrap_content"
