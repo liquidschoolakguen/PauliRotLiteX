@@ -25,7 +25,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import akguen.liquidschool.coredata.db.*;
-import akguen.liquidschool.coredata.model.*;
 import akguen.liquidschool.paulirotlite.R;
 
 
@@ -33,7 +32,7 @@ public class Speichern_Kontakt extends AppCompatActivity {
 
     public static final String LOG_TAG = Speichern_Kontakt.class.getSimpleName();
 
-    private DataSource_Kontakt dataSource;
+    private DataSource_Subjekt dataSource;
 
     private ListView mKontaktsListView;
 
@@ -49,7 +48,7 @@ public class Speichern_Kontakt extends AppCompatActivity {
         setContentView(R.layout.activity_main_kontakt_sq);
 
         Log.d(LOG_TAG, "Das Datenquellen-Objekt wird angelegt.");
-        dataSource = new DataSource_Kontakt(this);
+        dataSource = new DataSource_Subjekt(this);
 
         initializeKontaktsListView();
 
@@ -403,7 +402,7 @@ public class Speichern_Kontakt extends AppCompatActivity {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         LayoutInflater inflater = getLayoutInflater();
 
-        View dialogsView = inflater.inflate(R.layout.dialog_edit_kontakt_sq, null);
+        View dialogsView = inflater.inflate(R.layout.dialog_edit_subjekt_sq, null);
 
         final EditText editText1 = (EditText) dialogsView.findViewById(R.id.editText_kontakt_1);
         editText1.setText(kontakt.getMobil());

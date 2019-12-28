@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="fill_parent"
@@ -15,7 +14,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Kontakt"
+            android:text="Subjekt"
             android:textSize="30dp" />
 
 
@@ -30,15 +29,15 @@
         <EditText
             android:layout_width="0px"
             android:layout_height="wrap_content"
-            android:hint="@string/dialog_kontakt_1"
-            android:id="@+id/editText_kontakt_11"
+            android:hint="@string/dialog_subjekt_1"
+            android:id="@+id/editText_subjekt_11"
             android:layout_weight="1" />
 
         <EditText
             android:layout_width="0px"
             android:layout_height="wrap_content"
-            android:hint="@string/dialog_kontakt_2"
-            android:id="@+id/editText_kontakt_22"
+            android:hint="@string/dialog_subjekt_2"
+            android:id="@+id/editText_subjekt_22"
             android:layout_weight="1" />
 
 
@@ -47,8 +46,30 @@
     </LinearLayout>
 
 
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:focusableInTouchMode="true">
 
 
+        <EditText
+            android:layout_width="0px"
+            android:layout_height="wrap_content"
+            android:hint="@string/dialog_subjekt_3"
+            android:id="@+id/editText_subjekt_33"
+            android:layout_weight="1" />
+
+        <EditText
+            android:layout_width="0px"
+            android:layout_height="wrap_content"
+            android:hint="@string/dialog_subjekt_4"
+            android:id="@+id/editText_subjekt_44"
+            android:layout_weight="1" />
+
+
+
+    </LinearLayout>
 
 
 
@@ -58,14 +79,100 @@
         android:layout_height="wrap_content"
         android:focusableInTouchMode="true">
 
+        <EditText
+            android:layout_width="0px"
+            android:layout_height="wrap_content"
+            android:hint="@string/dialog_subjekt_5"
+            android:id="@+id/editText_subjekt_55"
+            android:layout_weight="1" />
+
+        <EditText
+            android:layout_width="0px"
+            android:layout_height="wrap_content"
+            android:hint="@string/dialog_subjekt_6"
+            android:id="@+id/editText_subjekt_66"
+            android:layout_weight="1" />
+
+
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:focusableInTouchMode="true">
+
+        <EditText
+            android:layout_width="0px"
+            android:layout_height="wrap_content"
+            android:hint="@string/dialog_subjekt_7"
+            android:id="@+id/editText_subjekt_77"
+            android:layout_weight="1" />
+
+        <EditText
+            android:layout_width="0px"
+            android:layout_height="wrap_content"
+            android:hint="@string/dialog_subjekt_8"
+            android:id="@+id/editText_subjekt_88"
+            android:layout_weight="1" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:focusableInTouchMode="true">
+
+
+        <EditText
+            android:layout_width="0px"
+            android:layout_height="wrap_content"
+            android:hint="@string/dialog_subjekt_9"
+            android:id="@+id/editText_subjekt_99"
+            android:layout_weight="1" />
+
+        <EditText
+            android:layout_width="0px"
+            android:layout_height="wrap_content"
+            android:hint="@string/dialog_subjekt_10"
+            android:id="@+id/editText_subjekt_1010"
+            android:layout_weight="1" />
+
+
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:focusableInTouchMode="true">
+
+        <EditText
+            android:layout_width="0px"
+            android:layout_height="wrap_content"
+            android:hint="@string/dialog_subjekt_11"
+            android:id="@+id/editText_subjekt_1111"
+            android:layout_weight="1" />
+
+
+
+
         <Button
             android:layout_width="0px"
             android:layout_height="wrap_content"
             android:text="speichern"
-            android:id="@+id/button_add_kontakt"
+            android:id="@+id/button_add_subjekt"
             android:layout_weight="1"/>
 
+
     </LinearLayout>
+
 
 
 
@@ -81,10 +188,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="alle speichern"
-            android:id="@+id/button_add_kontakts"
+            android:id="@+id/button_add_subjekts"
             />
-
     </LinearLayout>
+
+
+
+
+
 
     <LinearLayout
         android:orientation="horizontal"
@@ -97,8 +208,8 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="finde Kontakt"
-            android:id="@+id/button_select_kontakt"
+            android:text="finde Subjekt"
+            android:id="@+id/button_select_subjekt"
             />
 
     </LinearLayout>
@@ -109,7 +220,7 @@
     <ListView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/listview_kontakts"
+        android:id="@+id/listview_subjekts"
         android:layout_gravity="center_horizontal" />
 
 </LinearLayout>
