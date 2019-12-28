@@ -161,6 +161,28 @@
             android:layout_weight="1" />
 
 
+        <EditText
+            android:layout_width="0px"
+            android:layout_height="wrap_content"
+            android:hint="@string/dialog_subjekt_12"
+            android:id="@+id/editText_subjekt_1212"
+            android:layout_weight="1" />
+
+
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:focusableInTouchMode="true">
+
+
+
+
 
 
         <Button
@@ -172,9 +194,6 @@
 
 
     </LinearLayout>
-
-
-
 
     <LinearLayout
         android:orientation="horizontal"

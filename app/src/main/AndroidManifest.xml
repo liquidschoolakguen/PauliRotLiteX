@@ -61,7 +61,7 @@
         <activity android:name=".activities.debug_activities.Speichern_Schulverbund" />
         <activity android:name=".activities.debug_activities.Speichern_Standort" />
         <activity android:name=".activities.debug_activities.Speichern_Adresse" />
-        <activity android:name=".activities.debug_activities.Speichern_Kontakt" />
+        <activity android:name=".activities.debug_activities.Speichern_Subjekt" />
         <activity android:name=".activities.debug_activities.Speichern_Angehoeriger" />
         <activity android:name=".activities.debug_activities.Speichern_Vorfall" />
         <activity android:name=".activities.debug_activities.Speichern_Vergehen" />

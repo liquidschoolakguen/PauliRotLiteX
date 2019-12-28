@@ -10,7 +10,6 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
 
 import java.io.IOException;
 import java.security.GeneralSecurityException;
@@ -190,7 +189,7 @@ public class Debug_Main extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent speichernKontakt = new Intent(Debug_Main.this, Speichern_Kontakt.class);
+                Intent speichernKontakt = new Intent(Debug_Main.this, Speichern_Subjekt.class);
                 startActivity(speichernKontakt);
 
             }
