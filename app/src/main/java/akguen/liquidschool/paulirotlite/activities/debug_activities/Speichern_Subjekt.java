@@ -48,7 +48,6 @@ public class Speichern_Subjekt extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_subjekt_sq);
 
-        Log.d(LOG_TAG, "Das Datenquellen-Objekt wird angelegt.");
         dataSource = new DataSource_Subjekt(this);
 
         initializeSubjektsListView();
@@ -62,19 +61,13 @@ public class Speichern_Subjekt extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-
-        Log.d(LOG_TAG, "Die Datenquelle wird geöffnet.");
         dataSource.open();
-
-        Log.d(LOG_TAG, "Folgende Einträge sind in der Datenbank vorhanden:");
         showAllListEntries();
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-
-        Log.d(LOG_TAG, "Die Datenquelle wird geschlossen.");
         dataSource.close();
     }
 
@@ -146,13 +139,7 @@ public class Speichern_Subjekt extends AppCompatActivity {
         final EditText editText3 = (EditText) findViewById(R.id.editText_subjekt_33);
         final EditText editText4 = (EditText) findViewById(R.id.editText_subjekt_44);
         final EditText editText5 = (EditText) findViewById(R.id.editText_subjekt_55);
-        final EditText editText6 = (EditText) findViewById(R.id.editText_subjekt_66);
-        final EditText editText7 = (EditText) findViewById(R.id.editText_subjekt_77);
-        final EditText editText8 = (EditText) findViewById(R.id.editText_subjekt_88);
-        final EditText editText9 = (EditText) findViewById(R.id.editText_subjekt_99);
-        final EditText editText10 = (EditText) findViewById(R.id.editText_subjekt_1010);
-        final EditText editText11 = (EditText) findViewById(R.id.editText_subjekt_1111);
-        final EditText editText12 = (EditText) findViewById(R.id.editText_subjekt_1212);
+
 
 
 
@@ -166,20 +153,6 @@ public class Speichern_Subjekt extends AppCompatActivity {
                 String s3 = editText3.getText().toString();
                 String s4 = editText4.getText().toString();
                 String s5 = editText5.getText().toString();
-                String s6 = editText6.getText().toString();
-                String s7 = editText7.getText().toString();
-                String s8 = editText8.getText().toString();
-                String s9 = editText9.getText().toString();
-                String s10 = editText10.getText().toString();
-                String s11 = editText11.getText().toString();
-                String s12 = editText12.getText().toString();
-
-
-                boolean aktiv;
-                boolean männlich;
-
-                aktiv = s10.equals("1")? true : false;
-                männlich = s12.equals("1")? true : false;
 
 
                 editText1.setText("");
@@ -187,16 +160,9 @@ public class Speichern_Subjekt extends AppCompatActivity {
                 editText3.setText("");
                 editText4.setText("");
                 editText5.setText("");
-                editText6.setText("");
-                editText7.setText("");
-                editText8.setText("");
-                editText9.setText("");
-                editText10.setText("");
-                editText11.setText("");
-                editText12.setText("");
 
 
-                dataSource.createSubjekt(s1, s2, s3, s4, s5, s6, s7, s8, s9, aktiv, s11, männlich);
+                dataSource.createSubjekt(s1, s2, s3, s4, s5);
 
                 InputMethodManager inputMethodManager;
                 inputMethodManager = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
@@ -219,81 +185,7 @@ public class Speichern_Subjekt extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-              /*  Filler f = new Filler();
-                String[] tempArray;
 
-
-                String delimiter = "--";
-
-                tempArray = f.alleSubjektString.split(delimiter);
-
-                for (int i = 0; i < tempArray.length; i++) {
-                    //Log.i("click", tempArray[i]);
-
-                    String s1 = null;
-                    String s2 = null;
-                    String s3 = null;
-                    String s4 = null;
-                    String s5 = null;
-
-
-                    String[] tempTempArray;
-                    String deDelimiter = ",";
-
-                    tempTempArray = tempArray[i].split(deDelimiter);
-
-
-
-                    for (int ii = 0; ii < tempTempArray.length; ii++) {
-
-                        String newString = tempTempArray[ii].replaceAll("[\u0000-\u001f]", "");
-
-                        if (ii == 0) {
-                            Log.i("click", "s1: " + newString);
-                            s1 = newString;
-                        }
-                        if (ii == 1) {
-                            Log.i("click", "s2: " + newString);
-                            s2 = newString;
-                        }
-                        if (ii == 2) {
-                            Log.i("click", "s3: " + newString);
-                            s3 = newString;
-                        }
-                        if (ii == 4) {
-                            Log.i("click", "s4: " + newString);
-
-                            s4 = newString;
-                        }
-
-
-                    }
-
-                    Log.i("click", "----------------------------------");
-
-
-
-
-                    dataSource.createSubjekt(s2, s1, s3, s4, s5);
-
-
-
-
-
-
-
-                }
-
-                InputMethodManager inputMethodManager;
-                inputMethodManager = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
-                if (getCurrentFocus() != null) {
-                    inputMethodManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
-                }
-
-                showAllListEntries();
-
-
-*/
 
             }
         });
@@ -440,36 +332,14 @@ public class Speichern_Subjekt extends AppCompatActivity {
         final EditText editText3 = (EditText) dialogsView.findViewById(R.id.editText_subjekt_3);
         editText3.setText(subjekt.getKürzel());
 
+
         final EditText editText4 = (EditText) dialogsView.findViewById(R.id.editText_subjekt_4);
-        editText4.setText(subjekt.getGeburtstag());
+        editText4.setText(subjekt.getBenutzername());
 
         final EditText editText5 = (EditText) dialogsView.findViewById(R.id.editText_subjekt_5);
-        editText5.setText(subjekt.getGeburtsort());
-
-        final EditText editText6 = (EditText) dialogsView.findViewById(R.id.editText_subjekt_6);
-        editText6.setText(subjekt.getNationalität());
-
-        final EditText editText7 = (EditText) dialogsView.findViewById(R.id.editText_subjekt_7);
-        editText7.setText(subjekt.getBenutzername());
-
-        final EditText editText8 = (EditText) dialogsView.findViewById(R.id.editText_subjekt_8);
-        editText8.setText(subjekt.getBenutzerpasswort());
-
-        final EditText editText9 = (EditText) dialogsView.findViewById(R.id.editText_subjekt_9);
-        editText9.setText(subjekt.getSchulpfad());
-
-        final EditText editText10 = (EditText) dialogsView.findViewById(R.id.editText_subjekt_10);
-        int val = (subjekt.isAktiv()) ? 1 : 0;
-        editText10.setText(Integer.toString(val));
+        editText5.setText(subjekt.getBenutzerpasswort());
 
 
-
-        final EditText editText11 = (EditText) dialogsView.findViewById(R.id.editText_subjekt_11);
-        editText11.setText(subjekt.getTyp_());
-
-        final EditText editText12 = (EditText) dialogsView.findViewById(R.id.editText_subjekt_12);
-        int val2 = (subjekt.isMännlich()) ? 1 : 0;
-        editText12.setText(Integer.toString(val2));
 
 
         builder.setView(dialogsView)
@@ -482,26 +352,11 @@ public class Speichern_Subjekt extends AppCompatActivity {
                         String s3 = editText3.getText().toString();
                         String s4 = editText4.getText().toString();
                         String s5 = editText5.getText().toString();
-                        String s6 = editText6.getText().toString();
-                        String s7 = editText7.getText().toString();
-                        String s8 = editText8.getText().toString();
-                        String s9 = editText9.getText().toString();
-                        String s10 = editText10.getText().toString();
-                        String s11 = editText11.getText().toString();
-                        String s12 = editText12.getText().toString();
-/*                        if ((TextUtils.isEmpty(s1)) || (TextUtils.isEmpty(s2)) || (TextUtils.isEmpty(s3)) || (TextUtils.isEmpty(s4)) || (TextUtils.isEmpty(s5))) {
-                            Log.d(LOG_TAG, "Ein Eintrag enthielt keinen Text. Daher Abbruch der Änderung.");
-                            return;
-                        }*/
 
-                        boolean aktiv;
-                        boolean männlich;
 
-                        aktiv = s10.equals("1")? true : false;
-                        männlich = s12.equals("1")? true : false;
 
                         // An dieser Stelle schreiben wir die geänderten Daten in die SQLite Datenbank
-                        Subjekt updatedSubjekt = dataSource.updateSubjekt(subjekt.getId(), s1, s2, s3, s4, s5, s6, s7, s8, s9, aktiv, s11, männlich);
+                        Subjekt updatedSubjekt = dataSource.updateSubjekt(subjekt.getId(), s1, s2, s3, s4, s5);
 
                         Log.d(LOG_TAG, "Alter Eintrag - ID: " + subjekt.getId() + " Inhalt: " + subjekt.toString());
                         Log.d(LOG_TAG, "Neuer Eintrag - ID: " + updatedSubjekt.getId() + " Inhalt: " + updatedSubjekt.toString());

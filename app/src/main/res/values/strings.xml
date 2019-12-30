@@ -31,17 +31,8 @@
     <string name="dialog_subjekt_1">Vorname</string>
     <string name="dialog_subjekt_2">Nachname</string>
     <string name="dialog_subjekt_3">Kürzel</string>
-    <string name="dialog_subjekt_4">Geburtstag</string>
-    <string name="dialog_subjekt_5">Geburtsort</string>
-    <string name="dialog_subjekt_6">Nationalität</string>
-    <string name="dialog_subjekt_7">B_Name</string>
-    <string name="dialog_subjekt_8">B_Passwort</string>
-    <string name="dialog_subjekt_9">Schulpfad</string>
-    <string name="dialog_subjekt_10">Aktiv</string>
-    <string name="dialog_subjekt_11">Typ_</string>
-    <string name="dialog_subjekt_12">Männlich</string>
-
-
+    <string name="dialog_subjekt_4">B_Name</string>
+    <string name="dialog_subjekt_5">B_Passwort</string>
 
     <string name="dialog_schueler_1">Vorname</string>
     <string name="dialog_schueler_2">Nachname</string>
