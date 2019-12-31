@@ -63,6 +63,7 @@ public class WaehleSchuelerDynamicTabsActivity extends AppCompatActivity {
         int i = dS_L.getAllLerngruppes().size() + 1;
         viewPagerAdapter = new WaehleSchuelerViewPagerAdapter(getSupportFragmentManager(), i, this);
 
+        this.setTitle("Your Title");
 
         int sessionId = 0;
         viewPager = findViewById(R.id.viewpager);

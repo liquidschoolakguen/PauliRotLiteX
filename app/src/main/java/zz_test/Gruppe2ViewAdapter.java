@@ -150,43 +150,20 @@ public class Gruppe2ViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
         TextView gruppe2name;
 
 
-
-
         public ViewHolderNormal(View itemView) {
             super(itemView);
             //itemView.setOnClickListener(this);
             itemView.setOnLongClickListener(this);
             gruppe2name = (TextView) itemView.findViewById(R.id.tv_item_gruppe2name);
 
-
-
-
         }
 
-      /*  @Override
-        public void onClick(View view) {
-            // Toast.makeText(view.getContext(), "Clicked Country Position = " + getPosition(), Toast.LENGTH_SHORT).show();
-            if (operateSchueler == null) {
-                if (!newLG) {
-                    Intent intent = new Intent(view.getContext(), S4_WaehleVergehen.class);
-                    intent.putExtra("schueler_id", Integer.toString(dataSet.get(getAdapterPosition()).getId()));
-                    view.getContext().startActivity(intent);
-                }
 
-            } else {
-
-                System.out.println("---------------FEHLER2----------------");
-            }
-
-        }
-*/
 
         @Override
         public boolean onLongClick(View v) {
 
             if (operateGruppe2 == null) {
-
-
 
 
                 dataSet.get(getLayoutPosition()).setSelected(true);
@@ -197,7 +174,6 @@ public class Gruppe2ViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
                 return true;
 
             }else{
-
 
                 dataSet.get(dataSet.indexOf(operateGruppe2)).setSelected(false);
                 operateGruppe2 = null;
@@ -226,6 +202,7 @@ public class Gruppe2ViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
         ValueAnimator animationOff;
 
         ImageView okButton;
+        ImageView löschButton;
 
 
         public ViewHolderGruppe2Option(View itemView) {
@@ -271,10 +248,10 @@ public class Gruppe2ViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
             okButton.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
 
-                    dataSet.get(getLayoutPosition()).setSelected(false);
+                    dataSet.get(dataSet.indexOf(operateGruppe2)).setSelected(false);
                     operateGruppe2 = null;
 
-                    animationOff.start();
+                    selectedGruppe2Holder.animationOff.start();
                     selectedGruppe2Holder = null;
 
                     notifyDataSetChanged();
@@ -289,7 +266,23 @@ public class Gruppe2ViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
         }
 
 
+  /*  @Override
+        public void onClick(View view) {
+            // Toast.makeText(view.getContext(), "Clicked Country Position = " + getPosition(), Toast.LENGTH_SHORT).show();
+            if (operateSchueler == null) {
+                if (!newLG) {
+                    Intent intent = new Intent(view.getContext(), S4_WaehleVergehen.class);
+                    intent.putExtra("schueler_id", Integer.toString(dataSet.get(getAdapterPosition()).getId()));
+                    view.getContext().startActivity(intent);
+                }
 
+            } else {
+
+                System.out.println("---------------FEHLER2----------------");
+            }
+
+        }
+*/
 
 
     }

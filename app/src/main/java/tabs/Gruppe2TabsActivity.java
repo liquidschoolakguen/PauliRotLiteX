@@ -132,9 +132,7 @@ public class Gruppe2TabsActivity extends AppCompatActivity {
         super.onResume();
 
 
-        dS_L_S.open();
-        dS_L.open();
-        dS_Schueler.open();
+
         //showAllListEntries();
     }
 
@@ -142,9 +140,7 @@ public class Gruppe2TabsActivity extends AppCompatActivity {
     protected void onPause() {
         super.onPause();
 
-        dS_L_S.close();
-        dS_L.close();
-        dS_Schueler.close();
+
     }
 
     public interface ClickListener {
