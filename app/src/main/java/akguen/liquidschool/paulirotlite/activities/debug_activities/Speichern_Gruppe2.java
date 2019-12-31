@@ -1,9 +1,7 @@
 package akguen.liquidschool.paulirotlite.activities.debug_activities;
 
 import android.content.DialogInterface;
-import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.RequiresApi;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -23,44 +21,44 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import akguen.liquidschool.coredata.db.*;
-import akguen.liquidschool.coredata.model.*;
-
-import java.io.IOException;
-import java.security.GeneralSecurityException;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
-import java.util.Locale;
 
-
+import akguen.liquidschool.coredata.db.DataSource_Gruppe2;
+import akguen.liquidschool.coredata.model.Gruppe2;
 import akguen.liquidschool.paulirotlite.R;
-
 import test_activities.Filler;
 
-public class Speichern_Kollege extends AppCompatActivity {
+public class Speichern_Gruppe2 extends AppCompatActivity {
 
-    public static final String LOG_TAG = Speichern_Kollege.class.getSimpleName();
+    public static final String LOG_TAG = Speichern_Gruppe2.class.getSimpleName();
 
-    private DataSource_Kollege dataSource;
+    private DataSource_Gruppe2 dataSource;
 
-    private ListView mKollegesListView;
+    private ListView mGruppe2sListView;
+
+
+
+
+
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main_kollege_sq);
+        setContentView(R.layout.activity_main_gruppe2_sq);
 
-        Log.d(LOG_TAG, "Das Datenquellen-Objekt wird angelegt.");
-        dataSource = new DataSource_Kollege(this);
+        
+        dataSource = new DataSource_Gruppe2(this);
 
-        initializeKollegesListView();
+        initializeGruppe2sListView();
 
-        activateAddButton();
+        createMainGruppe2Button();
         activateFillButton();
         activateFindButton();
         initializeContextualActionBar();
-        //doLocale();
     }
 
     @Override
@@ -82,13 +80,13 @@ public class Speichern_Kollege extends AppCompatActivity {
         dataSource.close();
     }
 
-    private void initializeKollegesListView() {
-        List<Kollege> emptyListForInitialization = new ArrayList<>();
+    private void initializeGruppe2sListView() {
+        List<Gruppe2> emptyListForInitialization = new ArrayList<>();
 
-        mKollegesListView = (ListView) findViewById(R.id.listview_kolleges);
+        mGruppe2sListView = (ListView) findViewById(R.id.listview_gruppe2s);
 
         // Erstellen des ArrayAdapters für unseren ListView
-        ArrayAdapter<Kollege> kollegeArrayAdapter = new ArrayAdapter<Kollege>(
+        ArrayAdapter<Gruppe2> gruppe2ArrayAdapter = new ArrayAdapter<Gruppe2>(
                 this,
                 android.R.layout.simple_list_item_multiple_choice,
                 emptyListForInitialization) {
@@ -100,7 +98,7 @@ public class Speichern_Kollege extends AppCompatActivity {
                 View view = super.getView(position, convertView, parent);
                 TextView textView = (TextView) view;
 
-                Kollege memo = (Kollege) mKollegesListView.getItemAtPosition(position);
+                Gruppe2 memo = (Gruppe2) mGruppe2sListView.getItemAtPosition(position);
 
                 // Hier prüfen, ob Eintrag abgehakt ist. Falls ja, Text durchstreichen
 //                if (memo.isChecked()) {
@@ -116,17 +114,17 @@ public class Speichern_Kollege extends AppCompatActivity {
             }
         };
 
-        mKollegesListView.setAdapter(kollegeArrayAdapter);
+        mGruppe2sListView.setAdapter(gruppe2ArrayAdapter);
 
-        mKollegesListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        mGruppe2sListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
-                Kollege kollege = (Kollege) adapterView.getItemAtPosition(position);
+                Gruppe2 gruppe2 = (Gruppe2) adapterView.getItemAtPosition(position);
 
                 // Hier den checked-Wert des Memo-Objekts umkehren, bspw. von true auf false
                 // Dann ListView neu zeichnen mit showAllListEntries()
-/*                Kollege updatedKollege = dataSource.updateKollege(kollege.getId(), kollege.getVorname(), kollege.getItemType(), kollege.getPersonaltyp(), kollege.getGeburtstag(), kollege.getStrasse());
-                Log.d(LOG_TAG, "Checked-Status von Eintrag: " + updatedKollege.toString() + " ist: ");
+/*                Gruppe2 updatedGruppe2 = dataSource.updateGruppe2(gruppe2.getId(), gruppe2.getVorname(), gruppe2.getItemType(), gruppe2.getPersonaltyp(), gruppe2.getGeburtstag(), gruppe2.getStrasse());
+                Log.d(LOG_TAG, "Checked-Status von Eintrag: " + updatedGruppe2.toString() + " ist: ");
                 showAllListEntries();*/
             }
         });
@@ -134,29 +132,29 @@ public class Speichern_Kollege extends AppCompatActivity {
     }
 
     private void showAllListEntries() {
-        List<Kollege> kollegeList = dataSource.getAllKolleges();
-
-        ArrayAdapter<Kollege> adapter = (ArrayAdapter<Kollege>) mKollegesListView.getAdapter();
+        List<Gruppe2> gruppe2List = dataSource.getAllGruppe2s();
+        Collections.sort(gruppe2List, new Comparator() {
+            @Override
+            public int compare(Object o1, Object o2) {
+                Gruppe2 p1 = (Gruppe2) o1;
+                Gruppe2 p2 = (Gruppe2) o2;
+                return p1.getKategorie().compareToIgnoreCase(p2.getKategorie());
+            }
+        });
+        ArrayAdapter<Gruppe2> adapter = (ArrayAdapter<Gruppe2>) mGruppe2sListView.getAdapter();
 
         adapter.clear();
-        adapter.addAll(kollegeList);
+        adapter.addAll(gruppe2List);
         adapter.notifyDataSetChanged();
     }
 
-    private void activateAddButton() {
-        Button buttonAddKollege = (Button) findViewById(R.id.button_add_kollege);
-        final EditText editText1 = (EditText) findViewById(R.id.editText_kollege_11);
-        final EditText editText2 = (EditText) findViewById(R.id.editText_kollege_22);
-        final EditText editText3 = (EditText) findViewById(R.id.editText_kollege_33);
-        final EditText editText4 = (EditText) findViewById(R.id.editText_kollege_44);
-        final EditText editText5 = (EditText) findViewById(R.id.editText_kollege_55);
-        final EditText editText6 = (EditText) findViewById(R.id.editText_kollege_66);
-        final EditText editText7 = (EditText) findViewById(R.id.editText_kollege_77);
-        final EditText editText8 = (EditText) findViewById(R.id.editText_kollege_88);
-        final EditText editText9 = (EditText) findViewById(R.id.editText_kollege_99);
-        final EditText editText10 = (EditText) findViewById(R.id.editText_kollege_1010);
-        buttonAddKollege.setOnClickListener(new View.OnClickListener() {
-            @RequiresApi(api = Build.VERSION_CODES.O)
+    private void createMainGruppe2Button() {
+        Button buttonCreateMainGruppe2 = (Button) findViewById(R.id.button_add_gruppe2);
+
+
+
+
+        buttonCreateMainGruppe2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -164,12 +162,9 @@ public class Speichern_Kollege extends AppCompatActivity {
                 String s2 = editText2.getText().toString();
                 String s3 = editText3.getText().toString();
                 String s4 = editText4.getText().toString();
-                String s5 = editText5.getText().toString();
-                String s6 = editText6.getText().toString();
-                String s7 = editText7.getText().toString();
-                String s8 = editText8.getText().toString();
-                String s9 = editText9.getText().toString();
-                String s10 = editText10.getText().toString();
+
+
+
    /*             if (TextUtils.isEmpty(s2)) {
                     editText2.setError(getString(R.string.editText_errorMessage));
                     return;
@@ -184,20 +179,10 @@ public class Speichern_Kollege extends AppCompatActivity {
                 editText2.setText("");
                 editText3.setText("");
                 editText4.setText("");
-                editText5.setText("");
-                editText6.setText("");
-                editText7.setText("");
-                editText8.setText("");
-                editText9.setText("");
-                editText10.setText("");
 
-                try {
-                    dataSource.createKollege(s1, s2, s3, s4, s5, s6, s7, s8, s9, s10);
-                } catch (GeneralSecurityException e) {
-                    e.printStackTrace();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+
+
+                dataSource.createGruppe2(s1, s2, s3, s4);
 
                 InputMethodManager inputMethodManager;
                 inputMethodManager = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
@@ -213,21 +198,16 @@ public class Speichern_Kollege extends AppCompatActivity {
 
 
     private void activateFillButton() {
-        Button buttonFillKollege = (Button) findViewById(R.id.button_add_kolleges);
+        Button buttonFillGruppe2 = (Button) findViewById(R.id.button_add_gruppe2s);
 
 
-        buttonFillKollege.setOnClickListener(new View.OnClickListener() {
-            @RequiresApi(api = Build.VERSION_CODES.O)
+        buttonFillGruppe2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 Filler f = new Filler();
 
-                //f.saveExcelFile(getBaseContext(), "hallo-mein-benno.xls");
-
-                //f.fillKollege2(getBaseContext());
-
-                f.convertKollege(getBaseContext());
+                f.fillGruppe2(getBaseContext());
 
 
 
@@ -238,8 +218,6 @@ public class Speichern_Kollege extends AppCompatActivity {
                 }
 
                 showAllListEntries();
-
-
             }
         });
 
@@ -248,19 +226,19 @@ public class Speichern_Kollege extends AppCompatActivity {
 
 
     private void activateFindButton() {
-        Button buttonFindKollege = (Button) findViewById(R.id.button_select_kollege);
+        Button buttonFindGruppe2 = (Button) findViewById(R.id.button_select_gruppe2);
 
 
-        buttonFindKollege.setOnClickListener(new View.OnClickListener() {
+        buttonFindGruppe2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                if (dataSource.getKollegeById(5) != null) {
+                if( dataSource.getGruppe2ById(5)!= null){
 
-                    Log.i("click", "Gesuchter Kollege: " + dataSource.getKollegeById(5).toString());
-                } else {
+                    Log.i("click", "Gesuchter Gruppe2: " + dataSource.getGruppe2ById(5).toString());
+                }else{
 
-                    Log.i("click", "Gesuchter Kollege mit der id 5 nicht gefunden");
+                    Log.i("click", "Gesuchter Gruppe2 mit der id 5 nicht gefunden" );
                 }
 
             }
@@ -270,24 +248,12 @@ public class Speichern_Kollege extends AppCompatActivity {
 
     }
 
-    private void doLocale() {
-        Locale[] locales = Locale.getAvailableLocales();
-        ArrayList<String> localcountries = new ArrayList<String>();
-        for (Locale l : locales) {
-            localcountries.add(l.getDisplayLanguage().toString());
-
-            Log.d(LOG_TAG, "LOCALE: (" + l.getLanguage().toString() + ") " + l.getDisplayLanguage());
-
-        }
-
-
-    }
 
     private void initializeContextualActionBar() {
-        final ListView kollegesListView = (ListView) findViewById(R.id.listview_kolleges);
-        kollegesListView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE_MODAL);
+        final ListView gruppe2sListView = (ListView) findViewById(R.id.listview_gruppe2s);
+        gruppe2sListView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE_MODAL);
 
-        kollegesListView.setMultiChoiceModeListener(new AbsListView.MultiChoiceModeListener() {
+        gruppe2sListView.setMultiChoiceModeListener(new AbsListView.MultiChoiceModeListener() {
 
             int selCount = 0;
 
@@ -331,17 +297,17 @@ public class Speichern_Kollege extends AppCompatActivity {
             @Override
             public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
                 boolean returnValue = true;
-                SparseBooleanArray touchedKollegesPositions = kollegesListView.getCheckedItemPositions();
+                SparseBooleanArray touchedGruppe2sPositions = gruppe2sListView.getCheckedItemPositions();
 
                 switch (item.getItemId()) {
                     case R.id.cab_delete:
-                        for (int i = 0; i < touchedKollegesPositions.size(); i++) {
-                            boolean isChecked = touchedKollegesPositions.valueAt(i);
+                        for (int i = 0; i < touchedGruppe2sPositions.size(); i++) {
+                            boolean isChecked = touchedGruppe2sPositions.valueAt(i);
                             if (isChecked) {
-                                int postitionInListView = touchedKollegesPositions.keyAt(i);
-                                Kollege kollege = (Kollege) kollegesListView.getItemAtPosition(postitionInListView);
-                                Log.d(LOG_TAG, "Position im ListView: " + postitionInListView + " Inhalt: " + kollege.toString());
-                                dataSource.deleteKollege(kollege);
+                                int postitionInListView = touchedGruppe2sPositions.keyAt(i);
+                                Gruppe2 gruppe2 = (Gruppe2) gruppe2sListView.getItemAtPosition(postitionInListView);
+                                Log.d(LOG_TAG, "Position im ListView: " + postitionInListView + " Inhalt: " + gruppe2.toString());
+                                dataSource.deleteGruppe2(gruppe2);
                             }
                         }
                         showAllListEntries();
@@ -350,15 +316,15 @@ public class Speichern_Kollege extends AppCompatActivity {
 
                     case R.id.cab_change:
                         Log.d(LOG_TAG, "Eintrag ändern");
-                        for (int i = 0; i < touchedKollegesPositions.size(); i++) {
-                            boolean isChecked = touchedKollegesPositions.valueAt(i);
+                        for (int i = 0; i < touchedGruppe2sPositions.size(); i++) {
+                            boolean isChecked = touchedGruppe2sPositions.valueAt(i);
                             if (isChecked) {
-                                int postitionInListView = touchedKollegesPositions.keyAt(i);
-                                Kollege kollege = (Kollege) kollegesListView.getItemAtPosition(postitionInListView);
-                                Log.d(LOG_TAG, "Position im ListView: " + postitionInListView + " Inhalt: " + kollege.toString());
+                                int postitionInListView = touchedGruppe2sPositions.keyAt(i);
+                                Gruppe2 gruppe2 = (Gruppe2) gruppe2sListView.getItemAtPosition(postitionInListView);
+                                Log.d(LOG_TAG, "Position im ListView: " + postitionInListView + " Inhalt: " + gruppe2.toString());
 
-                                AlertDialog editKollegeDialog = createEditKollegeDialog(kollege);
-                                editKollegeDialog.show();
+                                AlertDialog editGruppe2Dialog = createEditGruppe2Dialog(gruppe2);
+                                editGruppe2Dialog.show();
                             }
                         }
 
@@ -382,42 +348,26 @@ public class Speichern_Kollege extends AppCompatActivity {
 
     }
 
-
-    private AlertDialog createEditKollegeDialog(final Kollege kollege) {
+    private AlertDialog createEditGruppe2Dialog(final Gruppe2 gruppe2) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         LayoutInflater inflater = getLayoutInflater();
 
-        View dialogsView = inflater.inflate(R.layout.dialog_edit_kollege_sq, null);
+        View dialogsView = inflater.inflate(R.layout.dialog_edit_gruppe2_sq, null);
 
-        final EditText editText1 = (EditText) dialogsView.findViewById(R.id.editText_kollege_1);
-        editText1.setText(kollege.getVorname());
+        final EditText editText1 = (EditText) dialogsView.findViewById(R.id.editText_gruppe2_1);
+        editText1.setText(gruppe2.getName());
 
-        final EditText editText2 = (EditText) dialogsView.findViewById(R.id.editText_kollege_2);
-        editText2.setText(kollege.getNachname());
+        final EditText editText2 = (EditText) dialogsView.findViewById(R.id.editText_gruppe2_2);
+        editText2.setText(gruppe2.getText());
 
-        final EditText editText3 = (EditText) dialogsView.findViewById(R.id.editText_kollege_3);
-        editText3.setText(kollege.getPersonaltyp());
+        final EditText editText3 = (EditText) dialogsView.findViewById(R.id.editText_gruppe2_3);
+        editText3.setText(gruppe2.getGewicht());
 
-        final EditText editText4 = (EditText) dialogsView.findViewById(R.id.editText_kollege_4);
-        editText4.setText(kollege.getGeburtstag());
+        final EditText editText4 = (EditText) dialogsView.findViewById(R.id.editText_gruppe2_4);
+        editText4.setText(gruppe2.getKategorie());
 
-        final EditText editText5 = (EditText) dialogsView.findViewById(R.id.editText_kollege_5);
-        editText5.setText(kollege.getStrasse());
 
-        final EditText editText6 = (EditText) dialogsView.findViewById(R.id.editText_kollege_6);
-        editText6.setText(kollege.getPlz());
 
-        final EditText editText7 = (EditText) dialogsView.findViewById(R.id.editText_kollege_7);
-        editText7.setText(kollege.getTelefon());
-
-        final EditText editText8 = (EditText) dialogsView.findViewById(R.id.editText_kollege_8);
-        editText8.setText(kollege.getEmail());
-
-        final EditText editText9 = (EditText) dialogsView.findViewById(R.id.editText_kollege_9);
-        editText9.setText(kollege.getStandort());
-
-        final EditText editText10 = (EditText) dialogsView.findViewById(R.id.editText_kollege_10);
-        editText10.setText(kollege.getPasswort());
 
         builder.setView(dialogsView)
                 .setTitle(R.string.dialog_title)
@@ -428,12 +378,8 @@ public class Speichern_Kollege extends AppCompatActivity {
                         String s2 = editText2.getText().toString();
                         String s3 = editText3.getText().toString();
                         String s4 = editText4.getText().toString();
-                        String s5 = editText5.getText().toString();
-                        String s6 = editText6.getText().toString();
-                        String s7 = editText7.getText().toString();
-                        String s8 = editText8.getText().toString();
-                        String s9 = editText9.getText().toString();
-                        String s10 = editText10.getText().toString();
+
+
 /*                        if ((TextUtils.isEmpty(s1)) || (TextUtils.isEmpty(s2)) || (TextUtils.isEmpty(s3)) || (TextUtils.isEmpty(s4)) || (TextUtils.isEmpty(s5))) {
                             Log.d(LOG_TAG, "Ein Eintrag enthielt keinen Text. Daher Abbruch der Änderung.");
                             return;
@@ -441,10 +387,8 @@ public class Speichern_Kollege extends AppCompatActivity {
 
 
                         // An dieser Stelle schreiben wir die geänderten Daten in die SQLite Datenbank
-                        Kollege updatedKollege = dataSource.updateKollege(kollege.getId(), s1, s2, s3, s4, s5, s6, s7, s8, s9, s10);
+                        Gruppe2 updatedGruppe2 = dataSource.updateGruppe2(gruppe2.getId(), s1, s2, s3, s4);
 
-                        Log.d(LOG_TAG, "Alter Eintrag - ID: " + kollege.getId() + " Inhalt: " + kollege.toString());
-                        Log.d(LOG_TAG, "Neuer Eintrag - ID: " + updatedKollege.getId() + " Inhalt: " + updatedKollege.toString());
 
                         showAllListEntries();
                         dialog.dismiss();
