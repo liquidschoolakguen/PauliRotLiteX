@@ -1,48 +1,40 @@
-package zz_test;
+package tabs;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.ValueAnimator;
 import android.app.Activity;
 import android.content.Context;
-import android.graphics.Color;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.AccelerateInterpolator;
-import android.view.animation.Animation;
-import android.view.animation.DecelerateInterpolator;
-import android.view.animation.LinearInterpolator;
-import android.view.animation.RotateAnimation;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import java.util.List;
 
-import akguen.liquidschool.coredata.db.DataSource_Schueler;
-import akguen.liquidschool.coredata.db.DataSource_Schueler_Lerngruppe;
-import akguen.liquidschool.coredata.model.Gruppe2;
-import akguen.liquidschool.coredata.model.Schueler;
+
+import akguen.liquidschool.coredata.model.Gruppe;
 import akguen.liquidschool.paulirotlite.R;
+import zz_test.SpeedyLinearLayoutManager;
 
-public class Gruppe2ViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+public class GruppeViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
-    private Gruppe2 operateGruppe2 = null;
+    private Gruppe operateGruppe = null;
 
     private RecyclerView recyclerView;
-    List<Gruppe2> dataSet;
+    List<Gruppe> dataSet;
     private Context context;
     private ItemClickListener mItemClickListener;
-    private DataSource_Schueler dS_Schueler;
-    private DataSource_Schueler_Lerngruppe dS_Schueler_Lerngruppe;
+
 
 
     private Activity activity;
 
-    public List<Gruppe2> getDataSet() {
+    public List<Gruppe> getDataSet() {
         return dataSet;
     }
 
@@ -50,7 +42,7 @@ public class Gruppe2ViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
         mItemClickListener = listener;
     }
 
-    public Gruppe2ViewAdapter(Context context, List<Gruppe2> itemList, RecyclerView recyclerView) {
+    public GruppeViewAdapter(Context context, List<Gruppe> itemList, RecyclerView recyclerView) {
         this.dataSet = itemList;
         this.context = context;
         this.recyclerView = recyclerView;
@@ -85,13 +77,13 @@ public class Gruppe2ViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
         switch (viewType) {
 
             case 0:
-                layoutView = LayoutInflater.from(parent.getContext()).inflate(R.layout.waehle_gruppe2_row, parent, false);
+                layoutView = LayoutInflater.from(parent.getContext()).inflate(R.layout.gruppe_gruppe_row, parent, false);
                 return new ViewHolderNormal(layoutView);
 
 
             case 1:
-                layoutView = LayoutInflater.from(parent.getContext()).inflate(R.layout.gruppe2_options_row, parent, false);
-                return new ViewHolderGruppe2Option(layoutView);
+                layoutView = LayoutInflater.from(parent.getContext()).inflate(R.layout.gruppe_gruppe_row_options, parent, false);
+                return new ViewHolderGruppeOption(layoutView);
         }
 
         return null;
@@ -100,28 +92,28 @@ public class Gruppe2ViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, final int position) {
 
-        Gruppe2 shownGruppe2 = dataSet.get(position);
+        Gruppe shownGruppe = dataSet.get(position);
         switch (holder.getItemViewType()) {
             case 0:
                 ViewHolderNormal viewHolderNormal = (ViewHolderNormal) holder;
 
 
-                viewHolderNormal.gruppe2name.setText(shownGruppe2.getName());
+                viewHolderNormal.gruppename.setText(shownGruppe.getName());
                 break;
 
 
 
 
             case 1: //lerngruppenNamen disable Item
-                ViewHolderGruppe2Option viewHolderSchuelerOption = (ViewHolderGruppe2Option) holder;
+                ViewHolderGruppeOption viewHolderSchuelerOption = (ViewHolderGruppeOption) holder;
 
 
-                viewHolderSchuelerOption.gruppe2name.setText(shownGruppe2.getName());
+                viewHolderSchuelerOption.gruppename.setText(shownGruppe.getName());
 
 
 
-                selectedGruppe2Holder = viewHolderSchuelerOption;
-                selectedGruppe2Holder.animationOn.start();
+                selectedGruppeHolder = viewHolderSchuelerOption;
+                selectedGruppeHolder.animationOn.start();
 
 
                 break;
@@ -141,20 +133,20 @@ public class Gruppe2ViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
         void onItemClick(int position);
     }
 
-    public ViewHolderGruppe2Option selectedGruppe2Holder = null;
+    public ViewHolderGruppeOption selectedGruppeHolder = null;
 
 
 
-    public class ViewHolderNormal extends RecyclerView.ViewHolder implements  View.OnLongClickListener {
+    public class ViewHolderNormal extends RecyclerView.ViewHolder implements  View.OnLongClickListener, View.OnClickListener {
 
-        TextView gruppe2name;
+        TextView gruppename;
 
 
         public ViewHolderNormal(View itemView) {
             super(itemView);
-            //itemView.setOnClickListener(this);
+            itemView.setOnClickListener(this);
             itemView.setOnLongClickListener(this);
-            gruppe2name = (TextView) itemView.findViewById(R.id.tv_item_gruppe2name);
+            gruppename = (TextView) itemView.findViewById(R.id.tv_item_gruppename);
 
         }
 
@@ -163,11 +155,11 @@ public class Gruppe2ViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
         @Override
         public boolean onLongClick(View v) {
 
-            if (operateGruppe2 == null) {
+            if (operateGruppe == null) {
 
 
                 dataSet.get(getLayoutPosition()).setSelected(true);
-                operateGruppe2 = dataSet.get(getLayoutPosition());
+                operateGruppe = dataSet.get(getLayoutPosition());
 
                 notifyDataSetChanged();
 
@@ -175,11 +167,11 @@ public class Gruppe2ViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
 
             }else{
 
-                dataSet.get(dataSet.indexOf(operateGruppe2)).setSelected(false);
-                operateGruppe2 = null;
+                dataSet.get(dataSet.indexOf(operateGruppe)).setSelected(false);
+                operateGruppe = null;
 
-                selectedGruppe2Holder.animationOff.start();
-                selectedGruppe2Holder = null;
+                selectedGruppeHolder.animationOff.start();
+                selectedGruppeHolder = null;
 
                 notifyDataSetChanged();
 
@@ -189,14 +181,27 @@ public class Gruppe2ViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
             }
 
         }
+
+        @Override
+        public void onClick(View v) {
+
+
+            Intent intent = new Intent(v.getContext(), GruppeTabsActivity.class);
+            intent.putExtra("stringId", dataSet.get(getAdapterPosition()).getStringId());
+            v.getContext().startActivity(intent);
+            Activity activity = (Activity) v.getContext();
+            activity.finish();
+
+
+        }
     }
 
 
 
 
-    public class ViewHolderGruppe2Option extends RecyclerView.ViewHolder {
+    public class ViewHolderGruppeOption extends RecyclerView.ViewHolder {
         RelativeLayout layout;
-        TextView gruppe2name;
+        TextView gruppename;
 
         ValueAnimator animationOn;
         ValueAnimator animationOff;
@@ -205,10 +210,10 @@ public class Gruppe2ViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
         ImageView löschButton;
 
 
-        public ViewHolderGruppe2Option(View itemView) {
+        public ViewHolderGruppeOption(View itemView) {
             super(itemView);
 
-            gruppe2name = (TextView) itemView.findViewById(R.id.tv_item_gruppe2name);
+            gruppename = (TextView) itemView.findViewById(R.id.tv_item_gruppename);
 
             layout = (RelativeLayout) itemView.findViewById(R.id.layout_1);
             okButton = (ImageView) itemView.findViewById(R.id.imageView7);
@@ -248,11 +253,11 @@ public class Gruppe2ViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
             okButton.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
 
-                    dataSet.get(dataSet.indexOf(operateGruppe2)).setSelected(false);
-                    operateGruppe2 = null;
+                    dataSet.get(dataSet.indexOf(operateGruppe)).setSelected(false);
+                    operateGruppe = null;
 
-                    selectedGruppe2Holder.animationOff.start();
-                    selectedGruppe2Holder = null;
+                    selectedGruppeHolder.animationOff.start();
+                    selectedGruppeHolder = null;
 
                     notifyDataSetChanged();
 

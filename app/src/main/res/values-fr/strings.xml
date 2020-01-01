@@ -121,6 +121,10 @@
 
     <string name="dialog_schueler_lerngruppe_1">Schüler (id)</string>
     <string name="dialog_schueler_lerngruppe_2">Lerngruppe (id)</string>
+
+    <string name="dialog_subjekt_gruppe_1">Subjekt (id)</string>
+    <string name="dialog_subjekt_gruppe_2">Gruppe (id)</string>
+
     <string name="dialog_kollege_standort_1">Kollege (id)</string>
     <string name="dialog_kollege_standort_2">Standort (id)</string>
     <string name="dialog_schueler_angehoeriger_1">Schüler (id)</string>

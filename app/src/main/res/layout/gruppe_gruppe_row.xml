@@ -26,7 +26,7 @@
                 android:layout_alignParentLeft="true">
 
                 <TextView
-                    android:id="@+id/tv_item_gruppe2name"
+                    android:id="@+id/tv_item_gruppename"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
 

@@ -5,16 +5,11 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
-import java.util.List;
-
-import akguen.liquidschool.coredata.db.DataSource_Lerngruppe;
-import akguen.liquidschool.coredata.model.Lerngruppe;
-
-public class Gruppe2PagerAdapter extends FragmentStatePagerAdapter {
+public class GruppePagerAdapter extends FragmentStatePagerAdapter {
     private int noOfItems;
 
 
-    public Gruppe2PagerAdapter(FragmentManager fm, int noOfItems, Context c) {
+    public GruppePagerAdapter(FragmentManager fm, int noOfItems, Context c) {
         super(fm);
         this.noOfItems = noOfItems;
 
@@ -24,32 +19,39 @@ public class Gruppe2PagerAdapter extends FragmentStatePagerAdapter {
     public Fragment getItem(int position) {
         if(position==0){
 
-            return Gruppe2ProfilFragment.newInstance(position);
+            return GruppeProfilFragment.newInstance();
         }
         if(position==1){
-
-            return Gruppe2DynamicFragment.newInstance(position);
+            //Väter
+            return GruppeDynamicFragment.newInstance(position+1);
         }
 
         if(position==2){
-
-            return Gruppe2DynamicFragment.newInstance(position);
+            //Brüder
+            return GruppeDynamicFragment.newInstance(position+1);
         }
 
 
         if(position==3){
-
-            return Gruppe2DynamicFragment.newInstance(position);
+            //Söhne
+            return GruppeDynamicFragment.newInstance(position+1);
         }
+
 
         if(position==4){
-
-            return Gruppe2DynamicFragment.newInstance(position);
+            //Subjekte
+            return GruppeUntergruppeBildenFragment.newInstance();
         }
 
-        if(position==5){
 
-            return Gruppe2DynamicFragment.newInstance(position);
+        if(position==5){
+            //Separatoren
+            return GruppeSeparatorErstellenFragment.newInstance();
+        }
+
+        if(position==6){
+            //Subjekte
+            return GruppeSubjektsFragment.newInstance();
         }
 
         return null;
@@ -57,7 +59,7 @@ public class Gruppe2PagerAdapter extends FragmentStatePagerAdapter {
 
 
 
-        return WaehleSchuelerDynamicFragment.newInstance(position + 1);
+
     }
 
     @Override
@@ -74,26 +76,31 @@ public class Gruppe2PagerAdapter extends FragmentStatePagerAdapter {
         }
         if(position==1){
 
-            return "Väter";
+            return "Vererbung";
         }
 
         if(position==2){
 
-            return "Brüder";
+            return "Nebengruppen";
         }
 
 
         if(position==3){
 
-            return "Söhne";
+            return "Untergruppen";
         }
 
         if(position==4){
 
-            return "Separatoren";
+            return "Untergruppe bilden";
         }
 
         if(position==5){
+
+            return "Separator erzeugen";
+        }
+
+        if(position==6){
 
             return "Subjekte";
         }

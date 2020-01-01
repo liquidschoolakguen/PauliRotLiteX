@@ -25,7 +25,6 @@ import akguen.liquidschool.paulirotlite.R;
 import akguen.liquidschool.coredata.db.*;
 import akguen.liquidschool.coredata.model.*;
 import zz_test.MyDividerItemDecorator;
-import zz_test.RecyclerViewAdapter;
 import zz_test.SpeedyLinearLayoutManager;
 
 public class WaehleSchuelerDynamicFragment extends Fragment implements RecyclerViewAdapter.ItemClickListener {

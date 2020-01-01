@@ -413,22 +413,6 @@ public class Debug_Main extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                // ACTION_OPEN_DOCUMENT is the intent to choose a file via the system's file
-                // browser.
-               // Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
-                // Filter to only show results that can be "opened", such as a
-                // file (as opposed to a list of contacts or timezones)
-                //intent.addCategory(Intent.CATEGORY_OPENABLE);
-
-                // Filter to show only images, using the image MIME data type.
-                // If one wanted to search for ogg vorbis files, the type would be "audio/ogg".
-                // To search for all documents available via installed storage providers,
-                // it would be "*/*".
-                // intent.setType("image/*");
-                //intent.setDataAndType(Uri.fromFile(file), "application/vnd.ms-excel");
-                //startActivityForResult(intent, OPEN_DIRECTORY_REQUEST_CODE);
-
-
 
               /*  Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
                 intent.setType("application/vnd.ms-excel");
@@ -459,7 +443,8 @@ public class Debug_Main extends AppCompatActivity {
             public void onClick(View v) {
 
 
-
+                Intent speichernS3= new Intent(Debug_Main.this, tabs.GruppeTabsActivity.class);
+                startActivity(speichernS3);
             }
         });
 

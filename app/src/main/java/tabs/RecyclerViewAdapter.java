@@ -1,4 +1,4 @@
-package zz_test;
+package tabs;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
@@ -34,6 +34,7 @@ import akguen.liquidschool.paulirotlite.R;
 import akguen.liquidschool.paulirotlite.activities.in_use.S4_WaehleVergehen;
 import akguen.liquidschool.coredata.db.*;
 import akguen.liquidschool.coredata.model.*;
+import zz_test.SpeedyLinearLayoutManager;
 
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 

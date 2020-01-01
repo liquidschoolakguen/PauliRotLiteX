@@ -10,32 +10,24 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
-import java.util.List;
-
-import akguen.liquidschool.coredata.db.DataSource_Gruppe2;
-import akguen.liquidschool.coredata.db.DataSource_Radio;
-import akguen.liquidschool.coredata.db.DataSource_Separator;
-import akguen.liquidschool.coredata.db.DataSource_Subjekt;
-import akguen.liquidschool.coredata.db.DataSource_Subjekt_Gruppe;
-import akguen.liquidschool.coredata.model.Gruppe2;
-import akguen.liquidschool.coredata.model.Radio;
-import akguen.liquidschool.coredata.model.Separator;
+import akguen.liquidschool.coredata.db.DataSource_Gruppe;
+import akguen.liquidschool.coredata.model.Gruppe;
 import akguen.liquidschool.paulirotlite.R;
 import akguen.liquidschool.paulirotlite.activities.debug_activities.Debug_Main;
 
-public class Gruppe2TabsActivity extends AppCompatActivity {
+public class GruppeTabsActivity extends AppCompatActivity {
 
     private TabLayout tabLayout;
     private ViewPager viewPager;
-    private Gruppe2PagerAdapter viewPagerAdapter;
+    private GruppePagerAdapter viewPagerAdapter;
     public static AppCompatActivity fa;
 
-    private DataSource_Gruppe2 ds_g2;
+    private DataSource_Gruppe ds_g2;
 
 
 
 
-    private Gruppe2 selectedGruppe2;
+    private Gruppe selectedGruppe;
 
 
     private Toolbar mTopToolbar;
@@ -43,27 +35,27 @@ public class Gruppe2TabsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.waehle_gruppe2_activity_dynamic_tabs);
+        setContentView(R.layout.gruppe_activity);
 
-        mTopToolbar = (Toolbar) findViewById(R.id.dynamic_toolbar_gruppe2);
+        mTopToolbar = (Toolbar) findViewById(R.id.dynamic_toolbar_gruppe);
         fa = this;
 
-        viewPagerAdapter = new Gruppe2PagerAdapter(getSupportFragmentManager(), 6, this);
-        viewPager = findViewById(R.id.viewpager_gruppe2);
+        viewPagerAdapter = new GruppePagerAdapter(getSupportFragmentManager(), 6, this);
+        viewPager = findViewById(R.id.viewpager_gruppe);
         viewPager.setAdapter(viewPagerAdapter);
 
 
-        ds_g2 = new DataSource_Gruppe2(this);
+        ds_g2 = new DataSource_Gruppe(this);
 
         ds_g2.open();
 
 
 
 
-        selectedGruppe2 = getSelectedGruppe2();
+        selectedGruppe = getSelectedGruppe();
 
 
-        tabLayout = findViewById(R.id.tabs_gruppe2);
+        tabLayout = findViewById(R.id.tabs_gruppe);
         tabLayout.setupWithViewPager(viewPager);
         //tabLayout.getTabAt(i-1).setIcon(tabIcon);
 
@@ -72,25 +64,28 @@ public class Gruppe2TabsActivity extends AppCompatActivity {
 
     }
 
-    private Gruppe2 getSelectedGruppe2() {
+    private Gruppe getSelectedGruppe() {
 
         Intent intent = getIntent();
         String stringId = intent.getStringExtra("stringId");
 
         if(stringId!=null && !stringId.equals("")){
 
-        return ds_g2.getGruppe2ByStringId(stringId);
+        return ds_g2.getGruppeByStringId(stringId);
 
         } else {
 
-            Gruppe2 g = ds_g2.getGruppe2ByStringId("main");
+            intent.putExtra("stringId", "main");
+
+
+            Gruppe g = ds_g2.getGruppeByStringId("main");
 
             if(g!=null){
 
                 return g;
             }else{
 
-                return buildMainGruppe2();
+                return buildMainGruppe();
             }
 
         }
@@ -103,7 +98,7 @@ public class Gruppe2TabsActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         super.onCreateOptionsMenu(menu);
-        getMenuInflater().inflate(R.menu.gruppe2_menu_main, menu);
+        getMenuInflater().inflate(R.menu.gruppe_menu_main, menu);
 
 
         return true;
@@ -116,7 +111,7 @@ public class Gruppe2TabsActivity extends AppCompatActivity {
 
 
         if (id == R.id.dynamic_debug) {
-            Intent speichernS1 = new Intent(Gruppe2TabsActivity.this, Debug_Main.class);
+            Intent speichernS1 = new Intent(GruppeTabsActivity.this, Debug_Main.class);
             startActivity(speichernS1);
             finish();
             return true;
@@ -128,7 +123,7 @@ public class Gruppe2TabsActivity extends AppCompatActivity {
 
 
 
-            Intent speichernS1 = new Intent(Gruppe2TabsActivity.this, Gruppe2TabsActivity.class);
+            Intent speichernS1 = new Intent(GruppeTabsActivity.this, GruppeTabsActivity.class);
             startActivity(speichernS1);
             finish();
 
@@ -151,10 +146,10 @@ public class Gruppe2TabsActivity extends AppCompatActivity {
 
 
 
-    public Gruppe2 buildMainGruppe2() {
+    public Gruppe buildMainGruppe() {
 
 
-        Gruppe2 n = new Gruppe2();
+        Gruppe n = new Gruppe();
 
 
 
@@ -169,7 +164,7 @@ public class Gruppe2TabsActivity extends AppCompatActivity {
 
 
 
-            return  ds_g2.createGruppe2(n.getStringId(), n.getName(), n.getExternName(), n.getVaterStringId());
+            return  ds_g2.createGruppe(n.getStringId(), n.getName(), n.getExternName(), n.getVaterStringId());
 
 
 

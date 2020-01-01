@@ -26,12 +26,12 @@
                 android:layout_alignParentLeft="true">
 
                 <TextView
-                    android:id="@+id/tv_item_gruppe2name"
+                    android:id="@+id/tv_item_separator_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
 
 
-                    android:text="Sila Alem"
+                    android:text="separator_name"
                     android:textSize="14sp" />
             </RelativeLayout>
 
