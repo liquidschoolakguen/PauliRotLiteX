@@ -45,6 +45,7 @@
         <activity
             android:name="tabs.LerngruppeLöschenÄndern"
             android:label="@string/title_activity_update_lerngruppe" />
+        <activity android:name="tabs.Gruppe2TabsActivity" />
         <activity android:name=".activities.in_use.UnterrichtplanActivity" />
         <activity android:name=".activities.old_activities.TestMainActivity2" />
         <activity android:name=".activities.old_activities.S7_LerngruppeUpdaten" />

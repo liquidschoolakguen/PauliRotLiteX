@@ -12,18 +12,51 @@ import akguen.liquidschool.coredata.model.Lerngruppe;
 
 public class Gruppe2PagerAdapter extends FragmentStatePagerAdapter {
     private int noOfItems;
-    private DataSource_Lerngruppe dS_L;
-   private List<Lerngruppe> j;
+
 
     public Gruppe2PagerAdapter(FragmentManager fm, int noOfItems, Context c) {
         super(fm);
         this.noOfItems = noOfItems;
-        dS_L = new DataSource_Lerngruppe(c);
-        dS_L.open();
+
     }
 
     @Override
     public Fragment getItem(int position) {
+        if(position==0){
+
+            return Gruppe2ProfilFragment.newInstance(position);
+        }
+        if(position==1){
+
+            return Gruppe2DynamicFragment.newInstance(position);
+        }
+
+        if(position==2){
+
+            return Gruppe2DynamicFragment.newInstance(position);
+        }
+
+
+        if(position==3){
+
+            return Gruppe2DynamicFragment.newInstance(position);
+        }
+
+        if(position==4){
+
+            return Gruppe2DynamicFragment.newInstance(position);
+        }
+
+        if(position==5){
+
+            return Gruppe2DynamicFragment.newInstance(position);
+        }
+
+        return null;
+
+
+
+
         return WaehleSchuelerDynamicFragment.newInstance(position + 1);
     }
 
@@ -35,19 +68,36 @@ public class Gruppe2PagerAdapter extends FragmentStatePagerAdapter {
     @Override
     public CharSequence getPageTitle(int position) {
 
-        List h = dS_L.getAllLerngruppes();
-        System.out.println("..............................."+h.size());
+        if(position==0){
 
+            return "Allgemein";
+        }
+        if(position==1){
 
-        if(position<h.size()){
-
-            return ((Lerngruppe) h.get(position)).getName();
+            return "Väter";
         }
 
-        if(h==null||h.isEmpty()){
+        if(position==2){
 
-            return "Deine erste Lerngruppe";
+            return "Brüder";
         }
+
+
+        if(position==3){
+
+            return "Söhne";
+        }
+
+        if(position==4){
+
+            return "Separatoren";
+        }
+
+        if(position==5){
+
+            return "Subjekte";
+        }
+
         return "";
     }
 }

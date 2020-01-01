@@ -28,7 +28,7 @@ public class WaehleSchuelerDynamicTabsActivity extends AppCompatActivity {
     private ViewPager viewPager;
     private WaehleSchuelerViewPagerAdapter viewPagerAdapter;
     public static AppCompatActivity fa;
-    private int noOfTabs = 10;
+
     private int tabIcon = R.drawable.baseline;
     private int tabIconActive = R.drawable.baseline_active;
 
@@ -182,7 +182,7 @@ public class WaehleSchuelerDynamicTabsActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         super.onCreateOptionsMenu(menu);
-        getMenuInflater().inflate(R.menu.waehle_schueler_dynamic_menu_main, menu);
+        getMenuInflater().inflate(R.menu.menu_main, menu);
 
 //        menu.add("Add Contacts");
 //        menu.getItem(0).setIcon(R.drawable.blume);
