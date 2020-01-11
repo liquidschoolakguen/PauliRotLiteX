@@ -2,6 +2,10 @@ package akguen.liquidschool.paulirotlite;
 
 import org.junit.Test;
 
+import java.util.List;
+
+import akguen.liquidschool.coredata.db.Controller;
+
 import static org.junit.Assert.*;
 
 /**
@@ -11,7 +15,9 @@ import static org.junit.Assert.*;
  */
 public class ExampleUnitTest {
     @Test
-    public void addition_isCorrect() {
-        assertEquals(4, 2 + 2);
+    public void addition_isCorrect() throws Exception {
+       // Controller.benno();
     }
+
+
 }

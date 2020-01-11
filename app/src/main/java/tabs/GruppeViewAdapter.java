@@ -6,6 +6,8 @@ import android.animation.ValueAnimator;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -31,7 +33,6 @@ public class GruppeViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
     private ItemClickListener mItemClickListener;
 
 
-
     private Activity activity;
 
     public List<Gruppe> getDataSet() {
@@ -54,24 +55,18 @@ public class GruppeViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
     }
 
 
-
-
-
     @Override
     public int getItemViewType(int position) {
 
 
-        return dataSet.get(position).isSelected()? 1:0;
+        return dataSet.get(position).isSelected() ? 1 : 0;
     }
-
-
 
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         //View layoutView = LayoutInflater.from(parent.getContext()).inflate(R.layout.update_row, parent,false);
         View layoutView;
-
 
 
         switch (viewType) {
@@ -98,18 +93,15 @@ public class GruppeViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
                 ViewHolderNormal viewHolderNormal = (ViewHolderNormal) holder;
 
 
-                viewHolderNormal.gruppename.setText(shownGruppe.getName());
+                viewHolderNormal.gruppename.setText(shownGruppe.getExternName());
                 break;
-
-
 
 
             case 1: //lerngruppenNamen disable Item
                 ViewHolderGruppeOption viewHolderSchuelerOption = (ViewHolderGruppeOption) holder;
 
 
-                viewHolderSchuelerOption.gruppename.setText(shownGruppe.getName());
-
+                viewHolderSchuelerOption.gruppename.setText(shownGruppe.getExternName());
 
 
                 selectedGruppeHolder = viewHolderSchuelerOption;
@@ -136,8 +128,7 @@ public class GruppeViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
     public ViewHolderGruppeOption selectedGruppeHolder = null;
 
 
-
-    public class ViewHolderNormal extends RecyclerView.ViewHolder implements  View.OnLongClickListener, View.OnClickListener {
+    public class ViewHolderNormal extends RecyclerView.ViewHolder implements View.OnLongClickListener, View.OnClickListener {
 
         TextView gruppename;
 
@@ -149,7 +140,6 @@ public class GruppeViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
             gruppename = (TextView) itemView.findViewById(R.id.tv_item_gruppename);
 
         }
-
 
 
         @Override
@@ -165,7 +155,7 @@ public class GruppeViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
 
                 return true;
 
-            }else{
+            } else {
 
                 dataSet.get(dataSet.indexOf(operateGruppe)).setSelected(false);
                 operateGruppe = null;
@@ -186,8 +176,14 @@ public class GruppeViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
         public void onClick(View v) {
 
 
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(v.getContext());
+
+            SharedPreferences.Editor editor = prefs.edit();
+            editor.putString("selectedGruppe", dataSet.get(getAdapterPosition()).getStringId());
+            editor.commit();
+
+
             Intent intent = new Intent(v.getContext(), GruppeTabsActivity.class);
-            intent.putExtra("stringId", dataSet.get(getAdapterPosition()).getStringId());
             v.getContext().startActivity(intent);
             Activity activity = (Activity) v.getContext();
             activity.finish();
@@ -195,8 +191,6 @@ public class GruppeViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
 
         }
     }
-
-
 
 
     public class ViewHolderGruppeOption extends RecyclerView.ViewHolder {
@@ -291,10 +285,6 @@ public class GruppeViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
 
 
     }
-
-
-
-
 
 
 }

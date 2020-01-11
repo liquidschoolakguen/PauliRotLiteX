@@ -348,7 +348,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:textSize="10sp"
-                    android:text="" />
+                    android:text="binärTest" />
 
                 <Button
                     android:id="@+id/bntC2"
@@ -356,7 +356,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:textSize="10sp"
-                    android:text=""/>
+                    android:text="compareTest"/>
 
                 <Button
                     android:id="@+id/bntD2"

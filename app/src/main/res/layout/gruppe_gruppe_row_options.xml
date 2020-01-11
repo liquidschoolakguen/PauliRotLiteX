@@ -23,7 +23,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true">
             <TextView
-                android:id="@+id/tv_item_gruppe2name"
+                android:id="@+id/tv_item_gruppename"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
 
@@ -96,7 +96,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="20dp"
-                android:src="@drawable/haekchen"
+                android:src="@drawable/up"
                 android:tint="@color/colorPrimaryPlus" />
         </RelativeLayout>
     </RelativeLayout>

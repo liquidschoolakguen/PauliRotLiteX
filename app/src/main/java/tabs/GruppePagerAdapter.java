@@ -19,40 +19,40 @@ public class GruppePagerAdapter extends FragmentStatePagerAdapter {
     public Fragment getItem(int position) {
         if(position==0){
 
-            return GruppeProfilFragment.newInstance();
+            return GruppeProfilFragment.newInstance(position+1);
         }
         if(position==1){
             //Väter
-            return GruppeDynamicFragment.newInstance(position+1);
+            return GruppeDynamicVaeterFragment.newInstance(position+1);
         }
 
         if(position==2){
             //Brüder
-            return GruppeDynamicFragment.newInstance(position+1);
+            return GruppeDynamicBruederFragment.newInstance(position+1);
         }
 
 
         if(position==3){
             //Söhne
-            return GruppeDynamicFragment.newInstance(position+1);
+            return GruppeDynamicSoehneFragment.newInstance(position+1);
         }
 
 
         if(position==4){
             //Subjekte
-            return GruppeUntergruppeBildenFragment.newInstance();
+            return GruppeUntergruppeBildenFragment.newInstance(position+1);
         }
 
 
         if(position==5){
             //Separatoren
-            return GruppeSeparatorErstellenFragment.newInstance();
+            return GruppeSeparatorErstellenFragment.newInstance(position+1);
         }
 
-        if(position==6){
+       /* if(position==6){
             //Subjekte
             return GruppeSubjektsFragment.newInstance();
-        }
+        }*/
 
         return null;
 
@@ -76,18 +76,18 @@ public class GruppePagerAdapter extends FragmentStatePagerAdapter {
         }
         if(position==1){
 
-            return "Vererbung";
+            return "Väter";
         }
 
         if(position==2){
 
-            return "Nebengruppen";
+            return "Brüder";
         }
 
 
         if(position==3){
 
-            return "Untergruppen";
+            return "Söhne";
         }
 
         if(position==4){
@@ -100,10 +100,10 @@ public class GruppePagerAdapter extends FragmentStatePagerAdapter {
             return "Separator erzeugen";
         }
 
-        if(position==6){
+       /* if(position==6){
 
             return "Subjekte";
-        }
+        }*/
 
         return "";
     }

@@ -7,7 +7,12 @@ import android.app.Activity;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
+import android.support.v4.content.ContextCompat;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -32,6 +37,7 @@ import akguen.liquidschool.coredata.model.Gruppe;
 import akguen.liquidschool.coredata.model.Radio;
 import akguen.liquidschool.coredata.model.Separator;
 import akguen.liquidschool.paulirotlite.R;
+import zz_test.MyDividerItemDecorator;
 import zz_test.SpeedyLinearLayoutManager;
 
 public class GruppeViewAdapterForUntergruppeBilden extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
@@ -68,24 +74,18 @@ public class GruppeViewAdapterForUntergruppeBilden extends RecyclerView.Adapter<
     }
 
 
-
-
-
     @Override
     public int getItemViewType(int position) {
 
 
-        return dataSet.get(position).isSelected()? 1:0;
+        return dataSet.get(position).isSelected() ? 1 : 0;
     }
-
-
 
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         //View layoutView = LayoutInflater.from(parent.getContext()).inflate(R.layout.update_row, parent,false);
         View layoutView;
-
 
 
         switch (viewType) {
@@ -116,15 +116,14 @@ public class GruppeViewAdapterForUntergruppeBilden extends RecyclerView.Adapter<
                 break;
 
 
-
-
             case 1: //lernseparatornNamen disable Item
+
                 ViewHolderSeparatorOption viewHolderSchuelerOption = (ViewHolderSeparatorOption) holder;
 
 
                 viewHolderSchuelerOption.separatorname.setText(shownSeparator.getName());
 
-                viewHolderSchuelerOption.separatorname.setText(shownSeparator.getName());
+                viewHolderSchuelerOption.separatorStringId.setText(shownSeparator.getStringId());
 
                 selectedSeparatorHolder = viewHolderSchuelerOption;
                 selectedSeparatorHolder.animationOn.start();
@@ -150,8 +149,7 @@ public class GruppeViewAdapterForUntergruppeBilden extends RecyclerView.Adapter<
     public ViewHolderSeparatorOption selectedSeparatorHolder = null;
 
 
-
-    public class ViewHolderNormal extends RecyclerView.ViewHolder implements  View.OnLongClickListener {
+    public class ViewHolderNormal extends RecyclerView.ViewHolder implements View.OnLongClickListener {
 
         TextView separatorname;
 
@@ -163,7 +161,6 @@ public class GruppeViewAdapterForUntergruppeBilden extends RecyclerView.Adapter<
             separatorname = (TextView) itemView.findViewById(R.id.tv_item_separator_name);
 
         }
-
 
 
         @Override
@@ -179,15 +176,10 @@ public class GruppeViewAdapterForUntergruppeBilden extends RecyclerView.Adapter<
 
                 return true;
 
-            }else{
+            } else {
 
-                dataSet.get(dataSet.indexOf(operateSeparator)).setSelected(false);
-                operateSeparator = null;
 
                 selectedSeparatorHolder.animationOff.start();
-                selectedSeparatorHolder = null;
-
-                notifyDataSetChanged();
 
 
                 return true;
@@ -200,36 +192,49 @@ public class GruppeViewAdapterForUntergruppeBilden extends RecyclerView.Adapter<
     }
 
 
-
+    GruppeViewMini adapter;
 
     public class ViewHolderSeparatorOption extends RecyclerView.ViewHolder {
-        RelativeLayout layout;
+        LinearLayout layout;
         TextView separatorname;
-        TextView separatorstringId;
-
+        TextView separatorStringId;
 
 
         ValueAnimator animationOn;
         ValueAnimator animationOff;
 
         ImageView okButton;
-        ImageView löschButton;
-
+        ImageView saveButton;
+        ImageView multi_saveButton;
 
         public ViewHolderSeparatorOption(View itemView) {
             super(itemView);
 
             separatorname = (TextView) itemView.findViewById(R.id.tv_item_separator_name);
+            separatorStringId = (TextView) itemView.findViewById(R.id.tv_item_separator_stringid);
+            layout = (LinearLayout) itemView.findViewById(R.id.layout_sep);
+            okButton = (ImageView) itemView.findViewById(R.id.up1);
+            saveButton = (ImageView) itemView.findViewById(R.id.save);
+            multi_saveButton = (ImageView) itemView.findViewById(R.id.multi_save);
 
-            layout = (RelativeLayout) itemView.findViewById(R.id.layout_sep);
-            okButton = (ImageView) itemView.findViewById(R.id.okkb);
+
+            RecyclerView recyclerView = itemView.findViewById(R.id.radio_mini);
+            RecyclerView.LayoutManager kkk = new LinearLayoutManager(context);
+            recyclerView.setLayoutManager(kkk);
+            recyclerView.setLayoutManager(new SpeedyLinearLayoutManager(context, SpeedyLinearLayoutManager.VERTICAL, false));
 
 
-            animationOn = ValueAnimator.ofInt(180, 275);
+            int anfang = 180;
+            int normalEnde = 275;
+            int dazu = 20 * 3;
+
+
+            animationOn = ValueAnimator.ofInt(anfang, normalEnde + dazu);
             animationOn.setDuration(200);
             animationOn.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
                 @Override
                 public void onAnimationUpdate(ValueAnimator animation) {
+
                     layout.getLayoutParams().height = (Integer) animation.getAnimatedValue();
                     layout.requestLayout();
                 }
@@ -237,11 +242,19 @@ public class GruppeViewAdapterForUntergruppeBilden extends RecyclerView.Adapter<
             animationOn.addListener(new AnimatorListenerAdapter() {
                 public void onAnimationEnd(Animator animation) {
 
+                    DataSource_Separator v = new DataSource_Separator(context);
+                    v.open();
+                    List<Radio> hhh = v.getRadiosFromSeparatorById(operateSeparator.getStringId());
+
+                    adapter = new GruppeViewMini(context, hhh, recyclerView);
+                    recyclerView.setAdapter(adapter);
+
+
                 }
             });
 
 
-            animationOff = ValueAnimator.ofInt(275, 180);
+            animationOff = ValueAnimator.ofInt(normalEnde + dazu, anfang);
             animationOff.setDuration(200);
             animationOff.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
                 @Override
@@ -253,114 +266,71 @@ public class GruppeViewAdapterForUntergruppeBilden extends RecyclerView.Adapter<
             animationOff.addListener(new AnimatorListenerAdapter() {
                 public void onAnimationEnd(Animator animation) {
 
+                    dataSet.get(dataSet.indexOf(operateSeparator)).setSelected(false);
+                    operateSeparator = null;
+                    selectedSeparatorHolder = null;
+
+                    notifyDataSetChanged();
+
+
+                    List<Radio> hhh = new ArrayList<Radio>();
+
+                    adapter = new GruppeViewMini(context, hhh, recyclerView);
+                    recyclerView.setAdapter(adapter);
+
+
                 }
             });
 
             okButton.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
 
-                    dataSet.get(dataSet.indexOf(operateSeparator)).setSelected(false);
-                    operateSeparator = null;
 
                     selectedSeparatorHolder.animationOff.start();
-                    selectedSeparatorHolder = null;
-
-                    notifyDataSetChanged();
 
 
                 }
             });
 
 
-            ContentValues i_to_TrueFalse = new ContentValues();
-            ContentValues i_to_StringId = new ContentValues();
-
-
-            DataSource_Separator v = new DataSource_Separator(context);
-            v.open();
-
-            DataSource_Radio rrr = new DataSource_Radio(context);
-            rrr.open();
-
-
-            int ii = 0;
-
-            List<Radio> hhh = v.getRadiosFromSeparatorById(operateSeparator.getStringId());
-
-
-            for(Radio rr : hhh){
-                    ii++;
-                i_to_StringId.put(Integer.toString(ii), rr.getStringId());
-
-                ToggleButton toggleButton = new ToggleButton(context);
-                toggleButton.setText(rr.getName());
-                toggleButton.setId(ii);
-                toggleButton.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
-                toggleButton.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-                    @Override
-                    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-
-                        i_to_TrueFalse.put(Integer.toString(buttonView.getId()), (isChecked ? true : false));
-                        String msg = "Toggle Button ["+ buttonView.getId() +"] is " + (isChecked ? "ON" : "OFF");
-                        Toast.makeText(context, msg, Toast.LENGTH_SHORT).show();
-                    }
-                });
-
-                // Add ToggleButton to LinearLayout
-                if (layout != null) {
-                    layout.addView(toggleButton);
-                }
-
-
-            }
-
-            Button btn1 = new Button(context);
-            btn1.setText("Button_text");
-
-            layout.addView(btn1);
-
-
-            int finalIi = ii;
-            btn1.setOnClickListener(new View.OnClickListener() {
+            saveButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-
-                    int gg = i_to_TrueFalse.size();
-                    String msg="";
-                    for(int i = 0; i >= gg; i++)
-                    {
-                        boolean mimi = i_to_TrueFalse.getAsBoolean(Integer.toString(i));
-                        msg = msg +"Toggle Button ["+ Integer.toString(i) +"] is " + mimi+ "\n";
+                    DataSource_Radio vv = new DataSource_Radio(context);
+                    vv.open();
 
 
+                    for (Radio g : adapter.dataSet) {
+
+                        Log.d("GruppeTest2", "ok " + g.getName() + g.isFormular_checked());
+                        vv.updateRadio(g.getId(), g.getStringId(), g.getName(), g.getSeparator_id(), g.isFormular_checked(), g.isDefault_checked());
 
 
-                        for (Radio g :hhh){
-
-                            if(g.getStringId().equals(i_to_StringId.getAsString(Integer.toString(i)))){
-
-                                g.setChecked(mimi);
-                                rrr.updateRadio(g.getId(), g.getStringId(), g.getName(), g.getSeparator_id(),g.isChecked());
-
-                            }
-                        }
-                        //System.out.println(msg);
                     }
-
-
-                    Toast.makeText(context, msg, Toast.LENGTH_LONG).show();
+                    //System.out.println(msg);
 
 
                     Controller kei = new Controller(context);
                     kei.openAll();
 
 
-                    Gruppe newGruppe;
-                    kei.buildGruppe(gey,operateSeparator);
+                    Gruppe newGruppe = kei.buildGruppe(gey, operateSeparator);
 
+                    for (Radio g : adapter.dataSet) {
+
+
+                        vv.updateRadio(g.getId(), g.getStringId(), g.getName(), g.getSeparator_id(), false, g.isDefault_checked());
+
+
+                    }
+
+
+                    SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(v.getContext());
+                    SharedPreferences.Editor editor = prefs.edit();
+                    editor.putString("selectedGruppe", newGruppe.getStringId());
+                    editor.commit();
 
                     Intent intent = new Intent(v.getContext(), GruppeTabsActivity.class);
-                    intent.putExtra("stringId", dataSet.get(getAdapterPosition()).getStringId());
                     v.getContext().startActivity(intent);
                     Activity activity = (Activity) v.getContext();
                     activity.finish();
@@ -369,18 +339,79 @@ public class GruppeViewAdapterForUntergruppeBilden extends RecyclerView.Adapter<
             });
 
 
+            multi_saveButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    DataSource_Radio vv = new DataSource_Radio(context);
+                    vv.open();
+                    Controller kei = new Controller(context);
+                    kei.openAll();
+
+                    int i = 0;
+                    for (Radio g : adapter.dataSet) {
+
+                        Radio willChecked = adapter.dataSet.get(adapter.dataSet.indexOf(g));
+                        willChecked.setFormular_checked(true);
+
+                        for (Radio gg : adapter.dataSet) {
+                            if (!gg.equals(willChecked)) {
+                                adapter.dataSet.get(adapter.dataSet.indexOf(gg)).setFormular_checked(false);
+
+                            }
+
+                        }
+
+
+                        i++;
+
+
+                        for (Radio gggg : adapter.dataSet) {
+
+                            Log.d("GruppeTest2", "save " + gggg.getName() + gggg.isFormular_checked());
+                            vv.updateRadio(gggg.getId(), gggg.getStringId(), gggg.getName(), gggg.getSeparator_id(), gggg.isFormular_checked(), gggg.isDefault_checked());
+
+
+                        }
+                        //System.out.println(msg);
+
+
+
+
+                        Gruppe newGruppe = kei.buildGruppe(gey, operateSeparator);
+
+                        for (Radio ggg : adapter.dataSet) {
+
+
+                            vv.updateRadio(ggg.getId(), ggg.getStringId(), ggg.getName(), ggg.getSeparator_id(), false, ggg.isDefault_checked());
+
+
+                        }
+
+
+
+
+
+                    }
+
+                    SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(v.getContext());
+                    SharedPreferences.Editor editor = prefs.edit();
+                    editor.putString("selectedGruppe", "main#1");
+                    editor.commit();
+
+                    Intent intent = new Intent(v.getContext(), GruppeTabsActivity.class);
+                    v.getContext().startActivity(intent);
+                    Activity activity = (Activity) v.getContext();
+                    activity.finish();
+
+
+                }
+            });
 
 
         }
 
 
-
-
     }
-
-
-
-
 
 
 }

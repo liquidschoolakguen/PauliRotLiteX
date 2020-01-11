@@ -1,14 +1,21 @@
 package tabs;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
+import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 
 import akguen.liquidschool.coredata.db.DataSource_Gruppe;
 import akguen.liquidschool.coredata.model.Gruppe;
@@ -25,8 +32,6 @@ public class GruppeTabsActivity extends AppCompatActivity {
     private DataSource_Gruppe ds_g2;
 
 
-
-
     private Gruppe selectedGruppe;
 
 
@@ -38,16 +43,34 @@ public class GruppeTabsActivity extends AppCompatActivity {
         setContentView(R.layout.gruppe_activity);
 
         mTopToolbar = (Toolbar) findViewById(R.id.dynamic_toolbar_gruppe);
+
+
+
+
+        getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+        getSupportActionBar().setCustomView(R.layout.titel_rechtsbuendig);
+
+        TextView customTitle = (TextView) getSupportActionBar().getCustomView().findViewById(R.id.mumu);
+
         fa = this;
 
-        viewPagerAdapter = new GruppePagerAdapter(getSupportFragmentManager(), 6, this);
-        viewPager = findViewById(R.id.viewpager_gruppe);
-        viewPager.setAdapter(viewPagerAdapter);
+
 
 
         ds_g2 = new DataSource_Gruppe(this);
-
         ds_g2.open();
+
+
+        //pref löschen wenn datenbank leer ist
+        if(ds_g2.getAllGruppes().size()==0){
+
+               SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+
+                SharedPreferences.Editor editor = prefs.edit();
+                editor.clear();
+                editor.commit();
+        }
+
 
 
 
@@ -55,41 +78,91 @@ public class GruppeTabsActivity extends AppCompatActivity {
         selectedGruppe = getSelectedGruppe();
 
 
+        viewPagerAdapter = new GruppePagerAdapter(getSupportFragmentManager(), 6, this);
+        viewPager = findViewById(R.id.viewpager_gruppe);
+        viewPager.setAdapter(viewPagerAdapter);
         tabLayout = findViewById(R.id.tabs_gruppe);
         tabLayout.setupWithViewPager(viewPager);
-        //tabLayout.getTabAt(i-1).setIcon(tabIcon);
+
+        //this.setTitle(selectedGruppe.getExternName());
 
 
-                tabLayout.getTabAt(0).setText("Allgemoin");
+        String showableName="";
+        if(selectedGruppe.getExternName().length()<=30){
+            showableName =   selectedGruppe.getExternName();
+
+        }else{
+            showableName = "..."+selectedGruppe.getExternName().substring(selectedGruppe.getExternName().length()-30,selectedGruppe.getExternName().length());
+
+        }
+
+
+        customTitle.setText(showableName);
+
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        String separatorErzeugt = prefs.getString("separatorErzeugt", null);
+        if(separatorErzeugt!=null){
+
+            viewPager.setCurrentItem(4);
+
+            prefs.edit().remove("separatorErzeugt").commit();
+
+        }
 
     }
 
     private Gruppe getSelectedGruppe() {
 
-        Intent intent = getIntent();
-        String stringId = intent.getStringExtra("stringId");
+      /*  SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putString("selectedGruppe", null);
+        editor.commit();
+        */
 
-        if(stringId!=null && !stringId.equals("")){
 
-        return ds_g2.getGruppeByStringId(stringId);
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        String stringIdOfselectedGruppe = prefs.getString("selectedGruppe", null);
+        //Log.d("GruppeTest", "222 "+stringIdOfselectedGruppe);
+
+        if (stringIdOfselectedGruppe != null) {
+            ds_g2.open();
+            Gruppe pos = ds_g2.getGruppeByStringId(stringIdOfselectedGruppe);
+            if(pos==null){
+
+                pos = ds_g2.createGruppe(stringIdOfselectedGruppe,null,null,null);
+                if(pos==null){
+                    Log.d("GruppeTest", "fehler ");
+
+                }else{
+
+                   // Log.d("GruppeTest", "ok ");
+                }
+
+
+            }
+
+
+            return ds_g2.getGruppeByStringId(stringIdOfselectedGruppe);
 
         } else {
 
-            intent.putExtra("stringId", "main");
+
+            SharedPreferences.Editor editor = prefs.edit();
+            editor.putString("selectedGruppe", "main#1");
+            editor.commit();
 
 
-            Gruppe g = ds_g2.getGruppeByStringId("main");
+            Gruppe g = ds_g2.getGruppeByStringId("main#1");
 
-            if(g!=null){
+            if (g != null) {
 
                 return g;
-            }else{
+            } else {
 
                 return buildMainGruppe();
             }
 
         }
-
 
 
     }
@@ -120,14 +193,9 @@ public class GruppeTabsActivity extends AppCompatActivity {
         if (id == R.id.dynamic_loeschen) {
 
 
-
-
-
             Intent speichernS1 = new Intent(GruppeTabsActivity.this, GruppeTabsActivity.class);
             startActivity(speichernS1);
             finish();
-
-
 
 
             return true;
@@ -143,42 +211,24 @@ public class GruppeTabsActivity extends AppCompatActivity {
     }
 
 
-
-
-
     public Gruppe buildMainGruppe() {
 
 
         Gruppe n = new Gruppe();
 
 
+        // erste Gruppe
+        n.setStringId("main#1");
+        n.setName("main#1");
+        n.setExternName("Wurzelgruppe");
+
+        n.setVaterStringId("");
 
 
-
-            // erste Gruppe
-            n.setStringId("main");
-            n.setName("main");
-            n.setExternName("main");
-
-            n.setVaterStringId("");
-
-
-
-            return  ds_g2.createGruppe(n.getStringId(), n.getName(), n.getExternName(), n.getVaterStringId());
-
-
-
-
-
-
+        return ds_g2.createGruppe(n.getStringId(), n.getName(), n.getExternName(), n.getVaterStringId());
 
 
     }
-
-
-
-
-
 
 
     @Override

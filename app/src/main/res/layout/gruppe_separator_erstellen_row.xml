@@ -2,16 +2,13 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/custom_ripple"
     android:orientation="vertical">
 
     <RelativeLayout
         android:id="@+id/layout_1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingLeft="10dp"
-        android:paddingTop="10dp"
-        android:paddingBottom="10dp">
+       >
 
         <RelativeLayout
             android:id="@+id/xxxx"
@@ -25,14 +22,14 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true">
 
-                <TextView
-                    android:id="@+id/tv_item_gruppename"
-                    android:layout_width="wrap_content"
+                <EditText
+                    android:id="@+id/et_radio_name"
                     android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:hint="Name"/>
 
 
-                    android:text="Sila Alem"
-                    android:textSize="14sp" />
+
             </RelativeLayout>
 
             <RelativeLayout
@@ -40,7 +37,10 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true">
 
-
+                <Switch
+                    android:id="@+id/simpleSwitch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
 
 
 

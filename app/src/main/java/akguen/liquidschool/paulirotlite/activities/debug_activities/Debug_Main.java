@@ -2,17 +2,23 @@ package akguen.liquidschool.paulirotlite.activities.debug_activities;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Build;
+import android.preference.PreferenceManager;
 import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import java.io.IOException;
 import java.security.GeneralSecurityException;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
 
 import akguen.liquidschool.paulirotlite.R;
 import akguen.liquidschool.paulirotlite.activities.in_use.UnterrichtplanActivity;
@@ -27,10 +33,11 @@ public class Debug_Main extends AppCompatActivity {
 
 //Test
 
-    public final int OPEN_DIRECTORY_REQUEST_CODE =1111;
-    Button btnA, btnA_, btnB, btnC, btnD, btnE,btnF,btnG,btnH,btnI,btnJ,btnK,btnL,btnM,btnN,btnO,btnP,btnQ,btnR,btnS,btnT,btnU, btnV, btnW, btnX, btnY, btnZ;
-    Button btnA2, btnA_2, btnB2, btnC2, btnD2, btnE2,btnF2,btnG2,btnH2,btnI2,btnJ2,btnK2,btnL2,btnM2,btnN2,btnO2,btnP2,btnQ2,btnR2,btnS2,btnT2,btnU2, btnV2, btnW2, btnX2, btnY2, btnZ2;
+    public final int OPEN_DIRECTORY_REQUEST_CODE = 1111;
+    Button btnA, btnA_, btnB, btnC, btnD, btnE, btnF, btnG, btnH, btnI, btnJ, btnK, btnL, btnM, btnN, btnO, btnP, btnQ, btnR, btnS, btnT, btnU, btnV, btnW, btnX, btnY, btnZ;
+    Button btnA2, btnA_2, btnB2, btnC2, btnD2, btnE2, btnF2, btnG2, btnH2, btnI2, btnJ2, btnK2, btnL2, btnM2, btnN2, btnO2, btnP2, btnQ2, btnR2, btnS2, btnT2, btnU2, btnV2, btnW2, btnX2, btnY2, btnZ2;
     Button test4;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -95,21 +102,15 @@ public class Debug_Main extends AppCompatActivity {
         btnZ2 = findViewById(R.id.bntZ2);
 
 
-
-
-
-
-
-
-
-
-
         btnA.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
+              /*  SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(v.getContext());
 
-
+                SharedPreferences.Editor editor = prefs.edit();
+                editor.clear();
+                editor.commit();*/
 
             }
         });
@@ -260,7 +261,7 @@ public class Debug_Main extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent speichernS1= new Intent(Debug_Main.this, S1_WaehleSchueler.class);
+                Intent speichernS1 = new Intent(Debug_Main.this, S1_WaehleSchueler.class);
                 startActivity(speichernS1);
 
             }
@@ -270,7 +271,7 @@ public class Debug_Main extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent speichernRaum= new Intent(Debug_Main.this, Speichern_Raum.class);
+                Intent speichernRaum = new Intent(Debug_Main.this, Speichern_Raum.class);
                 startActivity(speichernRaum);
 
             }
@@ -280,7 +281,7 @@ public class Debug_Main extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent speichernThema= new Intent(Debug_Main.this, Speichern_Thema.class);
+                Intent speichernThema = new Intent(Debug_Main.this, Speichern_Thema.class);
                 startActivity(speichernThema);
 
             }
@@ -289,7 +290,7 @@ public class Debug_Main extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent speichernLerngruppe= new Intent(Debug_Main.this, Speichern_Lerngruppe.class);
+                Intent speichernLerngruppe = new Intent(Debug_Main.this, Speichern_Lerngruppe.class);
                 startActivity(speichernLerngruppe);
 
             }
@@ -299,19 +300,18 @@ public class Debug_Main extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent speichernLernform= new Intent(Debug_Main.this, Speichern_Lernform.class);
+                Intent speichernLernform = new Intent(Debug_Main.this, Speichern_Lernform.class);
                 startActivity(speichernLernform);
 
             }
         });
 
 
-
         btnS.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                Intent speichernLernform= new Intent(Debug_Main.this, Speichern_Schueler_Lerngruppe.class);
+                Intent speichernLernform = new Intent(Debug_Main.this, Speichern_Schueler_Lerngruppe.class);
                 startActivity(speichernLernform);
 
             }
@@ -320,7 +320,7 @@ public class Debug_Main extends AppCompatActivity {
         btnT.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent speichernLernform= new Intent(Debug_Main.this, Speichern_Kollege_Standort.class);
+                Intent speichernLernform = new Intent(Debug_Main.this, Speichern_Kollege_Standort.class);
                 startActivity(speichernLernform);
 
 
@@ -329,7 +329,7 @@ public class Debug_Main extends AppCompatActivity {
         btnU.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent speichernLernform= new Intent(Debug_Main.this, Speichern_Schueler_Angehoeriger.class);
+                Intent speichernLernform = new Intent(Debug_Main.this, Speichern_Schueler_Angehoeriger.class);
                 startActivity(speichernLernform);
 
 
@@ -341,21 +341,18 @@ public class Debug_Main extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent speichernLernform= new Intent(Debug_Main.this, S5_LerngruppeWechseln.class);
+                Intent speichernLernform = new Intent(Debug_Main.this, S5_LerngruppeWechseln.class);
                 startActivity(speichernLernform);
 
             }
         });
 
 
-
-
-
         btnW.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                Intent speichernLernform= new Intent(Debug_Main.this, UnterrichtplanActivity.class);
+                Intent speichernLernform = new Intent(Debug_Main.this, UnterrichtplanActivity.class);
                 startActivity(speichernLernform);
 
             }
@@ -366,7 +363,7 @@ public class Debug_Main extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent speichernS3= new Intent(Debug_Main.this, WaehleSchuelerDynamicTabsActivity.class);
+                Intent speichernS3 = new Intent(Debug_Main.this, WaehleSchuelerDynamicTabsActivity.class);
                 startActivity(speichernS3);
 
             }
@@ -377,36 +374,22 @@ public class Debug_Main extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent speichernS3= new Intent(Debug_Main.this, Speichern_Vergehengruppe.class);
+                Intent speichernS3 = new Intent(Debug_Main.this, Speichern_Vergehengruppe.class);
                 startActivity(speichernS3);
 
             }
         });
-
 
 
         btnZ.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                Intent speichernS3= new Intent(Debug_Main.this, Speichern_Vergehen_Vergehengruppe.class);
+                Intent speichernS3 = new Intent(Debug_Main.this, Speichern_Vergehen_Vergehengruppe.class);
                 startActivity(speichernS3);
 
             }
         });
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
         btnA2.setOnClickListener(new View.OnClickListener() {
@@ -443,7 +426,7 @@ public class Debug_Main extends AppCompatActivity {
             public void onClick(View v) {
 
 
-                Intent speichernS3= new Intent(Debug_Main.this, tabs.GruppeTabsActivity.class);
+                Intent speichernS3 = new Intent(Debug_Main.this, tabs.GruppeTabsActivity.class);
                 startActivity(speichernS3);
             }
         });
@@ -452,15 +435,138 @@ public class Debug_Main extends AppCompatActivity {
         btnB2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Log.d("GruppeTest", "anzahlDerMöglichenRäume ");
+                int base = 2;
+                int lös = 1;
+                int anzahlDerRadios = 4;
+                for (int i = 0; i < anzahlDerRadios; i++) {
+                    lös = lös * base;
 
+                }
+                int anzahlDerMöglichenRäume = lös;
+                //Integer.toBinaryString(int i);
+                Log.d("GruppeTest", "anzahlDerMöglichenRäume " + anzahlDerMöglichenRäume);
 
+                for (int ii = 0; ii < anzahlDerMöglichenRäume; ii++) {
+                    String toTest = Integer.toBinaryString(ii);
+                    Log.d("GruppeTest", "----------------------------------");
+                    Log.d("GruppeTest", "" + ii + ": " + toTest);
+
+                    if (toTest.length() != anzahlDerRadios) {
+
+                        if (toTest.length() == 3) {
+
+                            toTest = toTest + "0";
+                        }
+
+                        if (toTest.length() == 2) {
+
+                            toTest = toTest + "00";
+                        }
+                        if (toTest.length() == 1) {
+
+                            toTest = toTest + "000";
+                        }
+                        Log.d("GruppeTest", "" + ii + ": " + toTest);
+
+                        String reverse = "";
+                        for (int i = toTest.length() - 1; i >= 0; i--) {
+                            reverse = reverse + toTest.charAt(i);
+                        }
+                        toTest = reverse;
+                    }
+
+                    Log.d("GruppeTest", "" + ii + ": " + toTest);
+
+                }
 
             }
         });
 
+
+
         btnC2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                String tempArray1[];
+                String tempArray2[];
+
+                String delimiter = "\n";
+
+                String s1 = "Hallo\nwie\ngeht\nes\ndir?\n";
+                String s2 = "Hallo\nwie\nes\ngeht\ndir?\n";
+
+
+                tempArray1 = s1.split(delimiter);
+                tempArray2 = s2.split(delimiter);
+
+                for (int i = 0; i < tempArray1.length; i++) {
+
+                    Log.d("GruppeTest3", "tempArray1[i] " + tempArray1[i]);
+
+
+                }
+
+                for (int i = 0; i < tempArray2.length; i++) {
+
+                    Log.d("GruppeTest3", "tempArray2[i] " + tempArray2[i]);
+
+
+                }
+
+
+                Set<String> mySet1 = new HashSet<>(Arrays.asList(tempArray1));
+                Set<String> mySet2 = new HashSet<>(Arrays.asList(tempArray2));
+
+                /*Set<String> h1 = new HashSet<String>();
+                h1.add("For");
+                h1.add("Geeks");
+                h1.add("Example");
+                h1.add("Set");
+
+
+                Set<String> h2 = new HashSet<String>();
+                h2.add("For");
+                h2.add("Geeks");
+                h2.add("Example");
+                h2.add("Set");
+                h2.add("Geeks");*/
+
+                if (mySet1.containsAll(mySet2) && mySet2.containsAll(mySet1)) {
+                    Toast.makeText(getApplicationContext(), "geklappt: " , Toast.LENGTH_LONG).show();
+                }else{
+
+                    Toast.makeText(getApplicationContext(), "nein: " , Toast.LENGTH_LONG).show();
+                }
+
+                /*String tempArray[];
+
+
+                String delimiter = "\n";
+
+                tempArray = stringId.split(delimiter);
+
+
+                for (int i = 0; i < tempArray.length; i++) {
+
+                    Log.d("GruppeTest3", "tempArray[i] "+tempArray[i]);
+            *//*if (Character.isWhitespace(tempArray[i].length() - 1)) {
+
+                tempArray[i] = tempArray[i].substring(0, tempArray[i].length() - 1);
+            }*//*
+
+
+                }
+
+*/
+
+
+
+
+
+
+
 
 
 
@@ -472,7 +578,6 @@ public class Debug_Main extends AppCompatActivity {
             public void onClick(View v) {
 
 
-
             }
         });
 
@@ -482,14 +587,12 @@ public class Debug_Main extends AppCompatActivity {
             public void onClick(View v) {
 
 
-
             }
         });
 
         btnF2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
 
 
             }
@@ -501,14 +604,12 @@ public class Debug_Main extends AppCompatActivity {
             public void onClick(View v) {
 
 
-
             }
         });
 
         btnH2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
 
 
             }
@@ -519,14 +620,12 @@ public class Debug_Main extends AppCompatActivity {
             public void onClick(View v) {
 
 
-
             }
         });
 
         btnJ2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
 
 
             }
@@ -537,15 +636,12 @@ public class Debug_Main extends AppCompatActivity {
             public void onClick(View v) {
 
 
-
-
             }
         });
 
         btnL2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
 
 
             }
@@ -556,14 +652,12 @@ public class Debug_Main extends AppCompatActivity {
             public void onClick(View v) {
 
 
-
             }
         });
 
         btnN2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
 
 
             }
@@ -574,7 +668,6 @@ public class Debug_Main extends AppCompatActivity {
             public void onClick(View v) {
 
 
-
             }
         });
 
@@ -583,13 +676,11 @@ public class Debug_Main extends AppCompatActivity {
             public void onClick(View v) {
 
 
-
             }
         });
         btnQ2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
 
 
             }
@@ -600,16 +691,13 @@ public class Debug_Main extends AppCompatActivity {
             public void onClick(View v) {
 
 
-
             }
         });
-
 
 
         btnS2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
 
 
             }
@@ -620,15 +708,12 @@ public class Debug_Main extends AppCompatActivity {
             public void onClick(View v) {
 
 
-
             }
         });
 
         btnU2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-
 
 
             }
@@ -640,18 +725,13 @@ public class Debug_Main extends AppCompatActivity {
             public void onClick(View v) {
 
 
-
             }
         });
-
-
-
 
 
         btnW2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
 
 
             }
@@ -663,7 +743,6 @@ public class Debug_Main extends AppCompatActivity {
             public void onClick(View v) {
 
 
-
             }
         });
 
@@ -671,7 +750,6 @@ public class Debug_Main extends AppCompatActivity {
         btnY2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
 
 
             }
@@ -682,19 +760,8 @@ public class Debug_Main extends AppCompatActivity {
             public void onClick(View v) {
 
 
-
             }
         });
-
-
-
-
-
-
-
-
-
-
 
 
     }
@@ -712,15 +779,13 @@ public class Debug_Main extends AppCompatActivity {
                 uri = resultData.getData();
                 Log.i("hiii", "Uri: " + uri.toString());
                 //showImage(uri);
-               // path = uri.toString();//my edit
+                // path = uri.toString();//my edit
                 //img = loadImage(path);// this is what I want.
             }
         }
 
 
     }
-
-
 
 
 }

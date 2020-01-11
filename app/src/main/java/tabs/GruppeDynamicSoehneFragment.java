@@ -1,6 +1,5 @@
 package tabs;
 
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -10,6 +9,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,20 +24,18 @@ import akguen.liquidschool.coredata.db.DataSource_Separator;
 import akguen.liquidschool.coredata.db.DataSource_Subjekt;
 import akguen.liquidschool.coredata.db.DataSource_Subjekt_Gruppe;
 import akguen.liquidschool.coredata.model.Gruppe;
-import akguen.liquidschool.coredata.model.Separator;
 import akguen.liquidschool.paulirotlite.R;
 import zz_test.MyDividerItemDecorator;
 import zz_test.SpeedyLinearLayoutManager;
 
-public class GruppeUntergruppeBildenFragment extends Fragment implements GruppeViewAdapterForUntergruppeBilden.ItemClickListener {
+public class GruppeDynamicSoehneFragment extends Fragment implements GruppeViewAdapter.ItemClickListener {
 
     private static final String ARG_SECTION_NUMBER = "section_number";
     private int sectionNumber;
 
 
-
-    List<Separator> ff;
-    GruppeViewAdapterForUntergruppeBilden adapter;
+    List<Gruppe> ff;
+    GruppeViewAdapter adapter;
     private DataSource_Gruppe ds_g2;
     private DataSource_Subjekt ds_su;
     private DataSource_Subjekt_Gruppe ds_g2_su;
@@ -48,7 +46,7 @@ public class GruppeUntergruppeBildenFragment extends Fragment implements GruppeV
 
 
 
-    public GruppeUntergruppeBildenFragment() {
+    public GruppeDynamicSoehneFragment() {
         // Required empty public constructor
     }
 
@@ -92,31 +90,83 @@ public class GruppeUntergruppeBildenFragment extends Fragment implements GruppeV
         ds_sep.open();
         ds_ra.open();
         con.openAll();
-        Gruppe gg;
+
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
+        String stringIdOfselectedGruppe = prefs.getString("selectedGruppe", null);
 
 
 
-            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-            String stringIdOfselectedGruppe = prefs.getString("selectedGruppe", null);
-
-            gg = ds_g2.getGruppeByStringId(stringIdOfselectedGruppe);
-
-
-            ff = con.getVisibleSeparatorsOfGruppe(gg);
 
 
 
+        Gruppe gg = ds_g2.getGruppeByStringId(stringIdOfselectedGruppe);
+
+
+
+
+
+
+  /*      if ((sectionNumber)==2) {
+
+
+
+            //Toast.makeText(getContext(), "dynamic: " + sectionNumber, Toast.LENGTH_LONG).show();
+            // Toast.makeText(getContext(), "sectionNumber Fehler: " + sectionNumber, Toast.LENGTH_LONG).show();
+            ff = con.holeAlleVäter(gg);
+
+            Log.d("GruppeTest", "sectionNumber "+sectionNumber);
             RecyclerView recyclerView = view.findViewById(R.id.dynamic_list_gruppe);
             RecyclerView.LayoutManager kkk = new LinearLayoutManager(getActivity());
             recyclerView.setLayoutManager(kkk);
             recyclerView.setLayoutManager(new SpeedyLinearLayoutManager(getActivity(), SpeedyLinearLayoutManager.VERTICAL, false));
-            adapter = new GruppeViewAdapterForUntergruppeBilden(getActivity(), ff, recyclerView,gg);
+            adapter = new GruppeViewAdapter(getActivity(), ff, recyclerView);
+            adapter.addItemClickListener(this);
+            RecyclerView.ItemDecoration dividerItemDecoration = new MyDividerItemDecorator(ContextCompat.getDrawable(getActivity(), R.drawable.divider));
+            recyclerView.addItemDecoration(dividerItemDecoration);
+            recyclerView.setAdapter(adapter);
+
+        }*/
+
+       /* if ((sectionNumber)==3) {
+
+
+//Brüder
+            ff = ds_g2.getAllGruppesByVaterStringId(gg.getVaterStringId());
+
+            Log.d("GruppeTest", "sectionNumber ausbBrüder "+sectionNumber);
+            RecyclerView recyclerView = view.findViewById(R.id.dynamic_list_gruppe);
+            RecyclerView.LayoutManager kkk = new LinearLayoutManager(getActivity());
+            recyclerView.setLayoutManager(kkk);
+            recyclerView.setLayoutManager(new SpeedyLinearLayoutManager(getActivity(), SpeedyLinearLayoutManager.VERTICAL, false));
+            adapter = new GruppeViewAdapter(getActivity(), ff, recyclerView);
             adapter.addItemClickListener(this);
             RecyclerView.ItemDecoration dividerItemDecoration = new MyDividerItemDecorator(ContextCompat.getDrawable(getActivity(), R.drawable.divider));
             recyclerView.addItemDecoration(dividerItemDecoration);
             recyclerView.setAdapter(adapter);
 
 
+
+        }*/
+
+        if ((sectionNumber)==4) {
+            //Söhne
+
+            ff = ds_g2.getAllGruppesByVaterStringId(gg.getStringId());
+
+            Log.d("GruppeTest", "sectionNumber aus Söhne"+sectionNumber);
+            RecyclerView recyclerView = view.findViewById(R.id.dynamic_list_gruppe);
+            RecyclerView.LayoutManager kkk = new LinearLayoutManager(getActivity());
+            recyclerView.setLayoutManager(kkk);
+            recyclerView.setLayoutManager(new SpeedyLinearLayoutManager(getActivity(), SpeedyLinearLayoutManager.VERTICAL, false));
+            adapter = new GruppeViewAdapter(getActivity(), ff, recyclerView);
+            adapter.addItemClickListener(this);
+            RecyclerView.ItemDecoration dividerItemDecoration = new MyDividerItemDecorator(ContextCompat.getDrawable(getActivity(), R.drawable.divider));
+            recyclerView.addItemDecoration(dividerItemDecoration);
+            recyclerView.setAdapter(adapter);
+
+
+
+        }
 
 
 
@@ -127,15 +177,22 @@ public class GruppeUntergruppeBildenFragment extends Fragment implements GruppeV
         return view;
     }
 
-    public static GruppeUntergruppeBildenFragment newInstance(int sectionNumber) {
-        GruppeUntergruppeBildenFragment fragment = new GruppeUntergruppeBildenFragment();
+    public static GruppeDynamicSoehneFragment newInstance(int sectionNumber) {
+        GruppeDynamicSoehneFragment fragment = new GruppeDynamicSoehneFragment();
         Bundle args = new Bundle();
         args.putInt(ARG_SECTION_NUMBER, sectionNumber);
         fragment.setArguments(args);
+
+
+
+
+
+
         return fragment;
     }
+
     @Override
     public void onItemClick(int position) {
-        //Toast.makeText(getContext(), "Click on item: " + position, Toast.LENGTH_SHORT).show();
+        Toast.makeText(getContext(), "Click on item: " + position, Toast.LENGTH_SHORT).show();
     }
 }
