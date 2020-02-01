@@ -20,6 +20,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
+import akguen.liquidschool.coredata.db.Controller;
 import akguen.liquidschool.paulirotlite.R;
 import akguen.liquidschool.paulirotlite.activities.in_use.UnterrichtplanActivity;
 import akguen.liquidschool.paulirotlite.activities.old_activities.S1_WaehleSchueler;
@@ -576,8 +577,8 @@ public class Debug_Main extends AppCompatActivity {
         btnD2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-
+                Filler f = new Filler();
+                f.fillKollege2(v.getContext());
             }
         });
 
@@ -587,12 +588,32 @@ public class Debug_Main extends AppCompatActivity {
             public void onClick(View v) {
 
 
+                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+
+                SharedPreferences.Editor editor = prefs.edit();
+                editor.clear();
+                editor.commit();
+
+
+                Controller con = new Controller(v.getContext());
+                con.openAll();
+
+                con.init();
+
+
+
+
+                con.closeAll();
             }
         });
 
         btnF2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+
+
+
 
 
             }

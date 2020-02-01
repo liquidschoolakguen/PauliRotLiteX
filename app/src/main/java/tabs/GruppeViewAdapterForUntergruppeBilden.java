@@ -123,7 +123,7 @@ public class GruppeViewAdapterForUntergruppeBilden extends RecyclerView.Adapter<
 
                 viewHolderSchuelerOption.separatorname.setText(shownSeparator.getName());
 
-                viewHolderSchuelerOption.separatorStringId.setText(shownSeparator.getStringId());
+                //viewHolderSchuelerOption.separatorStringId.setText(shownSeparator.getStringId());
 
                 selectedSeparatorHolder = viewHolderSchuelerOption;
                 selectedSeparatorHolder.animationOn.start();
@@ -197,7 +197,7 @@ public class GruppeViewAdapterForUntergruppeBilden extends RecyclerView.Adapter<
     public class ViewHolderSeparatorOption extends RecyclerView.ViewHolder {
         LinearLayout layout;
         TextView separatorname;
-        TextView separatorStringId;
+        //TextView separatorStringId;
 
 
         ValueAnimator animationOn;
@@ -211,7 +211,7 @@ public class GruppeViewAdapterForUntergruppeBilden extends RecyclerView.Adapter<
             super(itemView);
 
             separatorname = (TextView) itemView.findViewById(R.id.tv_item_separator_name);
-            separatorStringId = (TextView) itemView.findViewById(R.id.tv_item_separator_stringid);
+            //separatorStringId = (TextView) itemView.findViewById(R.id.tv_item_separator_stringid);
             layout = (LinearLayout) itemView.findViewById(R.id.layout_sep);
             okButton = (ImageView) itemView.findViewById(R.id.up1);
             saveButton = (ImageView) itemView.findViewById(R.id.save);
@@ -225,8 +225,8 @@ public class GruppeViewAdapterForUntergruppeBilden extends RecyclerView.Adapter<
 
 
             int anfang = 180;
-            int normalEnde = 275;
-            int dazu = 20 * 3;
+            int normalEnde = 225;
+            int dazu = 10 * 1;
 
 
             animationOn = ValueAnimator.ofInt(anfang, normalEnde + dazu);
@@ -235,6 +235,16 @@ public class GruppeViewAdapterForUntergruppeBilden extends RecyclerView.Adapter<
                 @Override
                 public void onAnimationUpdate(ValueAnimator animation) {
 
+
+                    DataSource_Separator v = new DataSource_Separator(context);
+                    v.open();
+                    List<Radio> hhh = v.getRadiosFromSeparatorById(operateSeparator.getStringId());
+                    Log.d("GruppeTest2", "80 * hhh.size() " + 80 * hhh.size());
+                    animationOn.setIntValues(225+ (81 * hhh.size()));
+
+                    adapter = new GruppeViewMini(context, hhh, recyclerView);
+                    recyclerView.setAdapter(adapter);
+
                     layout.getLayoutParams().height = (Integer) animation.getAnimatedValue();
                     layout.requestLayout();
                 }
@@ -242,12 +252,12 @@ public class GruppeViewAdapterForUntergruppeBilden extends RecyclerView.Adapter<
             animationOn.addListener(new AnimatorListenerAdapter() {
                 public void onAnimationEnd(Animator animation) {
 
-                    DataSource_Separator v = new DataSource_Separator(context);
-                    v.open();
-                    List<Radio> hhh = v.getRadiosFromSeparatorById(operateSeparator.getStringId());
 
-                    adapter = new GruppeViewMini(context, hhh, recyclerView);
-                    recyclerView.setAdapter(adapter);
+
+
+
+
+
 
 
                 }

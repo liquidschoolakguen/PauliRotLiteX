@@ -117,7 +117,7 @@ public class GruppeSeparatorErstellenFragment extends Fragment implements Gruppe
                     if(r.getName()!=null && !r.getName().trim().equals("")){
 
                         nulist.add(r);
-                        Log.d("GruppeTest", "da stimmt was nicht :::"+r.getName());
+                       // Log.d("GruppeTest", "da stimmt was nicht :::"+r.getName());
 
                     }
 

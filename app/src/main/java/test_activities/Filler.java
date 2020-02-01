@@ -339,7 +339,7 @@ public class Filler {
 
 
     public void fillKollege2(Context context) {
-        String fileName = "hallo-mein-benno.xls";
+        String fileName = "kollege_asset.xls";
         InputStream is = null;
         AssetManager am = context.getAssets();
         try {
@@ -369,12 +369,14 @@ public class Filler {
             /** We now need something to iterate through the cells.**/
             Iterator rowIter = mySheet.rowIterator();
 
+
+
             while(rowIter.hasNext()){
                 HSSFRow myRow = (HSSFRow) rowIter.next();
                 Iterator cellIter = myRow.cellIterator();
                 while(cellIter.hasNext()){
                     HSSFCell myCell = (HSSFCell) cellIter.next();
-                    Log.d("benno", "Cell Value: " +  myCell.getColumnIndex()+ " "+myCell.getRowIndex());
+                    Log.d("benno", "Cell Value: " +  myCell.getColumnIndex()+ " "+myCell.getRowIndex()+ " "+myCell.getStringCellValue());
                     Toast.makeText(context, "cell Value: " + myCell.toString(), Toast.LENGTH_SHORT).show();
                 }
             }

@@ -148,7 +148,7 @@ public class GruppeDynamicSoehneFragment extends Fragment implements GruppeViewA
 
         }*/
 
-        if ((sectionNumber)==4) {
+        if ((sectionNumber)==3) {
             //Söhne
 
             ff = ds_g2.getAllGruppesByVaterStringId(gg.getStringId());

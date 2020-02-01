@@ -78,7 +78,7 @@ public class GruppeTabsActivity extends AppCompatActivity {
         selectedGruppe = getSelectedGruppe();
 
 
-        viewPagerAdapter = new GruppePagerAdapter(getSupportFragmentManager(), 6, this);
+        viewPagerAdapter = new GruppePagerAdapter(getSupportFragmentManager(), 5, this);
         viewPager = findViewById(R.id.viewpager_gruppe);
         viewPager.setAdapter(viewPagerAdapter);
         tabLayout = findViewById(R.id.tabs_gruppe);
@@ -88,11 +88,11 @@ public class GruppeTabsActivity extends AppCompatActivity {
 
 
         String showableName="";
-        if(selectedGruppe.getExternName().length()<=30){
+        if(selectedGruppe.getExternName().length()<=20){
             showableName =   selectedGruppe.getExternName();
 
         }else{
-            showableName = "..."+selectedGruppe.getExternName().substring(selectedGruppe.getExternName().length()-30,selectedGruppe.getExternName().length());
+            showableName = "..."+selectedGruppe.getExternName().substring(selectedGruppe.getExternName().length()-20,selectedGruppe.getExternName().length());
 
         }
 
@@ -122,13 +122,13 @@ public class GruppeTabsActivity extends AppCompatActivity {
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         String stringIdOfselectedGruppe = prefs.getString("selectedGruppe", null);
-        //Log.d("GruppeTest", "222 "+stringIdOfselectedGruppe);
+        Log.d("GruppeTest6", "222 "+stringIdOfselectedGruppe);
 
         if (stringIdOfselectedGruppe != null) {
             ds_g2.open();
             Gruppe pos = ds_g2.getGruppeByStringId(stringIdOfselectedGruppe);
             if(pos==null){
-
+                Log.d("GruppeTest6", "null "+stringIdOfselectedGruppe);
                 pos = ds_g2.createGruppe(stringIdOfselectedGruppe,null,null,null);
                 if(pos==null){
                     Log.d("GruppeTest", "fehler ");

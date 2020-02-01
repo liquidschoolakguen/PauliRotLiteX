@@ -26,25 +26,25 @@ public class GruppePagerAdapter extends FragmentStatePagerAdapter {
             return GruppeDynamicVaeterFragment.newInstance(position+1);
         }
 
-        if(position==2){
+      /*  if(position==2){
             //Brüder
             return GruppeDynamicBruederFragment.newInstance(position+1);
-        }
+        }*/
 
 
-        if(position==3){
+        if(position==2){
             //Söhne
             return GruppeDynamicSoehneFragment.newInstance(position+1);
         }
 
 
-        if(position==4){
+        if(position==3){
             //Subjekte
             return GruppeUntergruppeBildenFragment.newInstance(position+1);
         }
 
 
-        if(position==5){
+        if(position==4){
             //Separatoren
             return GruppeSeparatorErstellenFragment.newInstance(position+1);
         }
@@ -79,23 +79,23 @@ public class GruppePagerAdapter extends FragmentStatePagerAdapter {
             return "Väter";
         }
 
-        if(position==2){
+      /*  if(position==2){
 
             return "Brüder";
-        }
+        }*/
 
 
-        if(position==3){
+        if(position==2){
 
             return "Söhne";
         }
 
-        if(position==4){
+        if(position==3){
 
             return "Untergruppe bilden";
         }
 
-        if(position==5){
+        if(position==4){
 
             return "Separator erzeugen";
         }

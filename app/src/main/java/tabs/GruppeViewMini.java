@@ -89,8 +89,15 @@ public class GruppeViewMini extends RecyclerView.Adapter<RecyclerView.ViewHolder
             case 0:
                 ViewHolderNormal viewHolderNormal = (ViewHolderNormal) holder;
 
+                String showableName="";
+                if(shownRadio.getName().length()<=27){
+                    showableName =   shownRadio.getName();
 
-                viewHolderNormal.radioname.setText(shownRadio.getName());
+                }else{
+                    showableName = shownRadio.getName().substring(0,27)+"...";
+
+                }
+                viewHolderNormal.radioname.setText(showableName);
 
 
                 viewHolderNormal.sw.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -98,42 +105,17 @@ public class GruppeViewMini extends RecyclerView.Adapter<RecyclerView.ViewHolder
 
                        // Log.d("GruppeTest2", "buuu " + isChecked);
                        // Log.d("GruppeTest2", "buuu " + dataSet.get(position).getName());
-                        dataSet.get(position).setFormular_checked(isChecked);
-
-                        if (isChecked) {
-
-                            int i = 0;
-                            for (Radio rr : dataSet) {
-
-                                if (rr.equals(dataSet.get(position))) {
-
-                                    rr.setFormular_checked(true);
-                                    dataSet.set(i, rr);
-
-                                } else {
-                                    rr.setFormular_checked(false);
-                                    dataSet.set(i, rr);
-
-                                    t.get(i).sw.setOnCheckedChangeListener(null);
-                                    t.get(i).sw.setChecked(false);
-                                    t.get(i).sw.setOnCheckedChangeListener(this);
-
-                                }
-
-                                i++;
+                        //dataSet.get(position).setFormular_checked(isChecked);
 
 
-                            }
 
 
-                        } else {
-                            dataSet.get(position).setFormular_checked(false);
 
 
-                        }
 
 
-                        notifyDataSetChanged();
+
+
 
                         for (Radio rr : dataSet) {
                             Log.d("GruppeTest2", rr.getName() + ": " + rr.isFormular_checked());

@@ -32,7 +32,7 @@
                 <EditText
                     android:id="@+id/simpleEditText"
                     android:layout_height="wrap_content"
-                    android:layout_width="match_parent"
+                    android:layout_width="300dp"
                     />
 
 
@@ -53,7 +53,8 @@
                     android:id="@+id/multi_save_super"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="10dp"
                     android:src="@drawable/multi_haekchen"
                     android:tint="@color/colorPrimaryPlus"
                     />
